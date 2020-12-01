@@ -1,0 +1,81 @@
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.config
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.pdb
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csprojAssemblyReference.cache
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form1.resources
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Properties.Resources.resources
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.GenerateResource.cache
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CoreCompileInputs.cache
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Banco de dados1.accdb
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Cadastro.resources
+C:\Users\Pedro Estudo\Google Drive\Dev\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\DB.accdb
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.config
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.pdb
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csprojAssemblyReference.cache
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form1.resources
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Cadastro.resources
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Properties.Resources.resources
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.GenerateResource.cache
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
+C:\Users\TATICO 1\Downloads\Horizon Contabilidade-20200904T170501Z-001\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.config
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.pdb
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csprojAssemblyReference.cache
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form1.resources
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Cadastro.resources
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Properties.Resources.resources
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.GenerateResource.cache
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CoreCompileInputs.cache
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.config
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csprojAssemblyReference.cache
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form1.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Cadastro.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Properties.Resources.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.GenerateResource.cache
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form3.resources
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form3.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Json.Net.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CopyComplete
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Json.Net.dll
+C:\Users\Pedro Estudo\Google Drive (esferalab.filial@gmail.com)\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CopyComplete
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.config
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.pdb
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Json.Net.dll
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csprojAssemblyReference.cache
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form1.resources
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Cadastro.resources
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form3.resources
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Properties.Resources.resources
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.GenerateResource.cache
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CoreCompileInputs.cache
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CopyComplete
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
+C:\Users\Pedro\Desktop\Horizon Contabilidade-20201007T005334Z-001\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.config
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Json.Net.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csprojAssemblyReference.cache
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form1.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Cadastro.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form3.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Properties.Resources.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.GenerateResource.cache
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CopyComplete
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.manifest
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.application
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe.manifest
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.application
