@@ -9,28 +9,26 @@ namespace Horizon_Contabilidade
     {
         private OleDbConnection conexaotable;
 
-        static string command_default= "SELECT * FROM [";
         private string sourcedb=Properties.Settings.Default.Pastainicial;
         private string sourcetable;
         static string[] colummrelfat = new string[] { "Forma Pgto.", "Valor", "Desconto Faturado", "Dt.Vencimento", "Cliente", "NFCe/SAT/Cupom", "Código", "Fatura", "DataFaturamento", "Tipo" };
-        static string[] colummxml = new string[] {
-            "Emitente", "Tipo Doc.", "Finalidade", "Destinatário", "N°. Nota", "Série", "Chave de Acesso", "Emissão", "Operação"," Valor"};
+        static string[] colummxml = new string[] {"Emitente", "Tipo Doc.", "Finalidade", "Destinatário", "N°. Nota", "Série", "Chave de Acesso", "Emissão", "Operação"," Valor"};
         // Lista nome de colunas e retorna em um objeto
-        static private string[] listNameColumns(string tables)
+        static private string[] listNameColumns(DataSet tables)
         {
-            string[] listaNameColumns = Db1.TableDb(tables).Columns.OfType<DataColumn>().Select(x => x.ColumnName).ToArray();
+            string[] listaNameColumns = tables.Tables[0].Columns.OfType<DataColumn>().Select(x => x.ColumnName).ToArray();
 
             return listaNameColumns;
         } 
         //Verrifica se a tabela é uma de relatorio de faturamento ou xml
-        static private bool check_table(string tables)
+        public bool check_table(DataSet tables)
         {
            
-            if (string.Join(",", listNameColumns(command_default+ tables+"]")) == string.Join(",", colummrelfat))
+            if (string.Join(",", listNameColumns(tables)) == string.Join(",", colummrelfat))
             {
                 return true;
             }
-            else if (string.Join(",", listNameColumns(command_default + tables + "]")) == string.Join(",", colummxml))
+            else if (string.Join(",", listNameColumns(tables)) == string.Join(",", colummxml))
             {
                 return true;
             }
@@ -44,9 +42,10 @@ namespace Horizon_Contabilidade
         }
         //Metodos gets e settes
         public OleDbConnection Conexaotable { get => conexaotable; set => conexaotable = value; }
-        public string Sourcedb { get => sourcedb; set => sourcedb = value; }
-        public string Sourcetable { get => sourcetable; set => sourcetable = value; }
-
+        public string Sourcedb { get =>sourcedb; set => sourcedb = value; }
+        public string Sourcetable { get => sourcetable;
+            set => sourcetable = value; }
+        
 
     }
 }

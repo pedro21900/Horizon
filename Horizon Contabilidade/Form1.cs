@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.Linq;
+
 using System.Windows.Forms;
 namespace Horizon_Contabilidade
 {
@@ -12,6 +12,7 @@ namespace Horizon_Contabilidade
         {
             InitializeComponent();
         }
+        
         static Cadastro cadastro = new Cadastro();
         static string os = "0";
         static bool c = false;
@@ -651,9 +652,6 @@ namespace Horizon_Contabilidade
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-      
-
-           
 
             try
             {
@@ -681,9 +679,6 @@ namespace Horizon_Contabilidade
                 {
 
                 }
-
-
-
             }
         }
 
@@ -753,5 +748,20 @@ namespace Horizon_Contabilidade
         {
            dgvDados.DataSource=  db.Filtrodb(comboBox1.Text, "DB", dptData).Tables[0];
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult drResult = ofd1.ShowDialog();
+            if (drResult == System.Windows.Forms.DialogResult.OK)
+            {
+                excel_manipulations excel_manipulations1 = new excel_manipulations();
+                excel_manipulations1.Sourcedb = ofd1.FileName; ;
+
+                Db1.importtoDb();
+
+
+            }
+
+            }
     }
 }

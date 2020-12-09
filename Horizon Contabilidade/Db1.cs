@@ -1,7 +1,9 @@
 ﻿
 
+using System.Windows;
 using System.Data;
 using System.Data.OleDb;
+
 
 namespace Horizon_Contabilidade
 {
@@ -10,6 +12,7 @@ namespace Horizon_Contabilidade
         static excel_manipulations excel_Manipulations = new excel_manipulations();
         static OleDbConnection conexaoDb;
         static string sourcetable = excel_Manipulations.Sourcetable;
+        
         //conexão
         static public OleDbConnection ConectDb()
         {
@@ -19,9 +22,10 @@ namespace Horizon_Contabilidade
         }
         static private OleDbConnection ConectTable()
         {
+            
             if (string.IsNullOrEmpty(sourcetable) == false)
             {
-
+                MessageBox.Show(excel_Manipulations.Sourcetable);
                 excel_Manipulations.Conexaotable = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + sourcetable + ";" + "Extended Properties = Excel 12.0;HDR =YES;");
             }
             return excel_Manipulations.Conexaotable;
@@ -37,17 +41,18 @@ namespace Horizon_Contabilidade
 
         }
         //Importa para o Banco de dados as planilhas
-        static void importtoDb()
+        static public void importtoDb()
         {
+            ConectTable().Open() ;
             OleDbDataAdapter ada = new OleDbDataAdapter("select * from Sheet1", ConectTable());
             DataSet ds = new DataSet();
-
             ada.Fill(ds);
+            excel_Manipulations.check_table(ds);
             ConectTable().Close();
 
 
             ConectDb().Open();
-
+            string command = "create table SELECT * from tabledb";
             string queryString = "SELECT * from tabledb";//+ lblTable.Text;
 
             OleDbDataAdapter adapter = new OleDbDataAdapter(queryString, ConectDb());

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="162800">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="163824">
       <assemblyIdentity name="Horizon Contabilidade" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ynGQwSjKVZOH26pvLZXtXOmLcq+fX0baguRa8z4IvAY=</dsig:DigestValue>
+        <dsig:DigestValue>EmpphkPKJvBGeJqQQE25zqEqyNGHCQM2X6/OshJA4wY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
