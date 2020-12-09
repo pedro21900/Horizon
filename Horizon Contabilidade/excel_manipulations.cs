@@ -8,8 +8,10 @@ namespace Horizon_Contabilidade
         static OleDbConnection conexao;
         static string command_default= "SELECT * FROM [";
         static string source=Properties.Settings.Default.Pastainicial;
-        static string[] colummrelfat = new string[] { "Forma Pgto.", "Valor", "Desconto Faturado", "Dt.Vencimento", "Cliente", "NFCe/SAT/Cupom", "Código", "Fatura", "DataFaturamento", "Tipo" };
-        static string[] colummxml = new string[] { };
+        static string[] colummrelfat = new string[] { 
+            "Forma Pgto.", "Valor", "Desconto Faturado", "Dt.Vencimento", "Cliente", "NFCe/SAT/Cupom", "Código", "Fatura", "DataFaturamento", "Tipo" };
+        static string[] colummxml = new string[] { 
+            "Emitente", "Tipo Doc.", "Finalidade", "Destinatário", "N°. Nota", "Série", "Chave de Acesso", "Emissão", "Operação"," Valor"};
         //conecção
         static private OleDbConnection ConectDb()
         {
