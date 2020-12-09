@@ -79,3 +79,21 @@ C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabili
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.application
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe.manifest
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.application
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.config
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.manifest
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.application
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.pdb
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\Json.Net.dll
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csprojAssemblyReference.cache
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form1.resources
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Cadastro.resources
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form3.resources
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Properties.Resources.resources
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.GenerateResource.cache
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe.manifest
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.application
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CopyComplete
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb

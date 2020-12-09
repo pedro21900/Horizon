@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="excel_manipulations.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
