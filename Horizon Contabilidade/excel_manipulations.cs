@@ -1,110 +1,52 @@
 ﻿using System.Data;
 using System.Data.OleDb;
+using System.Linq;
+using System.Windows;
 
 namespace Horizon_Contabilidade
 {
     class excel_manipulations
     {
-        static OleDbConnection conexao;
+        private OleDbConnection conexaotable;
+
         static string command_default= "SELECT * FROM [";
-        static string source=Properties.Settings.Default.Pastainicial;
-        static string[] colummrelfat = new string[] { 
-            "Forma Pgto.", "Valor", "Desconto Faturado", "Dt.Vencimento", "Cliente", "NFCe/SAT/Cupom", "Código", "Fatura", "DataFaturamento", "Tipo" };
-        static string[] colummxml = new string[] { 
+        private string sourcedb=Properties.Settings.Default.Pastainicial;
+        private string sourcetable;
+        static string[] colummrelfat = new string[] { "Forma Pgto.", "Valor", "Desconto Faturado", "Dt.Vencimento", "Cliente", "NFCe/SAT/Cupom", "Código", "Fatura", "DataFaturamento", "Tipo" };
+        static string[] colummxml = new string[] {
             "Emitente", "Tipo Doc.", "Finalidade", "Destinatário", "N°. Nota", "Série", "Chave de Acesso", "Emissão", "Operação"," Valor"};
-        //conecção
-        static private OleDbConnection ConectDb()
+        // Lista nome de colunas e retorna em um objeto
+        static private string[] listNameColumns(string tables)
         {
-           conexao = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+source+";Extended Properties='Excel 8.0;HDR=YES;'");
-           
-            return conexao;
-        }
-        //importa tabela 
-        static private DataTable TableDb(string command)
-        {
-           OleDbCommand cmd = new OleDbCommand(command, ConectDb());
-            DataTable dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
+            string[] listaNameColumns = Db1.TableDb(tables).Columns.OfType<DataColumn>().Select(x => x.ColumnName).ToArray();
 
-            return dt;
-
-        }
-        
+            return listaNameColumns;
+        } 
         //Verrifica se a tabela é uma de relatorio de faturamento ou xml
-        static private bool check_table()
+        static private bool check_table(string tables)
         {
-            if ( TableDb(command_default).Columns.ToString()==string.Join(",", colummrelfat))
+           
+            if (string.Join(",", listNameColumns(command_default+ tables+"]")) == string.Join(",", colummrelfat))
             {
                 return true;
             }
-            else if (TableDb(command_default).Columns.ToString() == string.Join(",", colummxml))
+            else if (string.Join(",", listNameColumns(command_default + tables + "]")) == string.Join(",", colummxml))
             {
                 return true;
             }
             else
             {
                 //mensagem dizendo que o arquivo não é compativél
+                MessageBox.Show("Erro : Planilha não compatível");               
                 return false;
             }
 
         }
+        //Metodos gets e settes
+        public OleDbConnection Conexaotable { get => conexaotable; set => conexaotable = value; }
+        public string Sourcedb { get => sourcedb; set => sourcedb = value; }
+        public string Sourcetable { get => sourcetable; set => sourcetable = value; }
 
 
-
-        static private void InsertRow(string connectionString ,string[] values, string[] colum)
-        {
-           
-            
-            string queryString =
-                "INSERT INTO Customers ("+colum+") Values('"+values+"')";
-            OleDbCommand command = new OleDbCommand(queryString);
-
-            using (ConectDb())
-            {
-                command.Connection = ConectDb();
-                ConectDb().Open();
-                command.ExecuteNonQuery();
-
-                // The connection is automatically closed at
-                // the end of the Using block.
-            }
-
-            
-        }
-        static void importDb()
-        {
-            OleDbConnection conn = new OleDbConnection(("Provider=Microsoft.ACE.OLEDB.12.0; " + ("data source=C:\\Pasta1.xlsx; " + "Extended Properties=Excel 12.0;")));
-            // Select the data from Sheet1 of the workbook.
-
-
-            OleDbDataAdapter ada = new OleDbDataAdapter("select * from Pasta1", conn);
-            DataSet ds = new DataSet();
-
-            ada.Fill(ds);
-            conn.Close();
-
-
-            OleDbConnection myConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\"C:\\Database.accdb\";Persist Security Info=False;");
-            myConnection.Open();
-
-            string queryString = "SELECT * from Teste Teste  ";//+ lblTable.Text;
-
-            OleDbDataAdapter adapter = new OleDbDataAdapter(queryString, myConnection);
-
-            DataTable dtAccess = new DataTable();
-
-            DataTable dtCSV = new DataTable();
-
-            dtCSV = ds.Tables[0];
-
-            using (new OleDbCommandBuilder(adapter))
-            {
-                adapter.Fill(dtAccess);
-                dtAccess.Merge(dtCSV);
-                adapter.Update(dtAccess);
-            }
-
-            myConnection.Close();
-        }
     }
 }
