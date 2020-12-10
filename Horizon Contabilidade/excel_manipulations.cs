@@ -6,11 +6,8 @@ using System.Windows;
 namespace Horizon_Contabilidade
 {
     class excel_manipulations
-    {
-        private OleDbConnection conexaotable;
-
-        private string sourcedb=Properties.Settings.Default.Pastainicial;
-        private string sourcetable;
+    {        
+        static invalid_character ic=  new invalid_character();
         static string[] colummrelfat = new string[] { "Forma Pgto.", "Valor", "Desconto Faturado", "Dt.Vencimento", "Cliente", "NFCe/SAT/Cupom", "Código", "Fatura", "DataFaturamento", "Tipo" };
         static string[] colummxml = new string[] {"Emitente", "Tipo Doc.", "Finalidade", "Destinatário", "N°. Nota", "Série", "Chave de Acesso", "Emissão", "Operação"," Valor"};
         // Lista nome de colunas e retorna em um objeto
@@ -24,11 +21,13 @@ namespace Horizon_Contabilidade
         public bool check_table(DataSet tables)
         {
            
-            if (string.Join(",", listNameColumns(tables)) == string.Join(",", colummrelfat))
+            if (ic.TratarTermoComCaracteresEspeciais(string.Join(",", listNameColumns(tables)))
+                == ic.TratarTermoComCaracteresEspeciais(string.Join(",", colummrelfat)))
             {
                 return true;
             }
-            else if (string.Join(",", listNameColumns(tables)) == string.Join(",", colummxml))
+            else if (ic.TratarTermoComCaracteresEspeciais(string.Join(",", listNameColumns(tables)))
+                == ic.TratarTermoComCaracteresEspeciais(string.Join(",", colummxml)))
             {
                 return true;
             }
@@ -41,10 +40,7 @@ namespace Horizon_Contabilidade
 
         }
         //Metodos gets e settes
-        public OleDbConnection Conexaotable { get => conexaotable; set => conexaotable = value; }
-        public string Sourcedb { get =>sourcedb; set => sourcedb = value; }
-        public string Sourcetable { get => sourcetable;
-            set => sourcetable = value; }
+        
         
 
     }

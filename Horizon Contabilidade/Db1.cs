@@ -3,35 +3,83 @@
 using System.Windows;
 using System.Data;
 using System.Data.OleDb;
-
+using System.IO;
 
 namespace Horizon_Contabilidade
 {
     class Db1
     {
+        //Variaves
         static excel_manipulations excel_Manipulations = new excel_manipulations();
+        static string sourcedb = Properties.Settings.Default.Pastainicial;
         static OleDbConnection conexaoDb;
-        static string sourcetable = excel_Manipulations.Sourcetable;
-        
-        //conexão
-        static public OleDbConnection ConectDb()
+        static OleDbConnection conexaotable;
+        static private string sourcetable;
+        static public string Setsoucetable
         {
-            conexaoDb = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + excel_Manipulations.Sourcedb + "; Persist Security Info=False;");
-
-            return conexaoDb;
+            set
+            {
+                sourcetable = value;
+            }
         }
+        //conexão
         static private OleDbConnection ConectTable()
         {
-            
+          
+            string Ext = Path.GetExtension(sourcetable);
             if (string.IsNullOrEmpty(sourcetable) == false)
             {
-                MessageBox.Show(excel_Manipulations.Sourcetable);
-                excel_Manipulations.Conexaotable = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + sourcetable + ";" + "Extended Properties = Excel 12.0;HDR =YES;");
+
+                //verifica a versão do Excel pela extensão
+                if (Ext == ".xls")
+                { //para o  Excel 97-03    
+                    conexaotable = new OleDbConnection
+                     ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+ sourcetable + ";Extended Properties='Excel 8.0;HDR=YES;'");
+                    
+                }
+                else if (Ext == ".xlsx")
+                { //para o  Excel 07 e superior
+                    conexaotable = new OleDbConnection
+                        ("Provider=Microsoft.ACE.OLEDB.12.0; Data Source =" + sourcetable + "; Extended Properties = 'Excel 8.0;HDR=YES'");
+                        
+                }
             }
-            return excel_Manipulations.Conexaotable;
+            conexaotable.Open();
+            return conexaotable;
 
         }
-        //import table to datatable 
+        static public OleDbConnection ConectDb()
+        {
+            conexaoDb = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + sourcedb + "; Persist Security Info=False;");
+            conexaoDb.Open();
+            return conexaoDb;
+        }        
+        //Metodos
+        static private string NameTable(OleDbConnection Conect,int indexName)
+        {
+            DataTable dtSchema = Conect.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+            string nomePlanilha = dtSchema.Rows[indexName]["TABLE_NAME"].ToString();
+            return nomePlanilha;
+        }
+        private void lol()
+        {
+            OleDbCommand cmd = new OleDbCommand();
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter();
+            cmd.Connection = ConectTable();
+            ConectTable().Open();
+            DataTable dtSchema;
+
+            dtSchema = ConectTable().GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+            string nomePlanilha = dtSchema.Rows[0]["TABLE_NAME"].ToString();
+
+            //le todos os dados da planilha para o Data Table    
+            cmd.CommandText = "SELECT * From [" + nomePlanilha + "]";
+            dataAdapter.SelectCommand = cmd;
+            //   dataAdapter.Fill(dt);
+
+            //  conn.Close();
+        }
+            //import table to datatable 
         static public DataTable TableDb(string command)
         {
             OleDbCommand cmd = new OleDbCommand(command, Db1.ConectDb());
@@ -40,34 +88,33 @@ namespace Horizon_Contabilidade
             return dt;
 
         }
-        //Importa para o Banco de dados as planilhas
-        static public void importtoDb()
+            //Importa para o Banco de dados as planilhas
+                    static public void importtoDb()
         {
-            ConectTable().Open() ;
-            OleDbDataAdapter ada = new OleDbDataAdapter("select * from Sheet1", ConectTable());
+
+            
+            OleDbDataAdapter ada = new OleDbDataAdapter("select * from ["+ NameTable(ConectTable(),0) + "]", ConectTable());
+            
             DataSet ds = new DataSet();
+            
             ada.Fill(ds);
+            
             excel_Manipulations.check_table(ds);
+            
             ConectTable().Close();
 
-
-            ConectDb().Open();
-            string command = "create table SELECT * from tabledb";
-            string queryString = "SELECT * from tabledb";//+ lblTable.Text;
-
-            OleDbDataAdapter adapter = new OleDbDataAdapter(queryString, ConectDb());
+            OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * from [" + NameTable(ConectDb(), 21) + "]", ConectDb());
 
             DataTable dtAccess = new DataTable();
 
-            DataTable dtCSV = new DataTable();
-
-            dtCSV = ds.Tables[0];
+            DataTable dtCSV =ds.Tables[0];
 
             using (new OleDbCommandBuilder(adapter))
             {
                 adapter.Fill(dtAccess);
                 dtAccess.Merge(dtCSV);
                 adapter.Update(dtAccess);
+               
             }
 
             ConectDb().Close();

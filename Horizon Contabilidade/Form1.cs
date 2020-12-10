@@ -754,9 +754,8 @@ namespace Horizon_Contabilidade
             DialogResult drResult = ofd1.ShowDialog();
             if (drResult == System.Windows.Forms.DialogResult.OK)
             {
-                excel_manipulations excel_manipulations1 = new excel_manipulations();
-                excel_manipulations1.Sourcedb = ofd1.FileName; ;
-
+                Db1.Setsoucetable = ofd1.FileName; ;
+               
                 Db1.importtoDb();
 
 
