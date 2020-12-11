@@ -4,19 +4,29 @@ using System.Windows;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
+using System;
 
 namespace Horizon_Contabilidade
 {
     class Db1
     {
-        //Variaves
+        //Classes
         static excel_manipulations excel_Manipulations = new excel_manipulations();
+        static invalid_character ic = new invalid_character();
+        //Variaves
         static string sourcedb = Properties.Settings.Default.Pastainicial;
         static OleDbConnection conexaoDb;
         static OleDbConnection conexaotable;
         static private string sourcetable;
+        static string dateColumn;
+        //Datas
+        static DataSet ds = new DataSet();
         static public string Setsoucetable
         {
+            get
+            {
+                return sourcetable;
+            }
             set
             {
                 sourcetable = value;
@@ -79,6 +89,21 @@ namespace Horizon_Contabilidade
 
             //  conn.Close();
         }
+        private static string columnExport()
+        {
+            
+            string column = "";
+            if (excel_Manipulations.Qtdcolumn == 4) {
+                column = "Emitente,Destinatário,[N°# Nota],Emissão,Valor";
+                dateColumn = "Emissão";
+            }
+            else if (excel_Manipulations.Qtdcolumn == 8) {
+                column = "Forma Pgto#,Valor,Desconto,Faturado,Cliente,NFCe/SAT/Cupom,Código,Fatura,DataFaturamento,Tipo";
+                dateColumn = "DataFaturamento";
+        }
+            else { }
+            return column;
+        }
             //import table to datatable 
         static public DataTable TableDb(string command)
         {
@@ -89,19 +114,30 @@ namespace Horizon_Contabilidade
 
         }
             //Importa para o Banco de dados as planilhas
-                    static public void importtoDb()
+        static public DataSet importTable()
         {
+            OleDbDataAdapter ada = new OleDbDataAdapter("select "+columnExport()+" from [" +
+                NameTable(ConectTable(), 0) + "]", ConectTable());            
 
-            
-            OleDbDataAdapter ada = new OleDbDataAdapter("select * from ["+ NameTable(ConectTable(),0) + "]", ConectTable());
-            
-            DataSet ds = new DataSet();
-            
-            ada.Fill(ds);
-            
-            excel_Manipulations.check_table(ds);
-            
+            ada.Fill(ds);            
+
             ConectTable().Close();
+
+            return ds;
+
+        }
+        static public void importtoDb()
+        {            
+            excel_Manipulations.check_table(sourcetable);
+            string dateFat = ds.Tables[0].Rows[0][dateColumn].ToString();
+            DateTime dt = DateTime.ParseExact(dateFat.ToString(), "MM/yyyy", null);
+            dateFat = dt.ToString();
+            OleDbCommand command = new OleDbCommand("CREATE TABLE "+ dateFat + " (" +
+                            ic.TratarTermoComCaracteresEspeciais(
+                                string.Join(",", excel_Manipulations.listNameColumns(ds))).Replace(
+                                excel_Manipulations.Colummrelfat[3], "").Replace(",", "type ,") + ");", ConectDb());
+            command.ExecuteNonQuery();
+
 
             OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * from [" + NameTable(ConectDb(), 21) + "]", ConectDb());
 
