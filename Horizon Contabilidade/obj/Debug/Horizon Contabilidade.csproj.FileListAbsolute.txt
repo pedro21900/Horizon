@@ -105,3 +105,11 @@ C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabili
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\ClosedXML.xml
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon Contabilidade2\Horizon Contabilidade\Horizon Contabilidade\bin\Debug\ExcelNumberFormat.xml
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\ClosedXML.dll
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\DocumentFormat.OpenXml.dll
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\ExcelNumberFormat.dll
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\System.IO.Packaging.dll
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\ClosedXML.pdb
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\ClosedXML.xml
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\DocumentFormat.OpenXml.xml
+C:\xampp\htdocs\Horizon\Horizon Contabilidade\bin\Debug\ExcelNumberFormat.xml

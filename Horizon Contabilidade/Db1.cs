@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.IO;
 using System;
+using System.Windows.Forms;
 
 namespace Horizon_Contabilidade
 {
@@ -14,11 +15,13 @@ namespace Horizon_Contabilidade
         static excel_manipulations excel_Manipulations = new excel_manipulations();
         static invalid_character ic = new invalid_character();
         //Variaves
-        static string sourcedb = Properties.Settings.Default.Pastainicial;
+
+        static string sourcedb= Properties.Settings.Default.Pastainicial;
         static OleDbConnection conexaoDb;
         static OleDbConnection conexaotable;
         static private string sourcetable;
         static string dateColumn;
+
         //Datas
         static DataSet ds = new DataSet();
         static public string Setsoucetable
@@ -33,6 +36,18 @@ namespace Horizon_Contabilidade
             }
         }
         //conexão
+        //classe devalidação de caminho 
+        //static public string sourcedbstr(OpenFileDialog ofd1)
+       // {
+
+            //if (string.IsNullOrEmpty(sourcedb))
+            //{
+                //sourcedb = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + ofd1.FileName + "; Persist Security Info=False;";
+                //Properties.Settings.Default.Pastainicial = sourcedb;
+              //  Properties.Settings.Default.Save();
+            //}
+          //  return sourcedb;
+        //}
         static private OleDbConnection ConectTable()
         {
           
@@ -60,7 +75,7 @@ namespace Horizon_Contabilidade
         }
         static public OleDbConnection ConectDb()
         {
-            conexaoDb = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + sourcedb + "; Persist Security Info=False;");
+            conexaoDb = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + sourcedb +"; Persist Security Info=False;");
             conexaoDb.Open();
             return conexaoDb;
         }        
@@ -129,13 +144,15 @@ namespace Horizon_Contabilidade
         static public void importtoDb()
         {            
             excel_Manipulations.check_table(sourcetable);
-            string dateFat = ds.Tables[0].Rows[0][dateColumn].ToString();
-            DateTime dt = DateTime.ParseExact(dateFat.ToString(), "MM/yyyy", null);
-            dateFat = dt.ToString();
-            OleDbCommand command = new OleDbCommand("CREATE TABLE "+ dateFat + " (" +
+
+            DateTime dateTable = Convert.ToDateTime(ds.Tables[0].Rows[0][dateColumn].ToString());
+            string lol = ds.Tables[0].Rows[0][dateColumn].GetType().ToString();
+
+            OleDbCommand command = new OleDbCommand("CREATE TABLE "+
+                dateTable.Month.ToString()+"/"+dateTable.Year.ToString()+" (" +
                             ic.TratarTermoComCaracteresEspeciais(
                                 string.Join(",", excel_Manipulations.listNameColumns(ds))).Replace(
-                                excel_Manipulations.Colummrelfat[3], "").Replace(",", "type ,") + ");", ConectDb());
+                                excel_Manipulations.Colummrelfat[3], "").Replace(",", " type,") + ");", ConectDb());
             command.ExecuteNonQuery();
 
 

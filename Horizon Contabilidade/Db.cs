@@ -66,11 +66,15 @@ namespace Horizon_Contabilidade
         }
         public OleDbConnection abreconecxao()
         {
-            string local = Properties.Settings.Default.Pastainicial;
+            string local = Form1.sDBstr;
+            
             //criar o objeto connection
             OleDbConnection oCn = new OleDbConnection(local);
             //abrir a conexão
             oCn.Open();
+            //Salva caminho db
+            Properties.Settings.Default.Pastainicial = Form1.sDBstr;
+            Properties.Settings.Default.Save();
 
             return oCn;
         }

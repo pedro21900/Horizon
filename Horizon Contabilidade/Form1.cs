@@ -18,7 +18,7 @@ namespace Horizon_Contabilidade
         static bool c = false;
         DataTable d1 = new DataTable();
         Db db = new Db();
-        static string sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
+        static public string sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
         
        
 
@@ -655,19 +655,21 @@ namespace Horizon_Contabilidade
 
             try
             {
+                
                 sDBstr= Properties.Settings.Default.Pastainicial;
                 atualiza(d1);
                 
             }
             catch (Exception)
             {
-                sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
+               
                 MessageBox.Show("  Arquivo Banco de Dados não encontrado");
                 DialogResult drResult = ofd1.ShowDialog();
 
                 if (drResult == System.Windows.Forms.DialogResult.OK)
                 {
 
+                    sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
                     sDBstr += ofd1.FileName;
                     atualiza(d1);
                     txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
