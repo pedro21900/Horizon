@@ -146,7 +146,7 @@ namespace Horizon_Contabilidade
             excel_Manipulations.check_table(sourcetable);
 
             DateTime dateTable = Convert.ToDateTime(ds.Tables[0].Rows[0][dateColumn].ToString());
-            string lol = ds.Tables[0].Rows[0][dateColumn].GetType().ToString();
+            ds.Tables[0].Rows[0][dateColumn].GetType() lol;
 
             OleDbCommand command = new OleDbCommand("CREATE TABLE "+
                 dateTable.Month.ToString()+"/"+dateTable.Year.ToString()+" (" +
