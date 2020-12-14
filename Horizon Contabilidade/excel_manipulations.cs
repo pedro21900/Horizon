@@ -12,8 +12,8 @@ namespace Horizon_Contabilidade
         static Db1 Db1 = new Db1();
         private static string[] colummrelfat = new string[] { "Forma Pgto.", "Valor", "Desconto", "Faturado", "Cliente", "NFCe/SAT/Cupom", "Código Fatura", "DataFaturamento", "Tipo" };
         static public string[] colummxml = new string[] {"Emitente","Destinatário","N°. Nota","Emissão","Valor"};
-        static public string[] columnsXml = new string[] {"B","E", "F","I","K" };
-        static public string[] columnsRelfat = new string[] { "B", "C", "D","E", "G", "H", "I", "J", "K" };
+        static public string[] columnsXml = new string[] {"A","D", "E","G","I" };
+        static public string[] columnsRelfat = new string[] { "A", "B", "C","D", "F", "G", "H", "I", "J" };
         static private int qtdcolumn = 0;
         //Getters e Setters
         public string[] Colummrelfat { get => colummrelfat; set => colummrelfat = value; }
@@ -29,22 +29,28 @@ namespace Horizon_Contabilidade
         //Verrifica se a tabela é uma de relatorio de faturamento ou xml
         public bool check_table(string sourcetable)
         {
+
             //1º verifição aqui ele verifica se há a existencia das colunas
             qtdcolumn = 0;
             var wb = new XLWorkbook(sourcetable);
             var planilha = wb.Worksheet(1);
-            var linha = 1;
+            var Cell = "A";
             int max = 0;
             string[] columns = new string[] { };
             string[] columnsLetter = new string[] { };
             var Reading = true;
-            if (colummxml[Qtdcolumn] == planilha.Cell("B" + linha.ToString()).Value.ToString())
+            if (string.IsNullOrEmpty(planilha.Cell("B" + 2).Value.ToString())) {
+                planilha.Rows(2, 2).Delete();
+                planilha.Columns("A").Delete();
+                wb.Save();
+            }
+            if (colummxml[Qtdcolumn] == planilha.Cell(Cell + 1).Value.ToString())
             {
                 columns = colummxml;
                 columnsLetter = columnsXml;
                 max = colummxml.Length;
             }
-            else if (colummrelfat[Qtdcolumn] == planilha.Cell("B" + linha.ToString()).Value.ToString())
+            else if (colummrelfat[Qtdcolumn] == planilha.Cell(Cell + 1).Value.ToString())
             { 
                 columns = colummrelfat;
                 columnsLetter = columnsRelfat;
@@ -53,17 +59,18 @@ namespace Horizon_Contabilidade
             while (Reading == true)
                 {
 
-                    if (columns[qtdcolumn] == planilha.Cell(columnsLetter[qtdcolumn] + linha.ToString()).Value.ToString())
+                if (columns[qtdcolumn] == planilha.Cell(columnsLetter[qtdcolumn] + 1).Value.ToString())
                     {
-                    
                     qtdcolumn++;
                     if (qtdcolumn >= max-1) { break;}
                 }
                     else
                 {
+                    MessageBox.Show("Erro :Layout da planilha não reconhecida" );
                     break;
                 }
                 }
+
             //2ºverificação aqui ele verifica se as tebelas retornaram a tabela parcial
             if (ic.TratarTermoComCaracteresEspeciais(string.Join(",", listNameColumns(Db1.importTable())))
                 == ic.TratarTermoComCaracteresEspeciais(string.Join(",", Colummrelfat)))

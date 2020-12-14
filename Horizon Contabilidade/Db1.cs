@@ -20,6 +20,7 @@ namespace Horizon_Contabilidade
         static OleDbConnection conexaoDb;
         static OleDbConnection conexaotable;
         static private string sourcetable;
+        static string nameTable;
         static string dateColumn;
 
         //Datas
@@ -36,18 +37,7 @@ namespace Horizon_Contabilidade
             }
         }
         //conexão
-        //classe devalidação de caminho 
-        //static public string sourcedbstr(OpenFileDialog ofd1)
-       // {
 
-            //if (string.IsNullOrEmpty(sourcedb))
-            //{
-                //sourcedb = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + ofd1.FileName + "; Persist Security Info=False;";
-                //Properties.Settings.Default.Pastainicial = sourcedb;
-              //  Properties.Settings.Default.Save();
-            //}
-          //  return sourcedb;
-        //}
         static private OleDbConnection ConectTable()
         {
           
@@ -65,7 +55,7 @@ namespace Horizon_Contabilidade
                 else if (Ext == ".xlsx")
                 { //para o  Excel 07 e superior
                     conexaotable = new OleDbConnection
-                        ("Provider=Microsoft.ACE.OLEDB.12.0; Data Source =" + sourcetable + "; Extended Properties = 'Excel 8.0;HDR=YES'");
+                        ("Provider=Microsoft.ACE.OLEDB.12.0; Data Source =" + sourcetable + "; Extended Properties = 'Excel 12.0;HDR=YES'");
                         
                 }
             }
@@ -86,24 +76,6 @@ namespace Horizon_Contabilidade
             string nomePlanilha = dtSchema.Rows[indexName]["TABLE_NAME"].ToString();
             return nomePlanilha;
         }
-        private void lol()
-        {
-            OleDbCommand cmd = new OleDbCommand();
-            OleDbDataAdapter dataAdapter = new OleDbDataAdapter();
-            cmd.Connection = ConectTable();
-            ConectTable().Open();
-            DataTable dtSchema;
-
-            dtSchema = ConectTable().GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
-            string nomePlanilha = dtSchema.Rows[0]["TABLE_NAME"].ToString();
-
-            //le todos os dados da planilha para o Data Table    
-            cmd.CommandText = "SELECT * From [" + nomePlanilha + "]";
-            dataAdapter.SelectCommand = cmd;
-            //   dataAdapter.Fill(dt);
-
-            //  conn.Close();
-        }
         private static string columnExport()
         {
             
@@ -111,11 +83,13 @@ namespace Horizon_Contabilidade
             if (excel_Manipulations.Qtdcolumn == 4) {
                 column = "Emitente,Destinatário,[N°# Nota],Emissão,Valor";
                 dateColumn = "Emissão";
+                nameTable = "XmlTable";
             }
             else if (excel_Manipulations.Qtdcolumn == 8) {
-                column = "Forma Pgto#,Valor,Desconto,Faturado,Cliente,NFCe/SAT/Cupom,Código,Fatura,DataFaturamento,Tipo";
+                column = "[Forma Pgto#],Valor,Desconto,Faturado,Cliente,[NFCe/SAT/Cupom],[Código Fatura],DataFaturamento,Tipo";
                 dateColumn = "DataFaturamento";
-        }
+                nameTable = "RelFatTable";
+            }
             else { }
             return column;
         }
@@ -144,17 +118,19 @@ namespace Horizon_Contabilidade
         static public void importtoDb()
         {            
             excel_Manipulations.check_table(sourcetable);
+            //ConectTable().Close();
 
             DateTime dateTable = Convert.ToDateTime(ds.Tables[0].Rows[0][dateColumn].ToString());
-            ds.Tables[0].Rows[0][dateColumn].GetType() lol;
 
-            OleDbCommand command = new OleDbCommand("CREATE TABLE "+
-                dateTable.Month.ToString()+"/"+dateTable.Year.ToString()+" (" +
-                            ic.TratarTermoComCaracteresEspeciais(
-                                string.Join(",", excel_Manipulations.listNameColumns(ds))).Replace(
-                                excel_Manipulations.Colummrelfat[3], "").Replace(",", " type,") + ");", ConectDb());
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = ConectDb();
+            command.CommandText = "CREATE TABLE [" +dateTable.Month.ToString()+dateTable.Year.ToString()+nameTable 
+                + "] SELECT * FROM ["+nameTable+"]";
             command.ExecuteNonQuery();
-
+            command.CommandText ="DELETE FROM [" + dateTable.Month.ToString() + " / " + dateTable.Year.ToString() + "." +
+                nameTable + "]";
+            command.ExecuteNonQuery();
 
             OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * from [" + NameTable(ConectDb(), 21) + "]", ConectDb());
 
