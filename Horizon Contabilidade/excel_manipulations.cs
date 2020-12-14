@@ -12,7 +12,7 @@ namespace Horizon_Contabilidade
         static Db1 Db1 = new Db1();
         private static string[] colummrelfat = new string[] { "Forma Pgto.", "Valor", "Desconto", "Faturado", "Cliente", "NFCe/SAT/Cupom", "Código Fatura", "DataFaturamento", "Tipo" };
         static public string[] colummxml = new string[] {"Emitente","Destinatário","N°. Nota","Emissão","Valor"};
-        static public string[] columnsXml = new string[] {"A","D", "E","G","I" };
+        static public string[] columnsXml = new string[] {"A","D", "E","H","J" };
         static public string[] columnsRelfat = new string[] { "A", "B", "C","D", "F", "G", "H", "I", "J" };
         static private int qtdcolumn = 0;
         //Getters e Setters
@@ -41,9 +41,9 @@ namespace Horizon_Contabilidade
             var Reading = true;
             if (string.IsNullOrEmpty(planilha.Cell("B" + 2).Value.ToString())) {
                 planilha.Rows(2, 2).Delete();
-                planilha.Columns("A").Delete();
                 wb.Save();
             }
+            string lol = planilha.Cell(Cell + 1).Value.ToString();
             if (colummxml[Qtdcolumn] == planilha.Cell(Cell + 1).Value.ToString())
             {
                 columns = colummxml;
