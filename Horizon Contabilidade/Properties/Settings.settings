@@ -45,7 +45,7 @@
     <Setting Name="Pastainicial" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Pastadearquivos" Type="System.String" Scope="User">
+    <Setting Name="CaminhoDb" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

@@ -9,7 +9,7 @@ namespace Horizon_Contabilidade
     {
         
         static invalid_character ic=  new invalid_character();
-        static Db1 Db1 = new Db1();
+        static Db Db = new Db();
         private static string[] colummrelfat = new string[] { "Forma Pgto.", "Valor", "Desconto", "Faturado", "Cliente", "NFCe/SAT/Cupom", "Código Fatura", "DataFaturamento", "Tipo" };
         static public string[] colummxml = new string[] {"Emitente","Destinatário","N°. Nota","Emissão","Valor"};
         static public string[] columnsXml = new string[] {"A","D", "E","H","J" };
@@ -72,13 +72,13 @@ namespace Horizon_Contabilidade
                 }
 
             //2ºverificação aqui ele verifica se as tebelas retornaram a tabela parcial
-            if (ic.TratarTermoComCaracteresEspeciais(string.Join(",", listNameColumns(Db1.importTable())))
+            if (ic.TratarTermoComCaracteresEspeciais(string.Join(",", listNameColumns(Db.importTable())))
                 == ic.TratarTermoComCaracteresEspeciais(string.Join(",", Colummrelfat)))
             {
                 return true;
             }
            
-            else if (ic.TratarTermoComCaracteresEspeciais(string.Join(",", listNameColumns(Db1.importTable())))
+            else if (ic.TratarTermoComCaracteresEspeciais(string.Join(",", listNameColumns(Db.importTable())))
                 == ic.TratarTermoComCaracteresEspeciais(string.Join(",", colummxml)))
             {
                return true;

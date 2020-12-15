@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="167920">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="168944">
       <assemblyIdentity name="Horizon Contabilidade" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VwQd8TM9BlFDMbb/U9xi6PX7X+TmKHfcqI8ipbwctEI=</dsig:DigestValue>
+        <dsig:DigestValue>dmIyldJxN3oZ/fey1Yvwa/cPEAi+qiEyPCkB9TkFLAM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -482,13 +482,13 @@
       <dsig:DigestValue>utCcsDi6x0vdJAAwn85tVqUDcLunQtnSZPR2FtD78dE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Horizon Contabilidade.exe.config" size="2828">
+  <file name="Horizon Contabilidade.exe.config" size="2822">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>C+LNKAUSlNg+0I766zUSPjNzB8SOx+/KgRUiSpTohSY=</dsig:DigestValue>
+      <dsig:DigestValue>4Tct62VX+LNVyt0Tc+2tt5bbWm8MhtTzAjjb5QFuKw8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Scripts\jquery-3.5.1.intellisense.js" size="162316">

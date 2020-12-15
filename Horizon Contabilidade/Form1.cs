@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-
 using System.Windows.Forms;
 namespace Horizon_Contabilidade
 {
@@ -12,15 +11,18 @@ namespace Horizon_Contabilidade
         {
             InitializeComponent();
         }
-        
+        //Variaveis Globais
+        static DataSet DB = Db.Tables("DB");
+        static DataSet Registrosip = Db.Tables("Registrosip");
+        static DataSet Carne = Db.Tables("Carne");
+
         static Cadastro cadastro = new Cadastro();
         static string os = "0";
         static bool c = false;
+        static int change = 0;
         DataTable d1 = new DataTable();
         Db db = new Db();
         static public string sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
-        
-       
 
         public string retornastringlocal()
         {
@@ -82,7 +84,6 @@ namespace Horizon_Contabilidade
 
             return oDR;
         }
-
         public void exportabanco(string tabela)
         {
             try
@@ -200,8 +201,6 @@ namespace Horizon_Contabilidade
 
             return c;
         }
-
-
         public string retornaos()
         {
 
@@ -210,8 +209,8 @@ namespace Horizon_Contabilidade
         public Form1(DataTable data)
         {
             InitializeComponent();
-
-            atualiza(data);
+            
+            atualiza(DB.Tables[0]);
             retornastringlocal();
             retornaosclicada(dgvDados);
             retornaos();
@@ -297,42 +296,22 @@ namespace Horizon_Contabilidade
             }
             return stringCollection;
         }
-        public double bruto(int x)
+        public double bruto(int x,DataTable TableDB)
         {
             double valor = 0;
             try
             {
 
-                string tabela = "DB";
-                //definir a string de conexão
-
-                //definir a string SQL
-                string sSQL = "select * from " + tabela + "";
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
-                //abrir a conexão
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, tabela);
-
-                //criar um objeto Data Row
-                DataRow oDR = oDs.Tables[tabela].NewRow();
-
-                int count1 = oDs.Tables[0].Columns.Count;
+                int count1 = TableDB.Columns.Count;
 
                 double indexx = 0;
                 double index = 0;
-                int qtdlinha = oDs.Tables[0].Rows.Count;
+                int qtdlinha = TableDB.Rows.Count;
 
 
                 for (int i = 0; i <= qtdlinha - 1; i++)
                 {
-                    index = Convert.ToDouble(oDs.Tables[0].Rows[i]["Venda_da_lente"].ToString()) + Convert.ToDouble(oDs.Tables[0].Rows[i]["Venda_da_Armação"].ToString());
+                    index = Convert.ToDouble(TableDB.Rows[i]["Venda_da_lente"].ToString()) + Convert.ToDouble(TableDB.Rows[i]["Venda_da_Armação"].ToString());
                     indexx += index;
 
                 }
@@ -353,46 +332,17 @@ namespace Horizon_Contabilidade
         }
         public double carne()
         {
-            double valor = 0;
+            double index = 0;
             try
             {
 
-                string tabela = "Carne";
-                //definir a string de conexão
-
-                //definir a string SQL
-                string sSQL = "select * from " + tabela + "";
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
-                //abrir a conexão
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, tabela);
-
-                //criar um objeto Data Row
-                DataRow oDR = oDs.Tables[tabela].NewRow();
-
-                int count1 = oDs.Tables[0].Columns.Count;
-
-                double indexx = 0;
-                double index = 0;
-                int qtdlinha = oDs.Tables[0].Rows.Count;
-
+                int count1 = Carne.Tables[0].Columns.Count;
+                int qtdlinha = Carne.Tables[0].Rows.Count;
 
                 for (int i = 0; i <= qtdlinha - 1; i++)
                 {
-                    index = Convert.ToDouble(oDs.Tables[0].Rows[i]["Valor"].ToString());
-                    indexx += index;
-
-                }
-               
-                    valor = indexx;
-               
+                    index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
+                }    
             }
             catch (Exception ex)
             {
@@ -400,26 +350,45 @@ namespace Horizon_Contabilidade
 
 
             }
-            return valor;
+            return index;
         }
-        public DataSet db1(string tabela)
+        public DataTable db1(string tabela)
         {
-           
-            //definir a string de conexão
 
-            //definir a string SQL
-            string sSQL = "select * from " + tabela + "";
+            DataTable oDs = new DataTable();
 
-            //criar o objeto connection
-            OleDbConnection oCn = new OleDbConnection(sDBstr);
-            //abrir a conexão
-            oCn.Open();
-            //criar o data adapter e executar a consulta
-            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-            //criar o DataSet
-            DataSet oDs = new DataSet();
-            //Preencher o dataset coom o data adapter
-            oDA.Fill(oDs, tabela);
+            if (change == 1)
+            {
+                if (tabela == "DB")
+                {
+                    oDs = db.Filtrodb(comboBox1.Text, tabela, dptData).Tables[0];
+                    DB = db.Filtrodb(comboBox1.Text, tabela, dptData);
+                }
+                else if (tabela == "Registrosip")
+                {
+                    oDs = db.Filtrodb(comboBox1.Text, tabela, dptData).Tables[0];
+                    Registrosip = db.Filtrodb(comboBox1.Text, tabela, dptData);
+                }
+                else if (tabela == "Carne")
+                {
+                    oDs = db.Filtrodb(comboBox1.Text, tabela, dptData).Tables[0];
+                    Carne = db.Filtrodb(comboBox1.Text, tabela, dptData);
+                }
+            }
+            else
+            {
+                if (tabela == "DB")
+                {
+                    oDs = DB.Tables[0];
+                }
+                else if (tabela == "Registrosip")
+                {
+                    oDs = Registrosip.Tables[0];
+
+                }
+            }
+            
+            
             return oDs;
         }
         public void maisvendido()
@@ -478,95 +447,43 @@ namespace Horizon_Contabilidade
             }
 
         }
-        
         public double liquido(string tabela, string coluna)
         {
-            double valor = 0;
+            double index = 0;
             try
             {
-
-                    DataSet oDs = db1(tabela);
-
-
-                    int count1 = oDs.Tables[0].Columns.Count;
-
-                    double indexx = 0;
-                    double index = 0;
-                    int qtdlinha = oDs.Tables[0].Rows.Count;
-
-
+                DataTable oDs = db1(tabela);
+                    int qtdlinha = oDs.Rows.Count;
 
                     for (int i = 0; i <= qtdlinha - 1; i++)
                     {
-                    if (String.IsNullOrEmpty(oDs.Tables[0].Rows[i][coluna].ToString())) { }
+                        if (String.IsNullOrEmpty(oDs.Rows[i][coluna].ToString())) { }
 
-                    else
-                    {
-                        index = Convert.ToDouble(oDs.Tables[0].Rows[i][coluna].ToString());
-                        indexx += index;
-
-                    }
+                        else
+                        {
+                        index += Convert.ToDouble(oDs.Rows[i][coluna].ToString());
+                        }
 
                     }
-
-                    
-                    valor = indexx;
-                    
-
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro :" + ex.Message);
-
-
             }
-            return valor;
+            return index;
         }
         public double Desc_total()
         {
-            double valor = 0;
+            double index = 0;
             try
             {
-
-                string tabela = "Registrosip";
-                //definir a string de conexão
-
-                //definir a string SQL
-                string sSQL = "select * from " + tabela + "";
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
-                //abrir a conexão
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, tabela);
-
-                //criar um objeto Data Row
-                DataRow oDR = oDs.Tables[tabela].NewRow();
-
-                int count1 = oDs.Tables[0].Columns.Count;
-
-                double indexx = 0;
-                double index = 0;
-                int qtdlinha = oDs.Tables[0].Rows.Count;
-
-
-
+                int qtdlinha = Registrosip.Tables[0].Rows.Count;
                 for (int i = 0; i < qtdlinha ; i++)
                 {
-                    index = Convert.ToDouble(db.filtratexto(oDs.Tables[0].Rows[i]["Desconto_total"].ToString()));
-                    indexx += index;
-
+                    index += Convert.ToDouble(db.filtratexto(Registrosip.Tables[0].Rows[i]["Desconto_total"].ToString()));
 
                 }
-
-                valor = indexx;
-
 
             }
             catch (Exception ex)
@@ -575,31 +492,27 @@ namespace Horizon_Contabilidade
 
 
             }
-            return valor;
+            return index;
         }
-        public void atualiza(DataTable dt)
+        public void atualiza(DataTable d)
         {
-            dt.Clear();
-            OleDbCommand command = new OleDbCommand("select * from DB", db.abreconecxao());
-            OleDbDataReader dr = command.ExecuteReader();
-
-            dt.Load(dr);
-            laQtd.Text = "Linhas : " + dt.Rows.Count;
-            dgvDados.DataSource = dt;
+          
+            laQtd.Text = "Linhas : " + d.Rows.Count;
+            dgvDados.DataSource = d;
             db.abreconecxao().Close();
-            txBrutosd.Text = (bruto(1)).ToString("C");
-            txBrutocd.Text = (bruto(0)).ToString("C");
+            txBrutosd.Text = bruto(1,d).ToString("C");
+            txBrutocd.Text = bruto(0,d).ToString("C");
             txDesconto_Total.Text = Desc_total().ToString("C");
-            txLucro.Text= (carne() + (liquido("DB","Venda_da_Armação") 
-                - liquido("Registrosip", "Desconto_armação")
-                -liquido("DB", "Compra_da_Armação")
-                + liquido("DB", "Venda_da_lente")
-                - liquido("Registrosip", "Desconto_lente")
-                 - liquido("DB", "Compra_da_lente")
+            txLucro.Text= ((liquido("DB","Venda_da_Armação") + liquido("DB", "Venda_da_lente")
+                - liquido("Registrosip", "Desconto_armação")-liquido("DB", "Compra_da_Armação")                
+                - liquido("Registrosip", "Desconto_lente")- liquido("DB", "Compra_da_lente")
                 - liquido("DB", "Custos_com_venda"))).ToString("C");
-            txLucrosdesc.Text= (carne() + liquido("DB", "Venda_da_Armação") - liquido("DB", "Compra_da_Armação") + liquido("DB", "Venda_da_lente") - liquido("DB", "Compra_da_lente") - liquido("DB", "Custos_com_venda") + Desc_total()).ToString("C");
+
+            txLucrosdesc.Text= (liquido("DB", "Venda_da_Armação") + liquido("DB", "Venda_da_lente") - liquido("DB", "Compra_da_Armação")  - liquido("DB", "Compra_da_lente") - liquido("DB", "Custos_com_venda") + Desc_total()).ToString("C");
+            tbxCarne.Text = carne().ToString("C");
             dgvDados.AutoResizeColumns();
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
+            change = 0;
         }
         public static bool verificatabela(string procurado, string comando)
         {
@@ -634,7 +547,7 @@ namespace Horizon_Contabilidade
             {
                 Cadastro tela_add_servico = new Cadastro();
                 tela_add_servico.ShowDialog();
-                atualiza(this.d1);
+                atualiza(d1);
 
             }
 
@@ -646,10 +559,6 @@ namespace Horizon_Contabilidade
             }
 
         }
-        private void caminho()
-        {
-            //JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -657,8 +566,11 @@ namespace Horizon_Contabilidade
             {
                 
                 sDBstr= Properties.Settings.Default.Pastainicial;
-                atualiza(d1);
-                
+                atualiza(DB.Tables[0]);
+                d1.Clear();
+               d1= DB.Tables[0];
+
+
             }
             catch (Exception)
             {
@@ -671,7 +583,11 @@ namespace Horizon_Contabilidade
 
                     sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
                     sDBstr += ofd1.FileName;
-                    atualiza(d1);
+                    Properties.Settings.Default.CaminhoDb = ofd1.FileName;
+                    Properties.Settings.Default.Save();
+                    atualiza(DB.Tables[0]);
+                    d1.Clear();
+                    d1 = DB.Tables[0];
                     txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
                     
      
@@ -683,9 +599,7 @@ namespace Horizon_Contabilidade
                 }
             }
         }
-
-
-
+        
         private void dgvDados_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
@@ -706,26 +620,29 @@ namespace Horizon_Contabilidade
 
 
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
            dgvDados.DataSource=  db.pesquisaos("DB", txPesquisa_princial.Text).Tables[0];
             //pesquisa(txPesquisa_princial);
         }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ("Mês" == comboBox1.Text)
             {
                 dptData.CustomFormat = "MM/yyyy";
             }
+            change = 1;
+            d1.Clear();
+             d1=db.Filtrodb(comboBox1.Text, "DB", dptData).Tables[0];
+            db1("Registrosip");
+            db1("DB");
+            db1("Carne");
+            atualiza(d1);
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
             ligadesliga("Liga");
         }
-
         private void buSalvar_Click(object sender, EventArgs e)
         {
             //  Desp_Adm Tributos Desp_legais Desp_fin_eve
@@ -734,35 +651,43 @@ namespace Horizon_Contabilidade
             exportabanco("Tributos");
             ligadesliga("Desliga");
         }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.Pastainicial = sDBstr;
             Properties.Settings.Default.Save();
-        }
 
+        }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         private void dptData_ValueChanged(object sender, EventArgs e)
         {
-           dgvDados.DataSource=  db.Filtrodb(comboBox1.Text, "DB", dptData).Tables[0];
+            change = 1;
+            d1.Clear();
+            d1 = db.Filtrodb(comboBox1.Text, "DB", dptData).Tables[0];
+            db1("Registrosip");
+            db1("DB");
+            db1("Carne");
+            atualiza(d1);
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult drResult = ofd1.ShowDialog();
             if (drResult == System.Windows.Forms.DialogResult.OK)
             {
-                Db1.Setsoucetable = ofd1.FileName; ;
+                Db.Setsoucetable = ofd1.FileName; ;
                
-                Db1.importtoDb();
+                Db.importtoDb();
 
 
             }
 
             }
+
+        private void Dv_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

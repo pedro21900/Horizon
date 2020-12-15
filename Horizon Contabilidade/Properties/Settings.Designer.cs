@@ -94,12 +94,12 @@ namespace Horizon_Contabilidade.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Pastadearquivos {
+        public string CaminhoDb {
             get {
-                return ((string)(this["Pastadearquivos"]));
+                return ((string)(this["CaminhoDb"]));
             }
             set {
-                this["Pastadearquivos"] = value;
+                this["CaminhoDb"] = value;
             }
         }
     }
