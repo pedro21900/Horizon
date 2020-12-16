@@ -22,7 +22,7 @@ namespace Horizon_Contabilidade
         static int change = 0;
         DataTable d1 = new DataTable();
         Db db = new Db();
-        static public string sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
+        static public string sDBstr ;
 
         public string retornastringlocal()
         {
@@ -504,11 +504,10 @@ namespace Horizon_Contabilidade
             txBrutocd.Text = bruto(0,d).ToString("C");
             txDesconto_Total.Text = Desc_total().ToString("C");
             txLucro.Text= ((liquido("DB","Venda_da_Armação") + liquido("DB", "Venda_da_lente")
-                - liquido("Registrosip", "Desconto_armação")-liquido("DB", "Compra_da_Armação")                
-                - liquido("Registrosip", "Desconto_lente")- liquido("DB", "Compra_da_lente")
-                - liquido("DB", "Custos_com_venda"))).ToString("C");
+                - liquido("Registrosip", "Desconto_armação") - liquido("Registrosip", "Desconto_lente")
+                - liquido("DB", "Custo_Com_Venda")+ carne())).ToString("C");
 
-            txLucrosdesc.Text= (liquido("DB", "Venda_da_Armação") + liquido("DB", "Venda_da_lente") - liquido("DB", "Compra_da_Armação")  - liquido("DB", "Compra_da_lente") - liquido("DB", "Custos_com_venda") + Desc_total()).ToString("C");
+            txLucrosdesc.Text= (liquido("DB", "Venda_da_Armação") + liquido("DB", "Venda_da_lente") - liquido("DB", "Custo_Com_Venda") +carne() + Desc_total()).ToString("C");
             tbxCarne.Text = carne().ToString("C");
             dgvDados.AutoResizeColumns();
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
@@ -583,7 +582,7 @@ namespace Horizon_Contabilidade
 
                     sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
                     sDBstr += ofd1.FileName;
-                    Properties.Settings.Default.CaminhoDb = ofd1.FileName;
+                    Properties.Settings.Default.Pastainicial = ofd1.FileName;
                     Properties.Settings.Default.Save();
                     atualiza(DB.Tables[0]);
                     d1.Clear();
@@ -599,7 +598,6 @@ namespace Horizon_Contabilidade
                 }
             }
         }
-        
         private void dgvDados_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 

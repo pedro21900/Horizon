@@ -11,8 +11,6 @@ namespace Horizon_Contabilidade
         {
             InitializeComponent();
             retorna2();
-
-
         }
         static Form1 form1 = new Form1();
         static Calculo calculo = new Calculo();
@@ -27,7 +25,7 @@ namespace Horizon_Contabilidade
         static string cb = "0";
         public string perda()
         {
-            string porcento = calculo.perda(calcSoma(txDesconto_Total.Text, txCusto_com_venda.Text),
+            string porcento = calculo.perda(calcSoma(txDesconto_Total.Text, calcSoma(txLab.Text, txCol.Text)),
                 calcSoma(txCompra_lente.Text, txCompra_armacao.Text),
                 calcSoma(txVenda_armacao.Text, txVenda_lente.Text)).ToString("P");
             return porcento;
@@ -144,8 +142,8 @@ namespace Horizon_Contabilidade
                 txTxcartao.Text = "";
                 txDesconto_Lente.Text = "";
                 txDesconto_Armacao.Text = "";
-                txLab_montagem.Text = "";
-                txLab_Surf.Text = "";
+                txCol.Text = "";
+                txLab.Text = "";
 
             }
         }
@@ -165,8 +163,8 @@ namespace Horizon_Contabilidade
             txCompra_lente.Enabled = false;
             txLucro_lente.Enabled = false;
             txDesconto_Lente.Enabled = false;
-            txLab_montagem.Enabled = false;
-            txLab_Surf.Enabled = false;
+            txCol.Enabled = false;
+            txLab.Enabled = false;
         }
         private void liga_delisgatx(int ld, string tipo)
         {
@@ -200,8 +198,8 @@ namespace Horizon_Contabilidade
                 txCompra_armacao.Enabled = true;
                 txLucro_armacao.Enabled = true;
                 txDesconto_Armacao.Enabled = true;
-                txLab_montagem.Enabled = true;
-                txLab_Surf.Enabled = true;
+                txCol.Enabled = true;
+                txLab.Enabled = true;
 
             }
             else
@@ -222,7 +220,7 @@ namespace Horizon_Contabilidade
                     txCompra_lente.Text = "";
                     txLucro_lente.Text = "";
                     txDesconto_Lente.Text = "";
-                    txCusto_com_venda.Text = "";
+                    
 
                 }
                 else if (ld == 0 && tipo == "Lente")
@@ -234,8 +232,8 @@ namespace Horizon_Contabilidade
                     txCompra_lente.Enabled = true;
                     txLucro_lente.Enabled = true;
                     txDesconto_Lente.Enabled = true;
-                    txLab_montagem.Enabled = true;
-                    txLab_Surf.Enabled = true;
+                    txCol.Enabled = true;
+                    txLab.Enabled = true;
 
                 }
             }
@@ -249,14 +247,14 @@ namespace Horizon_Contabilidade
                 if (tabela == "DB")
                 {
                     db.addlinhalayout1(tabela, Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(), txOs_Or.Text, txFornecedor_armacao.Text + " / " + txFornecedor_lente.Text,
-                txCompra_lente.Text, txVenda_lente.Text, txCompra_armacao.Text, txVenda_armacao.Text, txLab_Surf.Text, txLab_montagem.Text, txCusto_com_venda.Text, txVenda.Text, "0", cb);
+                txCompra_lente.Text, txVenda_lente.Text, txCompra_armacao.Text, txVenda_armacao.Text, txLab.Text, txCol.Text,txCusto_com_venda.Text, txVenda.Text, cb);
                 }
                 else if (tabela == "Registrosip")
                 {
-                    db.addlinhalayout2(tabela, txOs_Or.Text, txModelo_armacao.Text, txNome_lente.Text, txLucro_armacao.Text,
+                    db.addlinhalayout2(tabela, txOs_Or.Text, Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(), txModelo_armacao.Text, txNome_lente.Text, txLucro_armacao.Text,
                        txLucro_lente.Text, txFornecedor_lente.Text, txFornecedor_armacao.Text, txLucro_total.Text, txDesconto_Total.Text
                         , txTxcartao.Text, cbForma_de_Pagamento.Text, txDesconto_Lente.Text,
-                      txDesconto_Armacao.Text, "0", "0", "0", txMarca_armacao.Text, txMarca_lente.Text, "0", cb, txObs.Text);
+                      txDesconto_Armacao.Text, "0", "0", "0", txMarca_armacao.Text, txMarca_lente.Text, cb, txObs.Text);
                 }
             }
             catch (Exception ex)
@@ -307,10 +305,10 @@ namespace Horizon_Contabilidade
                         else if (indexx == "Data") { dateTimePicker1.Text = index; }
                         else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }
                         else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }                        
-                        else if (String.IsNullOrEmpty(index) && indexx == "Lab_surf") { txLab_Surf.Text = "0"; }
-                        else if (indexx == "Lab_surf") { txLab_Surf.Text = index; }
-                        else if (String.IsNullOrEmpty(index) && indexx == "Lab_mont") { txLab_montagem.Text = "0"; }
-                        else if (indexx == "Lab_mont") { txLab_montagem.Text = index; }
+                        else if (String.IsNullOrEmpty(index) && indexx == "Lab_surf") { txLab.Text = "0"; }
+                        else if (indexx == "Lab") { txLab.Text = index; }
+                        else if (String.IsNullOrEmpty(index) && indexx == "Lab_mont") { txCol.Text = "0"; }
+                        else if (indexx == "Coloração") { txCol.Text = index; }
                         else if (indexx == "Loja") { cb = index; }
                        
                     }
@@ -330,10 +328,10 @@ namespace Horizon_Contabilidade
                         else if (indexx == "Data") { dateTimePicker1.Text = index; }
                         if (indexx == "Venda_da_Armação") { txVenda_armacao.Text = index; }
                         if (indexx == "Compra_da_Armação") { txCompra_armacao.Text = index; }                       
-                        else if (String.IsNullOrEmpty(index) && indexx == "Lab_surf") { txLab_Surf.Text = "0"; }
-                        else if (indexx == "Lab_surf") { txLab_Surf.Text = index; }
-                        else if (String.IsNullOrEmpty(index) && indexx == "Lab_mont") { txLab_montagem.Text = "0"; }
-                        else if (indexx == "Lab_mont") { txLab_montagem.Text = index; }
+                        else if (String.IsNullOrEmpty(index) && indexx == "Lab_surf") { txLab.Text = "0"; }
+                        else if (indexx == "Lab") { txLab.Text = index; }
+                        else if (String.IsNullOrEmpty(index) && indexx == "Lab_mont") { txCol.Text = "0"; }
+                        else if (indexx == "Coloração") { txCol.Text = index; }
                         else if (indexx == "Loja") { cb = index; }
 
                     }
@@ -358,8 +356,8 @@ namespace Horizon_Contabilidade
                         else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }
                         else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }
                         
-                        else if (indexx == "Lab_surf") { txLab_Surf.Text = index; }
-                        else if (indexx == "Lab_mont") { txLab_montagem.Text = index; }
+                        else if (indexx == "Lab") { txLab.Text = index; }
+                        else if (indexx == "Coloração") { txCol.Text = index; }
 
                     }
                     else if (comboBox1.Text == "Lente + Armação" && ntabela == 2)
@@ -461,7 +459,7 @@ namespace Horizon_Contabilidade
                 }
 
 
-                if (String.IsNullOrEmpty(txLab_Surf.Text))
+                if (String.IsNullOrEmpty(txLab.Text))
                 {
                     var result = MessageBox.Show("Campo valor de sufaçagem vazio , deseja continuar ?", "Salvar Arquivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
@@ -475,7 +473,7 @@ namespace Horizon_Contabilidade
                     }
                 }
 
-                if (String.IsNullOrEmpty(txLab_montagem.Text))
+                if (String.IsNullOrEmpty(txCol.Text))
                 {
                     MessageBox.Show("Campo valor de montagem vazio", "Salvar Arquivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     vari++;
@@ -566,7 +564,7 @@ namespace Horizon_Contabilidade
 
 
 
-                if (String.IsNullOrEmpty(txLab_montagem.Text))
+                if (String.IsNullOrEmpty(txCol.Text))
                 {
                     var result = MessageBox.Show("Campo valor de montagem vazio , deseja continuar ?", "Salvar Arquivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
@@ -664,7 +662,7 @@ namespace Horizon_Contabilidade
                     vari++;
                 }
 
-                if (String.IsNullOrEmpty(txLab_Surf.Text))
+                if (String.IsNullOrEmpty(txLab.Text))
                 {
                     var result = MessageBox.Show("Campo valor de sufaçagem vazio , deseja continuar ?", "Salvar Arquivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
@@ -677,7 +675,7 @@ namespace Horizon_Contabilidade
                     }
                 }
 
-                if (String.IsNullOrEmpty(txLab_montagem.Text))
+                if (String.IsNullOrEmpty(txCol.Text))
                 {
                     var result = MessageBox.Show("Campo valor de montagem vazio , deseja continuar ?", "Salvar Arquivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
@@ -749,72 +747,55 @@ namespace Horizon_Contabilidade
             return boo;
 
         }
-
         public bool retorna2()
         {
 
             return false;
         }
-
-
         private void txVenda_lente_TextChanged(object sender, EventArgs e)
         {
-
+            if (comboBox1.Text == "")
+            {
+                MessageBox.Show("Selecione o tipo da venda");
+            }
             txVenda.Text = calcSomaeSub(txVenda_lente.Text, txDesconto_Lente.Text, txVenda_armacao.Text, txDesconto_Armacao.Text);
-            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, txCusto_com_venda.Text).ToString("C");
+            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, calcSoma(labs, labm)).ToString("C");
 
             txGanho.Text = ganho();
             txPerda.Text = perda();
 
         }
-
         private void txVenda_armacao_TextChanged(object sender, EventArgs e)
         {
-            txVenda.Text = calcSomaeSub(txVenda_lente.Text, txDesconto_Lente.Text, txVenda_armacao.Text, txDesconto_Armacao.Text);
+            if (comboBox1.Text == "")
+            {
+                MessageBox.Show("Selecione o tipo da venda");
+            }
+            //txVenda.Text = calcSomaeSub(txVenda_lente.Text, txDesconto_Lente.Text, txVenda_armacao.Text, txDesconto_Armacao.Text);
             txDesconto_Total.Text = calcSoma(txDesconto_Lente.Text, txDesconto_Armacao.Text);
             txVenda.Text = calcSomaeSub(txVenda_lente.Text, txDesconto_Lente.Text, txVenda_armacao.Text, txDesconto_Armacao.Text);
-            txLucro_armacao.Text = calcSub(txVenda_armacao.Text, txCompra_armacao.Text, txDesconto_Armacao.Text, "0").ToString("C");
+            txLucro_armacao.Text = calcSub(txVenda_armacao.Text, txCompra_armacao.Text, txDesconto_Armacao.Text, calcSoma(labs, labm)).ToString("C");
 
             txGanho.Text = ganho();
             txPerda.Text = perda();
+          
         }
-
         private void txCompra_Lente_TextChanged(object sender, EventArgs e)
         {
+            
+            txCusto_com_venda.Text = calcSoma(calcSoma(txCompra_lente.Text, txCompra_armacao.Text), calcSoma(txLab.Text, txCol.Text));
             txVenda.Text = calcSomaeSub(txVenda_lente.Text, txDesconto_Lente.Text, txVenda_armacao.Text, txDesconto_Armacao.Text);
             txDesconto_Total.Text = calcSoma(txDesconto_Lente.Text, txDesconto_Armacao.Text);
-            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, txCusto_com_venda.Text).ToString("C");
+            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, calcSoma(labs, labm)).ToString("C");
 
             txGanho.Text = ganho();
             txPerda.Text = perda(); ;
+            
         }
-
-        private void txLab_Surf_TextChanged(object sender, EventArgs e)
-        {
-            labs = txLab_Surf.Text.Replace("R$", "");
-            txCusto_com_venda.Text = calcSoma(txLab_Surf.Text, txLab_montagem.Text);
-            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, txCusto_com_venda.Text).ToString("C");
-            txDesconto_Total.Text = calcSoma(txDesconto_Lente.Text, txDesconto_Armacao.Text);
-            txGanho.Text = ganho();
-            txPerda.Text = perda();
-        }
-
-        private void txLab_montagem_TextChanged(object sender, EventArgs e)
-        {
-            labm = txLab_montagem.Text.Replace("R$", "");
-            txCusto_com_venda.Text = calcSoma(txLab_Surf.Text, txLab_montagem.Text);
-            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, txCusto_com_venda.Text).ToString("C");
-            txDesconto_Total.Text = calcSoma(txDesconto_Lente.Text, txDesconto_Armacao.Text);
-            txGanho.Text = ganho();
-            txPerda.Text = perda();
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.Text == "Somente Lente")
             {
-
                 liga_delisgatx(1, "Armação");
                 liga_delisgatx(0, "Lente");
 
@@ -826,26 +807,26 @@ namespace Horizon_Contabilidade
             }
             if (comboBox1.Text == "Lente + Armação")
             {
-
                 liga_delisgatx(0, "Armação");
                 liga_delisgatx(0, "Lente");
             }
         }
-
         private void txCompra_armacao_TextChanged(object sender, EventArgs e)
         {
+
+            txCusto_com_venda.Text = calcSoma(calcSoma(txCompra_lente.Text, txCompra_armacao.Text), calcSoma(txLab.Text, txCol.Text));
             txDesconto_Total.Text = calcSoma(txDesconto_Lente.Text, txDesconto_Armacao.Text);
             txVenda.Text = calcSomaeSub(txVenda_lente.Text, txDesconto_Lente.Text, txVenda_armacao.Text, txDesconto_Armacao.Text);
-            txLucro_armacao.Text = calcSub(txVenda_armacao.Text, txCompra_armacao.Text, txDesconto_Armacao.Text, "0").ToString("C");
+            txLucro_armacao.Text = calcSub(txVenda_armacao.Text, txCompra_armacao.Text, txDesconto_Armacao.Text, calcSoma(labs, labm)).ToString("C");
 
             txGanho.Text = ganho();
             txPerda.Text = perda();
-
+            
         }
-
         private void Cadastro_Load(object sender, EventArgs e)
         {
-
+            comboBox1.Text = "";
+            
             sugestao();
             if (string.IsNullOrEmpty(form1.retornaos()) || form1.retorna() == false) { }
             else if (form1.retorna())
@@ -857,30 +838,31 @@ namespace Horizon_Contabilidade
                 retorna2();
             }
         }
-
         private void txDesconto_Lente_TextChanged(object sender, EventArgs e)
         {
+            txCusto_com_venda.Text = calcSoma(calcSoma(txCompra_lente.Text, txCompra_armacao.Text), calcSoma(txLab.Text, txCol.Text));
             decl = txDesconto_Lente.Text.Replace("R$", "");
             txVenda.Text = calcSomaeSub(txVenda_lente.Text, txDesconto_Lente.Text, txVenda_armacao.Text, txDesconto_Armacao.Text);
             txDesconto_Total.Text = calcSoma(txDesconto_Lente.Text, txDesconto_Armacao.Text);
-            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, txCusto_com_venda.Text).ToString("C");
+            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, calcSoma(txLab.Text, txCol.Text)).ToString("C");
 
             txGanho.Text = ganho();
             txPerda.Text = perda();
 
         }
-
         private void txDesconto_Armacao_TextChanged(object sender, EventArgs e)
         {
+
+            txCusto_com_venda.Text = calcSoma(calcSoma(txCompra_lente.Text, txCompra_armacao.Text), calcSoma(txLab.Text, txCol.Text));
             deca = txDesconto_Armacao.Text.Replace("R$", "");
             txDesconto_Total.Text = calcSoma(txDesconto_Lente.Text, txDesconto_Armacao.Text);
             txVenda.Text = calcSomaeSub(txVenda_lente.Text, txDesconto_Lente.Text, txVenda_armacao.Text, txDesconto_Armacao.Text);
-            txLucro_armacao.Text = calcSub(txVenda_armacao.Text, txCompra_armacao.Text, txDesconto_Armacao.Text, "0").ToString("C");
+            txLucro_armacao.Text = calcSub(txVenda_armacao.Text, txCompra_armacao.Text, txDesconto_Armacao.Text, calcSoma(labs, labm)).ToString("C");
 
             txGanho.Text = ganho();
             txPerda.Text = perda();
+          
         }
-
         private void Editar_Click(object sender, EventArgs e)
         {
             if (comboBox1.Text == "Somente Lente")
@@ -900,7 +882,6 @@ namespace Horizon_Contabilidade
                 liga_delisgatx(0, "Lente");
             }
         }
-
         private void txLimpar_Click(object sender, EventArgs e)
         {
             if (comboBox1.Text == "Somente Lente")
@@ -918,28 +899,24 @@ namespace Horizon_Contabilidade
 
             }
         }
-
         private void txDesconto_Total_TextChanged(object sender, EventArgs e)
         {
             dect = txDesconto_Total.Text.Replace("R$", "");
             txGanho.Text = ganho();
             txPerda.Text = perda();
         }
-
         private void txCusto_com_venda_TextChanged(object sender, EventArgs e)
         {
             cdv = txCusto_com_venda.Text.Replace("R$", "");
             txGanho.Text = ganho();
             txPerda.Text = perda();
         }
-
         private void cbForma_de_Pagamento1_SelectedIndexChanged(object sender, EventArgs e)
         {
             fdp1 = cbForma_de_Pagamento1.Text.Replace("R$", "");
             txGanho.Text = ganho();
             txPerda.Text = perda();
         }
-
         private void btPesquisar_Click(object sender, EventArgs e)
         {
             //BUASCAR POR OS
@@ -954,7 +931,6 @@ namespace Horizon_Contabilidade
             }
 
         }
-
         private void btSalvar_Click(object sender, EventArgs e)
         {
 
@@ -976,8 +952,8 @@ namespace Horizon_Contabilidade
 
                 db.atualizar("DB", "Registrosip", Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(),
                     txOs_Or.Text, txFornecedor_armacao.Text + " / " + txFornecedor_lente.Text,
-                txCompra_lente.Text, txVenda_lente.Text, txCompra_armacao.Text, txVenda_armacao.Text, txLab_Surf.Text,
-                txLab_montagem.Text, txCusto_com_venda.Text, txVenda.Text, "0", cb,
+                txCompra_lente.Text, txVenda_lente.Text, txCompra_armacao.Text, txVenda_armacao.Text, txLab.Text,
+                txCol.Text, txCusto_com_venda.Text, txVenda.Text, "0", cb,
                  
                 txModelo_armacao.Text, txNome_lente.Text, txLucro_armacao.Text,txLucro_lente.Text,
                 txFornecedor_lente.Text, txFornecedor_armacao.Text, txLucro_total.Text, txDesconto_Total.Text
@@ -989,39 +965,80 @@ namespace Horizon_Contabilidade
             }
 
         }
-
         private void txOs_Or_TextChanged(object sender, EventArgs e)
         {
             btSalvar.Text = "Salvar";
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form3 tela_add_servico = new Form3();
             tela_add_servico.ShowDialog();
         }
-
         private void txLucro_armacao_TextChanged(object sender, EventArgs e)
         {
-            txLucro_total.Text = calcSoma(txLucro_lente.Text, txLucro_armacao.Text);
+            
+            if (comboBox1.Text == "Somente Lente")
+            {
+                txLucro_total.Text = txLucro_lente.Text;
+                txLucro_armacao.Text = "";
+            }
+            else if (comboBox1.Text == "Somente Armação")
+            {
+                txLucro_total.Text = txLucro_armacao.Text;
+                txLucro_lente.Text = "";
+            }
+            else
+            {
+                txLucro_total.Text = calcSoma(txLucro_lente.Text, txLucro_armacao.Text);
+            }
         }
-
         private void txLucro_lente_TextChanged(object sender, EventArgs e)
         {
-            txLucro_total.Text = calcSoma(txLucro_lente.Text, txLucro_armacao.Text);
-        }
 
+            if (comboBox1.Text == "Somente Lente")
+            {
+                txLucro_total.Text = txLucro_lente.Text;
+            }
+            else if (comboBox1.Text == "Somente Armação")
+            {
+                txLucro_total.Text = txLucro_armacao.Text;
+            }
+            else
+            {
+                txLucro_total.Text = calcSoma(txLucro_lente.Text, txLucro_armacao.Text);
+            }
+        }
         private void cb2_CheckedChanged(object sender, EventArgs e)
         {
 
             cb = cb2.Text;
         }
-
         private void cb1_CheckedChanged(object sender, EventArgs e)
         {
             cb = cb1.Text;
         }
+        private void txLab_TextChanged(object sender, EventArgs e)
+        {
 
+            labs = txLab.Text.Replace("R$", "");
+            txCusto_com_venda.Text = calcSoma(calcSoma(txCompra_lente.Text, txCompra_armacao.Text), calcSoma(txLab.Text, txCol.Text));       
+            txDesconto_Total.Text = calcSoma(txDesconto_Lente.Text, txDesconto_Armacao.Text);
+            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, calcSoma(labs, labm)).ToString("C");
+            txLucro_armacao.Text = calcSub(txVenda_armacao.Text, txCompra_armacao.Text, txDesconto_Armacao.Text, calcSoma(labs, labm)).ToString("C");
+            txGanho.Text = ganho();
+            txPerda.Text = perda();
+        }
+        private void txCol_TextChanged(object sender, EventArgs e)
+        {
+
+            labm = txCol.Text.Replace("R$", "");
+            txCusto_com_venda.Text = calcSoma(calcSoma(txCompra_lente.Text, txCompra_armacao.Text), calcSoma(txLab.Text, txCol.Text));
+            txDesconto_Total.Text = calcSoma(txDesconto_Lente.Text, txDesconto_Armacao.Text);
+            txLucro_lente.Text = calcSub(txVenda_lente.Text, txCompra_lente.Text, txDesconto_Lente.Text, calcSoma(labs, labm)).ToString("C");
+            txLucro_armacao.Text = calcSub(txVenda_armacao.Text, txCompra_armacao.Text, txDesconto_Armacao.Text, calcSoma(labs, labm)).ToString("C");
+            txGanho.Text = ganho();
+            txPerda.Text = perda();
+        }
     }
 }
 

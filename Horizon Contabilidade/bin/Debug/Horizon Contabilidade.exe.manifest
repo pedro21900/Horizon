@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="168432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="96240">
       <assemblyIdentity name="Horizon Contabilidade" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Gt9Nk3+mRtKeVH7sD8Nev4Z/elNl1w/RS+fJEjUIhJ4=</dsig:DigestValue>
+        <dsig:DigestValue>yJIV/whVb3Ccdc6EBGxSA+qYBCPVbrHL6gILaGyBeuk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -365,22 +365,22 @@
       <dsig:DigestValue>0sSmnWwDDGUn31OIl4dRLCIZkeztZNtuJoP8euh0WBE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\themes\base\jquery-ui.css" size="37313">
+  <file name="Content\themes\base\jquery-ui.css" size="36001">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>2vVMTqLy3qkc1cpUGHFXMDjOghnu60M4xHYBcu/y0Gs=</dsig:DigestValue>
+      <dsig:DigestValue>VajriFMUerXMfjk80UIuvj2tkgvFFoFvrhYaRoxbEjU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\themes\base\jquery-ui.min.css" size="30757">
+  <file name="Content\themes\base\jquery-ui.min.css" size="30751">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>z++8PzxN7O8ONFJDifMC/laaHRAA0a5PNnuZah58pgA=</dsig:DigestValue>
+      <dsig:DigestValue>w3vXw6p6ArGPSyxHliF4MsCw9GAU6MRINwMsbVbqLNs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\themes\base\menu.css" size="1182">
@@ -464,13 +464,13 @@
       <dsig:DigestValue>BPvvADQ21WtimqjriDtGmct8oKETreiAUWJhruSCLtU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\themes\base\theme.css" size="17791">
+  <file name="Content\themes\base\theme.css" size="17347">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ZCOsUej9R6P3ruaqnFHWeNWIPdp8zyofelako57BIF0=</dsig:DigestValue>
+      <dsig:DigestValue>K0562J8UQIJc6oxFVLkFHRecURhMKmwaPAO9Rxff/7A=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\themes\base\tooltip.css" size="438">
@@ -482,13 +482,13 @@
       <dsig:DigestValue>utCcsDi6x0vdJAAwn85tVqUDcLunQtnSZPR2FtD78dE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Horizon Contabilidade.exe.config" size="2822">
+  <file name="Horizon Contabilidade.exe.config" size="3510">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>4Tct62VX+LNVyt0Tc+2tt5bbWm8MhtTzAjjb5QFuKw8=</dsig:DigestValue>
+      <dsig:DigestValue>ek3BmOFgBv2mQJLyyFCJlkQFHgCsUeQsL+32KgjGvNM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Scripts\jquery-3.5.1.intellisense.js" size="162316">
@@ -500,58 +500,58 @@
       <dsig:DigestValue>vZUlrgykbqxLYRukNBBpgPgRuG8Bi1Tr8IPMp65ar94=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Scripts\jquery-3.5.1.js" size="298502">
+  <file name="Scripts\jquery-3.5.1.js" size="287630">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>oo12yYOwbYfrLG1t6v9+HU+vMvEnlKkr1eIcdUwG7Zs=</dsig:DigestValue>
+      <dsig:DigestValue>QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Scripts\jquery-3.5.1.min.js" size="89478">
+  <file name="Scripts\jquery-3.5.1.min.js" size="89476">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>82hEkGrSMJh3quMSG4f7FbngmAPLTDM63H4eNayS4Us=</dsig:DigestValue>
+      <dsig:DigestValue>9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Scripts\jquery-3.5.1.slim.js" size="243235">
+  <file name="Scripts\jquery-3.5.1.slim.js" size="234458">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>dUctYlJC5mEdVpwfQdsaC/DusCTF3JRxSkRvqBf9YEM=</dsig:DigestValue>
+      <dsig:DigestValue>DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Scripts\jquery-3.5.1.slim.min.js" size="72382">
+  <file name="Scripts\jquery-3.5.1.slim.min.js" size="72380">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>GKc/Ggw4TYpRFISB2sJfIOjWaFWhLlk1nbwJijGoY7o=</dsig:DigestValue>
+      <dsig:DigestValue>4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Scripts\jquery-ui-1.12.1.js" size="539419">
+  <file name="Scripts\jquery-ui-1.12.1.js" size="520714">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>C61+OoAxJy904l6R1z9Qo+kPlybfMLOII7lPlW6oLGc=</dsig:DigestValue>
+      <dsig:DigestValue>T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Scripts\jquery-ui-1.12.1.min.js" size="253680">
+  <file name="Scripts\jquery-ui-1.12.1.min.js" size="253668">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>KtT12C4ntn6QK25QzayZ5/f/2pzK1/lQ3EUm6kH7R3Y=</dsig:DigestValue>
+      <dsig:DigestValue>VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

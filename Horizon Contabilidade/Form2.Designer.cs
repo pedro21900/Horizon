@@ -44,8 +44,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txVenda = new System.Windows.Forms.TextBox();
             this.txCusto_com_venda = new System.Windows.Forms.TextBox();
-            this.txLab_montagem = new System.Windows.Forms.TextBox();
-            this.txLab_Surf = new System.Windows.Forms.TextBox();
+            this.txCol = new System.Windows.Forms.TextBox();
+            this.txLab = new System.Windows.Forms.TextBox();
             this.txVenda_armacao = new System.Windows.Forms.TextBox();
             this.txCompra_armacao = new System.Windows.Forms.TextBox();
             this.txVenda_lente = new System.Windows.Forms.TextBox();
@@ -213,20 +213,20 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(627, 284);
+            this.label8.Location = new System.Drawing.Point(656, 284);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 13);
+            this.label8.Size = new System.Drawing.Size(25, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Lab Surfaçagem";
+            this.label8.Text = "Lab";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(635, 343);
+            this.label9.Location = new System.Drawing.Point(644, 344);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 13);
+            this.label9.Size = new System.Drawing.Size(55, 13);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Lab Montagem";
+            this.label9.Text = "Coloração";
             // 
             // label10
             // 
@@ -252,21 +252,21 @@
             this.txCusto_com_venda.TabIndex = 16;
             this.txCusto_com_venda.TextChanged += new System.EventHandler(this.txCusto_com_venda_TextChanged);
             // 
-            // txLab_montagem
+            // txCol
             // 
-            this.txLab_montagem.Location = new System.Drawing.Point(625, 369);
-            this.txLab_montagem.Name = "txLab_montagem";
-            this.txLab_montagem.Size = new System.Drawing.Size(100, 20);
-            this.txLab_montagem.TabIndex = 16;
-            this.txLab_montagem.TextChanged += new System.EventHandler(this.txLab_montagem_TextChanged);
+            this.txCol.Location = new System.Drawing.Point(625, 369);
+            this.txCol.Name = "txCol";
+            this.txCol.Size = new System.Drawing.Size(100, 20);
+            this.txCol.TabIndex = 16;
+            this.txCol.TextChanged += new System.EventHandler(this.txCol_TextChanged);
             // 
-            // txLab_Surf
+            // txLab
             // 
-            this.txLab_Surf.Location = new System.Drawing.Point(620, 308);
-            this.txLab_Surf.Name = "txLab_Surf";
-            this.txLab_Surf.Size = new System.Drawing.Size(100, 20);
-            this.txLab_Surf.TabIndex = 15;
-            this.txLab_Surf.TextChanged += new System.EventHandler(this.txLab_Surf_TextChanged);
+            this.txLab.Location = new System.Drawing.Point(620, 308);
+            this.txLab.Name = "txLab";
+            this.txLab.Size = new System.Drawing.Size(100, 20);
+            this.txLab.TabIndex = 15;
+            this.txLab.TextChanged += new System.EventHandler(this.txLab_TextChanged);
             // 
             // txVenda_armacao
             // 
@@ -310,12 +310,11 @@
             this.txPesquisa_Cadastro.Name = "txPesquisa_Cadastro";
             this.txPesquisa_Cadastro.Size = new System.Drawing.Size(161, 20);
             this.txPesquisa_Cadastro.TabIndex = 26;
-          
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(296, 92);
+            this.dateTimePicker1.Location = new System.Drawing.Point(302, 92);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(103, 20);
             this.dateTimePicker1.TabIndex = 2;
@@ -909,8 +908,8 @@
             this.Controls.Add(this.txVenda_lente);
             this.Controls.Add(this.txCompra_armacao);
             this.Controls.Add(this.txVenda_armacao);
-            this.Controls.Add(this.txLab_Surf);
-            this.Controls.Add(this.txLab_montagem);
+            this.Controls.Add(this.txLab);
+            this.Controls.Add(this.txCol);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -954,8 +953,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txVenda;
         private System.Windows.Forms.TextBox txCusto_com_venda;
-        private System.Windows.Forms.TextBox txLab_montagem;
-        private System.Windows.Forms.TextBox txLab_Surf;
+        private System.Windows.Forms.TextBox txCol;
+        private System.Windows.Forms.TextBox txLab;
         private System.Windows.Forms.TextBox txVenda_armacao;
         private System.Windows.Forms.TextBox txCompra_armacao;
         private System.Windows.Forms.TextBox txVenda_lente;

@@ -23,6 +23,30 @@ namespace Horizon_Contabilidade.Properties {
             }
         }
         
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Pastainicial {
+            get {
+                return ((string)(this["Pastainicial"]));
+            }
+            set {
+                this["Pastainicial"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CaminhoDb {
+            get {
+                return ((string)(this["CaminhoDb"]));
+            }
+            set {
+                this["CaminhoDb"] = value;
+            }
+        }
+        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
@@ -48,7 +72,7 @@ namespace Horizon_Contabilidade.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\"C:\\Users\\Pedro Estudo\\Google Drive" +
-            "\\Dev\\Horizon Contabilidade\\Horizon Contabilidade\\DB.accdb\"")]
+            "\\Dev\\Horizon Contabilidade\\Horizon Contabilidade\\DB.ac\"")]
         public string DBConnectionString1 {
             get {
                 return ((string)(this["DBConnectionString1"]));
@@ -72,34 +96,10 @@ namespace Horizon_Contabilidade.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\"C:\\Users\\TATICO 1\\Downloads\\Horizo" +
             "n Contabilidade-20200904T170501Z-001\\Horizon Contabilidade\\Horizon Contabilidade" +
-            "\\DB.accdb\"")]
+            "\\DB.a\"")]
         public string DBConnectionString3 {
             get {
                 return ((string)(this["DBConnectionString3"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Pastainicial {
-            get {
-                return ((string)(this["Pastainicial"]));
-            }
-            set {
-                this["Pastainicial"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CaminhoDb {
-            get {
-                return ((string)(this["CaminhoDb"]));
-            }
-            set {
-                this["CaminhoDb"] = value;
             }
         }
     }

@@ -114,8 +114,8 @@ namespace Horizon_Contabilidade
             //liberar o data adapter , o dataset , o comandbuilder e a conexao
             oDA.Dispose(); oDs.Dispose(); oCB.Dispose();
         }
-        public void addlinhalayout1(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, string labs,
-                                   string labm, string custocv, string vendavalor, string resultado, string loja)
+        public void addlinhalayout1(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, string lab,
+                                   string col,string custodevenda, string vendavalor,string loja)
         {
             string sSQL = "select * from " + tabela;
             //criar o data adapter e executar a consulta
@@ -127,16 +127,15 @@ namespace Horizon_Contabilidade
             DataRow oDR = oDs.Tables[tabela].NewRow();
 
             oDs.Tables[0].Rows.Add(data, filtratexto(or), filtratexto(fornecedor), filtratexto(compral),
-                    filtratexto(vendal), filtratexto(compraa), filtratexto(vendaa),
-                    filtratexto(labs), filtratexto(labm), filtratexto(custocv), filtratexto(vendavalor),
-                    filtratexto(resultado), filtratexto(loja));
+                    filtratexto(vendal), filtratexto(compraa), filtratexto(vendaa), filtratexto(lab),
+                    filtratexto(col), filtratexto(custodevenda), filtratexto(vendavalor), filtratexto(loja));
 
             salvatabela(oDA, oDs, tabela);
 
         }
-        public void addlinhalayout2(string tabela, string or, string modeloarmação, string nomelente, string lucroarmacao, string lucrolente, string forenecedorl, string forenecedora,
+        public void addlinhalayout2(string tabela, string or,string data, string modeloarmação, string nomelente, string lucroarmacao, string lucrolente, string forenecedorl, string forenecedora,
                                     string lucrototal, string descontot, string taxacartao, string foramdepagamento, string descontol, string descontoa,
-                                    string tipodecompra, string tipodecompra1, string tipodecompra2, string marcaa, string marcal, string tipo, string loja, string Obs)
+                                    string tipodecompra, string tipodecompra1, string tipodecompra2, string marcaa, string marcal, string loja, string Obs)
         {
             string sSQL = "select * from " + tabela;
             //criar o data adapter e executar a consulta
@@ -145,10 +144,10 @@ namespace Horizon_Contabilidade
             DataSet oDs = new DataSet();
             //Preencher o dataset coom o data adapter
             oDA.Fill(oDs, tabela);
-            oDs.Tables[0].Rows.Add(filtratexto(or), filtratexto(modeloarmação), filtratexto(nomelente), filtratexto(lucroarmacao),
+            oDs.Tables[0].Rows.Add(filtratexto(or), filtratexto(data), filtratexto(modeloarmação), filtratexto(nomelente), filtratexto(lucroarmacao),
     filtratexto(lucrolente), filtratexto(forenecedorl), filtratexto(forenecedora),
     filtratexto(lucrototal), filtratexto(descontot), filtratexto(taxacartao), filtratexto(foramdepagamento),
-    filtratexto(descontol), filtratexto(descontoa), filtratexto(tipodecompra), filtratexto(tipodecompra1), filtratexto(tipodecompra2), filtratexto(marcaa), filtratexto(marcal), filtratexto(tipo), filtratexto(loja), filtratexto(Obs));
+    filtratexto(descontol), filtratexto(descontoa), filtratexto(tipodecompra), filtratexto(tipodecompra1), filtratexto(tipodecompra2), filtratexto(marcaa), filtratexto(marcal),  filtratexto(loja), filtratexto(Obs));
             salvatabela(oDA, oDs, tabela);
         }
         public void Deletalinha(string tabela, string pesquisa)
@@ -169,18 +168,18 @@ namespace Horizon_Contabilidade
 
             }
         }
-        public void atualizar(string tabela, string tabela1, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, string labs,
-                               string labm, string custocv, string vendavalor, string resultado, string loja, string modeloarmação, string nomelente, string lucroarmacao, string lucrolente, string forenecedorl, string forenecedora,
+        public void atualizar(string tabela, string tabela1, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, string lab,
+                               string col, string custocv, string vendavalor, string resultado, string loja, string modeloarmação, string nomelente, string lucroarmacao, string lucrolente, string forenecedorl, string forenecedora,
                                 string lucrototal, string descontot, string taxacartao, string foramdepagamento, string descontol, string descontoa,
                                 string tipodecompra, string tipodecompra1, string tipodecompra2, string marcaa, string marcal, string tipo, string Obs, string pesquisa)
         {
             Deletalinha(tabela, pesquisa);
             Deletalinha(tabela1, pesquisa);
-            addlinhalayout1(tabela, data, or, fornecedor, compral, vendal, compraa, vendaa, labs,
-                                    labm, custocv, vendavalor, resultado, loja);
-            addlinhalayout2(tabela1, or, modeloarmação, nomelente, lucroarmacao, lucrolente, forenecedorl, forenecedora,
+            addlinhalayout1(tabela, data, or, fornecedor, compral, vendal, compraa, vendaa, lab,
+                                    col, custocv, vendavalor, loja);
+            addlinhalayout2(tabela1, or,data, modeloarmação, nomelente, lucroarmacao, lucrolente, forenecedorl, forenecedora,
                                      lucrototal, descontot, taxacartao, foramdepagamento, descontol, descontoa,
-                                     tipodecompra, tipodecompra1, tipodecompra2, marcaa, marcal, tipo, loja, Obs);
+                                     tipodecompra, tipodecompra1, tipodecompra2, marcaa, marcal, loja, Obs);
 
         }
         public DataSet pesquisaos(string tabela, string pesquisa)
