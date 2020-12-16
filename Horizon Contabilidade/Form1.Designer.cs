@@ -114,36 +114,36 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Dv = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.txLucrosdesc = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txBrutocd = new System.Windows.Forms.TextBox();
-            this.txDesconto_Total = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.txLucro = new System.Windows.Forms.TextBox();
+            this.tbxCarne = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.txBrutosd = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txDesconto_Total = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txPesquisa_princial = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.laQtd = new System.Windows.Forms.Label();
             this.dgvDados = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.Add_registro = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.button1 = new System.Windows.Forms.Button();
-            this.tbxCarne = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -154,10 +154,10 @@
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Dv.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -1016,7 +1016,172 @@
             this.Dv.TabIndex = 0;
             this.Dv.Text = "Vendas";
             this.Dv.UseVisualStyleBackColor = true;
-            this.Dv.Click += new System.EventHandler(this.Dv_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.txLucrosdesc);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.txBrutocd);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Controls.Add(this.label11);
+            this.panel5.Location = new System.Drawing.Point(430, 392);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(313, 118);
+            this.panel5.TabIndex = 33;
+            // 
+            // txLucrosdesc
+            // 
+            this.txLucrosdesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txLucrosdesc.Location = new System.Drawing.Point(171, 61);
+            this.txLucrosdesc.Name = "txLucrosdesc";
+            this.txLucrosdesc.ReadOnly = true;
+            this.txLucrosdesc.Size = new System.Drawing.Size(126, 20);
+            this.txLucrosdesc.TabIndex = 25;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(55, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Receita";
+            // 
+            // txBrutocd
+            // 
+            this.txBrutocd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txBrutocd.Location = new System.Drawing.Point(10, 61);
+            this.txBrutocd.Name = "txBrutocd";
+            this.txBrutocd.ReadOnly = true;
+            this.txBrutocd.Size = new System.Drawing.Size(126, 20);
+            this.txBrutocd.TabIndex = 23;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(107, 10);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(92, 13);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Sem Desconto";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(214, 41);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Lucro";
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txLucro);
+            this.panel2.Controls.Add(this.tbxCarne);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label36);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.txBrutosd);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.txDesconto_Total);
+            this.panel2.Location = new System.Drawing.Point(763, 392);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(573, 118);
+            this.panel2.TabIndex = 32;
+            // 
+            // txLucro
+            // 
+            this.txLucro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txLucro.Location = new System.Drawing.Point(444, 71);
+            this.txLucro.Name = "txLucro";
+            this.txLucro.ReadOnly = true;
+            this.txLucro.Size = new System.Drawing.Size(115, 20);
+            this.txLucro.TabIndex = 9;
+            // 
+            // tbxCarne
+            // 
+            this.tbxCarne.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxCarne.Location = new System.Drawing.Point(154, 71);
+            this.tbxCarne.Name = "tbxCarne";
+            this.tbxCarne.ReadOnly = true;
+            this.tbxCarne.Size = new System.Drawing.Size(103, 20);
+            this.tbxCarne.TabIndex = 30;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(476, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Lucro Final";
+            // 
+            // label36
+            // 
+            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(173, 41);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(72, 13);
+            this.label36.TabIndex = 31;
+            this.label36.Text = "Carnês pagos";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(295, 41);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Desconto sobre a venda";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(45, 42);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Receita";
+            // 
+            // txBrutosd
+            // 
+            this.txBrutosd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txBrutosd.Location = new System.Drawing.Point(15, 71);
+            this.txBrutosd.Name = "txBrutosd";
+            this.txBrutosd.ReadOnly = true;
+            this.txBrutosd.Size = new System.Drawing.Size(109, 20);
+            this.txBrutosd.TabIndex = 8;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(246, 11);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(94, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Com Desconto";
+            // 
+            // txDesconto_Total
+            // 
+            this.txDesconto_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txDesconto_Total.Location = new System.Drawing.Point(293, 71);
+            this.txDesconto_Total.Name = "txDesconto_Total";
+            this.txDesconto_Total.ReadOnly = true;
+            this.txDesconto_Total.Size = new System.Drawing.Size(126, 20);
+            this.txDesconto_Total.TabIndex = 10;
             // 
             // button2
             // 
@@ -1026,78 +1191,6 @@
             this.button2.TabIndex = 29;
             this.button2.Text = "Add Empréstimo";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(106, 10);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(92, 13);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Sem Desconto";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(247, 11);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(94, 13);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "Com Desconto";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(214, 56);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "Lucro";
-            // 
-            // txLucrosdesc
-            // 
-            this.txLucrosdesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txLucrosdesc.Location = new System.Drawing.Point(171, 76);
-            this.txLucrosdesc.Name = "txLucrosdesc";
-            this.txLucrosdesc.Size = new System.Drawing.Size(126, 20);
-            this.txLucrosdesc.TabIndex = 25;
-            // 
-            // txBrutocd
-            // 
-            this.txBrutocd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txBrutocd.Location = new System.Drawing.Point(10, 76);
-            this.txBrutocd.Name = "txBrutocd";
-            this.txBrutocd.Size = new System.Drawing.Size(126, 20);
-            this.txBrutocd.TabIndex = 23;
-            // 
-            // txDesconto_Total
-            // 
-            this.txDesconto_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txDesconto_Total.Location = new System.Drawing.Point(290, 83);
-            this.txDesconto_Total.Name = "txDesconto_Total";
-            this.txDesconto_Total.Size = new System.Drawing.Size(126, 20);
-            this.txDesconto_Total.TabIndex = 10;
-            // 
-            // txLucro
-            // 
-            this.txLucro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txLucro.Location = new System.Drawing.Point(440, 84);
-            this.txLucro.Name = "txLucro";
-            this.txLucro.Size = new System.Drawing.Size(126, 20);
-            this.txLucro.TabIndex = 9;
-            // 
-            // txBrutosd
-            // 
-            this.txBrutosd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txBrutosd.Location = new System.Drawing.Point(6, 83);
-            this.txBrutosd.Name = "txBrutosd";
-            this.txBrutosd.Size = new System.Drawing.Size(126, 20);
-            this.txBrutosd.TabIndex = 8;
             // 
             // textBox3
             // 
@@ -1119,26 +1212,16 @@
             // 
             this.txPesquisa_princial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txPesquisa_princial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txPesquisa_princial.Location = new System.Drawing.Point(361, 18);
+            this.txPesquisa_princial.Location = new System.Drawing.Point(1145, 20);
             this.txPesquisa_princial.Name = "txPesquisa_princial";
-            this.txPesquisa_princial.Size = new System.Drawing.Size(382, 20);
+            this.txPesquisa_princial.Size = new System.Drawing.Size(110, 20);
             this.txPesquisa_princial.TabIndex = 4;
             this.txPesquisa_princial.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(45, 63);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "Receita";
             // 
             // laQtd
             // 
             this.laQtd.AutoSize = true;
-            this.laQtd.Location = new System.Drawing.Point(1271, 376);
+            this.laQtd.Location = new System.Drawing.Point(1288, 326);
             this.laQtd.Name = "laQtd";
             this.laQtd.Size = new System.Drawing.Size(48, 13);
             this.laQtd.TabIndex = 22;
@@ -1150,11 +1233,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDados.Location = new System.Drawing.Point(28, 97);
+            this.dgvDados.Location = new System.Drawing.Point(6, 65);
             this.dgvDados.Name = "dgvDados";
             this.dgvDados.ReadOnly = true;
             this.dgvDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDados.Size = new System.Drawing.Size(1331, 246);
+            this.dgvDados.Size = new System.Drawing.Size(1347, 246);
             this.dgvDados.TabIndex = 21;
             this.dgvDados.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvDados_MouseDoubleClick);
             // 
@@ -1174,41 +1257,11 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(713, 346);
+            this.label8.Location = new System.Drawing.Point(725, 326);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 30);
             this.label8.TabIndex = 16;
             this.label8.Text = "Totais";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(292, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Desconto sobre a venda";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(473, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Lucro Final";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 56);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Receita";
             // 
             // label2
             // 
@@ -1232,7 +1285,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(763, 15);
+            this.button3.Location = new System.Drawing.Point(1261, 18);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
@@ -1272,54 +1325,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tbxCarne
-            // 
-            this.tbxCarne.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxCarne.Location = new System.Drawing.Point(151, 83);
-            this.tbxCarne.Name = "tbxCarne";
-            this.tbxCarne.Size = new System.Drawing.Size(126, 20);
-            this.tbxCarne.TabIndex = 30;
-            // 
-            // label36
-            // 
-            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(170, 53);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(72, 13);
-            this.label36.TabIndex = 31;
-            this.label36.Text = "Carnês pagos";
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.txLucro);
-            this.panel2.Controls.Add(this.tbxCarne);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label36);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.txBrutosd);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.txDesconto_Total);
-            this.panel2.Location = new System.Drawing.Point(763, 392);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(592, 130);
-            this.panel2.TabIndex = 32;
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.txLucrosdesc);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.txBrutocd);
-            this.panel5.Controls.Add(this.label13);
-            this.panel5.Controls.Add(this.label11);
-            this.panel5.Location = new System.Drawing.Point(430, 389);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(313, 133);
-            this.panel5.TabIndex = 33;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1353,12 +1358,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Dv.ResumeLayout(false);
             this.Dv.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
