@@ -26,24 +26,24 @@ namespace Horizon_Contabilidade.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Pastainicial {
+        public string Folder_Way {
             get {
-                return ((string)(this["Pastainicial"]));
+                return ((string)(this["Folder_Way"]));
             }
             set {
-                this["Pastainicial"] = value;
+                this["Folder_Way"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CaminhoDb {
+        public string SourceDb {
             get {
-                return ((string)(this["CaminhoDb"]));
+                return ((string)(this["SourceDb"]));
             }
             set {
-                this["CaminhoDb"] = value;
+                this["SourceDb"] = value;
             }
         }
         

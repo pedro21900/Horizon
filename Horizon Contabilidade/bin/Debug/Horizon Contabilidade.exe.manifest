@@ -85,7 +85,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yJIV/whVb3Ccdc6EBGxSA+qYBCPVbrHL6gILaGyBeuk=</dsig:DigestValue>
+        <dsig:DigestValue>xuoYayJCHfI6nHIcH624a5K+BHtIEkoIizjl45MJrb4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -482,13 +482,13 @@
       <dsig:DigestValue>utCcsDi6x0vdJAAwn85tVqUDcLunQtnSZPR2FtD78dE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Horizon Contabilidade.exe.config" size="3510">
+  <file name="Horizon Contabilidade.exe.config" size="3507">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ek3BmOFgBv2mQJLyyFCJlkQFHgCsUeQsL+32KgjGvNM=</dsig:DigestValue>
+      <dsig:DigestValue>EIgqALficAEySaV1RFIrUWLMlIgqai4LMwB1zZbCTN4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Scripts\jquery-3.5.1.intellisense.js" size="162316">

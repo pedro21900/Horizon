@@ -11,7 +11,7 @@ namespace Horizon_Contabilidade
         {
             InitializeComponent();
         }
-        static string sDBstr = Properties.Settings.Default.Pastainicial;
+        static string sDBstr = Properties.Settings.Default.Folder_Way;
         public AutoCompleteStringCollection Caixadesusgestaoos(string coluna, string DB)
         {
             Form1 form1 = new Form1();

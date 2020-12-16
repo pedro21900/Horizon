@@ -39,7 +39,7 @@ namespace Horizon_Contabilidade
                 calcSoma(txVenda_armacao.Text, txVenda_lente.Text)).ToString("P");
             return porcento;
         }
-        static string sDBstr = Properties.Settings.Default.Pastainicial;
+        static string sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Properties.Settings.Default.SourceDb;
         public AutoCompleteStringCollection Caixadesusgestaoos(string coluna, string DB)
         {
             AutoCompleteStringCollection stringCollection = new AutoCompleteStringCollection();

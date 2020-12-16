@@ -12,10 +12,12 @@ namespace Horizon_Contabilidade
         static excel_manipulations excel_Manipulations = new excel_manipulations();
         static invalid_character ic = new invalid_character();
         //Variaves
-        static string sourcedb = Properties.Settings.Default.Pastainicial;
+        static string sourcedb = Properties.Settings.Default.SourceDb;
         static OleDbConnection conexaoDb;
         static OleDbConnection conexaotable;
         static private string sourcetable;
+        //Properties.Settings.Default.Pastainicial = Form1.sDBstr;
+         //   Properties.Settings.Default.Save();
         static string nameTable;
         static string dateColumn;
         //Datas
@@ -60,23 +62,21 @@ namespace Horizon_Contabilidade
         }
         static public OleDbConnection ConectDb()
         {
-            conexaoDb = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + sourcedb + "; Persist Security Info=False;");
-            conexaoDb.Open();
+            try
+            {
+                conexaoDb = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + sourcedb + "; Persist Security Info=False;");
+                conexaoDb.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro :" + ex.Message);
+                Form1 form1 =new Form1();
+                form1.Close();
+                
+            }
+
+
             return conexaoDb;
-        }
-        public OleDbConnection abreconecxao()
-        {
-            string local = Form1.sDBstr;
-
-            //criar o objeto connection
-            OleDbConnection oCn = new OleDbConnection(local);
-            //abrir a conexão
-            oCn.Open();
-            //Salva caminho db
-            Properties.Settings.Default.Pastainicial = Form1.sDBstr;
-            Properties.Settings.Default.Save();
-
-            return oCn;
         }
         //Metodos
         static private string NameTable(OleDbConnection Conect, int indexName)
@@ -119,7 +119,7 @@ namespace Horizon_Contabilidade
         {
             string sSQL = "select * from " + tabela;
             //criar o data adapter e executar a consulta
-            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, abreconecxao());
+            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
             //criar o DataSet
             DataSet oDs = new DataSet();
             //Preencher o dataset coom o data adapter
@@ -139,7 +139,7 @@ namespace Horizon_Contabilidade
         {
             string sSQL = "select * from " + tabela;
             //criar o data adapter e executar a consulta
-            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, abreconecxao());
+            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
             //criar o DataSet
             DataSet oDs = new DataSet();
             //Preencher o dataset coom o data adapter
@@ -156,7 +156,7 @@ namespace Horizon_Contabilidade
             {
 
                 string sSQLs12 = "  DELETE* FROM " + tabela + " WHERE Or_os = " + pesquisa;
-                OleDbCommand command = new OleDbCommand(sSQLs12, abreconecxao());
+                OleDbCommand command = new OleDbCommand(sSQLs12, ConectDb());
                 command.ExecuteNonQuery();
 
 
@@ -189,7 +189,7 @@ namespace Horizon_Contabilidade
 
 
             //criar o data adapter e executar a consulta
-            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, abreconecxao());
+            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
             //criar o DataSet
 
             //Preencher o dataset coom o data adapter
@@ -221,7 +221,7 @@ namespace Horizon_Contabilidade
 
 
             //criar o data adapter e executar a consulta
-            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, abreconecxao());
+            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
             //criar o DataSet
 
             //Preencher o dataset coom o data adapter
@@ -247,12 +247,8 @@ namespace Horizon_Contabilidade
             //definir a string SQL
             string sSQL = "select * from " + tabela;
 
-            //criar o objeto connection
-            OleDbConnection oCn = new OleDbConnection(Properties.Settings.Default.Pastainicial);
-            //abrir a conexão
-            oCn.Open();
             //criar o data adapter e executar a consulta
-            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
+            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
             //criar o DataSet
 
             //Preencher o dataset coom o data adapter

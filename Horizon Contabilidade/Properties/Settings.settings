@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Horizon_Contabilidade.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Pastainicial" Type="System.String" Scope="User">
+    <Setting Name="Folder_Way" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="CaminhoDb" Type="System.String" Scope="User">
+    <Setting Name="SourceDb" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Banco_de_dados1ConnectionString" Type="(Connection string)" Scope="Application">

@@ -12,23 +12,25 @@ namespace Horizon_Contabilidade
             InitializeComponent();
         }
         //Variaveis Globais
-        static DataSet DB = Db.Tables("DB");
-        static DataSet Registrosip = Db.Tables("Registrosip");
-        static DataSet Carne = Db.Tables("Carne");
-
+        static DataSet DB;
+        static DataSet Registrosip;
+        static DataSet Carne;
+        
         static Cadastro cadastro = new Cadastro();
         static string os = "0";
         static bool c = false;
         static int change = 0;
         DataTable d1 = new DataTable();
         Db db = new Db();
-        static public string sDBstr ;
+        private static string sDBstr;
 
-        public string retornastringlocal()
+        public static string SDBstr { get => sDBstr; set => sDBstr = value; }
+
+        public void fills_in()
         {
-
-            string aux = sDBstr;
-            return aux;
+            DB = Db.Tables("DB");
+            Registrosip = Db.Tables("Registrosip");
+            Carne = Db.Tables("Carne");
         }
         public DataRow exportadespadm(DataRow oDR)
         {
@@ -96,7 +98,7 @@ namespace Horizon_Contabilidade
                 string sSQL = "SELECT * from " + tabela;
 
                 //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
+                OleDbConnection oCn = new OleDbConnection(SDBstr);
                 //abrir a conexão
                 oCn.Open();
                 //criar o data adapter e executar a consulta
@@ -154,33 +156,6 @@ namespace Horizon_Contabilidade
 
 
         }
-       // public void pesquisa(TextBox txPesquisa_princial)
-       // {
-
-            //definir a string de conexão
-
-
-            //definir a string SQL
-          //  string sSQL = "select * from DB where Or_os like " + txPesquisa_princial.Text + "%";
-
-            //criar o objeto connection
-          //  OleDbConnection oCn = new OleDbConnection(sDBstr);
-            //abrir a conexão
-
-        //    oCn.Open();
-            //criar o data adapter e executar a consulta
-        //    OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-
-            //criar o DataSet
-       //     DataSet oDs = new DataSet();
-
-            //Preencher o dataset coom o data adapter
-         //  oDA.Fill(oDs, "DB");
-
-        //    dgvDados.DataSource = oDs;
-
-
-       // }
         public string retornaosclicada(DataGridView dgvDados)
         {
             // vamos obter a linha da célula selecionada
@@ -211,7 +186,6 @@ namespace Horizon_Contabilidade
             InitializeComponent();
             
             atualiza(DB.Tables[0]);
-            retornastringlocal();
             retornaosclicada(dgvDados);
             retornaos();
             retorna();
@@ -254,14 +228,12 @@ namespace Horizon_Contabilidade
             AutoCompleteStringCollection stringCollection = new AutoCompleteStringCollection();
             try
             {
-                //definir a string de conexão
-                string sDBstr = retornastringlocal();
 
                 //definir a string SQL
                 string sSQL = "select " + coluna + " from " + DB + "";
 
                 //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
+                OleDbConnection oCn = new OleDbConnection(SDBstr);
                 //abrir a conexão
 
                 oCn.Open();
@@ -403,7 +375,7 @@ namespace Horizon_Contabilidade
                 string sSQL = "select * from " + tabela + "";
 
                 //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
+                OleDbConnection oCn = new OleDbConnection(SDBstr);
                 //abrir a conexão
                 oCn.Open();
                 //criar o data adapter e executar a consulta
@@ -499,7 +471,6 @@ namespace Horizon_Contabilidade
           
             laQtd.Text = "Linhas : " + d.Rows.Count;
             dgvDados.DataSource = d;
-            db.abreconecxao().Close();
             txBrutosd.Text = bruto(1,d).ToString("C");
             txBrutocd.Text = bruto(0,d).ToString("C");
             txDesconto_Total.Text = Desc_total().ToString("C");
@@ -517,7 +488,7 @@ namespace Horizon_Contabilidade
         {
             bool result = false;
             DataTable d0 = new DataTable();
-            OleDbConnection aConnection = new OleDbConnection(sDBstr);
+            OleDbConnection aConnection = new OleDbConnection(SDBstr);
             OleDbCommand comm = new OleDbCommand();
             comm.Connection = aConnection;
             aConnection.Open();
@@ -563,8 +534,8 @@ namespace Horizon_Contabilidade
 
             try
             {
-                
-                sDBstr= Properties.Settings.Default.Pastainicial;
+                SDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+ Properties.Settings.Default.SourceDb;
+                fills_in();
                 atualiza(DB.Tables[0]);
                 d1.Clear();
                d1= DB.Tables[0];
@@ -580,16 +551,16 @@ namespace Horizon_Contabilidade
                 if (drResult == System.Windows.Forms.DialogResult.OK)
                 {
 
-                    sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
-                    sDBstr += ofd1.FileName;
-                    Properties.Settings.Default.Pastainicial = ofd1.FileName;
+                    SDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
+                    SDBstr += ofd1.FileName;
+                    Properties.Settings.Default.SourceDb = ofd1.FileName;
                     Properties.Settings.Default.Save();
+                    Properties.Settings.Default.Folder_Way = SDBstr;
+                    fills_in();
                     atualiza(DB.Tables[0]);
                     d1.Clear();
                     d1 = DB.Tables[0];
-                    txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
-                    
-     
+
                 }
        
                 else
@@ -651,7 +622,7 @@ namespace Horizon_Contabilidade
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.Pastainicial = sDBstr;
+            Properties.Settings.Default.Folder_Way = SDBstr;
             Properties.Settings.Default.Save();
 
         }
