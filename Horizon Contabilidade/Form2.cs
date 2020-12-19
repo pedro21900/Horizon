@@ -286,8 +286,6 @@ namespace Horizon_Contabilidade
                 //Preencher o dataset coom o data adapter
                 oDA.Fill(oDs, tabela);
 
-                //criar um objeto Data Row
-                DataRow oDR = oDs.Tables[tabela].NewRow();
 
                 int count1 = oDs.Tables[0].Columns.Count;
 
@@ -298,7 +296,7 @@ namespace Horizon_Contabilidade
                 {
                     indexx = indexx1.ToString();
                     index = oDs.Tables[0].Rows[0][indexx].ToString();
-                    if (comboBox1.Text == "Somente Lente" && ntabela == 1)
+                    if ( ntabela == 1)
                     {
 
                         if (indexx == "Or_os") { txOs_Or.Text = index; }
@@ -312,7 +310,7 @@ namespace Horizon_Contabilidade
                         else if (indexx == "Loja") { cb = index; }
                        
                     }
-                    else if (comboBox1.Text == "Somente Lente" && ntabela == 2)
+                     if (ntabela == 2)
                     {
 
                         if (indexx == "Nome_Lente") { txNome_lente.Text = index; }
@@ -321,7 +319,7 @@ namespace Horizon_Contabilidade
                         else if (indexx == "Desconto_lente") { txDesconto_Lente.Text = index; }
                         else if (indexx == "Obs") { txObs.Text = index; }
                     }
-                    else if (comboBox1.Text == "Somente Armação" && ntabela == 1)
+                     if (ntabela == 1)
                     {
 
                         if (indexx == "Or_os") { txOs_Or.Text = index; }
@@ -335,7 +333,7 @@ namespace Horizon_Contabilidade
                         else if (indexx == "Loja") { cb = index; }
 
                     }
-                    else if (comboBox1.Text == "Somente Armação" && ntabela == 2)
+                     if ( ntabela == 2)
 
                     {
 
@@ -347,7 +345,7 @@ namespace Horizon_Contabilidade
                         else if (indexx == "Lucro_Armação") { txLucro_armacao.Text = index; }
                         else if (indexx == "Obs") { txObs.Text = index; }
                     }
-                    else if (comboBox1.Text == "Lente + Armação" && ntabela == 1)
+                     if ( ntabela == 1)
                     {
                         if (indexx == "Or_os") { txOs_Or.Text = index; }
                         else if (indexx == "Data") { dateTimePicker1.Text = index; }
@@ -360,7 +358,7 @@ namespace Horizon_Contabilidade
                         else if (indexx == "Coloração") { txCol.Text = index; }
 
                     }
-                    else if (comboBox1.Text == "Lente + Armação" && ntabela == 2)
+                     if (ntabela == 2)
                     {
                         if (indexx == "Nome_Lente") { txNome_lente.Text = index; }
                         else if (indexx == "Marca_lente") { txMarca_lente.Text = index; }
@@ -754,7 +752,8 @@ namespace Horizon_Contabilidade
         }
         private void txVenda_lente_TextChanged(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "")
+
+            if (comboBox1.Text == "" && form1.retorna() == false)
             {
                 MessageBox.Show("Selecione o tipo da venda");
             }
@@ -767,7 +766,7 @@ namespace Horizon_Contabilidade
         }
         private void txVenda_armacao_TextChanged(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "")
+            if (comboBox1.Text == ""&& form1.retorna() == false)
             {
                 MessageBox.Show("Selecione o tipo da venda");
             }

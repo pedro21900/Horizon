@@ -12,6 +12,7 @@ namespace Horizon_Contabilidade
         static excel_manipulations excel_Manipulations = new excel_manipulations();
         static invalid_character ic = new invalid_character();
         //Variaves
+        static DataSet Data = new DataSet();
         static string sourcedb = Properties.Settings.Default.SourceDb;
         static OleDbConnection conexaoDb;
         static OleDbConnection conexaotable;
@@ -197,7 +198,7 @@ namespace Horizon_Contabilidade
 
             return oDs;
         }
-        public DataSet Filtrodb(string chave, string tabela, DateTimePicker dtpData)
+        public DataSet Filtrodb(string key1 ,string key2, string tabela, DateTimePicker dtpData)
         {
 
             DataSet oDs = new DataSet();
@@ -213,9 +214,12 @@ namespace Horizon_Contabilidade
 
 
             //if (chave == "Mês / Ano") { sSQL = "select * from " + tabela + " WHERE Data like " + primeiroDiaDoMes.ToString("d") + " and " + ultimoDiaDoMes.ToString("d"); }
-            if (tabela == "Carne" || chave == "Mês / Ano") { sSQL = "select * from " + tabela + " WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%'"; }
-            else if (chave == "Dia") { sSQL = "select * from " + tabela + " WHERE Data like '%" + dtpData.Value.ToString("d") + "%'"; }
-            else {/* sSQL = "select * from " + tabela;*/ }
+            if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%')"; }
+            else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + dtpData.Value.ToString("d") + "%') AND (Loja LIKE '%" + key2 + "%')"; }
+            else if (key1 == "Mês / Ano") { sSQL = "select * from " + tabela + " WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%'"; }
+            else if (key1 == "Dia") { sSQL = "select * from " + tabela + " WHERE Data like '%" + dtpData.Value.ToString("d") + "%'"; }
+            else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%')"; }
+            else { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%')"; }
             //definir a string SQL
 
 
@@ -240,23 +244,6 @@ namespace Horizon_Contabilidade
                 else { texto = text1; }
             }
             return texto;
-        }
-        static public DataSet Tables(string tabela)
-        {
-            DataSet Tables = new DataSet();
-            //definir a string SQL
-            string sSQL = "select * from " + tabela;
-
-            //criar o data adapter e executar a consulta
-            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
-            //criar o DataSet
-
-            //Preencher o dataset coom o data adapter
-            oDA.Fill(Tables, tabela);
-
-            return Tables;
-
-
         }
         //import table to datatable 
         static public DataTable TableDb(string command)

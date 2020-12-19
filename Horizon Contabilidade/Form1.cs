@@ -14,23 +14,32 @@ namespace Horizon_Contabilidade
         //Variaveis Globais
         static DataSet DB;
         static DataSet Registrosip;
-        static DataSet Carne;
-        
+        static DataSet Carne;        
         static Cadastro cadastro = new Cadastro();
         static string os = "0";
         static bool c = false;
         static int change = 0;
+        //Classes
         DataTable d1 = new DataTable();
-        Db db = new Db();
+         Db db = new Db();
+        //Getters e Setters
         private static string sDBstr;
-
         public static string SDBstr { get => sDBstr; set => sDBstr = value; }
-
+        //Metodos auxiliares
         public void fills_in()
         {
-            DB = Db.Tables("DB");
-            Registrosip = Db.Tables("Registrosip");
-            Carne = Db.Tables("Carne");
+            if (change == 1)
+            {
+                DB.Reset();
+                Registrosip.Reset();
+                Carne.Reset();
+            }
+            
+            DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData);
+            
+            Registrosip = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData);
+            
+            Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData);
         }
         public DataRow exportadespadm(DataRow oDR)
         {
@@ -185,7 +194,7 @@ namespace Horizon_Contabilidade
         {
             InitializeComponent();
             
-            atualiza(DB.Tables[0]);
+            atualiza();
             retornaosclicada(dgvDados);
             retornaos();
             retorna();
@@ -329,26 +338,7 @@ namespace Horizon_Contabilidade
 
             DataTable oDs = new DataTable();
 
-            if (change == 1)
-            {
-                if (tabela == "DB")
-                {
-                    oDs = db.Filtrodb(comboBox1.Text, tabela, dptData).Tables[0];
-                    DB = db.Filtrodb(comboBox1.Text, tabela, dptData);
-                }
-                else if (tabela == "Registrosip")
-                {
-                    oDs = db.Filtrodb(comboBox1.Text, tabela, dptData).Tables[0];
-                    Registrosip = db.Filtrodb(comboBox1.Text, tabela, dptData);
-                }
-                else if (tabela == "Carne")
-                {
-                    oDs = db.Filtrodb(comboBox1.Text, tabela, dptData).Tables[0];
-                    Carne = db.Filtrodb(comboBox1.Text, tabela, dptData);
-                }
-            }
-            else
-            {
+
                 if (tabela == "DB")
                 {
                     oDs = DB.Tables[0];
@@ -356,10 +346,11 @@ namespace Horizon_Contabilidade
                 else if (tabela == "Registrosip")
                 {
                     oDs = Registrosip.Tables[0];
-
                 }
-            }
-            
+                else if (tabela == "Carne")
+                {
+                    oDs = Carne.Tables[0];
+                }           
             
             return oDs;
         }
@@ -466,20 +457,21 @@ namespace Horizon_Contabilidade
             }
             return index;
         }
-        public void atualiza(DataTable d)
+        public void atualiza()
         {
-          
-            laQtd.Text = "Linhas : " + d.Rows.Count;
-            dgvDados.DataSource = d;
-            txBrutosd.Text = bruto(1,d).ToString("C");
-            txBrutocd.Text = bruto(0,d).ToString("C");
+            fills_in();
+            double carne1= carne();
+            double Venda_da_Armação= liquido("DB", "Venda_da_Armação");
+            double Venda_da_lente = liquido("DB", "Venda_da_lente");
+            double Custo_Com_Venda = liquido("DB", "Custo_Com_Venda");
+            laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
+            dgvDados.DataSource = DB.Tables[0];
+            txBrutosd.Text = bruto(1, DB.Tables[0]).ToString("C");
+            txBrutocd.Text = bruto(0, DB.Tables[0]).ToString("C");
             txDesconto_Total.Text = Desc_total().ToString("C");
-            txLucro.Text= ((liquido("DB","Venda_da_Armação") + liquido("DB", "Venda_da_lente")
-                - liquido("Registrosip", "Desconto_armação") - liquido("Registrosip", "Desconto_lente")
-                - liquido("DB", "Custo_Com_Venda")+ carne())).ToString("C");
-
-            txLucrosdesc.Text= (liquido("DB", "Venda_da_Armação") + liquido("DB", "Venda_da_lente") - liquido("DB", "Custo_Com_Venda") +carne() + Desc_total()).ToString("C");
-            tbxCarne.Text = carne().ToString("C");
+            txLucro.Text= (Venda_da_Armação + Venda_da_lente- Desc_total() - Custo_Com_Venda + carne1).ToString("C");            
+            txLucrosdesc.Text= (Venda_da_Armação + Venda_da_lente - Custo_Com_Venda + carne1).ToString("C");
+            tbxCarne.Text = carne1.ToString("C");
             dgvDados.AutoResizeColumns();
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
             change = 0;
@@ -517,7 +509,7 @@ namespace Horizon_Contabilidade
             {
                 Cadastro tela_add_servico = new Cadastro();
                 tela_add_servico.ShowDialog();
-                atualiza(d1);
+                atualiza();
 
             }
 
@@ -535,8 +527,7 @@ namespace Horizon_Contabilidade
             try
             {
                 SDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+ Properties.Settings.Default.SourceDb;
-                fills_in();
-                atualiza(DB.Tables[0]);
+                atualiza();
                 d1.Clear();
                d1= DB.Tables[0];
 
@@ -557,7 +548,7 @@ namespace Horizon_Contabilidade
                     Properties.Settings.Default.Save();
                     Properties.Settings.Default.Folder_Way = SDBstr;
                     fills_in();
-                    atualiza(DB.Tables[0]);
+                    atualiza();
                     d1.Clear();
                     d1 = DB.Tables[0];
 
@@ -602,11 +593,8 @@ namespace Horizon_Contabilidade
             }
             change = 1;
             d1.Clear();
-             d1=db.Filtrodb(comboBox1.Text, "DB", dptData).Tables[0];
-            db1("Registrosip");
-            db1("DB");
-            db1("Carne");
-            atualiza(d1);
+            d1 = DB.Tables[0];
+            atualiza();
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -634,11 +622,8 @@ namespace Horizon_Contabilidade
         {
             change = 1;
             d1.Clear();
-            d1 = db.Filtrodb(comboBox1.Text, "DB", dptData).Tables[0];
-            db1("Registrosip");
-            db1("DB");
-            db1("Carne");
-            atualiza(d1);
+            d1 = DB.Tables[0];
+            atualiza();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -653,5 +638,12 @@ namespace Horizon_Contabilidade
             }
 
             }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            change = 1;
+            d1.Clear();
+            d1 = DB.Tables[0];
+            atualiza();
+        }
     }
 }
