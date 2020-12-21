@@ -115,8 +115,8 @@ namespace Horizon_Contabilidade
             //liberar o data adapter , o dataset , o comandbuilder e a conexao
             oDA.Dispose(); oDs.Dispose(); oCB.Dispose();
         }
-        public void addlinhalayout1(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, string lab,
-                                   string col,string custodevenda, string vendavalor,string loja)
+        public void addlinhalayout1(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, 
+                                   string col, string lab, string custodevenda, string vendavalor,string loja)
         {
             string sSQL = "select * from " + tabela;
             //criar o data adapter e executar a consulta
@@ -128,8 +128,8 @@ namespace Horizon_Contabilidade
             DataRow oDR = oDs.Tables[tabela].NewRow();
 
             oDs.Tables[0].Rows.Add(data, filtratexto(or), filtratexto(fornecedor), filtratexto(compral),
-                    filtratexto(vendal), filtratexto(compraa), filtratexto(vendaa), filtratexto(lab),
-                    filtratexto(col), filtratexto(custodevenda), filtratexto(vendavalor), filtratexto(loja));
+                    filtratexto(vendal), filtratexto(compraa), filtratexto(vendaa), filtratexto(col),
+                     filtratexto(lab), filtratexto(custodevenda), filtratexto(vendavalor), filtratexto(loja));
 
             salvatabela(oDA, oDs, tabela);
 
@@ -214,12 +214,12 @@ namespace Horizon_Contabilidade
 
 
             //if (chave == "Mês / Ano") { sSQL = "select * from " + tabela + " WHERE Data like " + primeiroDiaDoMes.ToString("d") + " and " + ultimoDiaDoMes.ToString("d"); }
-            if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%')"; }
-            else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + dtpData.Value.ToString("d") + "%') AND (Loja LIKE '%" + key2 + "%')"; }
-            else if (key1 == "Mês / Ano") { sSQL = "select * from " + tabela + " WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%'"; }
-            else if (key1 == "Dia") { sSQL = "select * from " + tabela + " WHERE Data like '%" + dtpData.Value.ToString("d") + "%'"; }
-            else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%')"; }
-            else { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%')"; }
+            if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Data"; }
+            else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + dtpData.Value.ToString("d") + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Or_os"; }
+            else if (key1 == "Mês / Ano") { sSQL = "select * from " + tabela + " WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%' ORDER BY Data"; }
+            else if (key1 == "Dia") { sSQL = "select * from " + tabela + " WHERE Data like '%" + dtpData.Value.ToString("d") + "%' ORDER BY Or_os"; }
+            else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Data"; }
+            else { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') ORDER BY Data"; }
             //definir a string SQL
 
 

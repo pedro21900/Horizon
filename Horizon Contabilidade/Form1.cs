@@ -277,40 +277,6 @@ namespace Horizon_Contabilidade
             }
             return stringCollection;
         }
-        public double bruto(int x,DataTable TableDB)
-        {
-            double valor = 0;
-            try
-            {
-
-                int count1 = TableDB.Columns.Count;
-
-                double indexx = 0;
-                double index = 0;
-                int qtdlinha = TableDB.Rows.Count;
-
-
-                for (int i = 0; i <= qtdlinha - 1; i++)
-                {
-                    index = Convert.ToDouble(TableDB.Rows[i]["Venda_da_lente"].ToString()) + Convert.ToDouble(TableDB.Rows[i]["Venda_da_Armação"].ToString());
-                    indexx += index;
-
-                }
-                if (x == 1) { 
-                    valor = indexx - Desc_total(); }
-                else
-                {
-                    valor = indexx;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
-            return valor;
-        }
         public double carne()
         {
             double index = 0;
@@ -354,81 +320,25 @@ namespace Horizon_Contabilidade
             
             return oDs;
         }
-        public void maisvendido()
-        {
-            try
-            {
-
-                string tabela = "Registrosip";
-                //definir a string de conexão
-
-                //definir a string SQL
-                string sSQL = "select * from " + tabela + "";
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(SDBstr);
-                //abrir a conexão
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, tabela);
-
-                //criar um objeto Data Row
-                DataRow oDR = oDs.Tables[tabela].NewRow();
-
-                int count1 = oDs.Tables[0].Columns.Count;
-
-               // double indexx = 0;
-
-                int qtdlinha = oDs.Tables[0].Rows.Count;
-                int[] vet = new int[5];
-              //  int count = 0;
-               // for (int i = 0; i <= 5; i++)
-             //   {
-               //     for (int j = 0; i <= qtdlinha; i++)
-               //     {
-               //         string arma = oDs.Tables[0].Rows[i]["Marca_armação"].ToString();
-                //        if (arma == oDs.Tables[0].Rows[i]["Marca_armação"].ToString())
-                //        {
-                 //           count++;
-                 //       }
-
-                  //  }
-                  //  vet[i] = count;
-                //}
-               // txBrutosd.Text = indexx.ToString("C");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
-
-        }
         public double liquido(string tabela, string coluna)
         {
             double index = 0;
             try
             {
-                DataTable oDs = db1(tabela);
+                    DataTable oDs = db1(tabela);
                     int qtdlinha = oDs.Rows.Count;
 
-                    for (int i = 0; i <= qtdlinha - 1; i++)
+                for (int i = 0; i <= qtdlinha - 1; i++)
+                {
+                    if (String.IsNullOrEmpty(oDs.Rows[i][coluna].ToString())) { }
+
+                    else
                     {
-                        if (String.IsNullOrEmpty(oDs.Rows[i][coluna].ToString())) { }
-
-                        else
-                        {
-                        index += Convert.ToDouble(oDs.Rows[i][coluna].ToString());
-                        }
-
+                        double index2= Convert.ToDouble(oDs.Rows[i][coluna].ToString());
+                        index += index2;
                     }
 
+                }
             }
             catch (Exception ex)
             {
@@ -444,7 +354,9 @@ namespace Horizon_Contabilidade
                 int qtdlinha = Registrosip.Tables[0].Rows.Count;
                 for (int i = 0; i < qtdlinha ; i++)
                 {
-                    index += Convert.ToDouble(db.filtratexto(Registrosip.Tables[0].Rows[i]["Desconto_total"].ToString()));
+                 double index2 = Convert.ToDouble(db.filtratexto(Registrosip.Tables[0].Rows[i]["Desconto_total"].ToString()));
+
+                    index += index2;
 
                 }
 
@@ -464,13 +376,20 @@ namespace Horizon_Contabilidade
             double Venda_da_Armação= liquido("DB", "Venda_da_Armação");
             double Venda_da_lente = liquido("DB", "Venda_da_lente");
             double Custo_Com_Venda = liquido("DB", "Custo_Com_Venda");
+            double DescT = Desc_total();
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
             dgvDados.DataSource = DB.Tables[0];
-            txBrutosd.Text = bruto(1, DB.Tables[0]).ToString("C");
-            txBrutocd.Text = bruto(0, DB.Tables[0]).ToString("C");
-            txDesconto_Total.Text = Desc_total().ToString("C");
-            txLucro.Text= (Venda_da_Armação + Venda_da_lente- Desc_total() - Custo_Com_Venda + carne1).ToString("C");            
-            txLucrosdesc.Text= (Venda_da_Armação + Venda_da_lente - Custo_Com_Venda + carne1).ToString("C");
+            txCustoVenda.Text= Custo_Com_Venda.ToString("C");
+            txBrutocd.Text = (Venda_da_Armação + Venda_da_lente).ToString("C");
+            txDesconto_Total.Text = DescT.ToString("C");
+            if (comboBox1.Text == "Dia" )
+            {
+                txLucro.Text = (Venda_da_Armação + Venda_da_lente - DescT - Custo_Com_Venda + carne1).ToString("C");
+            }
+            else
+            {
+                txLucro.Text = (Venda_da_Armação + Venda_da_lente - DescT - Custo_Com_Venda).ToString("C");
+            }
             tbxCarne.Text = carne1.ToString("C");
             dgvDados.AutoResizeColumns();
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
@@ -645,5 +564,6 @@ namespace Horizon_Contabilidade
             d1 = DB.Tables[0];
             atualiza();
         }
+
     }
 }

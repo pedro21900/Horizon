@@ -108,7 +108,7 @@ namespace Horizon_Contabilidade
 
                 oDR["Or_os"] = txOs_Or.Text;
                 oDR["Data_de_venda"] = dateTimePicker1.Text;
-                oDR["Data_de_faturamento"] = dateTimePicker2.Text;
+                oDR["Data"] = dateTimePicker2.Text;
                 oDR["qtddias"] = txQdtdias.Text;
                 oDR["Valor"] = txValor.Text.Replace("R$", "");
 

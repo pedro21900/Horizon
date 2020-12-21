@@ -247,7 +247,7 @@ namespace Horizon_Contabilidade
                 if (tabela == "DB")
                 {
                     db.addlinhalayout1(tabela, Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(), txOs_Or.Text, txFornecedor_armacao.Text + " / " + txFornecedor_lente.Text,
-                txCompra_lente.Text, txVenda_lente.Text, txCompra_armacao.Text, txVenda_armacao.Text, txLab.Text, txCol.Text,txCusto_com_venda.Text, txVenda.Text, cb);
+                txCompra_lente.Text, txVenda_lente.Text, txCompra_armacao.Text, txVenda_armacao.Text,txCol.Text,txLab.Text, txCusto_com_venda.Text, txVenda.Text, cb);
                 }
                 else if (tabela == "Registrosip")
                 {
@@ -876,6 +876,11 @@ namespace Horizon_Contabilidade
                 liga_delisgatx(0, "Armação");
             }
             if (comboBox1.Text == "Lente + Armação")
+            {
+                liga_delisgatx(0, "Armação");
+                liga_delisgatx(0, "Lente");
+            }
+            if (comboBox1.Text == "")
             {
                 liga_delisgatx(0, "Armação");
                 liga_delisgatx(0, "Lente");
