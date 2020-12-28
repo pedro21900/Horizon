@@ -9,7 +9,7 @@ namespace Horizon_Contabilidade
     class Db
     {
         //Classes
-        static excel_manipulations excel_Manipulations = new excel_manipulations();
+        //static excel_manipulations excel_Manipulations = new excel_manipulations();
         static invalid_character ic = new invalid_character();
         //Variaves
         static DataSet Data = new DataSet();
@@ -86,25 +86,25 @@ namespace Horizon_Contabilidade
             string nomePlanilha = dtSchema.Rows[indexName]["TABLE_NAME"].ToString();
             return nomePlanilha;
         }
-        private static string columnExport()
-        {
+        //private static string columnExport()
+        //{
 
-            string column = "";
-            if (excel_Manipulations.Qtdcolumn == 4)
-            {
-                column = "Emitente,Destinatário,[N°# Nota],Emissão,Valor";
-                dateColumn = "Emissão";
-                nameTable = "XmlTable";
-            }
-            else if (excel_Manipulations.Qtdcolumn == 8)
-            {
-                column = "[Forma Pgto#],Valor,Desconto,Faturado,Cliente,[NFCe/SAT/Cupom],[Código Fatura],DataFaturamento,Tipo";
-                dateColumn = "DataFaturamento";
-                nameTable = "RelFatTable";
-            }
-            else { }
-            return column;
-        }
+        //    string column = "";
+        //    if (excel_Manipulations.Qtdcolumn == 4)
+        //    {
+        //        column = "Emitente,Destinatário,[N°# Nota],Emissão,Valor";
+        //        dateColumn = "Emissão";
+        //        nameTable = "XmlTable";
+        //    }
+        //    else if (excel_Manipulations.Qtdcolumn == 8)
+        //    {
+        //        column = "[Forma Pgto#],Valor,Desconto,Faturado,Cliente,[NFCe/SAT/Cupom],[Código Fatura],DataFaturamento,Tipo";
+        //        dateColumn = "DataFaturamento";
+        //        nameTable = "RelFatTable";
+        //    }
+        //    else { }
+        //    return column;
+        //}
         public void salvatabela(OleDbDataAdapter oDA, DataSet oDs, string tabela)
         {
             //Usar o objeto Command Bulder para gerar o Comandop Insert
@@ -255,21 +255,21 @@ namespace Horizon_Contabilidade
 
         }
         //Importa para o Banco de dados as planilhas
-        static public DataSet importTable()
-        {
-            OleDbDataAdapter ada = new OleDbDataAdapter("select " + columnExport() + " from [" +
-                NameTable(ConectTable(), 0) + "]", ConectTable());
+        //static public DataSet importTable()
+        //{
+        //    OleDbDataAdapter ada = new OleDbDataAdapter("select " + columnExport() + " from [" +
+        //        NameTable(ConectTable(), 0) + "]", ConectTable());
 
-            ada.Fill(ds);
+        //    ada.Fill(ds);
 
-            ConectTable().Close();
+        //    ConectTable().Close();
 
-            return ds;
+        //    return ds;
 
-        }
+        //}
         static public void importtoDb()
         {
-            excel_Manipulations.check_table(sourcetable);
+            //excel_Manipulations.check_table(sourcetable);
             //ConectTable().Close();
 
 
@@ -311,283 +311,6 @@ namespace Horizon_Contabilidade
 
 
         }
-       
-
  
-
-        /*   public void importabanco(string tabela, string pesquisa, int ntabela)
-           {
-               try
-               {
-
-                   //definir a string SQL
-                   string sSQL = "select * from " + tabela + " WHERE  Data = " + pesquisa + "";
-
-
-                   //criar o data adapter e executar a consulta
-                   OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, abreconecxao());
-                   //criar o DataSet
-                   DataSet oDs = new DataSet();
-                   //Preencher o dataset coom o data adapter
-                   oDA.Fill(oDs, tabela);
-
-                   int count1 = oDs.Tables[0].Columns.Count;
-
-                   string indexx = "0";
-                   string index = "0";
-                   string data, string or, string fornecedor,string compral, string vendal, string compraa, string vendaa, string labs,
-                                      string labm, string custocv, string vendavalor, string resultado, string loja)
-                   string tabela, string or, string modeloarmação, string nomelente,string lucroarmacao, string lucrolente, string forenecedorl, string forenecedora,
-                                       string lucrototal, string descontot, string taxacartao, string foramdepagamento, string descontol, string descontoa,
-                                       string tipodecompra, string tipodecompra1, string tipodecompra2, string marcaa, string marcal, string tipo, string loja,string Obs
-
-                   foreach (DataColumn indexx1 in oDs.Tables[0].Columns)
-                   {
-                       indexx = indexx1.ToString();
-                       index = oDs.Tables[0].Rows[0][indexx].ToString();
-                       index=filtratexto(index);
-                       if (indexx == "Data") { dateTimePicker1.Text =  index; }
-                       else if (indexx == "Or_os") { txOs_Or.Text = index; }
-                       else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }
-                       else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }                    
-                       else if (indexx == "Lab_surf") { txLab_Surf.Text = index; }
-                       else if (indexx == "Lab_mont") { txLab_montagem.Text = index; }
-                       else if (indexx == "Venda_da_Armação") { txVenda_armacao.Text = index; }
-                       else if (indexx == "Compra_da_Armação") { txCompra_armacao.Text = index; }
-                       else if (indexx == "Loja") { cb = index; }
-
-                       else if (indexx == "Modelo_Armação") { txModelo_armacao.Text = index; }
-                       else if (indexx == "Marca_armação") { txMarca_armacao.Text = index; }
-                       else if (indexx == "Fornecedor_Armação") { txFornecedor_armacao.Text = index; }
-                       else if (indexx == "Nome_Lente") { txNome_lente.Text = index; }
-                       else if (indexx == "Fornecedor_Lente") { txFornecedor_lente.Text = index; }
-                       else if (indexx == "Marca_lente") { txMarca_lente.Text = index; }
-                       else if (indexx == "Desconto_lente") { txDesconto_Lente.Text = index; }
-                       else if (indexx == "Lucro_Lente") { txLucro_lente.Text = index; }
-                       else if (indexx == "Lucro_Armação") { txLucro_armacao.Text = index; }
-                       else if (indexx == "Desconto_armação") { txDesconto_Armacao.Text = index; }
-                       else if (indexx == "Loja") { cb = index; }
-                   }
-
-
-
-                   //Incluir um datarow ao dataset
-                   //oDs.Tables[tabela].Rows.Add(oDR);
-                   //Usar o objeto Command Bulder para gerar o Comandop Insert
-                   // OleDbCommandBuilder oCB = new OleDbCommandBuilder(oDA);
-                   //Atualizar o BD com valores do Dataset
-                   ///   oDA.Update(oDs, tabela);
-                   //liberar o data adapter , o dataset , o comandbuilder e a conexao
-                   oDA.Dispose(); oDs.Dispose(); //oCB.Dispose();
-                   abreconecxao().Dispose();
-
-               }
-               catch (Exception ex)
-               {
-                   MessageBox.Show("Erro :" + ex.Message);
-
-
-               }
-           }
-       }
-   }
-   /* 
-
-    * public DataRow exportadespadm(DataRow oDR)
-       {
-
-           oDR["ID"] = Convert.ToDateTime(dptData.Value).ToShortDateString();
-           oDR["Eng_Traba"] = txEngtrab.Text;
-           oDR["Salario"] = txSal.Text;
-           oDR["Desp_transp"] = txTransporte.Text;
-           oDR["Aluguel"] = txAluguel.Text;
-           oDR["Comunicação"] = txComunica.Text;
-           oDR["Energia"] = txEnergia.Text;
-           oDR["Segurança_loja"] = txSeg.Text;
-           oDR["Malote"] = txBoy.Text;
-           oDR["Divulgação"] = txMarket.Text;
-           oDR["Alvara"] = txAlvara.Text;
-           return oDR;
-       }
-       public DataRow exportatributos(DataRow oDR)
-       {
-           oDR["ID"] = Convert.ToDateTime(dptData.Value).ToShortDateString();
-           oDR["Pis"] = txPis.Text;
-           oDR["Confis"] = txConfins.Text;
-           oDR["inss"] = txInss.Text;
-           oDR["irpj"] = txIrpj.Text;
-           oDR["csll"] = txCsll.Text;
-           oDR["iss"] = txInss.Text;
-
-
-           return oDR;
-       }
-       public DataRow exportalgais(DataRow oDR)
-       {
-           oDR["ID"] = Convert.ToDateTime(dptData.Value).ToShortDateString();
-           oDR["13º"] = txEngtrab.Text;
-           oDR["Ferias"] = txSal.Text;
-           oDR["13º_Conta"] = txTransporte.Text;
-           oDR["13º_Alu"] = txAluguel.Text;
-           oDR["13º_Hono"] = txComunica.Text;
-           oDR["Energia"] = txEnergia.Text;
-           oDR["Outros"] = txSeg.Text;
-
-           return oDR;
-       }
-       public DataRow exportadespfineeve(DataRow oDR)
-       {
-           oDR["ID"] = Convert.ToDateTime(dptData.Value).ToShortDateString();
-           oDR["saida_ex"] = txEngtrab.Text;
-           oDR["Luros_lis"] = txSal.Text;
-           oDR["tarif_bank"] = txTransporte.Text;
-           oDR["antecipa"] = txAluguel.Text;
-           oDR["aluguel_maq"] = txComunica.Text;
-           oDR["Juros_empres"] = txEnergia.Text;
-           oDR["outros"] = txSeg.Text;
-
-           return oDR;
-       }
-
-
-
-       public void importabanco(string tabela, string pesquisa, int ntabela)
-       {
-           try
-           {
-               string sDBstr = localdb(); ;
-
-               //definir a string de conexão
-
-               //definir a string SQL
-               string sSQL = "select * from " + tabela + " WHERE  Or_os = " + pesquisa + "";
-
-               //criar o objeto connection
-               OleDbConnection oCn = new OleDbConnection(sDBstr);
-               //abrir a conexão
-               oCn.Open();
-               //criar o data adapter e executar a consulta
-               OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-               //criar o DataSet
-               DataSet oDs = new DataSet();
-               //Preencher o dataset coom o data adapter
-               oDA.Fill(oDs, tabela);
-
-               //criar um objeto Data Row
-               DataRow oDR = oDs.Tables[tabela].NewRow();
-
-               int count1 = oDs.Tables[0].Columns.Count;
-
-               string indexx = "0";
-               string index = "0";
-
-               foreach (DataColumn indexx1 in oDs.Tables[0].Columns)
-               {
-                   indexx = indexx1.ToString();
-                   index = oDs.Tables[0].Rows[0][indexx].ToString();
-                   if (comboBox1.Text == "Somente Lente" && ntabela == 1)
-                   {
-
-                       if (indexx == "Or_os") { txOs_Or.Text = index; }
-                       else if (indexx == "Data") { dateTimePicker1.Text = index; }
-                       else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }
-                       else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }
-                       else if (String.IsNullOrEmpty(index) && indexx == "Lab_surf") { txLab_Surf.Text = "0"; }
-                       else if (indexx == "Lab_surf") { txLab_Surf.Text = index; }
-                       else if (String.IsNullOrEmpty(index) && indexx == "Lab_mont") { txLab_montagem.Text = "0"; }
-                       else if (indexx == "Lab_mont") { txLab_montagem.Text = index; }
-                       else if (indexx == "Loja") { cb = index; }
-
-                   }
-                   else if (comboBox1.Text == "Somente Lente" && ntabela == 2)
-                   {
-
-                       if (indexx == "Nome_Lente") { txNome_lente.Text = index; }
-                       else if (indexx == "Fornecedor_Lente") { txFornecedor_lente.Text = index; }
-                       else if (indexx == "Marca_lente") { txMarca_lente.Text = index; }
-                       else if (indexx == "Desconto_lente") { txDesconto_Lente.Text = index; }
-                       else if (indexx == "Lucro_Lente") { txLucro_lente.Text = index; }
-
-                   }
-                   else if (comboBox1.Text == "Somente Armação" && ntabela == 1)
-                   {
-
-                       if (indexx == "Or_os") { txOs_Or.Text = index; }
-                       else if (indexx == "Data") { dateTimePicker1.Text = index; }
-                       if (indexx == "Venda_da_Armação") { txVenda_armacao.Text = index; }
-                       if (indexx == "Compra_da_Armação") { txCompra_armacao.Text = index; }
-                       else if (String.IsNullOrEmpty(index) && indexx == "Lab_surf") { txLab_Surf.Text = "0"; }
-                       else if (indexx == "Lab_surf") { txLab_Surf.Text = index; }
-                       else if (String.IsNullOrEmpty(index) && indexx == "Lab_mont") { txLab_montagem.Text = "0"; }
-                       else if (indexx == "Lab_mont") { txLab_montagem.Text = index; }
-                       else if (indexx == "Loja") { cb = index; }
-                   }
-                   else if (comboBox1.Text == "Somente Armação" && ntabela == 2)
-
-                   {
-
-
-                       if (indexx == "Modelo_Armação") { txModelo_armacao.Text = index; }
-                       else if (indexx == "Marca_armação") { txMarca_armacao.Text = index; }
-                       else if (indexx == "Fornecedor_Armação") { txFornecedor_armacao.Text = index; }
-                       else if (indexx == "Desconto_armação") { txDesconto_Armacao.Text = index; }
-                       else if (indexx == "Lucro_Armação") { txLucro_armacao.Text = index; }
-
-
-                   }
-                   else if (comboBox1.Text == "Lente + Armação" && ntabela == 1)
-                   {
-                       if (indexx == "Or_os") { txOs_Or.Text = index; }
-                       else if (indexx == "Data") { dateTimePicker1.Text = index; }
-                       else if (indexx == "Venda_da_Armação") { txVenda_armacao.Text = index; }
-                       else if (indexx == "Compra_da_Armação") { txCompra_armacao.Text = index; }
-                       else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }
-                       else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }
-
-                       else if (indexx == "Lab_surf") { txLab_Surf.Text = index; }
-                       else if (indexx == "Lab_mont") { txLab_montagem.Text = index; }
-
-                   }
-                   else if (comboBox1.Text == "Lente + Armação" && ntabela == 2)
-                   {
-                       if (indexx == "Nome_Lente") { txNome_lente.Text = index; }
-                       else if (indexx == "Marca_lente") { txMarca_lente.Text = index; }
-                       else if (indexx == "Fornecedor_Lente") { txFornecedor_lente.Text = index; }
-                       else if (indexx == "Modelo_Armação") { txModelo_armacao.Text = index; }
-                       else if (indexx == "Fornecedor_Armação") { txFornecedor_armacao.Text = index; }
-                       else if (indexx == "Desconto_lente") { txDesconto_Lente.Text = index; }
-
-
-
-
-                       else if (indexx == "Desconto_armação") { txDesconto_Armacao.Text = index; }
-                       else if (indexx == "Marca_armação") { txMarca_armacao.Text = index; }
-                   }
-               }
-
-
-               //Incluir um datarow ao dataset
-               //oDs.Tables[tabela].Rows.Add(oDR);
-               //Usar o objeto Command Bulder para gerar o Comandop Insert
-               // OleDbCommandBuilder oCB = new OleDbCommandBuilder(oDA);
-               //Atualizar o BD com valores do Dataset
-               ///   oDA.Update(oDs, tabela);
-               //liberar o data adapter , o dataset , o comandbuilder e a conexao
-               oDA.Dispose(); oDs.Dispose(); //oCB.Dispose();
-               oCn.Dispose();
-
-           }
-           catch (Exception ex)
-           {
-               MessageBox.Show("Erro :" + ex.Message);
-
-
-           }
-       }
-   }
-   }
-
-   */
-
     }
 }

@@ -129,6 +129,7 @@
             this.txDesconto_Total = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txLucro = new System.Windows.Forms.TextBox();
@@ -141,7 +142,6 @@
             this.dgvDados = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.Add_registro = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
@@ -1101,7 +1101,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(358, 67);
+            this.label11.Location = new System.Drawing.Point(497, 67);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 13);
             this.label11.TabIndex = 39;
@@ -1111,7 +1111,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(326, 91);
+            this.label3.Location = new System.Drawing.Point(465, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(16, 24);
             this.label3.TabIndex = 38;
@@ -1120,7 +1120,7 @@
             // txCustoVenda
             // 
             this.txCustoVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txCustoVenda.Location = new System.Drawing.Point(348, 95);
+            this.txCustoVenda.Location = new System.Drawing.Point(487, 95);
             this.txCustoVenda.Name = "txCustoVenda";
             this.txCustoVenda.ReadOnly = true;
             this.txCustoVenda.Size = new System.Drawing.Size(104, 20);
@@ -1149,7 +1149,7 @@
             // txDesconto_Total
             // 
             this.txDesconto_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txDesconto_Total.Location = new System.Drawing.Point(194, 95);
+            this.txDesconto_Total.Location = new System.Drawing.Point(333, 95);
             this.txDesconto_Total.Name = "txDesconto_Total";
             this.txDesconto_Total.ReadOnly = true;
             this.txDesconto_Total.Size = new System.Drawing.Size(126, 20);
@@ -1159,7 +1159,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(458, 92);
+            this.label37.Location = new System.Drawing.Point(171, 93);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(21, 24);
             this.label37.TabIndex = 35;
@@ -1176,11 +1176,22 @@
             this.label10.TabIndex = 24;
             this.label10.Text = "Receita";
             // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(405, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 30);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Totais";
+            // 
             // label39
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(170, 92);
+            this.label39.Location = new System.Drawing.Point(309, 92);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(16, 24);
             this.label39.TabIndex = 34;
@@ -1190,7 +1201,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(196, 65);
+            this.label5.Location = new System.Drawing.Point(335, 65);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 13);
             this.label5.TabIndex = 15;
@@ -1209,7 +1220,7 @@
             // 
             this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(508, 67);
+            this.label36.Location = new System.Drawing.Point(221, 68);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(40, 13);
             this.label36.TabIndex = 31;
@@ -1228,7 +1239,7 @@
             // tbxCarne
             // 
             this.tbxCarne.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxCarne.Location = new System.Drawing.Point(484, 95);
+            this.tbxCarne.Location = new System.Drawing.Point(197, 96);
             this.tbxCarne.Name = "tbxCarne";
             this.tbxCarne.ReadOnly = true;
             this.tbxCarne.Size = new System.Drawing.Size(103, 20);
@@ -1294,17 +1305,6 @@
             this.Add_registro.Text = "Adicionar Entrada";
             this.Add_registro.UseVisualStyleBackColor = true;
             this.Add_registro.Click += new System.EventHandler(this.Add_registro_Click);
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(405, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 30);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Totais";
             // 
             // tabControl1
             // 
