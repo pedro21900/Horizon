@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizon Contabilidade", "Horizon Contabilidade\Horizon Contabilidade.csproj", "{FE1F14CC-B269-458B-B299-4200D42F997D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Hori-Con", "Hori-zon\Hori-zon.vdproj", "{DF383FAD-8EF3-454C-AA9C-9EC2991BFACA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,8 +15,6 @@ Global
 		{FE1F14CC-B269-458B-B299-4200D42F997D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE1F14CC-B269-458B-B299-4200D42F997D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE1F14CC-B269-458B-B299-4200D42F997D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF383FAD-8EF3-454C-AA9C-9EC2991BFACA}.Debug|Any CPU.ActiveCfg = Debug
-		{DF383FAD-8EF3-454C-AA9C-9EC2991BFACA}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

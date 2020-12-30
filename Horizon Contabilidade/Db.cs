@@ -176,8 +176,8 @@ namespace Horizon_Contabilidade
         {
             Deletalinha(tabela, pesquisa);
             Deletalinha(tabela1, pesquisa);
-            addlinhalayout1(tabela, data, or, fornecedor, compral, vendal, compraa, vendaa, lab,
-                                    col, custocv, vendavalor, loja);
+            addlinhalayout1(tabela, data, or, fornecedor, compral, vendal, compraa, vendaa, col,
+                                    lab, custocv, vendavalor, loja);
             addlinhalayout2(tabela1, or,data, modeloarmação, nomelente, lucroarmacao, lucrolente, forenecedorl, forenecedora,
                                      lucrototal, descontot, taxacartao, foramdepagamento, descontol, descontoa,
                                      tipodecompra, tipodecompra1, tipodecompra2, marcaa, marcal, loja, Obs);

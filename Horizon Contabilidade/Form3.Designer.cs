@@ -44,6 +44,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.txQdtdias = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.cb2 = new System.Windows.Forms.CheckBox();
+            this.cb1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -206,11 +209,45 @@
             this.label6.TabIndex = 73;
             this.label6.Text = "Dias até o pagamento";
             // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(444, 51);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(27, 13);
+            this.label34.TabIndex = 82;
+            this.label34.Text = "Loja";
+            // 
+            // cb2
+            // 
+            this.cb2.AutoSize = true;
+            this.cb2.Location = new System.Drawing.Point(407, 80);
+            this.cb2.Name = "cb2";
+            this.cb2.Size = new System.Drawing.Size(97, 17);
+            this.cb2.TabIndex = 81;
+            this.cb2.Text = "Parque (Matriz)";
+            this.cb2.UseVisualStyleBackColor = true;
+            this.cb2.CheckedChanged += new System.EventHandler(this.cb2_CheckedChanged);
+            // 
+            // cb1
+            // 
+            this.cb1.AutoSize = true;
+            this.cb1.Location = new System.Drawing.Point(406, 111);
+            this.cb1.Name = "cb1";
+            this.cb1.Size = new System.Drawing.Size(103, 17);
+            this.cb1.TabIndex = 80;
+            this.cb1.Text = "Boulevard (Filial)";
+            this.cb1.UseVisualStyleBackColor = true;
+            this.cb1.CheckedChanged += new System.EventHandler(this.cb1_CheckedChanged);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 175);
+            this.Controls.Add(this.label34);
+            this.Controls.Add(this.cb2);
+            this.Controls.Add(this.cb1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txQdtdias);
             this.Controls.Add(this.button4);
@@ -253,5 +290,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox txQdtdias;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.CheckBox cb2;
+        private System.Windows.Forms.CheckBox cb1;
     }
 }

@@ -377,20 +377,22 @@ namespace Horizon_Contabilidade
             double Venda_da_lente = liquido("DB", "Venda_da_lente");
             double Custo_Com_Venda = liquido("DB", "Custo_Com_Venda");
             double DescT = Desc_total();
+            double Caixa = Venda_da_Armação + Venda_da_lente;
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
             dgvDados.DataSource = DB.Tables[0];
             txCustoVenda.Text= Custo_Com_Venda.ToString("C");
-            txBrutocd.Text = (Venda_da_Armação + Venda_da_lente).ToString("C");
+            txBrutocd.Text = (Caixa - carne1).ToString("C");
             txDesconto_Total.Text = DescT.ToString("C");
             if (comboBox1.Text == "Dia" )
             {
-                txLucro.Text = (Venda_da_Armação + Venda_da_lente - DescT - Custo_Com_Venda + carne1).ToString("C");
+                txLucro.Text = (Caixa - DescT - Custo_Com_Venda + carne1).ToString("C");
             }
             else
             {
-                txLucro.Text = (Venda_da_Armação + Venda_da_lente - DescT - Custo_Com_Venda).ToString("C");
+                txLucro.Text = (Caixa - DescT - Custo_Com_Venda).ToString("C");
             }
             tbxCarne.Text = carne1.ToString("C");
+            txCaixa.Text = (Caixa - DescT).ToString("C");
             dgvDados.AutoResizeColumns();
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
             change = 0;
@@ -506,6 +508,20 @@ namespace Horizon_Contabilidade
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBox1.Text == "Dia")
+            {
+                label12.Text = "Receita do dia";
+            }
+            else if (comboBox1.Text == "Mês / Ano")
+            {
+                label12.Text = "Receita do Mês";
+            }
+            else if (comboBox1.Text == "Ano")
+            {
+                label12.Text = "";
+                txCaixa.Enabled = false;
+                txCaixa.Text = "";
+            }
             if ("Mês" == comboBox1.Text)
             {
                 dptData.CustomFormat = "MM/yyyy";
@@ -565,5 +581,15 @@ namespace Horizon_Contabilidade
             atualiza();
         }
 
+        private void Dv_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            
+
+        }
     }
 }

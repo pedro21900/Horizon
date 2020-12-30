@@ -12,6 +12,7 @@ namespace Horizon_Contabilidade
             InitializeComponent();
         }
         static string sDBstr = Properties.Settings.Default.Folder_Way;
+        static string cb;
         public AutoCompleteStringCollection Caixadesusgestaoos(string coluna, string DB)
         {
             Form1 form1 = new Form1();
@@ -111,7 +112,7 @@ namespace Horizon_Contabilidade
                 oDR["Data"] = dateTimePicker2.Text;
                 oDR["qtddias"] = txQdtdias.Text;
                 oDR["Valor"] = txValor.Text.Replace("R$", "");
-
+                oDR["Loja"] = cb;
 
 
                 // oDR["Resultado_da_venda"] = txResultado_da_venda.Text;
@@ -218,8 +219,14 @@ namespace Horizon_Contabilidade
 
         private void button1_Click(object sender, EventArgs e)
         {
-            exportabanco("Carne");
-
+            if (string.IsNullOrEmpty(cb) == false)
+            {
+                exportabanco("Carne");
+            }
+            else
+            {
+                MessageBox.Show("Loja não selecionada");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -245,6 +252,16 @@ namespace Horizon_Contabilidade
         private void button2_Click(object sender, EventArgs e)
         {
             liberatudo();
+        }
+
+        private void cb2_CheckedChanged(object sender, EventArgs e)
+        {
+            cb = cb2.Text;
+        }
+
+        private void cb1_CheckedChanged(object sender, EventArgs e)
+        {
+            cb = cb1.Text;
         }
     }
 }
