@@ -280,6 +280,7 @@ namespace Horizon_Contabilidade
         public double carne()
         {
             double index = 0;
+            double indexx = 0;
             try
             {
 
@@ -288,8 +289,43 @@ namespace Horizon_Contabilidade
 
                 for (int i = 0; i <= qtdlinha - 1; i++)
                 {
-                    index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
+                         index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
                 }    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro :" + ex.Message);
+
+
+            }
+            return index;
+        }
+        public double carnelastmonth()
+        {
+            double index = 0;
+            double indexx = 0;
+            try
+            {
+
+                int count1 = Carne.Tables[0].Columns.Count;
+                int qtdlinha = Carne.Tables[0].Rows.Count;
+
+                for (int i = 0; i <= qtdlinha - 1; i++)
+                {
+                    DateTime datasale = Convert.ToDateTime(Carne.Tables[0].Rows[i]["Data_de_Venda"].ToString());
+                    DateTime datafat = Convert.ToDateTime(Carne.Tables[0].Rows[i]["Data"].ToString());
+                    DateTime data = dptData.Value;
+                    if (comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month && datafat.Year.ToString() == data.Year.ToString())
+                    {
+                        indexx = Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
+                        index += indexx;
+                    }
+                    else
+                    {
+
+                    }
+                    
+                }
             }
             catch (Exception ex)
             {
@@ -372,27 +408,35 @@ namespace Horizon_Contabilidade
         public void atualiza()
         {
             fills_in();
-            double carne1= carne();
+            double carne1 = carne();
+            double carne2 = carnelastmonth();
             double Venda_da_Armação= liquido("DB", "Venda_da_Armação");
             double Venda_da_lente = liquido("DB", "Venda_da_lente");
             double Custo_Com_Venda = liquido("DB", "Custo_Com_Venda");
             double DescT = Desc_total();
-            double Caixa = Venda_da_Armação + Venda_da_lente;
+            double Bruto = Venda_da_Armação + Venda_da_lente;
+            double Caixa = Bruto - DescT;
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
             dgvDados.DataSource = DB.Tables[0];
             txCustoVenda.Text= Custo_Com_Venda.ToString("C");
-            txBrutocd.Text = (Caixa - carne1).ToString("C");
+            txBrutocd.Text = (Bruto).ToString("C");
             txDesconto_Total.Text = DescT.ToString("C");
             if (comboBox1.Text == "Dia" )
             {
-                txLucro.Text = (Caixa - DescT - Custo_Com_Venda + carne1).ToString("C");
+                txLucro.Text = (Caixa - Custo_Com_Venda + carne1).ToString("C");
+                txCaixa.Text = (Caixa + carne1).ToString("C");
+            }
+            else if (comboBox1.Text == "Mês / Ano")
+            {
+                txCaixa.Text = (Caixa + carne2).ToString("C");
+                txLucro.Text = (Caixa - Custo_Com_Venda).ToString("C");
             }
             else
             {
-                txLucro.Text = (Caixa - DescT - Custo_Com_Venda).ToString("C");
+                txLucro.Text = (Caixa - Custo_Com_Venda + carne1).ToString("C");
+                txCaixa.Text = (Caixa).ToString("C");
             }
             tbxCarne.Text = carne1.ToString("C");
-            txCaixa.Text = (Caixa - DescT).ToString("C");
             dgvDados.AutoResizeColumns();
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
             change = 0;
@@ -590,6 +634,13 @@ namespace Horizon_Contabilidade
         {
             
 
+        }
+
+        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            db.Deletalinha("DB", retornaosclicada(dgvDados));
+            db.Deletalinha("Registrosip", retornaosclicada(dgvDados));
+            atualiza();
         }
     }
 }
