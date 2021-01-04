@@ -19,8 +19,6 @@ namespace Horizon_Contabilidade
         static private string sourcetable;
         //Properties.Settings.Default.Pastainicial = Form1.sDBstr;
          //   Properties.Settings.Default.Save();
-        static string nameTable;
-        static string dateColumn;
         //Datas
         static DataSet ds = new DataSet();
         //Getters e Setters

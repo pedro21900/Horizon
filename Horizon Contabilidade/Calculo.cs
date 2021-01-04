@@ -146,102 +146,21 @@ namespace Horizon_Contabilidade
 
             return retorno;
         }
-      
-        /*public double bruto(int x)
-        {
-            double valor = 0;
-            try
-            {
-
-                string tabela = "DB";
-                //definir a string de conexão
-
-                //definir a string SQL
-                string sSQL = "select * from " + tabela + "";
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
-                //abrir a conexão
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, tabela);
-
-                //criar um objeto Data Row
-                DataRow oDR = oDs.Tables[tabela].NewRow();
-
-                int count1 = oDs.Tables[0].Columns.Count;
-
-                double indexx = 0;
-                double index = 0;
-                int qtdlinha = oDs.Tables[0].Rows.Count;
-
-
-                for (int i = 0; i <= qtdlinha - 1; i++)
-                {
-                    index = Convert.ToDouble(oDs.Tables[0].Rows[i]["Venda_da_lente"].ToString()) + Convert.ToDouble(oDs.Tables[0].Rows[i]["Venda_da_Armação"].ToString());
-                    indexx += index;
-
-                }
-                if (x == 1) { valor = indexx - Desc_total(); }
-                else
-                {
-                    valor = indexx;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
-            return valor;
-        }
+        
         public double carne()
         {
-            double valor = 0;
+            per
+            double index = 0;
             try
             {
 
-                string tabela = "Carne";
-                //definir a string de conexão
-
-                //definir a string SQL
-                string sSQL = "select * from " + tabela + "";
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
-                //abrir a conexão
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, tabela);
-
-                //criar um objeto Data Row
-                DataRow oDR = oDs.Tables[tabela].NewRow();
-
-                int count1 = oDs.Tables[0].Columns.Count;
-
-                double indexx = 0;
-                double index = 0;
-                int qtdlinha = oDs.Tables[0].Rows.Count;
-
+                int count1 = Carne.Tables[0].Columns.Count;
+                int qtdlinha = Carne.Tables[0].Rows.Count;
 
                 for (int i = 0; i <= qtdlinha - 1; i++)
                 {
-                    index = Convert.ToDouble(oDs.Tables[0].Rows[i]["Valor"].ToString());
-                    indexx += index;
-
+                    index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
                 }
-
-                valor = indexx;
-
             }
             catch (Exception ex)
             {
@@ -249,43 +168,34 @@ namespace Horizon_Contabilidade
 
 
             }
-            return valor;
+            return index;
         }
-        public double liquido(string tabela, string coluna)
+        public double carnelastmonth()
         {
-            double valor = 0;
+            double index = 0;
             try
             {
 
-                DataSet oDs = db(tabela);
-
-
-                int count1 = oDs.Tables[0].Columns.Count;
-
-                double indexx = 0;
-                double index = 0;
-                int qtdlinha = oDs.Tables[0].Rows.Count;
-
-
+                int count1 = Carne.Tables[0].Columns.Count;
+                int qtdlinha = Carne.Tables[0].Rows.Count;
 
                 for (int i = 0; i <= qtdlinha - 1; i++)
                 {
-                    if (String.IsNullOrEmpty(oDs.Tables[0].Rows[i][coluna].ToString())) { }
-
-                    else
+                    DateTime datasale = Convert.ToDateTime(Carne.Tables[0].Rows[i]["Data_de_Venda"].ToString());
+                    DateTime datafat = Convert.ToDateTime(Carne.Tables[0].Rows[i]["Data"].ToString());
+                    DateTime data = dptData.Value;
+                    if (comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month && datafat.Year.ToString() == data.Year.ToString())
                     {
-                        index = Convert.ToDouble(oDs.Tables[0].Rows[i][coluna].ToString());
-                        indexx += index;
+                        index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
+
+                    }
+                    else if (comboBox1.Text == "Ano" && datafat.Year == data.Year && datasale.Year < data.Year)
+                    {
+                        index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
 
                     }
 
                 }
-
-
-                valor = indexx;
-
-
-
             }
             catch (Exception ex)
             {
@@ -293,62 +203,33 @@ namespace Horizon_Contabilidade
 
 
             }
-            return valor;
+            return index;
         }
-        public double Desc_total()
+        public double liquido(string tabela, string coluna)
         {
-            double valor = 0;
+            double index = 0;
             try
             {
-
-                string tabela = "Registrosip";
-                //definir a string de conexão
-
-                //definir a string SQL
-                string sSQL = "select * from " + tabela + "";
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
-                //abrir a conexão
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, tabela);
-
-                //criar um objeto Data Row
-                DataRow oDR = oDs.Tables[tabela].NewRow();
-
-                int count1 = oDs.Tables[0].Columns.Count;
-
-                double indexx = 0;
-                double index = 0;
-                int qtdlinha = oDs.Tables[0].Rows.Count;
-
-
+                DataTable oDs = db1(tabela);
+                int qtdlinha = oDs.Rows.Count;
 
                 for (int i = 0; i <= qtdlinha - 1; i++)
                 {
-                    index = Convert.ToDouble(oDs.Tables[0].Rows[i]["Desconto_total"].ToString());
-                    indexx += index;
+                    if (String.IsNullOrEmpty(oDs.Rows[i][coluna].ToString())) { }
 
+                    else
+                    {
+                        double index2 = Convert.ToDouble(oDs.Rows[i][coluna].ToString());
+                        index += index2;
+                    }
 
                 }
-
-                valor = indexx;
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro :" + ex.Message);
-
-
             }
-            return valor;
+            return index;
         }
-    }*/
     }
 }

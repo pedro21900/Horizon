@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
@@ -40,6 +39,16 @@ namespace Horizon_Contabilidade
             Registrosip = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData);
             
             Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData);
+        }
+        public bool retorna()
+        {
+
+            return c;
+        }
+        public string retornaos()
+        {
+
+            return os;
         }
         public DataRow exportadespadm(DataRow oDR)
         {
@@ -179,17 +188,7 @@ namespace Horizon_Contabilidade
             os = dgvDados.Rows[indice].Cells["Or_os"].Value.ToString();
        
             return os;
-        }
-        public bool retorna()
-        {
-
-            return c;
-        }
-        public string retornaos()
-        {
-
-            return os;
-        }
+        }        
         public Form1(DataTable data)
         {
             InitializeComponent();
@@ -277,10 +276,10 @@ namespace Horizon_Contabilidade
             }
             return stringCollection;
         }
+        //Metodos
         public double carne()
         {
             double index = 0;
-            double indexx = 0;
             try
             {
 
@@ -303,7 +302,6 @@ namespace Horizon_Contabilidade
         public double carnelastmonth()
         {
             double index = 0;
-            double indexx = 0;
             try
             {
 
@@ -317,14 +315,15 @@ namespace Horizon_Contabilidade
                     DateTime data = dptData.Value;
                     if (comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month && datafat.Year.ToString() == data.Year.ToString())
                     {
-                        indexx = Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
-                        index += indexx;
-                    }
-                    else
-                    {
+                        index+= Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
 
                     }
-                    
+                    else if (comboBox1.Text == "Ano" && datafat.Year == data.Year && datasale.Year < data.Year)
+                    {
+                        index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
+                        
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -382,29 +381,6 @@ namespace Horizon_Contabilidade
             }
             return index;
         }
-        public double Desc_total()
-        {
-            double index = 0;
-            try
-            {
-                int qtdlinha = Registrosip.Tables[0].Rows.Count;
-                for (int i = 0; i < qtdlinha ; i++)
-                {
-                 double index2 = Convert.ToDouble(db.filtratexto(Registrosip.Tables[0].Rows[i]["Desconto_total"].ToString()));
-
-                    index += index2;
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
-            return index;
-        }
         public void atualiza()
         {
             fills_in();
@@ -413,9 +389,36 @@ namespace Horizon_Contabilidade
             double Venda_da_Armação= liquido("DB", "Venda_da_Armação");
             double Venda_da_lente = liquido("DB", "Venda_da_lente");
             double Custo_Com_Venda = liquido("DB", "Custo_Com_Venda");
-            double DescT = Desc_total();
+            double DescT = liquido("Registrosip", "Desconto_total");
             double Bruto = Venda_da_Armação + Venda_da_lente;
             double Caixa = Bruto - DescT;
+            double Hoya=Providers("HOYA", "Lente") ;
+            double Rodenstock= (Providers("RODENSTOCK", "Lente") + Providers("RODENSTOCK", "Armação"));
+            double Zeiss= Providers("LABOOTICA", "Lente");
+            double Essilor= Providers("COMPROL", "Lente");
+
+            double Safilo= Providers("SAFILO", "Armação");
+            double Belaro= Providers("BELARO", "Armação");
+            double Mizuno= Providers("MIZUNO", "Armação");
+            double Marcolin= Providers("MARCOLIN", "Armação");
+            double Tlens = Hoya + Rodenstock + Zeiss + Essilor;
+            double Tarm = Safilo + Belaro + Mizuno + Marcolin;
+           //Lentes
+            txHoya.Text= Hoya.ToString("C");
+            txRodenstock.Text = Rodenstock.ToString("C");
+            txZeiss.Text = Zeiss.ToString("C");
+            txEssilor.Text = Essilor.ToString("C");
+
+
+            //Armação
+            txSafilo.Text = Safilo.ToString("C");
+            txBelaro.Text = Belaro.ToString("C");
+            txMizuno.Text = Mizuno.ToString("C");
+            txMarcolin.Text= Marcolin.ToString("C");
+            
+            txArm.Text= Tarm.ToString("C");
+            txTlens.Text= Tlens.ToString("C");
+
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
             dgvDados.DataSource = DB.Tables[0];
             txCustoVenda.Text= Custo_Com_Venda.ToString("C");
@@ -434,39 +437,32 @@ namespace Horizon_Contabilidade
             else
             {
                 txLucro.Text = (Caixa - Custo_Com_Venda + carne1).ToString("C");
-                txCaixa.Text = (Caixa).ToString("C");
+                txCaixa.Text = (Caixa+carne2).ToString("C");
             }
             tbxCarne.Text = carne1.ToString("C");
             dgvDados.AutoResizeColumns();
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
             change = 0;
         }
-        public static bool verificatabela(string procurado, string comando)
+        public double Providers(string nameProviders, string lens_or_frame)
         {
-            bool result = false;
-            DataTable d0 = new DataTable();
-            OleDbConnection aConnection = new OleDbConnection(SDBstr);
-            OleDbCommand comm = new OleDbCommand();
-            comm.Connection = aConnection;
-            aConnection.Open();
-            comm.CommandText = comando;
+            double index = 0;
 
-            OleDbDataAdapter dr = new OleDbDataAdapter();
-            comm.CommandText = comando;
-            dr.SelectCommand = comm;
-            dr.Fill(d0);
-            List<string> listacoluna = new List<string>();
-            foreach (DataRow row in d0.Rows)
-            {
+                DataTable oDs = db1("DB");
+                int qtdlinha = oDs.Rows.Count;
 
-                string linha = string.Join(",", row.ItemArray);
-                listacoluna.Add(linha);
+                for (int i = 0; i <= qtdlinha - 1; i++)
+                {
+                    if (oDs.Rows[i]["Fornecedor"].ToString().Contains(nameProviders)) {  
+                        double index2 = Convert.ToDouble(oDs.Rows[i]["Compra_da_" + lens_or_frame].ToString());
+                        index += index2;
+                    }
 
+                }
 
-            }
-            result = string.Join(",", listacoluna).Contains(procurado);
-            return result;
+            return index;
         }
+        //Form
         private void Add_registro_Click(object sender, EventArgs e)
         {
             c = cadastro.retorna2();
@@ -562,9 +558,9 @@ namespace Horizon_Contabilidade
             }
             else if (comboBox1.Text == "Ano")
             {
-                label12.Text = "";
+                label12.Text = "Receita do Ano";
                 txCaixa.Enabled = false;
-                txCaixa.Text = "";
+                
             }
             if ("Mês" == comboBox1.Text)
             {
@@ -641,6 +637,11 @@ namespace Horizon_Contabilidade
             db.Deletalinha("DB", retornaosclicada(dgvDados));
             db.Deletalinha("Registrosip", retornaosclicada(dgvDados));
             atualiza();
+        }
+
+        private void txTlens_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

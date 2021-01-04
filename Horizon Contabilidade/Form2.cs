@@ -302,7 +302,7 @@ namespace Horizon_Contabilidade
                         if (indexx == "Or_os") { txOs_Or.Text = index; }
                         else if (indexx == "Data") { dateTimePicker1.Text = index; }
                         else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }
-                        else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }                        
+                        else if (indexx == "Compra_da_Lente") { txCompra_lente.Text = index; }                        
                         else if (String.IsNullOrEmpty(index) && indexx == "Lab_surf") { txLab.Text = "0"; }
                         else if (indexx == "Lab") { txLab.Text = index; }
                         else if (String.IsNullOrEmpty(index) && indexx == "Lab_mont") { txCol.Text = "0"; }
@@ -352,7 +352,7 @@ namespace Horizon_Contabilidade
                         else if (indexx == "Venda_da_Armação") { txVenda_armacao.Text = index; }
                         else if (indexx == "Compra_da_Armação") { txCompra_armacao.Text = index; }
                         else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }
-                        else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }
+                        else if (indexx == "Compra_da_Lente") { txCompra_lente.Text = index; }
                         
                         else if (indexx == "Lab") { txLab.Text = index; }
                         else if (indexx == "Coloração") { txCol.Text = index; }
