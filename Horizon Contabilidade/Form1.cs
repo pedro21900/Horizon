@@ -313,12 +313,13 @@ namespace Horizon_Contabilidade
                     DateTime datasale = Convert.ToDateTime(Carne.Tables[0].Rows[i]["Data_de_Venda"].ToString());
                     DateTime datafat = Convert.ToDateTime(Carne.Tables[0].Rows[i]["Data"].ToString());
                     DateTime data = dptData.Value;
-                    if (comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month && datafat.Year.ToString() == data.Year.ToString())
+                    if (comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month || 
+                        datafat.Year < data.Year && comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month)
                     {
                         index+= Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
 
                     }
-                    else if (comboBox1.Text == "Ano" && datafat.Year == data.Year && datasale.Year < data.Year)
+                    else if (comboBox1.Text == "Ano" && datafat.Year == data.Year || datasale.Year < data.Year && comboBox1.Text == "Ano" && datafat.Year == data.Year)
                     {
                         index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
                         
@@ -332,6 +333,44 @@ namespace Horizon_Contabilidade
 
 
             }
+            return index;
+        }
+        public double carneaftermonth()
+        {
+            double index = 0;
+            try
+            {
+                DataTable carne = db.TableDb("Select * From Carne");
+                int count1 = carne.Columns.Count;
+                int qtdlinha = carne.Rows.Count;
+
+                for (int i = 0; i <= qtdlinha - 1; i++)
+                {
+                    DateTime datasale = Convert.ToDateTime(carne.Rows[i]["Data_de_Venda"].ToString());
+                    DateTime datafat = Convert.ToDateTime(carne.Rows[i]["Data"].ToString());
+                    DateTime data = dptData.Value;
+                    if (comboBox1.Text == "Mês / Ano" &&  datasale.Month == data.Month && datafat.Month > data.Month&& datafat.Year == data.Year ||
+                        datafat.Year > data.Year && comboBox1.Text == "Mês / Ano" && datasale.Month == data.Month )
+                    {
+                        index += Convert.ToDouble(carne.Rows[i]["Valor"].ToString());
+
+                    }
+                    else if ( datasale.Year < data.Year && comboBox1.Text == "Ano" && datafat.Year == data.Year)
+                    {
+                        index += Convert.ToDouble(carne.Rows[i]["Valor"].ToString());
+
+                    }
+
+                }
+                carne.Clear(); carne.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro :" + ex.Message);
+
+
+            }
+            
             return index;
         }
         public DataTable db1(string tabela)
@@ -384,8 +423,11 @@ namespace Horizon_Contabilidade
         public void atualiza()
         {
             fills_in();
-            double carne1 = carne();
-            double carne2 = carnelastmonth();
+            double carneafter = carneaftermonth();
+            double carnelast = carnelastmonth();
+            double paid_out = carnelast - carneafter;
+            double carne1 = carne()- paid_out;
+                       
             double Venda_da_Armação= liquido("DB", "Venda_da_Armação");
             double Venda_da_lente = liquido("DB", "Venda_da_lente");
             double Custo_Com_Venda = liquido("DB", "Custo_Com_Venda");
@@ -421,25 +463,31 @@ namespace Horizon_Contabilidade
 
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
             dgvDados.DataSource = DB.Tables[0];
+            txCarnenpg.Text= carneafter.ToString("C");
             txCustoVenda.Text= Custo_Com_Venda.ToString("C");
-            txBrutocd.Text = (Bruto).ToString("C");
+            txBrutocd.Text = (Bruto-carne1).ToString("C");
             txDesconto_Total.Text = DescT.ToString("C");
             if (comboBox1.Text == "Dia" )
             {
-                txLucro.Text = (Caixa - Custo_Com_Venda + carne1).ToString("C");
+                txLucro.Text = (Caixa - Custo_Com_Venda + paid_out).ToString("C");
                 txCaixa.Text = (Caixa + carne1).ToString("C");
+                tbxCarne.Text = carne1.ToString("C");
+                txReceita.Text=((Caixa + carne1)- carneafter).ToString("C");
             }
             else if (comboBox1.Text == "Mês / Ano")
             {
-                txCaixa.Text = (Caixa + carne2).ToString("C");
-                txLucro.Text = (Caixa - Custo_Com_Venda).ToString("C");
+                txCaixa.Text = (Caixa + paid_out).ToString("C");
+                txLucro.Text = (Caixa - Custo_Com_Venda + paid_out).ToString("C");
+                tbxCarne.Text = (carne1+ paid_out).ToString("C");
+                txReceita.Text = ((Caixa + paid_out) - carneafter).ToString("C");
             }
             else
             {
-                txLucro.Text = (Caixa - Custo_Com_Venda + carne1).ToString("C");
-                txCaixa.Text = (Caixa+carne2).ToString("C");
+                txLucro.Text = (Caixa - Custo_Com_Venda + paid_out).ToString("C");
+                txCaixa.Text = (Caixa + paid_out).ToString("C");
+                tbxCarne.Text = (paid_out + carne1).ToString("C");
+                txReceita.Text = ((Caixa + paid_out) - carneafter).ToString("C");
             }
-            tbxCarne.Text = carne1.ToString("C");
             dgvDados.AutoResizeColumns();
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
             change = 0;

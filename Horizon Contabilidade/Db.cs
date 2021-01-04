@@ -84,25 +84,7 @@ namespace Horizon_Contabilidade
             string nomePlanilha = dtSchema.Rows[indexName]["TABLE_NAME"].ToString();
             return nomePlanilha;
         }
-        //private static string columnExport()
-        //{
-
-        //    string column = "";
-        //    if (excel_Manipulations.Qtdcolumn == 4)
-        //    {
-        //        column = "Emitente,Destinatário,[N°# Nota],Emissão,Valor";
-        //        dateColumn = "Emissão";
-        //        nameTable = "XmlTable";
-        //    }
-        //    else if (excel_Manipulations.Qtdcolumn == 8)
-        //    {
-        //        column = "[Forma Pgto#],Valor,Desconto,Faturado,Cliente,[NFCe/SAT/Cupom],[Código Fatura],DataFaturamento,Tipo";
-        //        dateColumn = "DataFaturamento";
-        //        nameTable = "RelFatTable";
-        //    }
-        //    else { }
-        //    return column;
-        //}
+  
         public void salvatabela(OleDbDataAdapter oDA, DataSet oDs, string tabela)
         {
             //Usar o objeto Command Bulder para gerar o Comandop Insert
@@ -244,27 +226,14 @@ namespace Horizon_Contabilidade
             return texto;
         }
         //import table to datatable 
-        static public DataTable TableDb(string command)
+         public DataTable TableDb(string command)
         {
             OleDbCommand cmd = new OleDbCommand(command, Db.ConectDb());
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
-            return dt;
-
+            return dt;    
         }
-        //Importa para o Banco de dados as planilhas
-        //static public DataSet importTable()
-        //{
-        //    OleDbDataAdapter ada = new OleDbDataAdapter("select " + columnExport() + " from [" +
-        //        NameTable(ConectTable(), 0) + "]", ConectTable());
 
-        //    ada.Fill(ds);
-
-        //    ConectTable().Close();
-
-        //    return ds;
-
-        //}
         static public void importtoDb()
         {
             //excel_Manipulations.check_table(sourcetable);

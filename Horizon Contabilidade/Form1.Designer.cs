@@ -116,6 +116,18 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Dv = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.txMizuno = new System.Windows.Forms.Label();
+            this.txMarcolin = new System.Windows.Forms.Label();
+            this.txEssilor = new System.Windows.Forms.Label();
+            this.txZeiss = new System.Windows.Forms.Label();
+            this.txRodenstock = new System.Windows.Forms.Label();
+            this.txHoya = new System.Windows.Forms.Label();
+            this.txBelaro = new System.Windows.Forms.Label();
+            this.txSafilo = new System.Windows.Forms.Label();
+            this.txTlens = new System.Windows.Forms.TextBox();
+            this.txArm = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
@@ -153,18 +165,12 @@
             this.Add_registro = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.button1 = new System.Windows.Forms.Button();
-            this.txArm = new System.Windows.Forms.TextBox();
-            this.txTlens = new System.Windows.Forms.TextBox();
-            this.txSafilo = new System.Windows.Forms.Label();
-            this.txBelaro = new System.Windows.Forms.Label();
-            this.txHoya = new System.Windows.Forms.Label();
-            this.txRodenstock = new System.Windows.Forms.Label();
-            this.txZeiss = new System.Windows.Forms.Label();
-            this.txEssilor = new System.Windows.Forms.Label();
-            this.txMarcolin = new System.Windows.Forms.Label();
-            this.txMizuno = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.txCarnenpg = new System.Windows.Forms.TextBox();
+            this.txReceita = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1065,6 +1071,125 @@
             this.panel7.Size = new System.Drawing.Size(430, 178);
             this.panel7.TabIndex = 35;
             // 
+            // label58
+            // 
+            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(47, 127);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(31, 13);
+            this.label58.TabIndex = 46;
+            this.label58.Text = "Total";
+            // 
+            // label57
+            // 
+            this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(340, 128);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(31, 13);
+            this.label57.TabIndex = 45;
+            this.label57.Text = "Total";
+            // 
+            // txMizuno
+            // 
+            this.txMizuno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txMizuno.AutoSize = true;
+            this.txMizuno.Location = new System.Drawing.Point(356, 70);
+            this.txMizuno.Name = "txMizuno";
+            this.txMizuno.Size = new System.Drawing.Size(42, 13);
+            this.txMizuno.TabIndex = 44;
+            this.txMizuno.Text = "Safilo : ";
+            // 
+            // txMarcolin
+            // 
+            this.txMarcolin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txMarcolin.AutoSize = true;
+            this.txMarcolin.Location = new System.Drawing.Point(361, 99);
+            this.txMarcolin.Name = "txMarcolin";
+            this.txMarcolin.Size = new System.Drawing.Size(42, 13);
+            this.txMarcolin.TabIndex = 43;
+            this.txMarcolin.Text = "Safilo : ";
+            // 
+            // txEssilor
+            // 
+            this.txEssilor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txEssilor.AutoSize = true;
+            this.txEssilor.Location = new System.Drawing.Point(55, 103);
+            this.txEssilor.Name = "txEssilor";
+            this.txEssilor.Size = new System.Drawing.Size(42, 13);
+            this.txEssilor.TabIndex = 42;
+            this.txEssilor.Text = "Safilo : ";
+            // 
+            // txZeiss
+            // 
+            this.txZeiss.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txZeiss.AutoSize = true;
+            this.txZeiss.Location = new System.Drawing.Point(52, 75);
+            this.txZeiss.Name = "txZeiss";
+            this.txZeiss.Size = new System.Drawing.Size(42, 13);
+            this.txZeiss.TabIndex = 41;
+            this.txZeiss.Text = "Safilo : ";
+            // 
+            // txRodenstock
+            // 
+            this.txRodenstock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txRodenstock.AutoSize = true;
+            this.txRodenstock.Location = new System.Drawing.Point(82, 43);
+            this.txRodenstock.Name = "txRodenstock";
+            this.txRodenstock.Size = new System.Drawing.Size(42, 13);
+            this.txRodenstock.TabIndex = 40;
+            this.txRodenstock.Text = "Safilo : ";
+            // 
+            // txHoya
+            // 
+            this.txHoya.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txHoya.AutoSize = true;
+            this.txHoya.Location = new System.Drawing.Point(62, 14);
+            this.txHoya.Name = "txHoya";
+            this.txHoya.Size = new System.Drawing.Size(42, 13);
+            this.txHoya.TabIndex = 37;
+            this.txHoya.Text = "Safilo : ";
+            // 
+            // txBelaro
+            // 
+            this.txBelaro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txBelaro.AutoSize = true;
+            this.txBelaro.Location = new System.Drawing.Point(355, 40);
+            this.txBelaro.Name = "txBelaro";
+            this.txBelaro.Size = new System.Drawing.Size(42, 13);
+            this.txBelaro.TabIndex = 36;
+            this.txBelaro.Text = "Safilo : ";
+            // 
+            // txSafilo
+            // 
+            this.txSafilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txSafilo.AutoSize = true;
+            this.txSafilo.Location = new System.Drawing.Point(355, 17);
+            this.txSafilo.Name = "txSafilo";
+            this.txSafilo.Size = new System.Drawing.Size(42, 13);
+            this.txSafilo.TabIndex = 35;
+            this.txSafilo.Text = "Safilo : ";
+            // 
+            // txTlens
+            // 
+            this.txTlens.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txTlens.Enabled = false;
+            this.txTlens.Location = new System.Drawing.Point(14, 146);
+            this.txTlens.Name = "txTlens";
+            this.txTlens.Size = new System.Drawing.Size(99, 20);
+            this.txTlens.TabIndex = 34;
+            this.txTlens.TextChanged += new System.EventHandler(this.txTlens_TextChanged);
+            // 
+            // txArm
+            // 
+            this.txArm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txArm.Enabled = false;
+            this.txArm.Location = new System.Drawing.Point(310, 147);
+            this.txArm.Name = "txArm";
+            this.txArm.Size = new System.Drawing.Size(91, 20);
+            this.txArm.TabIndex = 33;
+            // 
             // label52
             // 
             this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1160,6 +1285,12 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label62);
+            this.panel2.Controls.Add(this.label61);
+            this.panel2.Controls.Add(this.txReceita);
+            this.panel2.Controls.Add(this.label60);
+            this.panel2.Controls.Add(this.label56);
+            this.panel2.Controls.Add(this.txCarnenpg);
             this.panel2.Controls.Add(this.txCaixa);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
@@ -1185,7 +1316,7 @@
             // txCaixa
             // 
             this.txCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txCaixa.Location = new System.Drawing.Point(344, 77);
+            this.txCaixa.Location = new System.Drawing.Point(203, 77);
             this.txCaixa.Name = "txCaixa";
             this.txCaixa.ReadOnly = true;
             this.txCaixa.Size = new System.Drawing.Size(109, 20);
@@ -1195,11 +1326,11 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(358, 52);
+            this.label12.Location = new System.Drawing.Point(235, 51);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 13);
+            this.label12.Size = new System.Drawing.Size(33, 13);
             this.label12.TabIndex = 41;
-            this.label12.Text = "Receita do Mês";
+            this.label12.Text = "Caixa";
             this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label11
@@ -1286,7 +1417,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(361, 5);
+            this.label8.Location = new System.Drawing.Point(362, 4);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 30);
             this.label8.TabIndex = 16;
@@ -1325,11 +1456,11 @@
             // 
             this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(221, 123);
+            this.label36.Location = new System.Drawing.Point(220, 118);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(40, 13);
+            this.label36.Size = new System.Drawing.Size(72, 13);
             this.label36.TabIndex = 31;
-            this.label36.Text = "Carnês";
+            this.label36.Text = "Carnês pagos";
             // 
             // label4
             // 
@@ -1344,7 +1475,7 @@
             // tbxCarne
             // 
             this.tbxCarne.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxCarne.Location = new System.Drawing.Point(197, 151);
+            this.tbxCarne.Location = new System.Drawing.Point(200, 146);
             this.tbxCarne.Name = "tbxCarne";
             this.tbxCarne.ReadOnly = true;
             this.tbxCarne.Size = new System.Drawing.Size(103, 20);
@@ -1449,124 +1580,64 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txArm
+            // label56
             // 
-            this.txArm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txArm.Enabled = false;
-            this.txArm.Location = new System.Drawing.Point(310, 147);
-            this.txArm.Name = "txArm";
-            this.txArm.Size = new System.Drawing.Size(91, 20);
-            this.txArm.TabIndex = 33;
+            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(353, 50);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(93, 13);
+            this.label56.TabIndex = 43;
+            this.label56.Text = "Carnês não pagos";
             // 
-            // txTlens
+            // txCarnenpg
             // 
-            this.txTlens.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txTlens.Enabled = false;
-            this.txTlens.Location = new System.Drawing.Point(14, 146);
-            this.txTlens.Name = "txTlens";
-            this.txTlens.Size = new System.Drawing.Size(99, 20);
-            this.txTlens.TabIndex = 34;
-            this.txTlens.TextChanged += new System.EventHandler(this.txTlens_TextChanged);
+            this.txCarnenpg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txCarnenpg.Location = new System.Drawing.Point(346, 77);
+            this.txCarnenpg.Name = "txCarnenpg";
+            this.txCarnenpg.ReadOnly = true;
+            this.txCarnenpg.Size = new System.Drawing.Size(103, 20);
+            this.txCarnenpg.TabIndex = 42;
             // 
-            // txSafilo
+            // txReceita
             // 
-            this.txSafilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txSafilo.AutoSize = true;
-            this.txSafilo.Location = new System.Drawing.Point(355, 17);
-            this.txSafilo.Name = "txSafilo";
-            this.txSafilo.Size = new System.Drawing.Size(42, 13);
-            this.txSafilo.TabIndex = 35;
-            this.txSafilo.Text = "Safilo : ";
+            this.txReceita.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txReceita.Location = new System.Drawing.Point(473, 77);
+            this.txReceita.Name = "txReceita";
+            this.txReceita.ReadOnly = true;
+            this.txReceita.Size = new System.Drawing.Size(109, 20);
+            this.txReceita.TabIndex = 44;
             // 
-            // txBelaro
+            // label60
             // 
-            this.txBelaro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txBelaro.AutoSize = true;
-            this.txBelaro.Location = new System.Drawing.Point(355, 40);
-            this.txBelaro.Name = "txBelaro";
-            this.txBelaro.Size = new System.Drawing.Size(42, 13);
-            this.txBelaro.TabIndex = 36;
-            this.txBelaro.Text = "Safilo : ";
+            this.label60.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(487, 52);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(82, 13);
+            this.label60.TabIndex = 45;
+            this.label60.Text = "Receita do Mês";
             // 
-            // txHoya
+            // label61
             // 
-            this.txHoya.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txHoya.AutoSize = true;
-            this.txHoya.Location = new System.Drawing.Point(62, 14);
-            this.txHoya.Name = "txHoya";
-            this.txHoya.Size = new System.Drawing.Size(42, 13);
-            this.txHoya.TabIndex = 37;
-            this.txHoya.Text = "Safilo : ";
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(325, 75);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(16, 24);
+            this.label61.TabIndex = 46;
+            this.label61.Text = "-";
             // 
-            // txRodenstock
+            // label62
             // 
-            this.txRodenstock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txRodenstock.AutoSize = true;
-            this.txRodenstock.Location = new System.Drawing.Point(82, 43);
-            this.txRodenstock.Name = "txRodenstock";
-            this.txRodenstock.Size = new System.Drawing.Size(42, 13);
-            this.txRodenstock.TabIndex = 40;
-            this.txRodenstock.Text = "Safilo : ";
-            // 
-            // txZeiss
-            // 
-            this.txZeiss.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txZeiss.AutoSize = true;
-            this.txZeiss.Location = new System.Drawing.Point(52, 75);
-            this.txZeiss.Name = "txZeiss";
-            this.txZeiss.Size = new System.Drawing.Size(42, 13);
-            this.txZeiss.TabIndex = 41;
-            this.txZeiss.Text = "Safilo : ";
-            // 
-            // txEssilor
-            // 
-            this.txEssilor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txEssilor.AutoSize = true;
-            this.txEssilor.Location = new System.Drawing.Point(55, 103);
-            this.txEssilor.Name = "txEssilor";
-            this.txEssilor.Size = new System.Drawing.Size(42, 13);
-            this.txEssilor.TabIndex = 42;
-            this.txEssilor.Text = "Safilo : ";
-            // 
-            // txMarcolin
-            // 
-            this.txMarcolin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txMarcolin.AutoSize = true;
-            this.txMarcolin.Location = new System.Drawing.Point(367, 99);
-            this.txMarcolin.Name = "txMarcolin";
-            this.txMarcolin.Size = new System.Drawing.Size(42, 13);
-            this.txMarcolin.TabIndex = 43;
-            this.txMarcolin.Text = "Safilo : ";
-            // 
-            // txMizuno
-            // 
-            this.txMizuno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txMizuno.AutoSize = true;
-            this.txMizuno.Location = new System.Drawing.Point(356, 70);
-            this.txMizuno.Name = "txMizuno";
-            this.txMizuno.Size = new System.Drawing.Size(42, 13);
-            this.txMizuno.TabIndex = 44;
-            this.txMizuno.Text = "Safilo : ";
-            // 
-            // label57
-            // 
-            this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(340, 128);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(31, 13);
-            this.label57.TabIndex = 45;
-            this.label57.Text = "Total";
-            // 
-            // label58
-            // 
-            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(47, 127);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(31, 13);
-            this.label58.TabIndex = 46;
-            this.label58.Text = "Total";
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(451, 76);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(21, 24);
+            this.label62.TabIndex = 47;
+            this.label62.Text = "=";
+            this.label62.UseWaitCursor = true;
             // 
             // Form1
             // 
@@ -1750,6 +1821,12 @@
         private System.Windows.Forms.Label txBelaro;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.TextBox txReceita;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox txCarnenpg;
     }
 }
 
