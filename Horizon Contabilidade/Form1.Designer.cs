@@ -1040,7 +1040,6 @@
             this.Dv.TabIndex = 0;
             this.Dv.Text = "Vendas";
             this.Dv.UseVisualStyleBackColor = true;
-            this.Dv.Click += new System.EventHandler(this.Dv_Click);
             // 
             // panel7
             // 
@@ -1331,7 +1330,7 @@
             this.label12.Size = new System.Drawing.Size(33, 13);
             this.label12.TabIndex = 41;
             this.label12.Text = "Caixa";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
+
             // 
             // label11
             // 

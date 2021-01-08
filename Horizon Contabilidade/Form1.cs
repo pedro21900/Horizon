@@ -340,30 +340,36 @@ namespace Horizon_Contabilidade
             double index = 0;
             try
             {
-                DataTable carne = db.TableDb("Select * From Carne");
-                int count1 = carne.Columns.Count;
-                int qtdlinha = carne.Rows.Count;
-
-                for (int i = 0; i <= qtdlinha - 1; i++)
+                string comando = "";
+                if (comboBox2.Text != "Todas as Lojas")
                 {
-                    DateTime datasale = Convert.ToDateTime(carne.Rows[i]["Data_de_Venda"].ToString());
-                    DateTime datafat = Convert.ToDateTime(carne.Rows[i]["Data"].ToString());
-                    DateTime data = dptData.Value;
-                    if (comboBox1.Text == "Mês / Ano" &&  datasale.Month == data.Month && datafat.Month > data.Month&& datafat.Year == data.Year ||
-                        datafat.Year > data.Year && comboBox1.Text == "Mês / Ano" && datasale.Month == data.Month )
-                    {
-                        index += Convert.ToDouble(carne.Rows[i]["Valor"].ToString());
-
-                    }
-                    else if ( datasale.Year < data.Year && comboBox1.Text == "Ano" && datafat.Year == data.Year)
-                    {
-                        index += Convert.ToDouble(carne.Rows[i]["Valor"].ToString());
-
-                    }
-
+                    comando = " WHERE (Loja LIKE '%" + comboBox2.Text + "%')";
                 }
-                carne.Clear(); carne.Dispose();
-            }
+                DataTable carne = db.TableDb("Select * From Carne" + comando);
+                    int count1 = carne.Columns.Count;
+                    int qtdlinha = carne.Rows.Count;
+
+                    for (int i = 0; i <= qtdlinha - 1; i++)
+                    {
+                        DateTime datasale = Convert.ToDateTime(carne.Rows[i]["Data_de_Venda"].ToString());
+                        DateTime datafat = Convert.ToDateTime(carne.Rows[i]["Data"].ToString());
+                        DateTime data = dptData.Value;
+                        if (comboBox1.Text == "Mês / Ano" && (datasale.Month == data.Month || datasale.Month != data.Month && datasale.Month != datafat.Month) && datafat.Month > data.Month && datafat.Year == data.Year ||
+                            datafat.Year > data.Year && comboBox1.Text == "Mês / Ano" && datasale.Month == data.Month)
+                        {
+                            index += Convert.ToDouble(carne.Rows[i]["Valor"].ToString());
+
+                        }
+                        else if (datasale.Year < data.Year && comboBox1.Text == "Ano" && datafat.Year == data.Year)
+                        {
+                            index += Convert.ToDouble(carne.Rows[i]["Valor"].ToString());
+
+                        }
+
+                    }
+                    carne.Clear(); carne.Dispose();
+                }
+            
             catch (Exception ex)
             {
                 MessageBox.Show("Erro :" + ex.Message);
@@ -667,17 +673,6 @@ namespace Horizon_Contabilidade
             d1.Clear();
             d1 = DB.Tables[0];
             atualiza();
-        }
-
-        private void Dv_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-            
-
         }
 
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
