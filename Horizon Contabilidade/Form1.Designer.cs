@@ -138,6 +138,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.txReceita = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.txCarnenpg = new System.Windows.Forms.TextBox();
             this.txCaixa = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -165,12 +171,6 @@
             this.Add_registro = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.button1 = new System.Windows.Forms.Button();
-            this.label56 = new System.Windows.Forms.Label();
-            this.txCarnenpg = new System.Windows.Forms.TextBox();
-            this.txReceita = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1040,6 +1040,7 @@
             this.Dv.TabIndex = 0;
             this.Dv.Text = "Vendas";
             this.Dv.UseVisualStyleBackColor = true;
+            this.Dv.Click += new System.EventHandler(this.Dv_Click);
             // 
             // panel7
             // 
@@ -1312,6 +1313,65 @@
             this.panel2.Size = new System.Drawing.Size(782, 184);
             this.panel2.TabIndex = 32;
             // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(451, 76);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(21, 24);
+            this.label62.TabIndex = 47;
+            this.label62.Text = "=";
+            this.label62.UseWaitCursor = true;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(325, 75);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(16, 24);
+            this.label61.TabIndex = 46;
+            this.label61.Text = "-";
+            // 
+            // txReceita
+            // 
+            this.txReceita.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txReceita.Location = new System.Drawing.Point(473, 77);
+            this.txReceita.Name = "txReceita";
+            this.txReceita.ReadOnly = true;
+            this.txReceita.Size = new System.Drawing.Size(109, 20);
+            this.txReceita.TabIndex = 44;
+            // 
+            // label60
+            // 
+            this.label60.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(487, 52);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(82, 13);
+            this.label60.TabIndex = 45;
+            this.label60.Text = "Receita do Mês";
+            // 
+            // label56
+            // 
+            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(353, 50);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(93, 13);
+            this.label56.TabIndex = 43;
+            this.label56.Text = "Carnês não pagos";
+            // 
+            // txCarnenpg
+            // 
+            this.txCarnenpg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txCarnenpg.Location = new System.Drawing.Point(346, 77);
+            this.txCarnenpg.Name = "txCarnenpg";
+            this.txCarnenpg.ReadOnly = true;
+            this.txCarnenpg.Size = new System.Drawing.Size(103, 20);
+            this.txCarnenpg.TabIndex = 42;
+            // 
             // txCaixa
             // 
             this.txCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -1330,7 +1390,6 @@
             this.label12.Size = new System.Drawing.Size(33, 13);
             this.label12.TabIndex = 41;
             this.label12.Text = "Caixa";
-
             // 
             // label11
             // 
@@ -1578,65 +1637,6 @@
             this.button1.Text = "Importar dados do Excel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label56
-            // 
-            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(353, 50);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(93, 13);
-            this.label56.TabIndex = 43;
-            this.label56.Text = "Carnês não pagos";
-            // 
-            // txCarnenpg
-            // 
-            this.txCarnenpg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txCarnenpg.Location = new System.Drawing.Point(346, 77);
-            this.txCarnenpg.Name = "txCarnenpg";
-            this.txCarnenpg.ReadOnly = true;
-            this.txCarnenpg.Size = new System.Drawing.Size(103, 20);
-            this.txCarnenpg.TabIndex = 42;
-            // 
-            // txReceita
-            // 
-            this.txReceita.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txReceita.Location = new System.Drawing.Point(473, 77);
-            this.txReceita.Name = "txReceita";
-            this.txReceita.ReadOnly = true;
-            this.txReceita.Size = new System.Drawing.Size(109, 20);
-            this.txReceita.TabIndex = 44;
-            // 
-            // label60
-            // 
-            this.label60.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(487, 52);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(82, 13);
-            this.label60.TabIndex = 45;
-            this.label60.Text = "Receita do Mês";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(325, 75);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(16, 24);
-            this.label61.TabIndex = 46;
-            this.label61.Text = "-";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(451, 76);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(21, 24);
-            this.label62.TabIndex = 47;
-            this.label62.Text = "=";
-            this.label62.UseWaitCursor = true;
             // 
             // Form1
             // 

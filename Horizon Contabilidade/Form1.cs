@@ -686,5 +686,10 @@ namespace Horizon_Contabilidade
         {
 
         }
+
+        private void Dv_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
