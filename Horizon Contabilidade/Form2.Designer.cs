@@ -480,6 +480,7 @@
             this.txMarca_lente.Name = "txMarca_lente";
             this.txMarca_lente.Size = new System.Drawing.Size(100, 20);
             this.txMarca_lente.TabIndex = 11;
+
             // 
             // label20
             // 
