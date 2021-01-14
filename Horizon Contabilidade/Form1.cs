@@ -442,20 +442,28 @@ namespace Horizon_Contabilidade
             double Caixa = Bruto - DescT;
             double Hoya=Providers("HOYA", "Lente") ;
             double Rodenstock= (Providers("RODENSTOCK", "Lente") + Providers("RODENSTOCK", "Armação"));
-            double Zeiss= Providers("LABOOTICA", "Lente");
+            double labootica= Providers("LABOOTICA", "Lente");
+            double icopa = Providers("ICOPA", "Lente");
+            double opt = Providers("OPTIPRIME", "Lente");
+            double tri = Providers("TRI-LAB", "Lente");
+            double zeissbelem = Providers("ZEISS BELEM", "Lente");
+
             double Essilor= Providers("COMPROL", "Lente");
 
             double Safilo= Providers("SAFILO", "Armação");
             double Belaro= Providers("BELARO", "Armação");
             double Mizuno= Providers("MIZUNO", "Armação");
             double Marcolin= Providers("MARCOLIN", "Armação");
-            double Tlens = Hoya + Rodenstock + Zeiss + Essilor;
-            double Tarm = Safilo + Belaro + Mizuno + Marcolin;
+
            //Lentes
             txHoya.Text= Hoya.ToString("C");
             txRodenstock.Text = Rodenstock.ToString("C");
-            txZeiss.Text = Zeiss.ToString("C");
-            txEssilor.Text = Essilor.ToString("C");
+            txLabootica.Text = labootica.ToString("C");
+            txComprol.Text = Essilor.ToString("C");
+            txOpt.Text = opt.ToString("C");
+            txIcopa.Text= icopa.ToString("C");
+            txTri.Text = tri.ToString("C");
+            txZbelem.Text= zeissbelem.ToString("C");
 
 
             //Armação
@@ -464,8 +472,7 @@ namespace Horizon_Contabilidade
             txMizuno.Text = Mizuno.ToString("C");
             txMarcolin.Text= Marcolin.ToString("C");
             
-            txArm.Text= Tarm.ToString("C");
-            txTlens.Text= Tlens.ToString("C");
+           
 
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
             dgvDados.DataSource = DB.Tables[0];
@@ -495,7 +502,7 @@ namespace Horizon_Contabilidade
                 txReceita.Text = ((Caixa + paid_out) - carneafter).ToString("C");
             }
             dgvDados.AutoResizeColumns();
-            txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
+            txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos(comboBox3.Text, "DB");
             change = 0;
         }
         public double Providers(string nameProviders, string lens_or_frame)
@@ -597,7 +604,8 @@ namespace Horizon_Contabilidade
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           dgvDados.DataSource=  db.pesquisaos("DB", txPesquisa_princial.Text).Tables[0];
+
+           dgvDados.DataSource=  db.pesquisaos("DB",comboBox3.Text, txPesquisa_princial.Text).Tables[0];
             //pesquisa(txPesquisa_princial);
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -688,6 +696,11 @@ namespace Horizon_Contabilidade
         }
 
         private void Dv_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txZeiss_Click(object sender, EventArgs e)
         {
 
         }

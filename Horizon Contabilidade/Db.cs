@@ -163,11 +163,11 @@ namespace Horizon_Contabilidade
                                      tipodecompra, tipodecompra1, tipodecompra2, marcaa, marcal, loja, Obs);
 
         }
-        public DataSet pesquisaos(string tabela, string pesquisa)
+        public DataSet pesquisaos(string tabela,string coluna, string pesquisa)
         {
             DataSet oDs = new DataSet();
-            string sSQL = "select * from " + tabela + " WHERE Or_os like '" + pesquisa + "%'";
-
+            string sSQL = "select * from " + tabela + " WHERE "+coluna+" like '%" + pesquisa + "%'";
+           
 
             //criar o data adapter e executar a consulta
             OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
