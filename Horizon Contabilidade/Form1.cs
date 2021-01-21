@@ -478,7 +478,7 @@ namespace Horizon_Contabilidade
             dgvDados.DataSource = DB.Tables[0];
             txCarnenpg.Text= carneafter.ToString("C");
             txCustoVenda.Text= Custo_Com_Venda.ToString("C");
-            txBrutocd.Text = (Bruto-carne1).ToString("C");
+            txBrutocd.Text = (Bruto).ToString("C");
             txDesconto_Total.Text = DescT.ToString("C");
             if (comboBox1.Text == "Dia" )
             {
