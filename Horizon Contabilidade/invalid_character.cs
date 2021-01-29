@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace Horizon_Contabilidade
 {
-    class invalid_character
+    internal class invalid_character
     {
         public string ObterStringSemAcentosECaracteresEspeciais(string str)
         {
@@ -35,10 +30,10 @@ namespace Horizon_Contabilidade
             str = str.Replace("\\s+", " ");
             return str;
         }
-        public String TratarTermoComCaracteresEspeciais(String termo)
+        public string TratarTermoComCaracteresEspeciais(string termo)
         {
-           termo= ObterStringSemAcentosECaracteresEspeciais(termo);
-            String termotratado = "";
+            termo = ObterStringSemAcentosECaracteresEspeciais(termo);
+            string termotratado = "";
 
             // Recebo o termo digitado com o tratamento de substituição de caracteres
             termotratado = ObterStringSemAcentosECaracteresEspeciais(termo);

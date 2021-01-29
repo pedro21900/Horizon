@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Horizon_Contabilidade
 {
-    class Calculo
+    internal class Calculo
     {
         public double perda(string div1, string div2, string divs)
         {
@@ -93,19 +88,19 @@ namespace Horizon_Contabilidade
             double txDesconto1 = 1;
             double txCusto_com_venda1 = 1;
             double txLucro_lente = 0;
- 
-                if (txVenda_lente == "" || string.IsNullOrEmpty(txVenda_lente)) { txVenda_lente1 = 0; }
-                if (txCompra_Lente == "" || string.IsNullOrEmpty(txCompra_Lente)) { txCompra_Lente1 = 0; }
-                if (txDesconto == "" || string.IsNullOrEmpty(txDesconto)) { txDesconto1 = 0; }
-                if (txCusto_com_venda == "" || string.IsNullOrEmpty(txCusto_com_venda)) { txCusto_com_venda1 = 0; }
 
-                if (txVenda_lente1 == 1) { txVenda_lente1 = Convert.ToDouble(txVenda_lente.Replace("R$ ", "")); }
-                if (txCompra_Lente1 == 1) { txCompra_Lente1 = Convert.ToDouble(txCompra_Lente.Replace("R$ ", "")); }
-                if (txDesconto1 == 1) { txDesconto1 = Convert.ToDouble(txDesconto.Replace("R$ ", "")); }
-                if (txCusto_com_venda1 == 1) { txCusto_com_venda1 = Convert.ToDouble(txCusto_com_venda.Replace("R$ ", "")); }
+            if (txVenda_lente == "" || string.IsNullOrEmpty(txVenda_lente)) { txVenda_lente1 = 0; }
+            if (txCompra_Lente == "" || string.IsNullOrEmpty(txCompra_Lente)) { txCompra_Lente1 = 0; }
+            if (txDesconto == "" || string.IsNullOrEmpty(txDesconto)) { txDesconto1 = 0; }
+            if (txCusto_com_venda == "" || string.IsNullOrEmpty(txCusto_com_venda)) { txCusto_com_venda1 = 0; }
 
-                txLucro_lente = (txVenda_lente1 - txCompra_Lente1 - txDesconto1 - txCusto_com_venda1);
-            
+            if (txVenda_lente1 == 1) { txVenda_lente1 = Convert.ToDouble(txVenda_lente.Replace("R$ ", "")); }
+            if (txCompra_Lente1 == 1) { txCompra_Lente1 = Convert.ToDouble(txCompra_Lente.Replace("R$ ", "")); }
+            if (txDesconto1 == 1) { txDesconto1 = Convert.ToDouble(txDesconto.Replace("R$ ", "")); }
+            if (txCusto_com_venda1 == 1) { txCusto_com_venda1 = Convert.ToDouble(txCusto_com_venda.Replace("R$ ", "")); }
+
+            txLucro_lente = (txVenda_lente1 - txCompra_Lente1 - txDesconto1 - txCusto_com_venda1);
+
             return txLucro_lente;
         }
         public string calcSoma(string tx1, string tx2)
@@ -146,7 +141,7 @@ namespace Horizon_Contabilidade
 
             return retorno;
         }
-        
-       
+
+
     }
 }

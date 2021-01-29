@@ -11,8 +11,9 @@ namespace Horizon_Contabilidade
         {
             InitializeComponent();
         }
-        static string sDBstr = Properties.Settings.Default.Folder_Way;
-        static string cb;
+
+        private static readonly string sDBstr = Properties.Settings.Default.Folder_Way;
+        private static string cb;
         public AutoCompleteStringCollection Caixadesusgestaoos(string coluna, string DB)
         {
             Form1 form1 = new Form1();
@@ -20,7 +21,7 @@ namespace Horizon_Contabilidade
             try
             {
                 //definir a string de conexão
-       
+
 
                 //definir a string SQL
                 string sSQL = "select " + coluna + " from " + DB + "";
@@ -84,7 +85,7 @@ namespace Horizon_Contabilidade
             Form1 form1 = new Form1();
             try
             {
-          
+
 
                 //definir a string de conexão
 
@@ -141,7 +142,7 @@ namespace Horizon_Contabilidade
             Form1 form1 = new Form1();
             try
             {
-              
+
 
                 //definir a string de conexão
 

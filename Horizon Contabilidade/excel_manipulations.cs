@@ -7,7 +7,7 @@
 //{
 //    class excel_manipulations
 //    {
-        
+
 //        static invalid_character ic=  new invalid_character();
 //        static Db Db = new Db();
 //        private static string[] colummrelfat = new string[] { "Forma Pgto.", "Valor", "Desconto", "Faturado", "Cliente", "NFCe/SAT/Cupom", "Código Fatura", "DataFaturamento", "Tipo" };
@@ -77,7 +77,7 @@
 //            {
 //                return true;
 //            }
-           
+
 //            else if (ic.TratarTermoComCaracteresEspeciais(string.Join(",", listNameColumns(Db.importTable())))
 //                == ic.TratarTermoComCaracteresEspeciais(string.Join(",", colummxml)))
 //            {
@@ -85,7 +85,7 @@
 //             }
 //            else
 //            {
-            
+
 //                //mensagem dizendo que o arquivo não é compativél
 //                MessageBox.Show("Erro : Planilha não compatível");               
 //                return false;
@@ -93,8 +93,8 @@
 
 //        }
 //        //Metodos gets e settes
-        
-        
+
+
 
 //    }
 //}

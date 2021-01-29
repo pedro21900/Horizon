@@ -6,35 +6,31 @@ using System.Windows.Forms;
 
 namespace Horizon_Contabilidade
 {
-    class Db
+    internal class Db
     {
         //Classes
         //static excel_manipulations excel_Manipulations = new excel_manipulations();
-        static invalid_character ic = new invalid_character();
+        private static readonly invalid_character ic = new invalid_character();
+
         //Variaves
-        static DataSet Data = new DataSet();
-        static string sourcedb = Properties.Settings.Default.SourceDb;
-        static OleDbConnection conexaoDb;
-        static OleDbConnection conexaotable;
-        static private string sourcetable;
+        private static readonly DataSet Data = new DataSet();
+        private static readonly string sourcedb = Properties.Settings.Default.SourceDb;
+        private static OleDbConnection conexaoDb;
+        private static OleDbConnection conexaotable;
+        private static string sourcetable;
+
         //Properties.Settings.Default.Pastainicial = Form1.sDBstr;
-         //   Properties.Settings.Default.Save();
+        //   Properties.Settings.Default.Save();
         //Datas
-        static DataSet ds = new DataSet();
+        private static readonly DataSet ds = new DataSet();
         //Getters e Setters
-        static public string Setsoucetable
+        public static string Setsoucetable
         {
-            get
-            {
-                return sourcetable;
-            }
-            set
-            {
-                sourcetable = value;
-            }
+            get => sourcetable;
+            set => sourcetable = value;
         }
         //conexão
-        static private OleDbConnection ConectTable()
+        private static OleDbConnection ConectTable()
         {
 
             string Ext = Path.GetExtension(sourcetable);
@@ -59,7 +55,7 @@ namespace Horizon_Contabilidade
             return conexaotable;
 
         }
-        static public OleDbConnection ConectDb()
+        public static OleDbConnection ConectDb()
         {
             try
             {
@@ -69,22 +65,22 @@ namespace Horizon_Contabilidade
             catch (Exception ex)
             {
                 MessageBox.Show("Erro :" + ex.Message);
-                Form1 form1 =new Form1();
+                Form1 form1 = new Form1();
                 form1.Close();
-                
+
             }
 
 
             return conexaoDb;
         }
         //Metodos
-        static private string NameTable(OleDbConnection Conect, int indexName)
+        private static string NameTable(OleDbConnection Conect, int indexName)
         {
             DataTable dtSchema = Conect.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
             string nomePlanilha = dtSchema.Rows[indexName]["TABLE_NAME"].ToString();
             return nomePlanilha;
         }
-  
+
         public void salvatabela(OleDbDataAdapter oDA, DataSet oDs, string tabela)
         {
             //Usar o objeto Command Bulder para gerar o Comandop Insert
@@ -95,8 +91,8 @@ namespace Horizon_Contabilidade
             //liberar o data adapter , o dataset , o comandbuilder e a conexao
             oDA.Dispose(); oDs.Dispose(); oCB.Dispose();
         }
-        public void addlinhalayout1(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, 
-                                   string col, string lab, string custodevenda, string vendavalor,string loja)
+        public void addlinhalayout1(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa,
+                                   string col, string lab, string custodevenda, string vendavalor, string loja)
         {
             string sSQL = "select * from " + tabela;
             //criar o data adapter e executar a consulta
@@ -114,7 +110,7 @@ namespace Horizon_Contabilidade
             salvatabela(oDA, oDs, tabela);
 
         }
-        public void addlinhalayout2(string tabela, string or,string data, string modeloarmação, string nomelente, string lucroarmacao, string lucrolente, string forenecedorl, string forenecedora,
+        public void addlinhalayout2(string tabela, string or, string data, string modeloarmação, string nomelente, string lucroarmacao, string lucrolente, string forenecedorl, string forenecedora,
                                     string lucrototal, string descontot, string taxacartao, string foramdepagamento, string descontol, string descontoa,
                                     string tipodecompra, string tipodecompra1, string tipodecompra2, string marcaa, string marcal, string loja, string Obs)
         {
@@ -128,7 +124,7 @@ namespace Horizon_Contabilidade
             oDs.Tables[0].Rows.Add(filtratexto(or), filtratexto(data), filtratexto(modeloarmação), filtratexto(nomelente), filtratexto(lucroarmacao),
     filtratexto(lucrolente), filtratexto(forenecedorl), filtratexto(forenecedora),
     filtratexto(lucrototal), filtratexto(descontot), filtratexto(taxacartao), filtratexto(foramdepagamento),
-    filtratexto(descontol), filtratexto(descontoa), filtratexto(tipodecompra), filtratexto(tipodecompra1), filtratexto(tipodecompra2), filtratexto(marcaa), filtratexto(marcal),  filtratexto(loja), filtratexto(Obs));
+    filtratexto(descontol), filtratexto(descontoa), filtratexto(tipodecompra), filtratexto(tipodecompra1), filtratexto(tipodecompra2), filtratexto(marcaa), filtratexto(marcal), filtratexto(loja), filtratexto(Obs));
             salvatabela(oDA, oDs, tabela);
         }
         public void Deletalinha(string tabela, string pesquisa)
@@ -158,16 +154,16 @@ namespace Horizon_Contabilidade
             Deletalinha(tabela1, pesquisa);
             addlinhalayout1(tabela, data, or, fornecedor, compral, vendal, compraa, vendaa, col,
                                     lab, custocv, vendavalor, loja);
-            addlinhalayout2(tabela1, or,data, modeloarmação, nomelente, lucroarmacao, lucrolente, forenecedorl, forenecedora,
+            addlinhalayout2(tabela1, or, data, modeloarmação, nomelente, lucroarmacao, lucrolente, forenecedorl, forenecedora,
                                      lucrototal, descontot, taxacartao, foramdepagamento, descontol, descontoa,
                                      tipodecompra, tipodecompra1, tipodecompra2, marcaa, marcal, loja, Obs);
 
         }
-        public DataSet pesquisaos(string tabela,string coluna, string pesquisa)
+        public DataSet pesquisaos(string tabela, string coluna, string pesquisa)
         {
             DataSet oDs = new DataSet();
-            string sSQL = "select * from " + tabela + " WHERE "+coluna+" like '%" + pesquisa + "%'";
-           
+            string sSQL = "select * from " + tabela + " WHERE " + coluna + " like '%" + pesquisa + "%'";
+
 
             //criar o data adapter e executar a consulta
             OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
@@ -178,7 +174,7 @@ namespace Horizon_Contabilidade
 
             return oDs;
         }
-        public DataSet Filtrodb(string key1 ,string key2, string tabela, DateTimePicker dtpData)
+        public DataSet Filtrodb(string key1, string key2, string tabela, DateTimePicker dtpData)
         {
 
             DataSet oDs = new DataSet();
@@ -226,15 +222,15 @@ namespace Horizon_Contabilidade
             return texto;
         }
         //import table to datatable 
-         public DataTable TableDb(string command)
+        public DataTable TableDb(string command)
         {
             OleDbCommand cmd = new OleDbCommand(command, Db.ConectDb());
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
-            return dt;    
+            return dt;
         }
 
-        static public void importtoDb()
+        public static void importtoDb()
         {
             //excel_Manipulations.check_table(sourcetable);
             //ConectTable().Close();
@@ -258,7 +254,7 @@ namespace Horizon_Contabilidade
 
             ConectDb().Close();
         }
-        static private void InsertRow(string connectionString, string[] values, string[] colum)
+        private static void InsertRow(string connectionString, string[] values, string[] colum)
         {
 
 
@@ -278,6 +274,6 @@ namespace Horizon_Contabilidade
 
 
         }
- 
+
     }
 }
