@@ -348,7 +348,6 @@ namespace Horizon_Contabilidade
                     comando = " WHERE (Loja LIKE '%" + comboBox2.Text + "%')";
                 }
                 DataTable carne = db.TableDb("Select * From Carne" + comando);
-                int count1 = carne.Columns.Count;
                 int qtdlinha = carne.Rows.Count;
 
                 for (int i = 0; i <= qtdlinha - 1; i++)
@@ -478,6 +477,7 @@ namespace Horizon_Contabilidade
 
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
             dgvDados.DataSource = DB.Tables[0];
+            dgvDadosC.DataSource = Carne.Tables[0];
             txCarnenpg.Text = carneafter.ToString("C");
             txCustoVenda.Text = Custo_Com_Venda.ToString("C");
             txBrutocd.Text = (Bruto).ToString("C");
@@ -491,17 +491,17 @@ namespace Horizon_Contabilidade
             }
             else if (comboBox1.Text == "Mês / Ano")
             {
-                txCaixa.Text = (Caixa + paid_out).ToString("C");
+                txCaixa.Text = (Caixa + carne1).ToString("C");
                 txLucro.Text = (Caixa - Custo_Com_Venda + paid_out).ToString("C");
                 tbxCarne.Text = (carne1 + paid_out).ToString("C");
-                txReceita.Text = ((Caixa + paid_out) - carneafter).ToString("C");
+                txReceita.Text = ((Caixa + carne1) - carneafter).ToString("C");
             }
             else
             {
                 txLucro.Text = (Caixa - Custo_Com_Venda + paid_out).ToString("C");
-                txCaixa.Text = (Caixa + paid_out).ToString("C");
+                txCaixa.Text = (Caixa + carne1).ToString("C");
                 tbxCarne.Text = (paid_out + carne1).ToString("C");
-                txReceita.Text = ((Caixa + paid_out) - carneafter).ToString("C");
+                txReceita.Text = ((Caixa + carne1) - carneafter).ToString("C");
             }
             dgvDados.AutoResizeColumns();
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos(comboBox3.Text, "DB");
