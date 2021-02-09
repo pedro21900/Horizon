@@ -21,13 +21,13 @@
                         <Setter Property="Height" Value="30"></Setter>
                     </Style>
                 </Grid.Resources>
-                <Grid Grid.Column="0">
-                    <ListView Margin="0 15">
+                <Grid Grid.Column="0" Background="#a0a0a0">
+                    <ListView Margin="0 15" UseLayoutRounding="False">
                         <ListViewItem HorizontalAlignment="Center" Margin="0 10">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
                                 <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="Resistor"/>
+                                    <materialDesign:PackIcon x:Name="Venda" Kind="Trolley" Foreground="#FF0737B6"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -35,7 +35,7 @@
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
                                 <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="CircleSlice6"/>
+                                    <materialDesign:PackIcon x:Name="Financeiro" Kind="Money" Foreground="#FF0737B6"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -43,7 +43,7 @@
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
                                 <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="CalendarBlankOutline"/>
+                                    <materialDesign:PackIcon x:Name="Serviços" Kind="Moped"  Foreground="#FF0737B6"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -51,7 +51,7 @@
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
                                 <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="EqualiserVertical"/>
+                                    <materialDesign:PackIcon x:Name="Configurações" Kind="EqualiserVertical" Foreground="#FF0737B6"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -59,7 +59,7 @@
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
                                 <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="ChatOutline"/>
+                                    <materialDesign:PackIcon x:Name="Dashboard" Kind="ChartTimelineVariant" Foreground="#FF0737B6"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -73,7 +73,7 @@
                         </ListViewItem>
                     </ListView>
                 </Grid>
-                <Grid Grid.Column="1" Background="#F6F5F8" Name="RenderPages">
+                <Grid Grid.Column="1" Background="#d3d3d3" Name="RenderPages">
                     
                 </Grid>
             </Grid>

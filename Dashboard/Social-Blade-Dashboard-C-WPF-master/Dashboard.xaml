@@ -28,12 +28,15 @@
                             <materialDesign:PackIcon Kind="ReorderHorizontal" Foreground="Gray" />
                         </StackPanel>
                     </Button>
-                    <ComboBox HorizontalAlignment="Right" Width="100" materialDesign:HintAssist.Hint="Last 15 Days">
+                    <ComboBox HorizontalAlignment="Right" Width="100" materialDesign:HintAssist.Hint="Atual">
                         <ComboBoxItem>
-                            <TextBlock Text="Last 15 Days" />
+                            <TextBlock Text="Atual" />
                         </ComboBoxItem>
                         <ComboBoxItem>
-                            <TextBlock Text="Last 30 Days" />
+                            <TextBlock Text="Dia" />
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Text="Mensal" />
                         </ComboBoxItem>
                     </ComboBox>
                 </Grid>
@@ -42,9 +45,9 @@
                         <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
                          BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
                             <StackPanel Margin="10">
-                                <materialDesign:PackIcon Kind="Twitter" Foreground="#29A3EC" />
+                                <materialDesign:PackIcon Kind="Umbrella" Foreground="#29A3EC" />
                                 <TextBlock FontWeight="SemiBold" FontSize="25" Text="280K" Margin="0 10 0 0" />
-                                <TextBlock FontSize="12" Text="Followers" />
+                                <TextBlock FontSize="12" Text="Zeiss" />
                                 <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
                             </StackPanel>
                         </materialDesign:Card>
@@ -182,7 +185,7 @@
         </Grid>
         <StackPanel Grid.Column="1" Background="White">
             <WrapPanel VerticalAlignment="Top" Margin="20 20 20 10">
-                <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black"> 
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black">
                     <StackPanel Margin="-5">
                         <materialDesign:PackIcon Kind="BellOutline" />
                     </StackPanel>
@@ -191,7 +194,7 @@
                     <WrapPanel HorizontalAlignment="Center">
                         <materialDesign:PackIcon Kind="GiftOutline" Width="25" Height="25" />
                         <TextBlock Text="2 NEW UPDATES" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" />
-                    </WrapPanel> 
+                    </WrapPanel>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black">
                     <StackPanel Margin="-5">

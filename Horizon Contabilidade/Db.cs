@@ -274,6 +274,99 @@ namespace Horizon_Contabilidade
 
 
         }
+        public void importalente( TextBox stringcod, TextBox stringname, ComboBox stringfornecedor, ComboBox stringmarca,
+            ComboBox stringtratamento, ComboBox stringtipo , TextBox stringvalorcompra , TextBox stringvalorvenda)
+        {
+            try
+            {
+                
+                string sSQL = "select * from LentesValores WHERE  Cod = " + stringcod.Text;
+                //criar o objeto connection
+               
 
+                //criar o data adapter e executar a consulta
+                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
+                //criar o DataSet
+                DataSet oDs = new DataSet();
+                //Preencher o dataset coom o data adapter
+                oDA.Fill(oDs, "LentesValores");
+
+
+                int count1 = oDs.Tables[0].Columns.Count;
+
+                string indexx = "0";
+                string index = "0";
+
+                foreach (DataColumn indexx1 in oDs.Tables[0].Columns)
+                {
+                    indexx = indexx1.ToString();
+                    index = oDs.Tables[0].Rows[0][indexx].ToString();
+
+                         if (indexx == "Nome_Lente") { stringname.Text = index; }
+                        else if (indexx == "Fornecedor_Lente") { stringfornecedor.Text = index; }
+                        else if (indexx == "Marca") { stringmarca.Text = index; }                        
+                        else if (indexx == "Tratamento") { stringtratamento.Text = index; }                       
+                        else if (indexx == "Tipo") { stringtipo.Text = index; }
+                        else if (indexx == "Valor_Compra") { stringvalorcompra.Text = index; }
+                    else if (indexx == "Valor_Venda") { stringvalorvenda.Text = index; }
+
+                }
+
+                ConectDb().Close();
+                oDA.Dispose(); oDs.Dispose();
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro :" + ex.Message);
+
+
+            }
+        }
+        public void exportalente(TextBox stringcod, TextBox stringname, ComboBox stringfornecedor, ComboBox stringmarca,
+            ComboBox stringtratamento, ComboBox stringtipo, TextBox stringvalorcompra, TextBox stringvalorvenda)
+        {
+            try
+            {
+
+                string sSQL = "select * from LentesValores" ;
+                //criar o data adapter e executar a consulta
+                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
+                //criar o DataSet
+                DataSet oDs = new DataSet();
+                //Preencher o dataset coom o data adapter
+                oDA.Fill(oDs, "LentesValores");
+                DataRow oDR = oDs.Tables["LentesValores"].NewRow();
+
+                oDs.Tables[0].Rows.Add(stringcod.Text, stringname.Text, stringfornecedor.Text, stringmarca.Text, stringtratamento.Text, stringtipo.Text, stringvalorcompra.Text, stringvalorvenda.Text);
+                salvatabela(oDA, oDs, "LentesValores");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro :" + ex.Message);
+
+
+            }
+        }
     }
+   // public void atualizalente(TextBox stringcod, TextBox stringname, ComboBox stringfornecedor, ComboBox stringmarca,
+       //     ComboBox stringtratamento, ComboBox stringtipo, TextBox stringvalorcompra, TextBox stringvalorvenda)
+  //  {
+    //    try
+     //   {
+
+        ///    string sSQLs12 = "  DELETE* FROM LentesValores WHERE Cod = " + stringcod.Text;
+         //   OleDbCommand command = new OleDbCommand(sSQLs12, ConectDb());
+        //    command.ExecuteNonQuery();
+
+
+       // }
+       // catch (Exception ex)
+       // {
+          //  MessageBox.Show("Erro :" + ex.Message);
+
+
+      //  }
+//}
 }

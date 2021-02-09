@@ -129,7 +129,6 @@ C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabili
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\bin\Debug\ExcelNumberFormat.xml
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form1.resources
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Cadastro.resources
-C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form3.resources
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Properties.Resources.resources
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.GenerateResource.cache
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CoreCompileInputs.cache
@@ -139,3 +138,5 @@ C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabili
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csprojAssemblyReference.cache
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Carne.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Horizon Contabilidade\obj\Debug\CadastroLente.CadastroLente.resources

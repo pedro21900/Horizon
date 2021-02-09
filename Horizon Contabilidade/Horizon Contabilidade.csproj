@@ -102,26 +102,32 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroLente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroLente.Designer.cs">
+      <DependentUpon>CadastroLente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calculo.cs" />
     <Compile Include="Db.cs" />
     <Compile Include="excel_manipulations.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Painel Central.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Painel Central.Designer.cs">
+      <DependentUpon>Painel Central.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Cadastro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Cadastro.Designer.cs">
+      <DependentUpon>Cadastro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="Carne.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="Carne.Designer.cs">
+      <DependentUpon>Carne.cs</DependentUpon>
     </Compile>
     <Compile Include="invalid_character.cs" />
     <Compile Include="Program.cs" />
@@ -131,14 +137,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CadastroLente.resx">
+      <DependentUpon>CadastroLente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Painel Central.resx">
+      <DependentUpon>Painel Central.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="Cadastro.resx">
+      <DependentUpon>Cadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Carne.resx">
+      <DependentUpon>Carne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
