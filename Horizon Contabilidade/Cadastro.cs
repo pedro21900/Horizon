@@ -16,6 +16,7 @@ namespace Horizon_Contabilidade
         private static readonly Form1 form1 = new Form1();
         private static readonly Calculo calculo = new Calculo();
         private readonly Db db = new Db();
+        private TF tf = new TF();
         private static string labs = "0";
         private static string labm = "0";
         private static string decl = "0";
@@ -40,7 +41,14 @@ namespace Horizon_Contabilidade
                 calcSoma(txVenda_armacao.Text, txVenda_lente.Text)).ToString("P");
             return porcento;
         }
-
+        public void retunrtratamento(string[] Tratamentos)
+        {
+            cbTratamento.Items.Clear();
+            cbTratamento.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbTratamento.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cbTratamento.AutoCompleteCustomSource.AddRange(Tratamentos);
+            cbTratamento.Items.AddRange(Tratamentos);
+        }
         private static readonly string sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Properties.Settings.Default.SourceDb;
         public AutoCompleteStringCollection Caixadesusgestaoos(string coluna, string DB)
         {
@@ -1050,18 +1058,173 @@ namespace Horizon_Contabilidade
             txGanho.Text = ganho();
             txPerda.Text = perda();
         }
+        public void lol() {
+            tf.TxFornecedor_lente = txFornecedor_lente.Text;
+            tf.TxMarca_lente = txMarca_lente.Text;
+            tf.TxVenda_lente = txVenda_lente.Text;
+            tf.TxCompra_lente = txCompra_lente.Text;
 
-        private void BuCadastroL_Click(object sender, EventArgs e)
+        }
+        public void invocaform()
         {
-
             CadastroLente.CadastroLente tela_add_servico = new CadastroLente.CadastroLente();
             tela_add_servico.ShowDialog();
         }
-
-        private void txPesquisa_Cadastro_TextChanged(object sender, EventArgs e)
+        public void pesquisa()
         {
+            DataTable tb = db.pesquisaos("LentesValores", "Cod", txCod.Text).Tables[0];
+            try
+            {
+                if (tb.Rows[0][0].ToString() == txCod.Text)
+                {
+                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
+                    {
+                        //executar metodo chamador
+                        tf.TxCod = txCod.Text;
+                        MessageBox.Show("Dados incompletos");
+                        invocaform();
+                    }
+                    else
+                    {
+                        txFornecedor_lente.Text = tb.Rows[0]["Fornecedor_Lente"].ToString();
+                    }
+                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
+                    {
+                        tf.TxCod = txCod.Text;
+                        MessageBox.Show("Dados incompletos");
+                        invocaform();
+                    }
+                    else
+                    {
+                        txMarca_lente.Text = tb.Rows[0]["Marca"].ToString();
+                    }
+                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
+                    {
+                        tf.TxCod = txCod.Text;
+                        MessageBox.Show("Dados incompletos");
+                        invocaform();
+                    }
+                    else
+                    {
+                        txNome_lente.Text = tb.Rows[0]["Nome_Lente"].ToString();
+                    }
+                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
+                    {
+                        tf.TxCod = txCod.Text;
+                        MessageBox.Show("Dados incompletos");
+                        invocaform();
+                    }
+                    else
+                    {
+                        txVenda_lente.Text = tb.Rows[0]["Valor_Venda"].ToString();
+                    }
+                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
+                    {
+                        tf.TxCod = txCod.Text;
+                        MessageBox.Show("Dados incompletos");
+                        invocaform();
+                    }
+                    else
+                    {
+                        txCompra_lente.Text = tb.Rows[0]["Valor_Compra"].ToString();
+                    }
+                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
+                    {
+                        tf.TxCod = txCod.Text;
+                        MessageBox.Show("Dados incompletos");
+                        invocaform();
+                    }
+                    else
+                    {
+                        cbTratamento.Text = tb.Rows[0]["Tratamento"].ToString();
+                    }
+                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
+                    {
+                        tf.TxCod = txCod.Text;
+                        MessageBox.Show("Dados incompletos");
+                        invocaform();
+                    }
+                    else
+                    {
+                        txTipo.Text = tb.Rows[0]["Tipo"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DialogResult confirm = MessageBox.Show("Lente não cadastrada , Deseja cadastrar?", "Lente não encontrada", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
 
+                if (confirm.ToString().ToUpper() == "YES")
+                {
+                    invocaform();
+                }
+            }
+            {
+               
+            }
         }
+        private void BuCadastroL_Click(object sender, EventArgs e)
+        {
+            invocaform();
+        }
+
+        private void buCalc_Click(object sender, EventArgs e)
+        {
+        txCompra_armacao.Text=(Convert.ToDouble(txVenda_armacao.Text)/3.56).ToString();
+        }
+
+        private void txCod_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
+            {
+                pesquisa();
+            }
+        }
+
+        private void txCompra_armacao_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
+            {
+                txCompra_armacao.Text = (Convert.ToDouble(txVenda_armacao.Text) / 3.56).ToString();
+            }
+        }
+
+        private void txMarca_lente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] TratamentoEssilor = new string[] { "SEM AR", "OPTIFOG", "C EASY", "C FORTE", "C SAPHIRE" };
+            string[] TratamentoHoya = new string[] { "SEM AR", "CLEAN EXTRA", "NO-RISK", "NO-RISK +  BC", "BCONTROL/ LONGLIFE" };
+            string[] TratamentoRodenstock = new string[] { "SEM AR", "SOLITARE 2", "SOL.HIDROCOAT", "SOL.DIG BLUE", "X-TRA CLEAN" };
+            string[] TratamentoSynchrony = new string[] { "SEM AR", "VISIONSET", "Dv CHROME" };
+            string[] TratamentoVisionset = new string[] { "SEM AR", "VISIONSET", "VISIONSET BLUE" };
+            string[] TratamentoZeiss = new string[] { "SEM AR", "DV CHROME", "DV SILVER", "DV PLATINUM", "DV BLUE PROTECT" };
+
+            if (txMarca_lente.Text == "ESSILOR")
+            {
+                retunrtratamento(TratamentoEssilor);
+
+            }
+            else if (txMarca_lente.Text == "HOYA")
+            {
+                retunrtratamento(TratamentoHoya);
+            }
+            else if (txMarca_lente.Text == "RODENSTOCK")
+            {
+                retunrtratamento(TratamentoRodenstock);
+            }
+            else if (txMarca_lente.Text == "VISIONSET")
+            {
+                retunrtratamento(TratamentoVisionset);
+            }
+            else if (txMarca_lente.Text == "ZEISS")
+            {
+                retunrtratamento(TratamentoZeiss);
+            }
+            else if (txMarca_lente.Text == "SYNCHRONY")
+            {
+                retunrtratamento(TratamentoSynchrony);
+            }
+        }
+
     }
 }
 

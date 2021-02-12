@@ -137,6 +137,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TF.cs" />
     <EmbeddedResource Include="CadastroLente.resx">
       <DependentUpon>CadastroLente.cs</DependentUpon>
     </EmbeddedResource>

@@ -10,7 +10,7 @@ namespace CadastroLente
             InitializeComponent();
         }
 
-        static Horizon_Contabilidade.Db db = new Horizon_Contabilidade.Db();
+        private static readonly Horizon_Contabilidade.Db db = new Horizon_Contabilidade.Db();
         public void retunrtratamento(string[] Tratamentos)
         {
             cbTratamento.Items.Clear();
@@ -57,7 +57,7 @@ namespace CadastroLente
 
         private void buPesquisa_Click(object sender, EventArgs e)
         {
-            db.importalente(txCod,txName,cbFornecedor,cbMarca,cbTratamento,txTipo,txValorCompra,txValordeVenda);       
+            db.importalente(txCod, txName, cbFornecedor, cbMarca, cbTratamento, txTipo, txValorCompra, txValordeVenda);
         }
 
         private void buSalvar_Click(object sender, EventArgs e)
@@ -69,16 +69,16 @@ namespace CadastroLente
         {
             db.exportalente(txCod, txName, cbFornecedor, cbMarca, cbTratamento, txTipo, txValorCompra, txValordeVenda);
         }
-    
+
 
         private void CadastroLente_Load(object sender, EventArgs e)
         {
-            string[] Fornecedor = new string[] { "TRI-LAB", "ICOPA", "LABOOTICA", "OPTIPRIME", "HOYA","RODENSTOCK","ZEISS BELEM","COMPROL" };
+            string[] Fornecedor = new string[] { "TRI-LAB", "ICOPA", "LABOOTICA", "OPTIPRIME", "HOYA", "RODENSTOCK", "ZEISS BELEM", "COMPROL" };
             cbFornecedor.Items.Clear();
             cbFornecedor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbFornecedor.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cbFornecedor.AutoCompleteCustomSource.AddRange(Fornecedor);
-            cbFornecedor.Items.AddRange(Fornecedor);            
+            cbFornecedor.Items.AddRange(Fornecedor);
         }
     }
 }
