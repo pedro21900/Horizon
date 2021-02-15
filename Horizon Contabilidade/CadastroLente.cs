@@ -9,7 +9,7 @@ namespace CadastroLente
         {
             InitializeComponent();
         }
-
+        private Horizon_Contabilidade.TF tf = new Horizon_Contabilidade.TF();
         private static readonly Horizon_Contabilidade.Db db = new Horizon_Contabilidade.Db();
         public void retunrtratamento(string[] Tratamentos)
         {
@@ -73,6 +73,7 @@ namespace CadastroLente
 
         private void CadastroLente_Load(object sender, EventArgs e)
         {
+            txCod.Text = tf.TxCod;
             string[] Fornecedor = new string[] { "TRI-LAB", "ICOPA", "LABOOTICA", "OPTIPRIME", "HOYA", "RODENSTOCK", "ZEISS BELEM", "COMPROL" };
             cbFornecedor.Items.Clear();
             cbFornecedor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;

@@ -116,10 +116,12 @@
             this.label37 = new System.Windows.Forms.Label();
             this.cbTratamento = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btSalvar
@@ -153,7 +155,7 @@
             // 
             this.txFornecedor_armacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txFornecedor_armacao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txFornecedor_armacao.Location = new System.Drawing.Point(116, 206);
+            this.txFornecedor_armacao.Location = new System.Drawing.Point(121, 85);
             this.txFornecedor_armacao.Name = "txFornecedor_armacao";
             this.txFornecedor_armacao.Size = new System.Drawing.Size(100, 20);
             this.txFornecedor_armacao.TabIndex = 4;
@@ -178,7 +180,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(133, 180);
+            this.label3.Location = new System.Drawing.Point(138, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 7;
@@ -205,7 +207,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(119, 311);
+            this.label6.Location = new System.Drawing.Point(124, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 13);
             this.label6.TabIndex = 10;
@@ -214,7 +216,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 311);
+            this.label7.Location = new System.Drawing.Point(10, 190);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 13);
             this.label7.TabIndex = 11;
@@ -280,7 +282,7 @@
             // 
             // txVenda_armacao
             // 
-            this.txVenda_armacao.Location = new System.Drawing.Point(8, 337);
+            this.txVenda_armacao.Location = new System.Drawing.Point(13, 216);
             this.txVenda_armacao.Name = "txVenda_armacao";
             this.txVenda_armacao.Size = new System.Drawing.Size(100, 20);
             this.txVenda_armacao.TabIndex = 7;
@@ -288,7 +290,7 @@
             // 
             // txCompra_armacao
             // 
-            this.txCompra_armacao.Location = new System.Drawing.Point(128, 337);
+            this.txCompra_armacao.Location = new System.Drawing.Point(133, 216);
             this.txCompra_armacao.Name = "txCompra_armacao";
             this.txCompra_armacao.Size = new System.Drawing.Size(100, 20);
             this.txCompra_armacao.TabIndex = 8;
@@ -394,7 +396,7 @@
             // 
             this.txMarca_armacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txMarca_armacao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txMarca_armacao.Location = new System.Drawing.Point(8, 265);
+            this.txMarca_armacao.Location = new System.Drawing.Point(13, 144);
             this.txMarca_armacao.Name = "txMarca_armacao";
             this.txMarca_armacao.Size = new System.Drawing.Size(100, 20);
             this.txMarca_armacao.TabIndex = 5;
@@ -402,7 +404,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(17, 236);
+            this.label19.Location = new System.Drawing.Point(22, 115);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(81, 13);
             this.label19.TabIndex = 40;
@@ -430,7 +432,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(178, 242);
+            this.label13.Location = new System.Drawing.Point(183, 121);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(86, 13);
             this.label13.TabIndex = 45;
@@ -440,7 +442,7 @@
             // 
             this.txModelo_armacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txModelo_armacao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txModelo_armacao.Location = new System.Drawing.Point(134, 265);
+            this.txModelo_armacao.Location = new System.Drawing.Point(139, 144);
             this.txModelo_armacao.Name = "txModelo_armacao";
             this.txModelo_armacao.Size = new System.Drawing.Size(160, 20);
             this.txModelo_armacao.TabIndex = 6;
@@ -449,7 +451,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(110, 134);
+            this.label14.Location = new System.Drawing.Point(115, 13);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(116, 33);
             this.label14.TabIndex = 47;
@@ -536,7 +538,7 @@
             // 
             // txDesconto_Armacao
             // 
-            this.txDesconto_Armacao.Location = new System.Drawing.Point(245, 336);
+            this.txDesconto_Armacao.Location = new System.Drawing.Point(250, 215);
             this.txDesconto_Armacao.Name = "txDesconto_Armacao";
             this.txDesconto_Armacao.Size = new System.Drawing.Size(100, 20);
             this.txDesconto_Armacao.TabIndex = 9;
@@ -545,7 +547,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(266, 310);
+            this.label12.Location = new System.Drawing.Point(271, 189);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 13);
             this.label12.TabIndex = 58;
@@ -635,7 +637,7 @@
             // 
             // txObs
             // 
-            this.txObs.Location = new System.Drawing.Point(19, 638);
+            this.txObs.Location = new System.Drawing.Point(27, 693);
             this.txObs.Name = "txObs";
             this.txObs.Size = new System.Drawing.Size(697, 20);
             this.txObs.TabIndex = 68;
@@ -643,7 +645,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(334, 617);
+            this.label27.Location = new System.Drawing.Point(342, 672);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(70, 13);
             this.label27.TabIndex = 69;
@@ -702,7 +704,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 389);
+            this.tabControl1.Location = new System.Drawing.Point(12, 435);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(720, 225);
@@ -919,7 +921,7 @@
             // 
             // buCalc
             // 
-            this.buCalc.Location = new System.Drawing.Point(136, 363);
+            this.buCalc.Location = new System.Drawing.Point(141, 242);
             this.buCalc.Name = "buCalc";
             this.buCalc.Size = new System.Drawing.Size(75, 23);
             this.buCalc.TabIndex = 87;
@@ -952,9 +954,9 @@
             this.panel1.Controls.Add(this.txNome_lente);
             this.panel1.Controls.Add(this.txDesconto_Lente);
             this.panel1.Controls.Add(this.label24);
-            this.panel1.Location = new System.Drawing.Point(364, 134);
+            this.panel1.Location = new System.Drawing.Point(391, 133);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(376, 266);
+            this.panel1.Size = new System.Drawing.Size(376, 278);
             this.panel1.TabIndex = 89;
             // 
             // txTipo
@@ -987,6 +989,8 @@
             this.cbTratamento.Name = "cbTratamento";
             this.cbTratamento.Size = new System.Drawing.Size(121, 21);
             this.cbTratamento.TabIndex = 88;
+            this.cbTratamento.Text = "SEM";
+            this.cbTratamento.SelectedIndexChanged += new System.EventHandler(this.cbTratamento_SelectedIndexChanged);
             // 
             // label36
             // 
@@ -997,13 +1001,34 @@
             this.label36.TabIndex = 87;
             this.label36.Text = "Tratamento";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txDesconto_Armacao);
+            this.panel2.Controls.Add(this.txFornecedor_armacao);
+            this.panel2.Controls.Add(this.buCalc);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.txVenda_armacao);
+            this.panel2.Controls.Add(this.txCompra_armacao);
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.txMarca_armacao);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.txModelo_armacao);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Location = new System.Drawing.Point(12, 133);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(364, 278);
+            this.panel2.TabIndex = 90;
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 668);
+            this.ClientSize = new System.Drawing.Size(776, 725);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.buCalc);
             this.Controls.Add(this.BuCadastroL);
             this.Controls.Add(this.label34);
             this.Controls.Add(this.cb2);
@@ -1013,26 +1038,13 @@
             this.Controls.Add(this.txLimpar);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.txObs);
-            this.Controls.Add(this.txDesconto_Armacao);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.txModelo_armacao);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.btPesquisar);
-            this.Controls.Add(this.txMarca_armacao);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txPesquisa_Cadastro);
             this.Controls.Add(this.Editar);
-            this.Controls.Add(this.txCompra_armacao);
-            this.Controls.Add(this.txVenda_armacao);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txFornecedor_armacao);
             this.Controls.Add(this.txOs_Or);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btSalvar);
@@ -1046,6 +1058,8 @@
             this.tabPage2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1140,5 +1154,6 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.ComboBox txTipo;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Panel panel2;
     }
 }

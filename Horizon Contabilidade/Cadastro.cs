@@ -1070,12 +1070,12 @@ namespace Horizon_Contabilidade
             CadastroLente.CadastroLente tela_add_servico = new CadastroLente.CadastroLente();
             tela_add_servico.ShowDialog();
         }
-        public void pesquisa()
+        public void pesquisa(int index)
         {
             DataTable tb = db.pesquisaos("LentesValores", "Cod", txCod.Text).Tables[0];
             try
             {
-                if (tb.Rows[0][0].ToString() == txCod.Text)
+                if (tb.Rows[0][index].ToString() == txCod.Text)
                 {
                     if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
                     {
@@ -1177,7 +1177,7 @@ namespace Horizon_Contabilidade
         {
             if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
             {
-                pesquisa();
+                pesquisa(0);
             }
         }
 
@@ -1225,6 +1225,10 @@ namespace Horizon_Contabilidade
             }
         }
 
+        private void cbTratamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pesquisa(4);
+        }
     }
 }
 

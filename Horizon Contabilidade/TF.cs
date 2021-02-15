@@ -8,6 +8,7 @@ namespace Horizon_Contabilidade
 {
     class TF
     {
+        string txCod;
         string txFornecedor_lente;
         string txMarca_lente;
         string txVenda_lente;
@@ -17,6 +18,7 @@ namespace Horizon_Contabilidade
         public string TxMarca_lente { get => txMarca_lente; set => txMarca_lente = value; }
         public string TxVenda_lente { get => txVenda_lente; set => txVenda_lente = value; }
         public string TxCompra_lente { get => txCompra_lente; set => txCompra_lente = value; }
+        public string TxCod { get => txCod; set => txCod = value; }
     }
     
 }
