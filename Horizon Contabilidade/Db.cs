@@ -19,6 +19,7 @@ namespace Horizon_Contabilidade
         private static OleDbConnection conexaotable;
         private static string sourcetable;
 
+
         //Properties.Settings.Default.Pastainicial = Form1.sDBstr;
         //   Properties.Settings.Default.Save();
         //Datas
@@ -159,20 +160,28 @@ namespace Horizon_Contabilidade
                                      tipodecompra, tipodecompra1, tipodecompra2, marcaa, marcal, loja, Obs);
 
         }
-        public DataSet pesquisaos(string tabela, string coluna, string pesquisa)
+        public DataSet pesquisaos(string tabela, string coluna, string pesquisa, string pesquisa2, string pesquisa3)
         {
+            string sSQL;
+            //LentesValores.Clear();
             DataSet oDs = new DataSet();
-            string sSQL = "select * from " + tabela + " WHERE " + coluna + " like '%" + pesquisa + "%'";
-
-
+            if (coluna != "Cod")
+            {
+                sSQL = "select * from " + tabela + " WHERE " + coluna + " like '%" + pesquisa + "%'";
+            }
+            else
+            {
+                sSQL = "select * from " + tabela + " WHERE " + coluna + " like '%" + pesquisa + "%' and Tratamento like '%" + pesquisa2 + "%' and Tipo like '%" + pesquisa3 + "%'";
+            }
             //criar o data adapter e executar a consulta
             OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
             //criar o DataSet
 
             //Preencher o dataset coom o data adapter
             oDA.Fill(oDs, tabela);
-
+            // LentesValores = oDs;
             return oDs;
+
         }
 
         public DataSet Filtrodb(string key1, string key2, string tabela, DateTimePicker dtpData)
@@ -255,26 +264,7 @@ namespace Horizon_Contabilidade
 
             ConectDb().Close();
         }
-        private static void InsertRow(string connectionString, string[] values, string[] colum)
-        {
 
-
-            string queryString =
-                "INSERT INTO Customers (" + colum + ") Values('" + values + "')";
-            OleDbCommand command = new OleDbCommand(queryString);
-
-            using (ConectDb())
-            {
-                command.Connection = ConectDb();
-                ConectDb().Open();
-                command.ExecuteNonQuery();
-
-                // The connection is automatically closed at
-                // the end of the Using block.
-            }
-
-
-        }
         public void importalente(TextBox stringcod, TextBox stringname, ComboBox stringfornecedor, ComboBox stringmarca,
             ComboBox stringtratamento, ComboBox stringtipo, TextBox stringvalorcompra, TextBox stringvalorvenda)
         {

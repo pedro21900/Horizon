@@ -41,9 +41,8 @@ namespace CadastroLente
             this.label7 = new System.Windows.Forms.Label();
             this.txCod = new System.Windows.Forms.TextBox();
             this.cbTratamento = new System.Windows.Forms.ComboBox();
-            this.txTipo = new System.Windows.Forms.ComboBox();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
             this.cbMarca = new System.Windows.Forms.ComboBox();
-            this.buPesquisa = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txValordeVenda = new System.Windows.Forms.TextBox();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
@@ -74,7 +73,7 @@ namespace CadastroLente
             this.buSalvar.Text = "Salvar";
             this.buSalvar.UseVisualStyleBackColor = true;
             this.buSalvar.Click += new System.EventHandler(this.buSalvar_Click);
-            this.buSalvar.Enter += new System.EventHandler(this.buSalvar_Enter);
+          
             // 
             // label2
             // 
@@ -88,7 +87,7 @@ namespace CadastroLente
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(143, 28);
+            this.label3.Location = new System.Drawing.Point(131, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 6;
@@ -106,7 +105,7 @@ namespace CadastroLente
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(236, 105);
+            this.label5.Location = new System.Drawing.Point(246, 105);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 10;
@@ -143,6 +142,7 @@ namespace CadastroLente
             this.txCod.Name = "txCod";
             this.txCod.Size = new System.Drawing.Size(54, 20);
             this.txCod.TabIndex = 13;
+            this.txCod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txCod_KeyDown);
             // 
             // cbTratamento
             // 
@@ -154,17 +154,17 @@ namespace CadastroLente
             this.cbTratamento.Size = new System.Drawing.Size(121, 21);
             this.cbTratamento.TabIndex = 15;
             // 
-            // txTipo
+            // cbTipo
             // 
-            this.txTipo.FormattingEnabled = true;
-            this.txTipo.Items.AddRange(new object[] {
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Items.AddRange(new object[] {
             "COMUM",
             "2° PAR"});
-            this.txTipo.Location = new System.Drawing.Point(217, 133);
-            this.txTipo.Name = "txTipo";
-            this.txTipo.Size = new System.Drawing.Size(66, 21);
-            this.txTipo.TabIndex = 16;
-            this.txTipo.Text = "COMUM";
+            this.cbTipo.Location = new System.Drawing.Point(227, 133);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(66, 21);
+            this.cbTipo.TabIndex = 16;
+            this.cbTipo.Text = "COMUM";
             // 
             // cbMarca
             // 
@@ -176,20 +176,11 @@ namespace CadastroLente
             "SYNCHRONY",
             "VISIONSET",
             "ZEISS"});
-            this.cbMarca.Location = new System.Drawing.Point(98, 58);
+            this.cbMarca.Location = new System.Drawing.Point(86, 58);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(121, 21);
             this.cbMarca.TabIndex = 17;
             this.cbMarca.SelectedIndexChanged += new System.EventHandler(this.cbMarca_SelectedIndexChanged);
-            // 
-            // buPesquisa
-            // 
-            this.buPesquisa.Location = new System.Drawing.Point(66, 58);
-            this.buPesquisa.Name = "buPesquisa";
-            this.buPesquisa.Size = new System.Drawing.Size(18, 23);
-            this.buPesquisa.TabIndex = 18;
-            this.buPesquisa.UseVisualStyleBackColor = true;
-            this.buPesquisa.Click += new System.EventHandler(this.buPesquisa_Click);
             // 
             // label8
             // 
@@ -230,9 +221,8 @@ namespace CadastroLente
             this.Controls.Add(this.cbFornecedor);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txValordeVenda);
-            this.Controls.Add(this.buPesquisa);
             this.Controls.Add(this.cbMarca);
-            this.Controls.Add(this.txTipo);
+            this.Controls.Add(this.cbTipo);
             this.Controls.Add(this.cbTratamento);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txCod);
@@ -247,6 +237,7 @@ namespace CadastroLente
             this.Controls.Add(this.txName);
             this.Name = "CadastroLente";
             this.Text = "Cadastro de Lente";
+        
             this.Load += new System.EventHandler(this.CadastroLente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -267,9 +258,8 @@ namespace CadastroLente
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txCod;
         private System.Windows.Forms.ComboBox cbTratamento;
-        private System.Windows.Forms.ComboBox txTipo;
+        private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.ComboBox cbMarca;
-        private System.Windows.Forms.Button buPesquisa;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txValordeVenda;
         private System.Windows.Forms.ComboBox cbFornecedor;

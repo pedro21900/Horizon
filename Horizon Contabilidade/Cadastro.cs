@@ -11,20 +11,36 @@ namespace Horizon_Contabilidade
         {
             InitializeComponent();
             retorna2();
+            tf1();
+
         }
 
         private static readonly Form1 form1 = new Form1();
         private static readonly Calculo calculo = new Calculo();
         private readonly Db db = new Db();
-        private TF tf = new TF();
+        private readonly Horizon_Contabilidade.TF tf = new Horizon_Contabilidade.TF();
         private static string labs = "0";
         private static string labm = "0";
         private static string decl = "0";
         private static string deca = "0";
         private static string dect = "0";
         private static string cdv = "0";
-        private static string fdp1 = "0";
+        //private static string fdp1 = "0";
         private static string cb = "0";
+        private static string Cod;
+        private static string Fornecedorlente;
+        private static string Marcalente;
+        private static string Nome;
+        private static string Tratamento;
+        private static string Tipo;
+        private static string Chamado;
+        private static string Vendalente;
+        public string[] tf1()
+        {
+
+            string[] lente = new string[] { Cod, Fornecedorlente, Marcalente, Nome, Tratamento, Tipo, Chamado, Vendalente };
+            return lente;
+        }
         public string perda()
         {
             string porcento = calculo.perda(calcSoma(txDesconto_Total.Text, calcSoma(txLab.Text, txCol.Text)),
@@ -263,7 +279,7 @@ namespace Horizon_Contabilidade
                 {
                     db.addlinhalayout2(tabela, txOs_Or.Text, Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(), txModelo_armacao.Text, txNome_lente.Text, txLucro_armacao.Text,
                        txLucro_lente.Text, txFornecedor_lente.Text, txFornecedor_armacao.Text, txLucro_total.Text, txDesconto_Total.Text
-                        , txTxcartao.Text, cbForma_de_Pagamento.Text, txDesconto_Lente.Text,
+                        , txTxcartao.Text, "", txDesconto_Lente.Text,
                       txDesconto_Armacao.Text, "0", "0", "0", txMarca_armacao.Text, txMarca_lente.Text, cb, txObs.Text);
                 }
             }
@@ -508,22 +524,7 @@ namespace Horizon_Contabilidade
                     {
                         vari++;
                     }
-                    if (string.IsNullOrEmpty(cbForma_de_Pagamento.Text))
-                    {
-                        MessageBox.Show("Favor escolha a foma de pagamento ", "Salvar Arquivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        vari++;
-                    }
-                    if (string.IsNullOrEmpty(cbForma_de_Pagamento.Text) && string.IsNullOrEmpty(cbForma_de_Pagamento1.Text))
-                    {
 
-                        MessageBox.Show("Favor escolha a foma de pagamento ", "Salvar Arquivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        vari++;
-                    }
-                    if (string.IsNullOrEmpty(cbForma_de_Pagamento.Text))
-                    {
-                        MessageBox.Show("Favor escolha a foma de pagamento ", "Salvar Arquivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        vari++;
-                    }
 
                 }
 
@@ -929,27 +930,7 @@ namespace Horizon_Contabilidade
             txGanho.Text = ganho();
             txPerda.Text = perda();
         }
-        private void cbForma_de_Pagamento1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            fdp1 = cbForma_de_Pagamento1.Text.Replace("R$", "");
-            txGanho.Text = ganho();
-            txPerda.Text = perda();
-        }
-        private void btPesquisar_Click(object sender, EventArgs e)
-        {
-            //BUASCAR POR OS
-            btSalvar.Text = "Atualizar";
-            travatudo();
-            importabanco("DB", txPesquisa_Cadastro.Text, 1);
-            importabanco("Registrosip", txPesquisa_Cadastro.Text, 2);
-            if (btSalvar.Text == "Atualizar")
-            {
-                if (cb == "Parque (Matriz)") { cb2.Checked = true; }
-                if (cb == "Boulevard (Filial)") { cb1.Checked = true; }
 
-            }
-
-        }
         private void btSalvar_Click(object sender, EventArgs e)
         {
 
@@ -976,7 +957,7 @@ namespace Horizon_Contabilidade
 
                 txModelo_armacao.Text, txNome_lente.Text, txLucro_armacao.Text, txLucro_lente.Text,
                 txFornecedor_lente.Text, txFornecedor_armacao.Text, txLucro_total.Text, txDesconto_Total.Text
-                 , txTxcartao.Text, cbForma_de_Pagamento.Text, txDesconto_Lente.Text, txDesconto_Armacao.Text, "0", "0", "0",
+                 , txTxcartao.Text, "", txDesconto_Lente.Text, txDesconto_Armacao.Text, "0", "0", "0",
                 txMarca_armacao.Text, txMarca_lente.Text, "0", txObs.Text, txOs_Or.Text);
 
                 MessageBox.Show("Atualizado");
@@ -1058,109 +1039,49 @@ namespace Horizon_Contabilidade
             txGanho.Text = ganho();
             txPerda.Text = perda();
         }
-        public void lol() {
-            tf.TxFornecedor_lente = txFornecedor_lente.Text;
-            tf.TxMarca_lente = txMarca_lente.Text;
-            tf.TxVenda_lente = txVenda_lente.Text;
-            tf.TxCompra_lente = txCompra_lente.Text;
 
-        }
         public void invocaform()
         {
             CadastroLente.CadastroLente tela_add_servico = new CadastroLente.CadastroLente();
             tela_add_servico.ShowDialog();
         }
-        public void pesquisa(int index)
+        public void pesquisa()
         {
-            DataTable tb = db.pesquisaos("LentesValores", "Cod", txCod.Text).Tables[0];
+            DataTable tb = db.pesquisaos("LentesValores", "Cod", txCod.Text, cbTratamento.Text,txTipo.Text).Tables[0];
             try
             {
-                if (tb.Rows[0][index].ToString() == txCod.Text)
+                if (tb.Rows[0][0].ToString() == txCod.Text)
                 {
-                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
-                    {
-                        //executar metodo chamador
-                        tf.TxCod = txCod.Text;
-                        MessageBox.Show("Dados incompletos");
-                        invocaform();
-                    }
-                    else
-                    {
-                        txFornecedor_lente.Text = tb.Rows[0]["Fornecedor_Lente"].ToString();
-                    }
-                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
-                    {
-                        tf.TxCod = txCod.Text;
-                        MessageBox.Show("Dados incompletos");
-                        invocaform();
-                    }
-                    else
-                    {
-                        txMarca_lente.Text = tb.Rows[0]["Marca"].ToString();
-                    }
-                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
-                    {
-                        tf.TxCod = txCod.Text;
-                        MessageBox.Show("Dados incompletos");
-                        invocaform();
-                    }
-                    else
-                    {
-                        txNome_lente.Text = tb.Rows[0]["Nome_Lente"].ToString();
-                    }
-                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
-                    {
-                        tf.TxCod = txCod.Text;
-                        MessageBox.Show("Dados incompletos");
-                        invocaform();
-                    }
-                    else
-                    {
-                        txVenda_lente.Text = tb.Rows[0]["Valor_Venda"].ToString();
-                    }
-                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
-                    {
-                        tf.TxCod = txCod.Text;
-                        MessageBox.Show("Dados incompletos");
-                        invocaform();
-                    }
-                    else
-                    {
-                        txCompra_lente.Text = tb.Rows[0]["Valor_Compra"].ToString();
-                    }
-                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
-                    {
-                        tf.TxCod = txCod.Text;
-                        MessageBox.Show("Dados incompletos");
-                        invocaform();
-                    }
-                    else
-                    {
-                        cbTratamento.Text = tb.Rows[0]["Tratamento"].ToString();
-                    }
-                    if (tb.Rows[0]["Fornecedor_Lente"].ToString() == "")
-                    {
-                        tf.TxCod = txCod.Text;
-                        MessageBox.Show("Dados incompletos");
-                        invocaform();
-                    }
-                    else
-                    {
-                        txTipo.Text = tb.Rows[0]["Tipo"].ToString();
-                    }
+
+                    txFornecedor_lente.Text = tb.Rows[0]["Fornecedor_Lente"].ToString();
+                    txMarca_lente.Text = tb.Rows[0]["Marca"].ToString();
+                    txNome_lente.Text = tb.Rows[0]["Nome_Lente"].ToString();
+                    txVenda_lente.Text = tb.Rows[0]["Valor_Venda"].ToString();
+                    txCompra_lente.Text = tb.Rows[0]["Valor_Compra"].ToString();
+                    cbTratamento.Text = tb.Rows[0]["Tratamento"].ToString();
+                    txTipo.Text = tb.Rows[0]["Tipo"].ToString();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DialogResult confirm = MessageBox.Show("Lente não cadastrada , Deseja cadastrar?", "Lente não encontrada", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
 
                 if (confirm.ToString().ToUpper() == "YES")
                 {
+
+                    Cod = txCod.Text;
+                    Fornecedorlente = txFornecedor_lente.Text;
+                    Marcalente = txMarca_lente.Text;
+                    Nome = txNome_lente.Text;
+                    Tratamento = cbTratamento.Text;
+                    Tipo = txTipo.Text;
+                    Chamado = "1";
+                    Vendalente = txVenda_lente.Text;
                     invocaform();
                 }
             }
             {
-               
+
             }
         }
         private void BuCadastroL_Click(object sender, EventArgs e)
@@ -1170,14 +1091,14 @@ namespace Horizon_Contabilidade
 
         private void buCalc_Click(object sender, EventArgs e)
         {
-        txCompra_armacao.Text=(Convert.ToDouble(txVenda_armacao.Text)/3.56).ToString();
+            txCompra_armacao.Text = (Convert.ToDouble(txVenda_armacao.Text) / 3.56).ToString();
         }
 
         private void txCod_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
             {
-                pesquisa(0);
+                pesquisa();
             }
         }
 
@@ -1191,12 +1112,12 @@ namespace Horizon_Contabilidade
 
         private void txMarca_lente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[] TratamentoEssilor = new string[] { "SEM AR", "OPTIFOG", "C EASY", "C FORTE", "C SAPHIRE" };
-            string[] TratamentoHoya = new string[] { "SEM AR", "CLEAN EXTRA", "NO-RISK", "NO-RISK +  BC", "BCONTROL/ LONGLIFE" };
-            string[] TratamentoRodenstock = new string[] { "SEM AR", "SOLITARE 2", "SOL.HIDROCOAT", "SOL.DIG BLUE", "X-TRA CLEAN" };
-            string[] TratamentoSynchrony = new string[] { "SEM AR", "VISIONSET", "Dv CHROME" };
-            string[] TratamentoVisionset = new string[] { "SEM AR", "VISIONSET", "VISIONSET BLUE" };
-            string[] TratamentoZeiss = new string[] { "SEM AR", "DV CHROME", "DV SILVER", "DV PLATINUM", "DV BLUE PROTECT" };
+            string[] TratamentoEssilor = new string[] { "SEM AR", "PROPRIO", "OPTIFOG", "C EASY", "C FORTE", "C SAPHIRE" };
+            string[] TratamentoHoya = new string[] { "SEM AR", "PROPRIO", "CLEAN EXTRA", "NO-RISK", "NO-RISK +  BC", "BCONTROL/ LONGLIFE" };
+            string[] TratamentoRodenstock = new string[] { "SEM AR", "PROPRIO", "SOLITARE 2", "SOL.HIDROCOAT", "SOL.DIG BLUE", "X-TRA CLEAN" };
+            string[] TratamentoSynchrony = new string[] { "SEM AR", "PROPRIO", "VISIONSET", "Dv CHROME" };
+            string[] TratamentoVisionset = new string[] { "SEM AR", "PROPRIO", "VISIONSET", "VISIONSET BLUE" };
+            string[] TratamentoZeiss = new string[] { "SEM AR", "PROPRIO", "DV CHROME", "DV SILVER", "DV PLATINUM", "DV BLUE PROTECT" };
 
             if (txMarca_lente.Text == "ESSILOR")
             {
@@ -1227,7 +1148,32 @@ namespace Horizon_Contabilidade
 
         private void cbTratamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pesquisa(4);
+            pesquisa();
+            Chamado = "0";
+        }
+
+        private void txPesquisa_Cadastro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
+            {
+                //BUASCAR POR OS
+                btSalvar.Text = "Atualizar";
+                travatudo();
+                importabanco("DB", txPesquisa_Cadastro.Text, 1);
+                importabanco("Registrosip", txPesquisa_Cadastro.Text, 2);
+                if (btSalvar.Text == "Atualizar")
+                {
+                    if (cb == "Parque (Matriz)") { cb2.Checked = true; }
+                    if (cb == "Boulevard (Filial)") { cb1.Checked = true; }
+
+                }
+            }
+        }
+
+        private void txTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pesquisa();
+            Chamado = "0";
         }
     }
 }

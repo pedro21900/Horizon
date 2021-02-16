@@ -503,7 +503,10 @@ namespace Horizon_Contabilidade
                 tbxCarne.Text = (paid_out + carne1).ToString("C");
                 txReceita.Text = ((Caixa + carne1) - carneafter).ToString("C");
             }
+
             dgvDados.AutoResizeColumns();
+            dgvDados.AutoSizeColumnsMode =
+        DataGridViewAutoSizeColumnsMode.AllCells;
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos(comboBox3.Text, "DB");
             change = 0;
         }
@@ -557,6 +560,7 @@ namespace Horizon_Contabilidade
                 d1 = DB.Tables[0];
 
 
+
             }
             catch (Exception)
             {
@@ -608,7 +612,7 @@ namespace Horizon_Contabilidade
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-            dgvDados.DataSource = db.pesquisaos("DB", comboBox3.Text, txPesquisa_princial.Text).Tables[0];
+            dgvDados.DataSource = db.pesquisaos("DB", comboBox3.Text, txPesquisa_princial.Text, "","").Tables[0];
             //pesquisa(txPesquisa_princial);
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

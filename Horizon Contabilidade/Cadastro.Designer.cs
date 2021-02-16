@@ -41,9 +41,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txVenda = new System.Windows.Forms.TextBox();
-            this.txCusto_com_venda = new System.Windows.Forms.TextBox();
             this.txCol = new System.Windows.Forms.TextBox();
             this.txLab = new System.Windows.Forms.TextBox();
             this.txVenda_armacao = new System.Windows.Forms.TextBox();
@@ -52,17 +49,8 @@
             this.Editar = new System.Windows.Forms.Button();
             this.txPesquisa_Cadastro = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lbLucro_lente = new System.Windows.Forms.Label();
-            this.txLucro_lente = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txLucro_armacao = new System.Windows.Forms.TextBox();
-            this.lbLucro_total = new System.Windows.Forms.Label();
-            this.txLucro_total = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.txMarca_armacao = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btPesquisar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txModelo_armacao = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -76,32 +64,11 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txDesconto_Armacao = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txTxcartao = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.txDesconto_Lente = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.txDesconto_Total = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.cbForma_de_Pagamento = new System.Windows.Forms.ComboBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.txObs = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.txPerda = new System.Windows.Forms.TextBox();
             this.txLimpar = new System.Windows.Forms.Button();
-            this.cbForma_de_Pagamento1 = new System.Windows.Forms.ComboBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txGanho = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cb1 = new System.Windows.Forms.CheckBox();
             this.cb2 = new System.Windows.Forms.CheckBox();
@@ -117,11 +84,29 @@
             this.cbTratamento = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txGanho = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txTxcartao = new System.Windows.Forms.TextBox();
+            this.txLucro_lente = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txVenda = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txCusto_com_venda = new System.Windows.Forms.TextBox();
+            this.txDesconto_Total = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lbLucro_total = new System.Windows.Forms.Label();
+            this.lbLucro_lente = new System.Windows.Forms.Label();
+            this.txLucro_total = new System.Windows.Forms.TextBox();
+            this.txPerda = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txLucro_armacao = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btSalvar
@@ -137,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(208, 62);
+            this.label1.Location = new System.Drawing.Point(224, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 2;
@@ -145,7 +130,7 @@
             // 
             // txOs_Or
             // 
-            this.txOs_Or.Location = new System.Drawing.Point(624, 93);
+            this.txOs_Or.Location = new System.Drawing.Point(653, 93);
             this.txOs_Or.Name = "txOs_Or";
             this.txOs_Or.Size = new System.Drawing.Size(100, 20);
             this.txOs_Or.TabIndex = 3;
@@ -171,7 +156,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(655, 67);
+            this.label2.Location = new System.Drawing.Point(684, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 6;
@@ -240,30 +225,6 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "Coloração";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(211, 131);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 13);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Custo com venda";
-            // 
-            // txVenda
-            // 
-            this.txVenda.Location = new System.Drawing.Point(130, 94);
-            this.txVenda.Name = "txVenda";
-            this.txVenda.Size = new System.Drawing.Size(100, 20);
-            this.txVenda.TabIndex = 55;
-            // 
-            // txCusto_com_venda
-            // 
-            this.txCusto_com_venda.Location = new System.Drawing.Point(201, 156);
-            this.txCusto_com_venda.Name = "txCusto_com_venda";
-            this.txCusto_com_venda.Size = new System.Drawing.Size(100, 20);
-            this.txCusto_com_venda.TabIndex = 16;
-            this.txCusto_com_venda.TextChanged += new System.EventHandler(this.txCusto_com_venda_TextChanged);
-            // 
             // txCol
             // 
             this.txCol.Location = new System.Drawing.Point(269, 241);
@@ -307,7 +268,7 @@
             // 
             // Editar
             // 
-            this.Editar.Location = new System.Drawing.Point(93, 16);
+            this.Editar.Location = new System.Drawing.Point(107, 16);
             this.Editar.Name = "Editar";
             this.Editar.Size = new System.Drawing.Size(75, 24);
             this.Editar.TabIndex = 25;
@@ -319,78 +280,19 @@
             // 
             this.txPesquisa_Cadastro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txPesquisa_Cadastro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txPesquisa_Cadastro.Location = new System.Drawing.Point(462, 19);
+            this.txPesquisa_Cadastro.Location = new System.Drawing.Point(583, 21);
             this.txPesquisa_Cadastro.Name = "txPesquisa_Cadastro";
             this.txPesquisa_Cadastro.Size = new System.Drawing.Size(161, 20);
             this.txPesquisa_Cadastro.TabIndex = 26;
+            this.txPesquisa_Cadastro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txPesquisa_Cadastro_KeyDown);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(174, 91);
+            this.dateTimePicker1.Location = new System.Drawing.Point(190, 95);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(103, 20);
             this.dateTimePicker1.TabIndex = 2;
-            // 
-            // lbLucro_lente
-            // 
-            this.lbLucro_lente.AutoSize = true;
-            this.lbLucro_lente.Location = new System.Drawing.Point(565, 131);
-            this.lbLucro_lente.Name = "lbLucro_lente";
-            this.lbLucro_lente.Size = new System.Drawing.Size(64, 13);
-            this.lbLucro_lente.TabIndex = 32;
-            this.lbLucro_lente.Text = "Lucro Lente";
-            // 
-            // txLucro_lente
-            // 
-            this.txLucro_lente.Location = new System.Drawing.Point(548, 157);
-            this.txLucro_lente.Name = "txLucro_lente";
-            this.txLucro_lente.Size = new System.Drawing.Size(100, 20);
-            this.txLucro_lente.TabIndex = 31;
-            this.txLucro_lente.TextChanged += new System.EventHandler(this.txLucro_lente_TextChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(442, 131);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(79, 13);
-            this.label15.TabIndex = 34;
-            this.label15.Text = "Lucro Armação";
-            // 
-            // txLucro_armacao
-            // 
-            this.txLucro_armacao.Location = new System.Drawing.Point(435, 157);
-            this.txLucro_armacao.Name = "txLucro_armacao";
-            this.txLucro_armacao.Size = new System.Drawing.Size(100, 20);
-            this.txLucro_armacao.TabIndex = 33;
-            this.txLucro_armacao.TextChanged += new System.EventHandler(this.txLucro_armacao_TextChanged);
-            // 
-            // lbLucro_total
-            // 
-            this.lbLucro_total.AutoSize = true;
-            this.lbLucro_total.Location = new System.Drawing.Point(268, 68);
-            this.lbLucro_total.Name = "lbLucro_total";
-            this.lbLucro_total.Size = new System.Drawing.Size(61, 13);
-            this.lbLucro_total.TabIndex = 36;
-            this.lbLucro_total.Text = "Lucro Total";
-            // 
-            // txLucro_total
-            // 
-            this.txLucro_total.Location = new System.Drawing.Point(248, 95);
-            this.txLucro_total.Name = "txLucro_total";
-            this.txLucro_total.Size = new System.Drawing.Size(100, 20);
-            this.txLucro_total.TabIndex = 35;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tempus Sans ITC", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(296, 14);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(112, 31);
-            this.label17.TabIndex = 37;
-            this.label17.Text = "Resultado";
             // 
             // txMarca_armacao
             // 
@@ -409,25 +311,6 @@
             this.label19.Size = new System.Drawing.Size(81, 13);
             this.label19.TabIndex = 40;
             this.label19.Text = "Marca armação";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(166, 67);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
-            this.label11.TabIndex = 42;
-            this.label11.Text = "Venda";
-            // 
-            // btPesquisar
-            // 
-            this.btPesquisar.Location = new System.Drawing.Point(641, 17);
-            this.btPesquisar.Name = "btPesquisar";
-            this.btPesquisar.Size = new System.Drawing.Size(75, 24);
-            this.btPesquisar.TabIndex = 43;
-            this.btPesquisar.Text = "Pesquisar";
-            this.btPesquisar.UseVisualStyleBackColor = true;
-            this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
             // 
             // label13
             // 
@@ -520,7 +403,7 @@
             "Somente Lente",
             "Lente + Armação",
             "Confecção"});
-            this.comboBox1.Location = new System.Drawing.Point(16, 91);
+            this.comboBox1.Location = new System.Drawing.Point(32, 95);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(110, 21);
             this.comboBox1.TabIndex = 1;
@@ -530,7 +413,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(26, 63);
+            this.label22.Location = new System.Drawing.Point(42, 67);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(82, 13);
             this.label22.TabIndex = 57;
@@ -553,22 +436,6 @@
             this.label12.TabIndex = 58;
             this.label12.Text = "Desconto";
             // 
-            // txTxcartao
-            // 
-            this.txTxcartao.Location = new System.Drawing.Point(84, 156);
-            this.txTxcartao.Name = "txTxcartao";
-            this.txTxcartao.Size = new System.Drawing.Size(100, 20);
-            this.txTxcartao.TabIndex = 61;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(96, 131);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(65, 13);
-            this.label23.TabIndex = 60;
-            this.label23.Text = "Taxa Cartão";
-            // 
             // txDesconto_Lente
             // 
             this.txDesconto_Lente.Location = new System.Drawing.Point(11, 241);
@@ -586,58 +453,9 @@
             this.label24.TabIndex = 62;
             this.label24.Text = "Desconto";
             // 
-            // txDesconto_Total
-            // 
-            this.txDesconto_Total.Location = new System.Drawing.Point(317, 156);
-            this.txDesconto_Total.Name = "txDesconto_Total";
-            this.txDesconto_Total.Size = new System.Drawing.Size(100, 20);
-            this.txDesconto_Total.TabIndex = 65;
-            this.txDesconto_Total.TextChanged += new System.EventHandler(this.txDesconto_Total_TextChanged);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(328, 131);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(80, 13);
-            this.label25.TabIndex = 64;
-            this.label25.Text = "Desconto Total";
-            // 
-            // cbForma_de_Pagamento
-            // 
-            this.cbForma_de_Pagamento.FormattingEnabled = true;
-            this.cbForma_de_Pagamento.Items.AddRange(new object[] {
-            "",
-            "Dinheiro",
-            "Débito",
-            "Crédito - 1x",
-            "Crédito - 2x",
-            "Crédito - 3x",
-            "Crédito - 4x",
-            "Crédito - 5x",
-            "Crédito - 6x",
-            "Crédito - 7x",
-            "Crédito - 8x",
-            "Crédito - 9x",
-            "Crédito - 10x"});
-            this.cbForma_de_Pagamento.Location = new System.Drawing.Point(222, 40);
-            this.cbForma_de_Pagamento.Name = "cbForma_de_Pagamento";
-            this.cbForma_de_Pagamento.Size = new System.Drawing.Size(121, 21);
-            this.cbForma_de_Pagamento.TabIndex = 66;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(295, 14);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(127, 15);
-            this.label26.TabIndex = 67;
-            this.label26.Text = "Forma de Pagamento";
-            // 
             // txObs
             // 
-            this.txObs.Location = new System.Drawing.Point(27, 693);
+            this.txObs.Location = new System.Drawing.Point(29, 674);
             this.txObs.Name = "txObs";
             this.txObs.Size = new System.Drawing.Size(697, 20);
             this.txObs.TabIndex = 68;
@@ -645,31 +463,15 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(342, 672);
+            this.label27.Location = new System.Drawing.Point(344, 653);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(70, 13);
             this.label27.TabIndex = 69;
             this.label27.Text = "Observações";
             // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(398, 67);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(60, 13);
-            this.label28.TabIndex = 71;
-            this.label28.Text = "% de perda";
-            // 
-            // txPerda
-            // 
-            this.txPerda.Location = new System.Drawing.Point(375, 94);
-            this.txPerda.Name = "txPerda";
-            this.txPerda.Size = new System.Drawing.Size(100, 20);
-            this.txPerda.TabIndex = 70;
-            // 
             // txLimpar
             // 
-            this.txLimpar.Location = new System.Drawing.Point(174, 16);
+            this.txLimpar.Location = new System.Drawing.Point(201, 16);
             this.txLimpar.Name = "txLimpar";
             this.txLimpar.Size = new System.Drawing.Size(75, 24);
             this.txLimpar.TabIndex = 72;
@@ -677,165 +479,9 @@
             this.txLimpar.UseVisualStyleBackColor = true;
             this.txLimpar.Click += new System.EventHandler(this.txLimpar_Click);
             // 
-            // cbForma_de_Pagamento1
-            // 
-            this.cbForma_de_Pagamento1.FormattingEnabled = true;
-            this.cbForma_de_Pagamento1.Items.AddRange(new object[] {
-            "",
-            "Dinheiro",
-            "Débito",
-            "Crédito - 1x",
-            "Crédito - 2x",
-            "Crédito - 3x",
-            "Crédito - 4x",
-            "Crédito - 5x",
-            "Crédito - 6x",
-            "Crédito - 7x",
-            "Crédito - 8x",
-            "Crédito - 9x",
-            "Crédito - 10x"});
-            this.cbForma_de_Pagamento1.Location = new System.Drawing.Point(349, 40);
-            this.cbForma_de_Pagamento1.Name = "cbForma_de_Pagamento1";
-            this.cbForma_de_Pagamento1.Size = new System.Drawing.Size(121, 21);
-            this.cbForma_de_Pagamento1.TabIndex = 74;
-            this.cbForma_de_Pagamento1.SelectedIndexChanged += new System.EventHandler(this.cbForma_de_Pagamento1_SelectedIndexChanged);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 435);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(720, 225);
-            this.tabControl1.TabIndex = 75;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.txGanho);
-            this.tabPage1.Controls.Add(this.label31);
-            this.tabPage1.Controls.Add(this.txLucro_lente);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.txVenda);
-            this.tabPage1.Controls.Add(this.txCusto_com_venda);
-            this.tabPage1.Controls.Add(this.label28);
-            this.tabPage1.Controls.Add(this.lbLucro_lente);
-            this.tabPage1.Controls.Add(this.txPerda);
-            this.tabPage1.Controls.Add(this.txLucro_armacao);
-            this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.txLucro_total);
-            this.tabPage1.Controls.Add(this.lbLucro_total);
-            this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.txDesconto_Total);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.label25);
-            this.tabPage1.Controls.Add(this.label23);
-            this.tabPage1.Controls.Add(this.txTxcartao);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(712, 199);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Resultado";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // txGanho
-            // 
-            this.txGanho.Location = new System.Drawing.Point(494, 94);
-            this.txGanho.Name = "txGanho";
-            this.txGanho.Size = new System.Drawing.Size(100, 20);
-            this.txGanho.TabIndex = 73;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(511, 67);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(63, 13);
-            this.label31.TabIndex = 72;
-            this.label31.Text = "% de ganho";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.label33);
-            this.tabPage2.Controls.Add(this.label32);
-            this.tabPage2.Controls.Add(this.label30);
-            this.tabPage2.Controls.Add(this.label29);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.cbForma_de_Pagamento1);
-            this.tabPage2.Controls.Add(this.cbForma_de_Pagamento);
-            this.tabPage2.Controls.Add(this.label26);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(712, 199);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Taxa";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(447, 122);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(53, 13);
-            this.label33.TabIndex = 81;
-            this.label33.Text = "Diferença";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(318, 122);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(77, 13);
-            this.label32.TabIndex = 80;
-            this.label32.Text = "Total com taxa";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(200, 122);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(76, 13);
-            this.label30.TabIndex = 79;
-            this.label30.Text = "Total sem taxa";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(243, 89);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(232, 20);
-            this.label29.TabIndex = 78;
-            this.label29.Text = "Valor Sob Foma de Pagamento";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(189, 149);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 77;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(305, 149);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 76;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(423, 149);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 75;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(377, 17);
+            this.button1.Location = new System.Drawing.Point(434, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 24);
             this.button1.TabIndex = 76;
@@ -846,7 +492,7 @@
             // cb1
             // 
             this.cb1.AutoSize = true;
-            this.cb1.Location = new System.Drawing.Point(440, 93);
+            this.cb1.Location = new System.Drawing.Point(430, 87);
             this.cb1.Name = "cb1";
             this.cb1.Size = new System.Drawing.Size(103, 17);
             this.cb1.TabIndex = 77;
@@ -857,7 +503,7 @@
             // cb2
             // 
             this.cb2.AutoSize = true;
-            this.cb2.Location = new System.Drawing.Point(337, 93);
+            this.cb2.Location = new System.Drawing.Point(327, 87);
             this.cb2.Name = "cb2";
             this.cb2.Size = new System.Drawing.Size(97, 17);
             this.cb2.TabIndex = 78;
@@ -868,7 +514,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(400, 63);
+            this.label34.Location = new System.Drawing.Point(409, 55);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(27, 13);
             this.label34.TabIndex = 79;
@@ -876,7 +522,7 @@
             // 
             // BuCadastroL
             // 
-            this.BuCadastroL.Location = new System.Drawing.Point(255, 17);
+            this.BuCadastroL.Location = new System.Drawing.Point(298, 17);
             this.BuCadastroL.Name = "BuCadastroL";
             this.BuCadastroL.Size = new System.Drawing.Size(116, 23);
             this.BuCadastroL.TabIndex = 80;
@@ -931,6 +577,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.txTipo);
             this.panel1.Controls.Add(this.label37);
             this.panel1.Controls.Add(this.cbTratamento);
@@ -970,6 +617,7 @@
             this.txTipo.Size = new System.Drawing.Size(66, 21);
             this.txTipo.TabIndex = 90;
             this.txTipo.Text = "COMUM";
+            this.txTipo.SelectedIndexChanged += new System.EventHandler(this.txTipo_SelectedIndexChanged);
             // 
             // label37
             // 
@@ -1003,6 +651,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.txDesconto_Armacao);
             this.panel2.Controls.Add(this.txFornecedor_armacao);
             this.panel2.Controls.Add(this.buCalc);
@@ -1022,11 +671,197 @@
             this.panel2.Size = new System.Drawing.Size(364, 278);
             this.panel2.TabIndex = 90;
             // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.txGanho);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.label31);
+            this.panel3.Controls.Add(this.txTxcartao);
+            this.panel3.Controls.Add(this.txLucro_lente);
+            this.panel3.Controls.Add(this.label23);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.label25);
+            this.panel3.Controls.Add(this.txVenda);
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.txCusto_com_venda);
+            this.panel3.Controls.Add(this.txDesconto_Total);
+            this.panel3.Controls.Add(this.label28);
+            this.panel3.Controls.Add(this.lbLucro_total);
+            this.panel3.Controls.Add(this.lbLucro_lente);
+            this.panel3.Controls.Add(this.txLucro_total);
+            this.panel3.Controls.Add(this.txPerda);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.txLucro_armacao);
+            this.panel3.Location = new System.Drawing.Point(12, 428);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(752, 206);
+            this.panel3.TabIndex = 74;
+            // 
+            // txGanho
+            // 
+            this.txGanho.Location = new System.Drawing.Point(520, 105);
+            this.txGanho.Name = "txGanho";
+            this.txGanho.Size = new System.Drawing.Size(100, 20);
+            this.txGanho.TabIndex = 73;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Tempus Sans ITC", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(322, 25);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(112, 31);
+            this.label17.TabIndex = 37;
+            this.label17.Text = "Resultado";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(537, 78);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(63, 13);
+            this.label31.TabIndex = 72;
+            this.label31.Text = "% de ganho";
+            // 
+            // txTxcartao
+            // 
+            this.txTxcartao.Location = new System.Drawing.Point(110, 167);
+            this.txTxcartao.Name = "txTxcartao";
+            this.txTxcartao.Size = new System.Drawing.Size(100, 20);
+            this.txTxcartao.TabIndex = 61;
+            // 
+            // txLucro_lente
+            // 
+            this.txLucro_lente.Location = new System.Drawing.Point(574, 168);
+            this.txLucro_lente.Name = "txLucro_lente";
+            this.txLucro_lente.Size = new System.Drawing.Size(100, 20);
+            this.txLucro_lente.TabIndex = 31;
+            this.txLucro_lente.TextChanged += new System.EventHandler(this.txLucro_lente_TextChanged);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(122, 142);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(65, 13);
+            this.label23.TabIndex = 60;
+            this.label23.Text = "Taxa Cartão";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(237, 142);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Custo com venda";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(354, 142);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(80, 13);
+            this.label25.TabIndex = 64;
+            this.label25.Text = "Desconto Total";
+            // 
+            // txVenda
+            // 
+            this.txVenda.Location = new System.Drawing.Point(156, 105);
+            this.txVenda.Name = "txVenda";
+            this.txVenda.Size = new System.Drawing.Size(100, 20);
+            this.txVenda.TabIndex = 55;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(192, 78);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "Venda";
+            // 
+            // txCusto_com_venda
+            // 
+            this.txCusto_com_venda.Location = new System.Drawing.Point(227, 167);
+            this.txCusto_com_venda.Name = "txCusto_com_venda";
+            this.txCusto_com_venda.Size = new System.Drawing.Size(100, 20);
+            this.txCusto_com_venda.TabIndex = 16;
+            this.txCusto_com_venda.TextChanged += new System.EventHandler(this.txCusto_com_venda_TextChanged);
+            // 
+            // txDesconto_Total
+            // 
+            this.txDesconto_Total.Location = new System.Drawing.Point(343, 167);
+            this.txDesconto_Total.Name = "txDesconto_Total";
+            this.txDesconto_Total.Size = new System.Drawing.Size(100, 20);
+            this.txDesconto_Total.TabIndex = 65;
+            this.txDesconto_Total.TextChanged += new System.EventHandler(this.txDesconto_Total_TextChanged);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(424, 78);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(60, 13);
+            this.label28.TabIndex = 71;
+            this.label28.Text = "% de perda";
+            // 
+            // lbLucro_total
+            // 
+            this.lbLucro_total.AutoSize = true;
+            this.lbLucro_total.Location = new System.Drawing.Point(294, 79);
+            this.lbLucro_total.Name = "lbLucro_total";
+            this.lbLucro_total.Size = new System.Drawing.Size(61, 13);
+            this.lbLucro_total.TabIndex = 36;
+            this.lbLucro_total.Text = "Lucro Total";
+            // 
+            // lbLucro_lente
+            // 
+            this.lbLucro_lente.AutoSize = true;
+            this.lbLucro_lente.Location = new System.Drawing.Point(591, 142);
+            this.lbLucro_lente.Name = "lbLucro_lente";
+            this.lbLucro_lente.Size = new System.Drawing.Size(64, 13);
+            this.lbLucro_lente.TabIndex = 32;
+            this.lbLucro_lente.Text = "Lucro Lente";
+            // 
+            // txLucro_total
+            // 
+            this.txLucro_total.Location = new System.Drawing.Point(274, 106);
+            this.txLucro_total.Name = "txLucro_total";
+            this.txLucro_total.Size = new System.Drawing.Size(100, 20);
+            this.txLucro_total.TabIndex = 35;
+            // 
+            // txPerda
+            // 
+            this.txPerda.Location = new System.Drawing.Point(401, 105);
+            this.txPerda.Name = "txPerda";
+            this.txPerda.Size = new System.Drawing.Size(100, 20);
+            this.txPerda.TabIndex = 70;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(468, 142);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(79, 13);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "Lucro Armação";
+            // 
+            // txLucro_armacao
+            // 
+            this.txLucro_armacao.Location = new System.Drawing.Point(461, 168);
+            this.txLucro_armacao.Name = "txLucro_armacao";
+            this.txLucro_armacao.Size = new System.Drawing.Size(100, 20);
+            this.txLucro_armacao.TabIndex = 33;
+            this.txLucro_armacao.TextChanged += new System.EventHandler(this.txLucro_armacao_TextChanged);
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 725);
+            this.ClientSize = new System.Drawing.Size(776, 706);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BuCadastroL);
@@ -1034,13 +869,11 @@
             this.Controls.Add(this.cb2);
             this.Controls.Add(this.cb1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.txLimpar);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.txObs);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.btPesquisar);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txPesquisa_Cadastro);
             this.Controls.Add(this.Editar);
@@ -1049,17 +882,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btSalvar);
             this.Name = "Cadastro";
-            this.Text = "+";
+            this.Text = "Venda";
             this.Load += new System.EventHandler(this.Cadastro_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1079,9 +909,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txVenda;
-        private System.Windows.Forms.TextBox txCusto_com_venda;
         private System.Windows.Forms.TextBox txCol;
         private System.Windows.Forms.TextBox txLab;
         private System.Windows.Forms.TextBox txVenda_armacao;
@@ -1090,17 +917,8 @@
         private System.Windows.Forms.Button Editar;
         private System.Windows.Forms.TextBox txPesquisa_Cadastro;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lbLucro_lente;
-        private System.Windows.Forms.TextBox txLucro_lente;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txLucro_armacao;
-        private System.Windows.Forms.Label lbLucro_total;
-        private System.Windows.Forms.TextBox txLucro_total;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txMarca_armacao;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btPesquisar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txModelo_armacao;
         private System.Windows.Forms.Label label14;
@@ -1114,32 +932,11 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txDesconto_Armacao;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txTxcartao;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txDesconto_Lente;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox txDesconto_Total;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ComboBox cbForma_de_Pagamento;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txObs;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox txPerda;
         private System.Windows.Forms.Button txLimpar;
-        private System.Windows.Forms.ComboBox cbForma_de_Pagamento1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox txGanho;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox cb1;
         private System.Windows.Forms.CheckBox cb2;
@@ -1155,5 +952,25 @@
         private System.Windows.Forms.ComboBox txTipo;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txGanho;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox txTxcartao;
+        private System.Windows.Forms.TextBox txLucro_lente;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txVenda;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txCusto_com_venda;
+        private System.Windows.Forms.TextBox txDesconto_Total;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lbLucro_total;
+        private System.Windows.Forms.Label lbLucro_lente;
+        private System.Windows.Forms.TextBox txLucro_total;
+        private System.Windows.Forms.TextBox txPerda;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txLucro_armacao;
     }
 }
