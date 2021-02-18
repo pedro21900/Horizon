@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="110576">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="133104">
       <assemblyIdentity name="Horizon Contabilidade" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>S6VzXMzYrGobRKn5ugz2QADAJ2dkLI8BKAUC2dHXZXI=</dsig:DigestValue>
+        <dsig:DigestValue>t26HWNOdCO0Djm4+lwg4xjTvaW+Mt4Wty4MWfS2FvkA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -482,13 +482,22 @@
       <dsig:DigestValue>KmKbDby1hPcXrnxJpmmFW6+tPmTRQ9cP1JzyF7KK7xg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Horizon Contabilidade.exe.config" size="2021">
+  <file name="DB.accdb" size="4849664">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>vhhUoCwbL9q3PWMcnTNH+Lg2ncPT935aK0H2T61w4yg=</dsig:DigestValue>
+      <dsig:DigestValue>mpkIruza4e8A6Ofj7dsXurl2oWoDpcl3KVJ9vs5N9HQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Horizon Contabilidade.exe.config" size="2294">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+6zVCAHa8lEEAZNVIrTEmGzNDTy93yB3F/HUsVMNN5I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Scripts\jquery-3.5.1.intellisense.js" size="159646">
