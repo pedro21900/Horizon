@@ -1,0 +1,43 @@
+D:\GIT\Dashboard1\Dashboard1\bin\Debug\Dashboard1.exe.config
+D:\GIT\Dashboard1\Dashboard1\bin\Debug\Dashboard1.exe
+D:\GIT\Dashboard1\Dashboard1\bin\Debug\Dashboard1.pdb
+D:\GIT\Dashboard1\Dashboard1\bin\Debug\MaterialDesignColors.dll
+D:\GIT\Dashboard1\Dashboard1\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\GIT\Dashboard1\Dashboard1\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\GIT\Dashboard1\Dashboard1\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\Dashboard1.csprojResolveAssemblyReference.cache
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\MainWindow.g.cs
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\App.g.cs
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\Dashboard1_MarkupCompile.cache
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\Dashboard1_MarkupCompile.lref
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\MainWindow.baml
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\Dashboard1.g.resources
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\Dashboard1.Properties.Resources.resources
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\Dashboard1.csproj.GenerateResource.Cache
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\Dashboard1.csproj.CoreCompileInputs.cache
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\Dashboard1.exe
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\Dashboard1.pdb
+D:\GIT\Dashboard1\Dashboard1\obj\Debug\App.baml
+D:\GIT\Dashboard1\Dashboard1\bin\Debug\De.TorstenMandelkow.MetroChart.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\bin\Debug\Dashboard1.exe.config
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\bin\Debug\Dashboard1.exe
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\bin\Debug\Dashboard1.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\bin\Debug\De.TorstenMandelkow.MetroChart.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\bin\Debug\MaterialDesignColors.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1.csprojAssemblyReference.cache
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\MainWindow.g.cs
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\App.g.cs
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1_MarkupCompile.cache
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1_MarkupCompile.lref
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\App.baml
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\MainWindow.baml
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1.g.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1.Properties.Resources.resources
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1.csproj.GenerateResource.cache
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1.csproj.CoreCompileInputs.cache
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1.csproj.CopyComplete
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1.exe
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon Contabilidade\Horizon\Dashboard\Dashboard1-master\Dashboard1-master\Dashboard1\obj\Debug\Dashboard1.pdb
