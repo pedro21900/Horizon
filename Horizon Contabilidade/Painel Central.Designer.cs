@@ -29,11 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -119,7 +124,10 @@
             this.buAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Dv = new System.Windows.Forms.TabPage();
+            this.Lente = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Armação = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button4 = new System.Windows.Forms.Button();
             this.label63 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -185,10 +193,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvDadosC = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.dBDataSet = new Horizon_Contabilidade.DBDataSet();
-            this.dBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBTableAdapter = new Horizon_Contabilidade.DBDataSetTableAdapters.DBTableAdapter();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -198,7 +202,10 @@
             this.panel3.SuspendLayout();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBBindingSource)).BeginInit();
             this.Dv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Lente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Armação)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
@@ -206,9 +213,6 @@
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDadosC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -993,7 +997,6 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.chart1);
             this.tabPage6.Controls.Add(this.button6);
             this.tabPage6.Controls.Add(this.buAdd);
             this.tabPage6.Controls.Add(this.dataGridView1);
@@ -1046,9 +1049,15 @@
             this.textBox1.Size = new System.Drawing.Size(382, 20);
             this.textBox1.TabIndex = 24;
             // 
+            // dBBindingSource
+            // 
+            this.dBBindingSource.DataMember = "DB";
+            // 
             // Dv
             // 
             this.Dv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Dv.Controls.Add(this.Lente);
+            this.Dv.Controls.Add(this.Armação);
             this.Dv.Controls.Add(this.button4);
             this.Dv.Controls.Add(this.label63);
             this.Dv.Controls.Add(this.comboBox3);
@@ -1067,7 +1076,54 @@
             this.Dv.TabIndex = 0;
             this.Dv.Text = "Vendas";
             this.Dv.UseVisualStyleBackColor = true;
-            this.Dv.Click += new System.EventHandler(this.Dv_Click);
+            // 
+            // Lente
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.Lente.ChartAreas.Add(chartArea3);
+            this.Lente.DataSource = this.dBBindingSource;
+            legend3.Name = "Legend1";
+            this.Lente.Legends.Add(legend3);
+            this.Lente.Location = new System.Drawing.Point(489, 65);
+            this.Lente.Name = "Lente";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            series3.XValueMember = "Fornecedor";
+            series3.YValueMembers = "0";
+            this.Lente.Series.Add(series3);
+            this.Lente.Size = new System.Drawing.Size(349, 258);
+            this.Lente.TabIndex = 40;
+            this.Lente.Text = "chart2";
+            title5.Name = "Title1";
+            title6.Name = "Title2";
+            this.Lente.Titles.Add(title5);
+            this.Lente.Titles.Add(title6);
+            // 
+            // Armação
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.Armação.ChartAreas.Add(chartArea4);
+            this.Armação.DataSource = this.dBBindingSource;
+            legend4.Name = "Legend1";
+            this.Armação.Legends.Add(legend4);
+            this.Armação.Location = new System.Drawing.Point(28, 65);
+            this.Armação.Name = "Armação";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            series4.XValueMember = "Fornecedor";
+            series4.YValueMembers = "0";
+            this.Armação.Series.Add(series4);
+            this.Armação.Size = new System.Drawing.Size(366, 258);
+            this.Armação.TabIndex = 39;
+            this.Armação.Text = "chart1";
+            title7.Name = "Title1";
+            title8.Name = "Title2";
+            this.Armação.Titles.Add(title7);
+            this.Armação.Titles.Add(title8);
             // 
             // button4
             // 
@@ -1252,7 +1308,6 @@
             this.txLabootica.Size = new System.Drawing.Size(42, 13);
             this.txLabootica.TabIndex = 41;
             this.txLabootica.Text = "Safilo : ";
-            this.txLabootica.Click += new System.EventHandler(this.txZeiss_Click);
             // 
             // txRodenstock
             // 
@@ -1678,11 +1733,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDados.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvDados.Location = new System.Drawing.Point(6, 65);
+            this.dgvDados.Location = new System.Drawing.Point(892, 65);
             this.dgvDados.Name = "dgvDados";
             this.dgvDados.ReadOnly = true;
             this.dgvDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDados.Size = new System.Drawing.Size(1340, 258);
+            this.dgvDados.Size = new System.Drawing.Size(454, 258);
             this.dgvDados.TabIndex = 21;
             this.dgvDados.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvDados_MouseDoubleClick);
             // 
@@ -1761,44 +1816,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.DataSource = this.dBBindingSource;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(497, 66);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.XValueMember = "Fornecedor";
-            series1.YValueMembers = "0";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(482, 300);
-            this.chart1.TabIndex = 38;
-            this.chart1.Text = "chart1";
-            title1.Name = "Title1";
-            title2.Name = "Title2";
-            this.chart1.Titles.Add(title1);
-            this.chart1.Titles.Add(title2);
-            // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dBBindingSource
-            // 
-            this.dBBindingSource.DataMember = "DB";
-            this.dBBindingSource.DataSource = this.dBDataSet;
-            // 
-            // dBTableAdapter
-            // 
-            this.dBTableAdapter.ClearBeforeFill = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1830,8 +1847,11 @@
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBBindingSource)).EndInit();
             this.Dv.ResumeLayout(false);
             this.Dv.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Lente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Armação)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1841,9 +1861,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDadosC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2001,10 +2018,11 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dgvDadosC;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private DBDataSet dBDataSet;
+
         private System.Windows.Forms.BindingSource dBBindingSource;
-        private DBDataSetTableAdapters.DBTableAdapter dBTableAdapter;
+     
+        private System.Windows.Forms.DataVisualization.Charting.Chart Lente;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Armação;
     }
 }
 

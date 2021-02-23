@@ -111,11 +111,6 @@
     </Compile>
     <Compile Include="Calculo.cs" />
     <Compile Include="Db.cs" />
-    <Compile Include="DBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="excel_manipulations.cs" />
     <Compile Include="Metodos auxiliades.cs" />
     <Compile Include="Painel Central.cs">
@@ -165,17 +160,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DBDataSet.xsc">
-      <DependentUpon>DBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="DBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DBDataSet.xss">
-      <DependentUpon>DBDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Horizon Contabilidade_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Horizon_Contabilidade.Properties.Resources.datasource" />
@@ -232,9 +216,6 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="DB.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

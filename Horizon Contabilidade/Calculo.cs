@@ -4,7 +4,7 @@ namespace Horizon_Contabilidade
 {
     internal class Calculo
     {
-        static public Db db = new Db();
+        public static Db db = new Db();
         public double perda(string div1, string div2, string divs)
         {
             double div12 = 1;
@@ -143,29 +143,30 @@ namespace Horizon_Contabilidade
             return retorno;
         }
 
-        public double Recalc(string valor1,string valor,string fornecedor)
+        public double Recalc(string valor1, string valor, string fornecedor)
         {
-            double resultado =0;
-             string[] Fornecedor = new string[] { "TRI-LAB", "ICOPA", "LABOOTICA", "OPTIPRIME", "HOYA", "RODENSTOCK", "ZEISS BELEM", "COMPROL" };
-            if (fornecedor.Contains(Fornecedor[7])&& Convert.ToDouble(valor1) ==0)
+            double resultado = 0;
+            string[] Fornecedor = new string[] { "TRI-LAB", "ICOPA", "LABOOTICA", "OPTIPRIME", "HOYA", "RODENSTOCK", "ZEISS BELEM", "COMPROL" };
+            if (fornecedor.Contains(Fornecedor[7]) && Convert.ToDouble(valor1) == 0)
             {
-                resultado = (Convert.ToDouble(valor)/2.87);
+                resultado = (Convert.ToDouble(valor) / 2.87);
             }
-           else if (fornecedor.Contains(Fornecedor[6]) && Convert.ToDouble(valor1) == 0)
+            else if (fornecedor.Contains(Fornecedor[6]) && Convert.ToDouble(valor1) == 0)
             {
                 resultado = (Convert.ToDouble(valor) / 2.77);
             }
-           else if (fornecedor.Contains(Fornecedor[5]) && Convert.ToDouble(valor1) == 0)
+            else if (fornecedor.Contains(Fornecedor[5]) && Convert.ToDouble(valor1) == 0)
             {
                 if (Convert.ToDouble(valor) == 0) { }
-                else{
+                else
+                {
                     resultado = (Convert.ToDouble(valor) / 4.16);
                 }
-               
+
             }
-           else if (fornecedor.Contains(Fornecedor[4]) && Convert.ToDouble(valor1) == 0)
+            else if (fornecedor.Contains(Fornecedor[4]) && Convert.ToDouble(valor1) == 0)
             {
-               resultado = (Convert.ToDouble(valor) / 3.89);
+                resultado = (Convert.ToDouble(valor) / 3.89);
 
             }
             return resultado;

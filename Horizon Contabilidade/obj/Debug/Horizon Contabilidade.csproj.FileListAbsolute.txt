@@ -167,4 +167,3 @@ C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon C
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CopyComplete
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
-C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\DB.accdb

@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="133104">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="113648">
       <assemblyIdentity name="Horizon Contabilidade" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>t26HWNOdCO0Djm4+lwg4xjTvaW+Mt4Wty4MWfS2FvkA=</dsig:DigestValue>
+        <dsig:DigestValue>8ikk4iS4wcme9yN2O8F4dleqQNtLfWn6R1Ty8dWCSkk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -480,15 +480,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>KmKbDby1hPcXrnxJpmmFW6+tPmTRQ9cP1JzyF7KK7xg=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="DB.accdb" size="4849664">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>mpkIruza4e8A6Ofj7dsXurl2oWoDpcl3KVJ9vs5N9HQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Horizon Contabilidade.exe.config" size="2294">

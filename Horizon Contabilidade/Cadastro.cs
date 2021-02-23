@@ -1044,7 +1044,7 @@ namespace Horizon_Contabilidade
             CadastroLente.CadastroLente tela_add_servico = new CadastroLente.CadastroLente();
             tela_add_servico.ShowDialog();
         }
-        public void pesquisa(string tratamento,string tipo)
+        public void pesquisa(string tratamento, string tipo)
         {
             DataTable tb = db.pesquisaos("LentesValores", "Cod", txCod.Text, tratamento, tipo).Tables[0];
             try
@@ -1097,7 +1097,7 @@ namespace Horizon_Contabilidade
         {
             if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
             {
-                pesquisa("","");
+                pesquisa("", "");
             }
         }
 
@@ -1147,7 +1147,7 @@ namespace Horizon_Contabilidade
 
         private void cbTratamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pesquisa(cbTratamento.Text,"");
+            pesquisa(cbTratamento.Text, "");
             Chamado = "0";
         }
 
@@ -1155,11 +1155,12 @@ namespace Horizon_Contabilidade
         {
             if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
             {
-                //BUASCAR POR OS
-                btSalvar.Text = "Atualizar";
+                
+                //BUASCAR POR OS               
                 travatudo();
                 importabanco("DB", txPesquisa_Cadastro.Text, 1);
                 importabanco("Registrosip", txPesquisa_Cadastro.Text, 2);
+                btSalvar.Text = "Atualizar";
                 if (btSalvar.Text == "Atualizar")
                 {
                     if (cb == "Parque (Matriz)") { cb2.Checked = true; }
@@ -1171,9 +1172,10 @@ namespace Horizon_Contabilidade
 
         private void txTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pesquisa(cbTratamento.Text,txTipo.Text);
+            pesquisa(cbTratamento.Text, txTipo.Text);
             Chamado = "0";
         }
+
     }
 }
 

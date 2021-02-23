@@ -18,7 +18,7 @@ namespace Horizon_Contabilidade
         private static OleDbConnection conexaoDb;
         private static OleDbConnection conexaotable;
         private static string sourcetable;
-        
+
 
         //Properties.Settings.Default.Pastainicial = Form1.sDBstr;
         //   Properties.Settings.Default.Save();
@@ -96,7 +96,7 @@ namespace Horizon_Contabilidade
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro"+ ex);
+                MessageBox.Show("Erro" + ex);
 
 
             }
@@ -178,9 +178,10 @@ namespace Horizon_Contabilidade
             {
                 sSQL = "select * from " + tabela + " WHERE " + coluna + " like '%" + pesquisa + "%'";
             }
-            else if (coluna== "Fornecedor"){
+            else if (coluna == "Fornecedor")
+            {
                 sSQL = "select * from " + tabela + " WHERE " + coluna + " like '%" + pesquisa + "%' and Or_os like '%" + pesquisa2 + "%'";
-                            }
+            }
             else
             {
                 sSQL = "select * from " + tabela + " WHERE " + coluna + " like '%" + pesquisa + "%' and Tratamento like '%" + pesquisa2 + "%' and Tipo like '%" + pesquisa3 + "%'";
@@ -352,13 +353,13 @@ namespace Horizon_Contabilidade
 
             }
         }
-        public void registrocadlentes(string pesquisa,double valor)
+        public void registrocadlentes(string pesquisa, double valor)
 
         {
             string data, or, fornecedor, compral, vendal, compraa, vendaa, lab,
                                 col, custocv, vendavalor, loja;
-            DataTable linha =pesquisaos("DB", "Or_os", pesquisa, "", "").Tables[0];
-            data=linha.Rows[0]["Data"].ToString();
+            DataTable linha = pesquisaos("DB", "Or_os", pesquisa, "", "").Tables[0];
+            data = linha.Rows[0]["Data"].ToString();
             or = linha.Rows[0]["Or_os"].ToString();
             fornecedor = linha.Rows[0]["Fornecedor"].ToString();
             compral = valor.ToString("C");
@@ -367,7 +368,7 @@ namespace Horizon_Contabilidade
             vendaa = linha.Rows[0]["Venda_da_Armação"].ToString();
             col = linha.Rows[0]["Coloração"].ToString();
             lab = linha.Rows[0]["Lab"].ToString();
-            custocv = (valor+ Convert.ToDouble(compraa)+ Convert.ToDouble(col) + Convert.ToDouble(lab)).ToString("C");
+            custocv = (valor + Convert.ToDouble(compraa) + Convert.ToDouble(col) + Convert.ToDouble(lab)).ToString("C");
             vendavalor = linha.Rows[0]["Valor_da_venda_cliente"].ToString();
             loja = linha.Rows[0]["Loja"].ToString();
             Deletalinha("DB", pesquisa);

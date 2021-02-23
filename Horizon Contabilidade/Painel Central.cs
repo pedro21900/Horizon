@@ -19,6 +19,7 @@ namespace Horizon_Contabilidade
         private static string os = "0";
         private static bool c = false;
         private static int change = 0;
+        private static int ini = 0;
 
         //Classes
         private DataTable d1 = new DataTable();
@@ -29,18 +30,23 @@ namespace Horizon_Contabilidade
         //Metodos auxiliares
         public void fills_in()
         {
-            if (change == 1)
+            if (ini != 1&& change == 1)
             {
                 DB.Reset();
                 Registrosip.Reset();
                 Carne.Reset();
             }
+            if (change == 1)
+                
+            {               
+                DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData);
 
-            DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData);
+                Registrosip = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData);
 
-            Registrosip = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData);
+                Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData);
+            }
 
-            Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData);
+            
         }
         public bool retorna()
         {
@@ -457,6 +463,7 @@ namespace Horizon_Contabilidade
             double Marcolin = Providers("MARCOLIN", "Armação");
 
             //Lentes
+            Lente.DataSource = db1("DB");
             txHoya.Text = Hoya.ToString("C");
             txRodenstock.Text = Rodenstock.ToString("C");
             txLabootica.Text = labootica.ToString("C");
@@ -503,10 +510,15 @@ namespace Horizon_Contabilidade
                 tbxCarne.Text = (paid_out + carne1).ToString("C");
                 txReceita.Text = ((Caixa + carne1) - carneafter).ToString("C");
             }
+            Armação.Series.Add("HOYA");
+            Armação.Series.Add("ZEISS BELEM");
+            Armação.Series.Add("RODENSTOCK");
+            Armação.Series.Add("COMPROL");
+            Armação.Series.Insert(0,)
+
 
             dgvDados.AutoResizeColumns();
-            dgvDados.AutoSizeColumnsMode =
-        DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvDados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos(comboBox3.Text, "DB");
             change = 0;
         }
@@ -522,6 +534,7 @@ namespace Horizon_Contabilidade
                 if (oDs.Rows[i]["Fornecedor"].ToString().Contains(nameProviders))
                 {
                     double index2 = Convert.ToDouble(oDs.Rows[i]["Compra_da_" + lens_or_frame].ToString());
+
                     index += index2;
                 }
 
@@ -552,12 +565,16 @@ namespace Horizon_Contabilidade
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'dBDataSet.DB'. Você pode movê-la ou removê-la conforme necessário.
-            this.dBTableAdapter.Fill(this.dBDataSet.DB);
+         
 
             try
             {
                 SDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Properties.Settings.Default.SourceDb;
+                change = 1;
+                ini = 1;
                 atualiza();
+                ini = 0;
+                change = 0;
                 d1.Clear();
                 d1 = DB.Tables[0];
 
@@ -614,7 +631,7 @@ namespace Horizon_Contabilidade
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-            dgvDados.DataSource = db.pesquisaos("DB", comboBox3.Text, txPesquisa_princial.Text, "","").Tables[0];
+            dgvDados.DataSource = db.pesquisaos("DB", comboBox3.Text, txPesquisa_princial.Text, "", "").Tables[0];
             //pesquisa(txPesquisa_princial);
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -660,10 +677,6 @@ namespace Horizon_Contabilidade
             Properties.Settings.Default.Save();
 
         }
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void dptData_ValueChanged(object sender, EventArgs e)
         {
             change = 1;
@@ -691,29 +704,12 @@ namespace Horizon_Contabilidade
             d1 = DB.Tables[0];
             atualiza();
         }
-
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             db.Deletalinha("DB", retornaosclicada(dgvDados));
             db.Deletalinha("Registrosip", retornaosclicada(dgvDados));
             atualiza();
         }
-
-        private void txTlens_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Dv_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txZeiss_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             Metodos_auxiliades metodos_Auxiliades = new Metodos_auxiliades();

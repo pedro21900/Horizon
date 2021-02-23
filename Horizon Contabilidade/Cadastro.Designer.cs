@@ -284,6 +284,7 @@
             this.txPesquisa_Cadastro.Name = "txPesquisa_Cadastro";
             this.txPesquisa_Cadastro.Size = new System.Drawing.Size(161, 20);
             this.txPesquisa_Cadastro.TabIndex = 26;
+
             this.txPesquisa_Cadastro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txPesquisa_Cadastro_KeyDown);
             // 
             // dateTimePicker1
