@@ -15,6 +15,8 @@ namespace Horizon_Contabilidade
         private static DataSet DB;
         private static DataSet Registrosip;
         private static DataSet Carne;
+        private static DataTable Len;
+        private static DataTable Arma;
         private static readonly Cadastro cadastro = new Cadastro();
         private static string os = "0";
         private static bool c = false;
@@ -35,15 +37,23 @@ namespace Horizon_Contabilidade
                 DB.Reset();
                 Registrosip.Reset();
                 Carne.Reset();
+                Len.Reset();
+                Arma.Reset();
             }
             if (change == 1)
                 
             {               
-                DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData);
+                DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData,0,"");
 
-                Registrosip = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData);
+                Registrosip = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData,0, "");
 
-                Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData);
+                Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "");
+
+                 Len= db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_de_Lente").Tables[0];
+                 Arma = db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_de_armação").Tables[0];
+               
+              
+
             }
 
             
@@ -463,7 +473,7 @@ namespace Horizon_Contabilidade
             double Marcolin = Providers("MARCOLIN", "Armação");
 
             //Lentes
-            Lente.DataSource = db1("DB");
+            
             txHoya.Text = Hoya.ToString("C");
             txRodenstock.Text = Rodenstock.ToString("C");
             txLabootica.Text = labootica.ToString("C");
@@ -510,13 +520,27 @@ namespace Horizon_Contabilidade
                 tbxCarne.Text = (paid_out + carne1).ToString("C");
                 txReceita.Text = ((Caixa + carne1) - carneafter).ToString("C");
             }
-            Armação.Series.Add("HOYA");
-            Armação.Series.Add("ZEISS BELEM");
-            Armação.Series.Add("RODENSTOCK");
-            Armação.Series.Add("COMPROL");
-            Armação.Series.Insert(0,)
+            //Chart
 
+            foreach (var series in Armação.Series)
+            {
+                series.Points.Clear();
+            }
+            for (int i = 0; i <= Arma.Rows.Count-1; i++)
+            {
+             Armação.Series[0].Points.AddXY(Arma.Rows[i]["Fornecedor_de_armação"], Arma.Rows[i]["Qtd"]);
+            
+            }
+            foreach (var series in Lente.Series)
+            {
+                series.Points.Clear();
+            }
+            for (int i = 0; i <= Len.Rows.Count - 1; i++)
+            {
+                Lente.Series[0].Points.AddXY(Len.Rows[i]["Fornecedor_de_Lente"], Len.Rows[i]["Qtd"]);
 
+            }
+            
             dgvDados.AutoResizeColumns();
             dgvDados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos(comboBox3.Text, "DB");
@@ -716,5 +740,6 @@ namespace Horizon_Contabilidade
             metodos_Auxiliades.calcforn();
             atualiza();
         }
+
     }
 }

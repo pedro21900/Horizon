@@ -197,7 +197,7 @@ namespace Horizon_Contabilidade
 
         }
 
-        public DataSet Filtrodb(string key1, string key2, string tabela, DateTimePicker dtpData)
+        public DataSet Filtrodb(string key1, string key2, string tabela, DateTimePicker dtpData,int x,string tipo)
         {
 
             DataSet oDs = new DataSet();
@@ -213,13 +213,31 @@ namespace Horizon_Contabilidade
 
 
             //if (chave == "Mês / Ano") { sSQL = "select * from " + tabela + " WHERE Data like " + primeiroDiaDoMes.ToString("d") + " and " + ultimoDiaDoMes.ToString("d"); }
-            if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Data"; }
-            else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + dtpData.Value.ToString("d") + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Or_os"; }
-            else if (key1 == "Mês / Ano") { sSQL = "select * from " + tabela + " WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%' ORDER BY Data"; }
-            else if (key1 == "Dia") { sSQL = "select * from " + tabela + " WHERE Data like '%" + dtpData.Value.ToString("d") + "%' ORDER BY Or_os"; }
-            else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Data"; }
-            else { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') ORDER BY Data"; }
-            //definir a string SQL
+            if (x != 1)
+            {
+                if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Data"; }
+                else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + dtpData.Value.ToString("d") + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Or_os"; }
+                else if (key1 == "Mês / Ano") { sSQL = "select * from " + tabela + " WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%' ORDER BY Data"; }
+                else if (key1 == "Dia") { sSQL = "select * from " + tabela + " WHERE Data like '%" + dtpData.Value.ToString("d") + "%' ORDER BY Or_os"; }
+                else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Data"; }
+                else { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') ORDER BY Data"; }
+            }
+            else if(tabela== "ArmaLen")
+            {
+                if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') and ([" + tipo + "] <> '') and (Loja LIKE '%" + key2 + "%') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+
+                else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen WHERE (Data LIKE '%" + dtpData.Value.ToString("d") + "%') and [" + tipo + "] <> '' and (Loja LIKE '%" + key2 + "%') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+
+
+                else if (key1 == "Mês / Ano") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%' and [" + tipo + "] <> ''  GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+               
+                else if (key1 == "Dia") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen WHERE Data like '%" + dtpData.Value.ToString("d") + "%' and[" + tipo + "] <> ''  GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+               
+                else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen  WHERE (Data LIKE '%" + data.Year.ToString() + "%') and [" + tipo + "] <> '' and (Loja LIKE '%" + key2 + "%') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+                
+                else { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen  WHERE (Data LIKE '%" + data.Year.ToString() + "%') and [" + tipo + "] <> ''  GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+            }
+                //definir a string SQL
 
 
 
@@ -229,7 +247,7 @@ namespace Horizon_Contabilidade
 
             //Preencher o dataset coom o data adapter
             oDA.Fill(oDs, tabela);
-
+            x = 0;
             return oDs;
 
         }
@@ -345,6 +363,30 @@ namespace Horizon_Contabilidade
 
                 oDs.Tables[0].Rows.Add(stringcod.Text, stringname.Text, stringfornecedor.Text, stringmarca.Text, stringtratamento.Text, stringtipo.Text, stringvalorcompra.Text, stringvalorvenda.Text);
                 salvatabela(oDA, oDs, "LentesValores");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro :" + ex.Message);
+
+
+            }
+        }
+        public void exportaArmaLen(DateTimePicker data, TextBox For_len, TextBox For_arma, string loja)
+        {
+            try
+            {
+
+                string sSQL = "select * from ArmaLen";
+                //criar o data adapter e executar a consulta
+                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
+                //criar o DataSet
+                DataSet oDs = new DataSet();
+                //Preencher o dataset coom o data adapter
+                oDA.Fill(oDs, "ArmaLen");
+                DataRow oDR = oDs.Tables["ArmaLen"].NewRow();
+
+                oDs.Tables[0].Rows.Add(data.Value.ToString("d"), For_len.Text, For_arma.Text, loja);
+                salvatabela(oDA, oDs, "ArmaLen");
             }
             catch (Exception ex)
             {

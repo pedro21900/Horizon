@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -124,7 +122,6 @@
             this.buAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Dv = new System.Windows.Forms.TabPage();
             this.Lente = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Armação = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -181,7 +178,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tbxCarne = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.txPesquisa_princial = new System.Windows.Forms.TextBox();
             this.laQtd = new System.Windows.Forms.Label();
             this.dgvDados = new System.Windows.Forms.DataGridView();
@@ -193,6 +189,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvDadosC = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -202,7 +199,6 @@
             this.panel3.SuspendLayout();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBBindingSource)).BeginInit();
             this.Dv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Lente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Armação)).BeginInit();
@@ -1001,6 +997,7 @@
             this.tabPage6.Controls.Add(this.buAdd);
             this.tabPage6.Controls.Add(this.dataGridView1);
             this.tabPage6.Controls.Add(this.textBox1);
+            this.tabPage6.Controls.Add(this.button2);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -1011,7 +1008,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(152, 16);
+            this.button6.Location = new System.Drawing.Point(249, 17);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(122, 23);
             this.button6.TabIndex = 28;
@@ -1049,10 +1046,6 @@
             this.textBox1.Size = new System.Drawing.Size(382, 20);
             this.textBox1.TabIndex = 24;
             // 
-            // dBBindingSource
-            // 
-            this.dBBindingSource.DataMember = "DB";
-            // 
             // Dv
             // 
             this.Dv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1063,7 +1056,6 @@
             this.Dv.Controls.Add(this.comboBox3);
             this.Dv.Controls.Add(this.panel7);
             this.Dv.Controls.Add(this.panel2);
-            this.Dv.Controls.Add(this.button2);
             this.Dv.Controls.Add(this.txPesquisa_princial);
             this.Dv.Controls.Add(this.laQtd);
             this.Dv.Controls.Add(this.dgvDados);
@@ -1074,60 +1066,57 @@
             this.Dv.Padding = new System.Windows.Forms.Padding(3);
             this.Dv.Size = new System.Drawing.Size(1361, 564);
             this.Dv.TabIndex = 0;
-            this.Dv.Text = "Vendas";
+            this.Dv.Text = "Entradas";
             this.Dv.UseVisualStyleBackColor = true;
             // 
             // Lente
             // 
-            chartArea3.Name = "ChartArea1";
-            this.Lente.ChartAreas.Add(chartArea3);
-            this.Lente.DataSource = this.dBBindingSource;
-            legend3.Name = "Legend1";
-            this.Lente.Legends.Add(legend3);
-            this.Lente.Location = new System.Drawing.Point(489, 65);
+            chartArea1.Name = "ChartArea1";
+            this.Lente.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Lente.Legends.Add(legend1);
+            this.Lente.Location = new System.Drawing.Point(490, 23);
             this.Lente.Name = "Lente";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            series3.XValueMember = "Fornecedor";
-            series3.YValueMembers = "0";
-            this.Lente.Series.Add(series3);
-            this.Lente.Size = new System.Drawing.Size(349, 258);
-            this.Lente.TabIndex = 40;
-            this.Lente.Text = "chart2";
-            title5.Name = "Title1";
-            title6.Name = "Title2";
-            this.Lente.Titles.Add(title5);
-            this.Lente.Titles.Add(title6);
+            this.Lente.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.YValueMembers = "Fornecedor_de_armação";
+            this.Lente.Series.Add(series1);
+            this.Lente.Size = new System.Drawing.Size(396, 307);
+            this.Lente.TabIndex = 38;
+            this.Lente.Text = "chart1";
+            title1.Name = "Title1";
+            title1.Text = "Lentes";
+            this.Lente.Titles.Add(title1);
             // 
             // Armação
             // 
-            chartArea4.Name = "ChartArea1";
-            this.Armação.ChartAreas.Add(chartArea4);
-            this.Armação.DataSource = this.dBBindingSource;
-            legend4.Name = "Legend1";
-            this.Armação.Legends.Add(legend4);
-            this.Armação.Location = new System.Drawing.Point(28, 65);
+            chartArea2.Name = "ChartArea1";
+            this.Armação.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Armação.Legends.Add(legend2);
+            this.Armação.Location = new System.Drawing.Point(28, 35);
             this.Armação.Name = "Armação";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            series4.XValueMember = "Fornecedor";
-            series4.YValueMembers = "0";
-            this.Armação.Series.Add(series4);
-            this.Armação.Size = new System.Drawing.Size(366, 258);
-            this.Armação.TabIndex = 39;
+            this.Armação.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series2.YValueMembers = "Fornecedor_de_armação";
+            series2.YValuesPerPoint = 2;
+            this.Armação.Series.Add(series2);
+            this.Armação.Size = new System.Drawing.Size(430, 290);
+            this.Armação.TabIndex = 37;
             this.Armação.Text = "chart1";
-            title7.Name = "Title1";
-            title8.Name = "Title2";
-            this.Armação.Titles.Add(title7);
-            this.Armação.Titles.Add(title8);
+            title2.Name = "Title1";
+            title2.Text = "Armação";
+            this.Armação.Titles.Add(title2);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(297, 20);
+            this.button4.Location = new System.Drawing.Point(140, 6);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(109, 23);
             this.button4.TabIndex = 36;
@@ -1698,15 +1687,6 @@
             this.tbxCarne.Size = new System.Drawing.Size(103, 20);
             this.tbxCarne.TabIndex = 30;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(163, 18);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 23);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "Add Empréstimo";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // txPesquisa_princial
             // 
             this.txPesquisa_princial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -1766,7 +1746,7 @@
             // 
             // Add_registro
             // 
-            this.Add_registro.Location = new System.Drawing.Point(28, 18);
+            this.Add_registro.Location = new System.Drawing.Point(10, 6);
             this.Add_registro.Name = "Add_registro";
             this.Add_registro.Size = new System.Drawing.Size(114, 23);
             this.Add_registro.TabIndex = 1;
@@ -1816,6 +1796,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(131, 15);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 23);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "Add Empréstimo";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1847,7 +1836,6 @@
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBBindingSource)).EndInit();
             this.Dv.ResumeLayout(false);
             this.Dv.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Lente)).EndInit();
@@ -1953,7 +1941,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabPage Dv;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txDesconto_Total;
         private System.Windows.Forms.TextBox txLucro;
         private System.Windows.Forms.TextBox txBrutocd;
@@ -2018,11 +2005,9 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dgvDadosC;
         private System.Windows.Forms.Button button4;
-
-        private System.Windows.Forms.BindingSource dBBindingSource;
-     
-        private System.Windows.Forms.DataVisualization.Charting.Chart Lente;
         private System.Windows.Forms.DataVisualization.Charting.Chart Armação;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Lente;
+        private System.Windows.Forms.Button button2;
     }
 }
 

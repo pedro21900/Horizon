@@ -941,6 +941,7 @@ namespace Horizon_Contabilidade
                 {
                     exportabanco("DB");
                     exportabanco("Registrosip");
+                    db.exportaArmaLen(dateTimePicker1,txFornecedor_lente,txFornecedor_armacao,cb);
                     sugestao();
                     MessageBox.Show("Registro Salvo");
 
