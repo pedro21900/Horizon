@@ -102,7 +102,8 @@ namespace Horizon_Contabilidade
             }
         }
         public void addlinhalayout1(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa,
-                                   string col, string lab, string custodevenda, string vendavalor, string loja)
+                                   string col, string lab, string custodevenda, string vendavalor, string modeloarmação, string nomelente, string forenecedorl, string forenecedora,
+                                    string descontoa ,string descontol ,string descontot, string marcaa, string marcal, string Obs, string Loja)
         {
             string sSQL = "select * from " + tabela;
             //criar o data adapter e executar a consulta
@@ -115,14 +116,14 @@ namespace Horizon_Contabilidade
 
             oDs.Tables[0].Rows.Add(data, filtratexto(or), filtratexto(fornecedor), filtratexto(compral),
                     filtratexto(vendal), filtratexto(compraa), filtratexto(vendaa), filtratexto(col),
-                     filtratexto(lab), filtratexto(custodevenda), filtratexto(vendavalor), filtratexto(loja));
+                     filtratexto(lab), filtratexto(custodevenda), filtratexto(vendavalor), filtratexto(modeloarmação), filtratexto(nomelente), filtratexto(forenecedorl)
+                , filtratexto(forenecedora), filtratexto(descontol), filtratexto(descontoa), filtratexto(descontot), filtratexto(marcaa), filtratexto(marcal), filtratexto(Loja), filtratexto(Obs));
 
             salvatabela(oDA, oDs, tabela);
 
         }
-        public void addlinhalayout2(string tabela, string or, string data, string modeloarmação, string nomelente, string lucroarmacao, string lucrolente, string forenecedorl, string forenecedora,
-                                    string lucrototal, string descontot, string taxacartao, string foramdepagamento, string descontol, string descontoa,
-                                    string tipodecompra, string tipodecompra1, string tipodecompra2, string marcaa, string marcal, string loja, string Obs)
+        public void addlinhalayout2(string tabela, string or, string data, string modeloarmação, string nomelente,  string forenecedorl, string forenecedora,
+                                    string descontot, string marcaa, string marcal, string loja, string Obs)
         {
             string sSQL = "select * from " + tabela;
             //criar o data adapter e executar a consulta
@@ -131,10 +132,8 @@ namespace Horizon_Contabilidade
             DataSet oDs = new DataSet();
             //Preencher o dataset coom o data adapter
             oDA.Fill(oDs, tabela);
-            oDs.Tables[0].Rows.Add(filtratexto(or), filtratexto(data), filtratexto(modeloarmação), filtratexto(nomelente), filtratexto(lucroarmacao),
-    filtratexto(lucrolente), filtratexto(forenecedorl), filtratexto(forenecedora),
-    filtratexto(lucrototal), filtratexto(descontot), filtratexto(taxacartao), filtratexto(foramdepagamento),
-    filtratexto(descontol), filtratexto(descontoa), filtratexto(tipodecompra), filtratexto(tipodecompra1), filtratexto(tipodecompra2), filtratexto(marcaa), filtratexto(marcal), filtratexto(loja), filtratexto(Obs));
+            oDs.Tables[0].Rows.Add(filtratexto(or), filtratexto(data), filtratexto(modeloarmação), filtratexto(nomelente), filtratexto(forenecedorl)
+                , filtratexto(forenecedora),filtratexto(descontot), filtratexto(marcaa), filtratexto(marcal), filtratexto(loja), filtratexto(Obs));
             salvatabela(oDA, oDs, tabela);
         }
         public void Deletalinha(string tabela, string pesquisa)
@@ -155,18 +154,15 @@ namespace Horizon_Contabilidade
 
             }
         }
-        public void atualizar(string tabela, string tabela1, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, string lab,
-                               string col, string custocv, string vendavalor, string resultado, string loja, string modeloarmação, string nomelente, string lucroarmacao, string lucrolente, string forenecedorl, string forenecedora,
-                                string lucrototal, string descontot, string taxacartao, string foramdepagamento, string descontol, string descontoa,
-                                string tipodecompra, string tipodecompra1, string tipodecompra2, string marcaa, string marcal, string tipo, string Obs, string pesquisa)
+        public void atualizar(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, string lab,
+                               string col, string custocv, string vendavalor,  string loja, string modeloarmação, string nomelente, string forenecedorl, string forenecedora,
+                                 string descontot, string descontol, string descontoa, string marcaa, string marcal, string Obs, string pesquisa)
         {
             Deletalinha(tabela, pesquisa);
-            Deletalinha(tabela1, pesquisa);
             addlinhalayout1(tabela, data, or, fornecedor, compral, vendal, compraa, vendaa, col,
-                                    lab, custocv, vendavalor, loja);
-            addlinhalayout2(tabela1, or, data, modeloarmação, nomelente, lucroarmacao, lucrolente, forenecedorl, forenecedora,
-                                     lucrototal, descontot, taxacartao, foramdepagamento, descontol, descontoa,
-                                     tipodecompra, tipodecompra1, tipodecompra2, marcaa, marcal, loja, Obs);
+                                    lab, custocv, vendavalor, modeloarmação, nomelente, forenecedorl, forenecedora,
+                                     descontol, descontoa, descontot, marcaa, marcal, loja, Obs);
+            
 
         }
         public DataSet pesquisaos(string tabela, string coluna, string pesquisa, string pesquisa2, string pesquisa3)
@@ -384,8 +380,13 @@ namespace Horizon_Contabilidade
                 //Preencher o dataset coom o data adapter
                 oDA.Fill(oDs, "ArmaLen");
                 DataRow oDR = oDs.Tables["ArmaLen"].NewRow();
-
-                oDs.Tables[0].Rows.Add(data.Value.ToString("d"), For_len.Text, For_arma.Text, loja);
+                if (For_len.Text== "RODENSTOCK") { 
+                oDs.Tables[0].Rows.Add(data.Value.ToString("d"), "/ " + For_len.Text, For_arma.Text, loja);
+                    }
+                else if (For_arma.Text == "RODENSTOCK")
+                {
+                    oDs.Tables[0].Rows.Add(data.Value.ToString("d"), For_len.Text, For_arma.Text + " /", loja);
+                }
                 salvatabela(oDA, oDs, "ArmaLen");
             }
             catch (Exception ex)
@@ -398,8 +399,8 @@ namespace Horizon_Contabilidade
         public void registrocadlentes(string pesquisa, double valor)
 
         {
-            string data, or, fornecedor, compral, vendal, compraa, vendaa, lab,
-                                col, custocv, vendavalor, loja;
+            string data, or, fornecedor, compral, vendal, compraa, vendaa, col, lab, custocv, vendavalor, modeloarmação, nomelente, forenecedorl, forenecedora,
+                                     descontol, descontoa, descontot, marcaa, marcal, loja, Obs;
             DataTable linha = pesquisaos("DB", "Or_os", pesquisa, "", "").Tables[0];
             data = linha.Rows[0]["Data"].ToString();
             or = linha.Rows[0]["Or_os"].ToString();
@@ -413,9 +414,22 @@ namespace Horizon_Contabilidade
             custocv = (valor + Convert.ToDouble(compraa) + Convert.ToDouble(col) + Convert.ToDouble(lab)).ToString("C");
             vendavalor = linha.Rows[0]["Valor_da_venda_cliente"].ToString();
             loja = linha.Rows[0]["Loja"].ToString();
+            modeloarmação = linha.Rows[0]["Modelo_Armação"].ToString();
+            nomelente = linha.Rows[0]["Nome_Lente"].ToString();
+            forenecedorl = linha.Rows[0]["Fornecedor_Lente"].ToString();
+            forenecedora = linha.Rows[0]["Fornecedor_Armação"].ToString();
+            descontol = linha.Rows[0]["Desconto_lente"].ToString();
+            descontoa = linha.Rows[0]["Desconto_armação"].ToString();
+            descontot = linha.Rows[0]["Desconto_total"].ToString();
+            marcaa = linha.Rows[0]["Marca_armação"].ToString();
+            marcal = linha.Rows[0]["Marca_lente"].ToString();
+            Obs = linha.Rows[0]["Obs"].ToString();
+
+
             Deletalinha("DB", pesquisa);
             addlinhalayout1("DB", data, or, fornecedor, compral, vendal, compraa, vendaa, col,
-                                    lab, custocv, vendavalor, loja);
+                                    lab, custocv, vendavalor, modeloarmação, nomelente, forenecedorl, forenecedora,
+                                     descontol, descontoa, descontot, marcaa, marcal, loja, Obs);
         }
     }
     // public void atualizalente(TextBox stringcod, TextBox stringname, ComboBox stringfornecedor, ComboBox stringmarca,

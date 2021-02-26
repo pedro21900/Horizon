@@ -454,7 +454,7 @@ namespace Horizon_Contabilidade
             double Venda_da_Armação = liquido("DB", "Venda_da_Armação");
             double Venda_da_lente = liquido("DB", "Venda_da_lente");
             double Custo_Com_Venda = liquido("DB", "Custo_Com_Venda");
-            double DescT = liquido("Registrosip", "Desconto_total");
+            double DescT = liquido("DB", "Desconto_total");
             double Bruto = Venda_da_Armação + Venda_da_lente;
             double Caixa = Bruto - DescT;
             double Hoya = Providers("HOYA", "Lente");
