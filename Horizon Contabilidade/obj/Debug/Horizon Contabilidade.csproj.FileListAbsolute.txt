@@ -167,3 +167,17 @@ C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon C
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CopyComplete
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Antlr3.Runtime.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Iesi.Collections.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\NHibernate.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Remotion.Linq.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Remotion.Linq.EagerFetching.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Antlr3.Runtime.xml
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Iesi.Collections.xml
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\NHibernate.xml
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Remotion.Linq.xml
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Remotion.Linq.EagerFetching.xml
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.xml
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.SqlServer.xml

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using NHibernate.Linq;
+using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Linq;
 using System.Windows.Forms;
 namespace Horizon_Contabilidade
 {
@@ -68,130 +70,6 @@ namespace Horizon_Contabilidade
 
             return os;
         }
-        public DataRow exportadespadm(DataRow oDR)
-        {
-            oDR["ID"] = Convert.ToDateTime(dptData.Value).ToShortDateString();
-            oDR["Eng_Traba"] = txEngtrab.Text;
-            oDR["Salario"] = txSal.Text;
-            oDR["Desp_transp"] = txTransporte.Text;
-            oDR["Aluguel"] = txAluguel.Text;
-            oDR["Comunicação"] = txComunica.Text;
-            oDR["Energia"] = txEnergia.Text;
-            oDR["Segurança_loja"] = txSeg.Text;
-            oDR["Malote"] = txBoy.Text;
-            oDR["Divulgação"] = txMarket.Text;
-            oDR["Alvara"] = txAlvara.Text;
-            return oDR;
-        }
-        public DataRow exportatributos(DataRow oDR)
-        {
-            oDR["ID"] = Convert.ToDateTime(dptData.Value).ToShortDateString();
-            oDR["Pis"] = txPis.Text;
-            oDR["Confis"] = txConfins.Text;
-            oDR["inss"] = txInss.Text;
-            oDR["irpj"] = txIrpj.Text;
-            oDR["csll"] = txCsll.Text;
-            oDR["iss"] = txInss.Text;
-
-
-            return oDR;
-        }
-        public DataRow exportalgais(DataRow oDR)
-        {
-            oDR["ID"] = Convert.ToDateTime(dptData.Value).ToShortDateString();
-            oDR["13º"] = txEngtrab.Text;
-            oDR["Ferias"] = txSal.Text;
-            oDR["13º_Conta"] = txTransporte.Text;
-            oDR["13º_Alu"] = txAluguel.Text;
-            oDR["13º_Hono"] = txComunica.Text;
-            oDR["Energia"] = txEnergia.Text;
-            oDR["Outros"] = txSeg.Text;
-
-            return oDR;
-        }
-        public DataRow exportadespfineeve(DataRow oDR)
-        {
-            oDR["ID"] = Convert.ToDateTime(dptData.Value).ToShortDateString();
-            oDR["saida_ex"] = txEngtrab.Text;
-            oDR["Luros_lis"] = txSal.Text;
-            oDR["tarif_bank"] = txTransporte.Text;
-            oDR["antecipa"] = txAluguel.Text;
-            oDR["aluguel_maq"] = txComunica.Text;
-            oDR["Juros_empres"] = txEnergia.Text;
-            oDR["outros"] = txSeg.Text;
-
-            return oDR;
-        }
-        public void exportabanco(string tabela)
-        {
-            try
-            {
-
-
-                //definir a string de conexão
-
-                //definir a string SQL
-                string sSQL = "SELECT * from " + tabela;
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(SDBstr);
-                //abrir a conexão
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, tabela);
-
-                //criar um objeto Data Row
-                DataRow oDR = oDs.Tables[tabela].NewRow();
-
-                //Preencher o datarow com v Desp_Adm Tributos Desp_legais Desp_fin_eve
-
-                if (tabela == "Desp_Adm")
-                {
-                    oDR = exportadespadm(oDR);
-                }
-                else if (tabela == "Tributos")
-                {
-                    oDR = exportatributos(oDR);
-                }
-                else if (tabela == "Desp_legais")
-                {
-                    oDR = exportalgais(oDR);
-                }
-                else if (tabela == "Desp_fin_eve")
-                {
-                    oDR = exportadespfineeve(oDR);
-                }
-
-
-
-
-                // oDR["Resultado_da_venda"] = txResultado_da_venda.Text;
-
-
-
-                //Incluir um datarow ao dataset
-                oDs.Tables[tabela].Rows.Add(oDR);
-                //Usar o objeto Command Bulder para gerar o Comandop Insert
-                OleDbCommandBuilder oCB = new OleDbCommandBuilder(oDA);
-                //Atualizar o BD com valores do Dataset
-                oDA.Update(oDs, tabela);
-                //liberar o data adapter , o dataset , o comandbuilder e a conexao
-                oDA.Dispose(); oDs.Dispose(); oCB.Dispose(); oCn.Dispose();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
-
-
-        }
         public string retornaosclicada(DataGridView dgvDados)
         {
             // vamos obter a linha da célula selecionada
@@ -215,10 +93,6 @@ namespace Horizon_Contabilidade
             retornaosclicada(dgvDados);
             retornaos();
             retorna();
-
-
-
-
         }
         public void ligadesliga(string dijunt)
 
@@ -297,24 +171,7 @@ namespace Horizon_Contabilidade
         //Metodos
         public double carne()
         {
-            double index = 0;
-            try
-            {
-
-                int count1 = Carne.Tables[0].Columns.Count;
-                int qtdlinha = Carne.Tables[0].Rows.Count;
-
-                for (int i = 0; i <= qtdlinha - 1; i++)
-                {
-                    index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
+            double index = Carne.Tables[0].AsEnumerable().Sum(s => s.Field<double>("Valor")); 
             return index;
         }
         public double carnelastmonth()
@@ -335,6 +192,7 @@ namespace Horizon_Contabilidade
                         datafat.Year < data.Year && comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month)
                     {
                         index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
+
 
                     }
                     else if (comboBox1.Text == "Ano" && datafat.Year == data.Year || datasale.Year < data.Year && comboBox1.Text == "Ano" && datafat.Year == data.Year)
@@ -420,27 +278,24 @@ namespace Horizon_Contabilidade
         public double liquido(string tabela, string coluna)
         {
             double index = 0;
-            try
-            {
+ 
                 DataTable oDs = db1(tabela);
                 int qtdlinha = oDs.Rows.Count;
 
-                for (int i = 0; i <= qtdlinha - 1; i++)
-                {
-                    if (string.IsNullOrEmpty(oDs.Rows[i][coluna].ToString())) { }
+               // for (int i = 0; i <= qtdlinha - 1; i++)
+                //{
+                   // if (string.IsNullOrEmpty(oDs.Rows[i][coluna].ToString())) { }
 
-                    else
-                    {
-                        double index2 = Convert.ToDouble(oDs.Rows[i][coluna].ToString());
-                        index += index2;
-                    }
+                   // else
+                   // {
+                        index = oDs.AsEnumerable().Sum(s => s.Field<double>(coluna));
+                        //double index2 = Convert.ToDouble(oDs.Rows[i][coluna].ToString());
+                        //index += index2;
+                    //}
 
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-            }
+                //}
+            
+
             return index;
         }
         public void atualiza()
@@ -553,16 +408,18 @@ namespace Horizon_Contabilidade
             DataTable oDs = db1("DB");
             int qtdlinha = oDs.Rows.Count;
 
-            for (int i = 0; i <= qtdlinha - 1; i++)
-            {
-                if (oDs.Rows[i]["Fornecedor"].ToString().Contains(nameProviders))
-                {
-                    double index2 = Convert.ToDouble(oDs.Rows[i]["Compra_da_" + lens_or_frame].ToString());
+           // for (int i = 0; i <= qtdlinha - 1; i++)
+           // {
+                //if (oDs.Rows[i]["Fornecedor"].ToString().Contains(nameProviders))
+              //  {
+                   
+                    index = oDs.AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Compra_da_" + lens_or_frame));
+                   // double index2 = Convert.ToDouble(oDs.Rows[i]["Compra_da_" + lens_or_frame].ToString());
 
-                    index += index2;
-                }
+                    //index += index2;
+               // }
 
-            }
+         //  }
 
             return index;
         }
@@ -691,8 +548,7 @@ namespace Horizon_Contabilidade
         {
             //  Desp_Adm Tributos Desp_legais Desp_fin_eve
 
-            exportabanco("Desp_Adm");
-            exportabanco("Tributos");
+      
             ligadesliga("Desliga");
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
