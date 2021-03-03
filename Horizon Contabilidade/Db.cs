@@ -103,7 +103,7 @@ namespace Horizon_Contabilidade
         }
         public void addlinhalayout1(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa,
                                    string col, string lab, string custodevenda, string vendavalor, string modeloarmação, string nomelente, string forenecedorl, string forenecedora,
-                                    string descontoa ,string descontol ,string descontot, string marcaa, string marcal, string Obs, string Loja)
+                                    string descontoa, string descontol, string descontot, string marcaa, string marcal, string Obs, string Loja)
         {
             string sSQL = "select * from " + tabela;
             //criar o data adapter e executar a consulta
@@ -122,7 +122,7 @@ namespace Horizon_Contabilidade
             salvatabela(oDA, oDs, tabela);
 
         }
-        public void addlinhalayout2(string tabela, string or, string data, string modeloarmação, string nomelente,  string forenecedorl, string forenecedora,
+        public void addlinhalayout2(string tabela, string or, string data, string modeloarmação, string nomelente, string forenecedorl, string forenecedora,
                                     string descontot, string marcaa, string marcal, string loja, string Obs)
         {
             string sSQL = "select * from " + tabela;
@@ -133,7 +133,7 @@ namespace Horizon_Contabilidade
             //Preencher o dataset coom o data adapter
             oDA.Fill(oDs, tabela);
             oDs.Tables[0].Rows.Add(filtratexto(or), filtratexto(data), filtratexto(modeloarmação), filtratexto(nomelente), filtratexto(forenecedorl)
-                , filtratexto(forenecedora),filtratexto(descontot), filtratexto(marcaa), filtratexto(marcal), filtratexto(loja), filtratexto(Obs));
+                , filtratexto(forenecedora), filtratexto(descontot), filtratexto(marcaa), filtratexto(marcal), filtratexto(loja), filtratexto(Obs));
             salvatabela(oDA, oDs, tabela);
         }
         public void Deletalinha(string tabela, string pesquisa)
@@ -155,14 +155,14 @@ namespace Horizon_Contabilidade
             }
         }
         public void atualizar(string tabela, string data, string or, string fornecedor, string compral, string vendal, string compraa, string vendaa, string lab,
-                               string col, string custocv, string vendavalor,  string loja, string modeloarmação, string nomelente, string forenecedorl, string forenecedora,
+                               string col, string custocv, string vendavalor, string loja, string modeloarmação, string nomelente, string forenecedorl, string forenecedora,
                                  string descontot, string descontol, string descontoa, string marcaa, string marcal, string Obs, string pesquisa)
         {
             Deletalinha(tabela, pesquisa);
             addlinhalayout1(tabela, data, or, fornecedor, compral, vendal, compraa, vendaa, col,
                                     lab, custocv, vendavalor, modeloarmação, nomelente, forenecedorl, forenecedora,
                                      descontol, descontoa, descontot, marcaa, marcal, loja, Obs);
-            
+
 
         }
         public DataSet pesquisaos(string tabela, string coluna, string pesquisa, string pesquisa2, string pesquisa3)
@@ -193,7 +193,7 @@ namespace Horizon_Contabilidade
 
         }
 
-        public DataSet Filtrodb(string key1, string key2, string tabela, DateTimePicker dtpData,int x,string tipo)
+        public DataSet Filtrodb(string key1, string key2, string tabela, DateTimePicker dtpData, int x, string tipo)
         {
 
             DataSet oDs = new DataSet();
@@ -218,22 +218,22 @@ namespace Horizon_Contabilidade
                 else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Data"; }
                 else { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') ORDER BY Data"; }
             }
-            else if(tabela== "ArmaLen")
+            else if (tabela == "ArmaLen")
             {
-                if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') and ([" + tipo + "] <> '') and (Loja LIKE '%" + key2 + "%') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+                if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') and ([" + tipo + "] <> '') and (Loja LIKE '%" + key2 + "%') AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO')  GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
 
-                else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen WHERE (Data LIKE '%" + dtpData.Value.ToString("d") + "%') and [" + tipo + "] <> '' and (Loja LIKE '%" + key2 + "%') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+                else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB WHERE (Data LIKE '%" + dtpData.Value.ToString("d") + "%') and [" + tipo + "] <> '' and (Loja LIKE '%" + key2 + "%') AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
 
 
-                else if (key1 == "Mês / Ano") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%' and [" + tipo + "] <> ''  GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
-               
-                else if (key1 == "Dia") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen WHERE Data like '%" + dtpData.Value.ToString("d") + "%' and[" + tipo + "] <> ''  GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
-               
-                else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen  WHERE (Data LIKE '%" + data.Year.ToString() + "%') and [" + tipo + "] <> '' and (Loja LIKE '%" + key2 + "%') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
-                
-                else { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM ArmaLen  WHERE (Data LIKE '%" + data.Year.ToString() + "%') and [" + tipo + "] <> ''  GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+                else if (key1 == "Mês / Ano") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%' and [" + tipo + "] <> '' AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+
+                else if (key1 == "Dia") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB WHERE Data like '%" + dtpData.Value.ToString("d") + "%' and[" + tipo + "] <> '' AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+
+                else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB  WHERE (Data LIKE '%" + data.Year.ToString() + "%') and [" + tipo + "] <> '' and (Loja LIKE '%" + key2 + "%') AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+
+                else { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB  WHERE (Data LIKE '%" + data.Year.ToString() + "%') and [" + tipo + "] <> '' AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
             }
-                //definir a string SQL
+            //definir a string SQL
 
 
 
@@ -367,35 +367,6 @@ namespace Horizon_Contabilidade
 
             }
         }
-        public void exportaArmaLen(DateTimePicker data, TextBox For_len, TextBox For_arma, string loja)
-        {
-            try
-            {
-
-                string sSQL = "select * from ArmaLen";
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, "ArmaLen");
-                DataRow oDR = oDs.Tables["ArmaLen"].NewRow();
-                if (For_len.Text== "RODENSTOCK") { 
-                oDs.Tables[0].Rows.Add(data.Value.ToString("d"), "/ " + For_len.Text, For_arma.Text, loja);
-                    }
-                else if (For_arma.Text == "RODENSTOCK")
-                {
-                    oDs.Tables[0].Rows.Add(data.Value.ToString("d"), For_len.Text, For_arma.Text + " /", loja);
-                }
-                salvatabela(oDA, oDs, "ArmaLen");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
-        }
         public void registrocadlentes(string pesquisa, double valor)
 
         {
@@ -432,23 +403,5 @@ namespace Horizon_Contabilidade
                                      descontol, descontoa, descontot, marcaa, marcal, loja, Obs);
         }
     }
-    // public void atualizalente(TextBox stringcod, TextBox stringname, ComboBox stringfornecedor, ComboBox stringmarca,
-    //     ComboBox stringtratamento, ComboBox stringtipo, TextBox stringvalorcompra, TextBox stringvalorvenda)
-    //  {
-    //    try
-    //   {
 
-    ///    string sSQLs12 = "  DELETE* FROM LentesValores WHERE Cod = " + stringcod.Text;
-    //   OleDbCommand command = new OleDbCommand(sSQLs12, ConectDb());
-    //    command.ExecuteNonQuery();
-
-
-    // }
-    // catch (Exception ex)
-    // {
-    //  MessageBox.Show("Erro :" + ex.Message);
-
-
-    //  }
-    //}
 }

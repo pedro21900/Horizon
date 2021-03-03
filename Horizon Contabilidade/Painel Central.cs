@@ -1,5 +1,4 @@
-﻿using NHibernate.Linq;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.OleDb;
 using System.Linq;
@@ -16,7 +15,7 @@ namespace Horizon_Contabilidade
         //Variaveis Globais
         private static DataSet DB;
         //private static DataSet Registrosip;
-       // private static DataSet Carne;
+        // private static DataSet Carne;
         private static DataTable Len;
         private static DataTable Arma;
         private static readonly Cadastro cadastro = new Cadastro();
@@ -34,7 +33,7 @@ namespace Horizon_Contabilidade
         //Metodos auxiliares
         public void fills_in()
         {
-            if (ini != 1&& change == 1)
+            if (ini != 1 && change == 1)
             {
                 DB.Reset();
                 //Registrosip.Reset();
@@ -43,9 +42,9 @@ namespace Horizon_Contabilidade
                 Arma.Reset();
             }
             if (change == 1)
-                
-            {               
-                DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData,0,"");
+
+            {
+                DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData, 0, "");
                 DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData, 0, "").Tables[0].Copy());
                 DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "").Tables[0].Copy());
 
@@ -53,14 +52,14 @@ namespace Horizon_Contabilidade
 
                 //Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "");
 
-                Len = db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_de_Lente").Tables[0];
-                 Arma = db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_de_armação").Tables[0];
-               
-              
+                Len = db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_Lente").Tables[0];
+                Arma = db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_Armação").Tables[0];
+
+
 
             }
 
-            
+
         }
         public bool retorna()
         {
@@ -173,7 +172,7 @@ namespace Horizon_Contabilidade
         //Metodos
         public double carne()
         {
-            double index = DB.Tables[2].AsEnumerable().Sum(s => s.Field<double>("Valor")); 
+            double index = DB.Tables[2].AsEnumerable().Sum(s => s.Field<double>("Valor"));
             return index;
         }
         public double carnelastmonth()
@@ -280,23 +279,23 @@ namespace Horizon_Contabilidade
         public double liquido(string tabela, string coluna)
         {
             double index = 0;
- 
-                DataTable oDs = db1(tabela);
-                int qtdlinha = oDs.Rows.Count;
 
-               // for (int i = 0; i <= qtdlinha - 1; i++)
-                //{
-                   // if (string.IsNullOrEmpty(oDs.Rows[i][coluna].ToString())) { }
+            DataTable oDs = db1(tabela);
+            int qtdlinha = oDs.Rows.Count;
 
-                   // else
-                   // {
-                        index = oDs.AsEnumerable().Sum(s => s.Field<double>(coluna));
-                        //double index2 = Convert.ToDouble(oDs.Rows[i][coluna].ToString());
-                        //index += index2;
-                    //}
+            // for (int i = 0; i <= qtdlinha - 1; i++)
+            //{
+            // if (string.IsNullOrEmpty(oDs.Rows[i][coluna].ToString())) { }
 
-                //}
-            
+            // else
+            // {
+            index = oDs.AsEnumerable().Sum(s => s.Field<double>(coluna));
+            //double index2 = Convert.ToDouble(oDs.Rows[i][coluna].ToString());
+            //index += index2;
+            //}
+
+            //}
+
 
             return index;
         }
@@ -330,7 +329,7 @@ namespace Horizon_Contabilidade
             double Marcolin = Providers("MARCOLIN", "Armação");
 
             //Lentes
-            
+
             txHoya.Text = Hoya.ToString("C");
             txRodenstock.Text = Rodenstock.ToString("C");
             txLabootica.Text = labootica.ToString("C");
@@ -379,26 +378,27 @@ namespace Horizon_Contabilidade
             }
             //Chart
 
-            foreach (var series in Armação.Series)
+            foreach (System.Windows.Forms.DataVisualization.Charting.Series series in Armação.Series)
             {
                 series.Points.Clear();
             }
-            for (int i = 0; i <= Arma.Rows.Count-1; i++)
-            {
-             Armação.Series[0].Points.AddXY(Arma.Rows[i]["Fornecedor_de_armação"], Arma.Rows[i]["Qtd"]);
-            
-            }
-            foreach (var series in Lente.Series)
-            {
-                series.Points.Clear();
-            }
-            for (int i = 0; i <= Len.Rows.Count - 1; i++)
-            {
-                Lente.Series[0].Points.AddXY(Len.Rows[i]["Fornecedor_de_Lente"], Len.Rows[i]["Qtd"]);
+        //   for (int i = 0; i <= Arma.Rows.Count - 1; i++)
+         //   {
+               Armação.DataSource= Arma;
+             //   Armação.Series[0].Points.AddXY(Arma.Rows[i]["Fornecedor_Armação"], Arma.Rows[i]["Qtd"]);
 
+          //  }
+            foreach (System.Windows.Forms.DataVisualization.Charting.Series series in Lente.Series)
+            {
+                series.Points.Clear();
             }
-            
-            dgvDados.AutoResizeColumns();
+            //  for (int i = 0; i <= Len.Rows.Count - 1; i++)
+            //  {
+            // Lente.Series[0].Points.AddXY(Len.Rows[i]["Fornecedor_Lente"], Len.Rows[i]["Qtd"]);
+            Lente.DataSource = Len;
+          //  }
+
+         dgvDados.AutoResizeColumns();
             dgvDados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos(comboBox3.Text, "DB");
             change = 0;
@@ -410,18 +410,18 @@ namespace Horizon_Contabilidade
             DataTable oDs = db1("DB");
             int qtdlinha = oDs.Rows.Count;
 
-           // for (int i = 0; i <= qtdlinha - 1; i++)
-           // {
-                //if (oDs.Rows[i]["Fornecedor"].ToString().Contains(nameProviders))
-              //  {
-                   
-                    index = oDs.AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Compra_da_" + lens_or_frame));
-                   // double index2 = Convert.ToDouble(oDs.Rows[i]["Compra_da_" + lens_or_frame].ToString());
+            // for (int i = 0; i <= qtdlinha - 1; i++)
+            // {
+            //if (oDs.Rows[i]["Fornecedor"].ToString().Contains(nameProviders))
+            //  {
 
-                    //index += index2;
-               // }
+            index = oDs.AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Compra_da_" + lens_or_frame));
+            // double index2 = Convert.ToDouble(oDs.Rows[i]["Compra_da_" + lens_or_frame].ToString());
 
-         //  }
+            //index += index2;
+            // }
+
+            //  }
 
             return index;
         }
@@ -448,7 +448,7 @@ namespace Horizon_Contabilidade
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'dBDataSet.DB'. Você pode movê-la ou removê-la conforme necessário.
-         
+
 
             try
             {
@@ -550,7 +550,7 @@ namespace Horizon_Contabilidade
         {
             //  Desp_Adm Tributos Desp_legais Desp_fin_eve
 
-      
+
             ligadesliga("Desliga");
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

@@ -273,12 +273,12 @@ namespace Horizon_Contabilidade
                 {
                     db.addlinhalayout1(tabela, Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(), txOs_Or.Text, txFornecedor_armacao.Text + " / " + txFornecedor_lente.Text,
                 txCompra_lente.Text, txVenda_lente.Text, txCompra_armacao.Text, txVenda_armacao.Text, txCol.Text, txLab.Text, txCusto_com_venda.Text, txVenda.Text, txModelo_armacao.Text,
-                txNome_lente.Text, txFornecedor_lente.Text, txFornecedor_armacao.Text,txDesconto_Lente.Text,txDesconto_Armacao.Text, txDesconto_Total.Text, txMarca_armacao.Text,
-                txMarca_lente.Text,  txObs.Text, cb);
+                txNome_lente.Text, txFornecedor_lente.Text, txFornecedor_armacao.Text, txDesconto_Lente.Text, txDesconto_Armacao.Text, txDesconto_Total.Text, txMarca_armacao.Text,
+                txMarca_lente.Text, txObs.Text, cb);
                 }
                 else if (tabela == "Registrosip")
                 {
-                    db.addlinhalayout2(tabela, txOs_Or.Text, Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(), txModelo_armacao.Text, txNome_lente.Text,txFornecedor_lente.Text, txFornecedor_armacao.Text, txDesconto_Total.Text
+                    db.addlinhalayout2(tabela, txOs_Or.Text, Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(), txModelo_armacao.Text, txNome_lente.Text, txFornecedor_lente.Text, txFornecedor_armacao.Text, txDesconto_Total.Text
                       , txMarca_armacao.Text, txMarca_lente.Text, cb, txObs.Text);
                 }
             }
@@ -321,36 +321,36 @@ namespace Horizon_Contabilidade
                 {
                     indexx = indexx1.ToString();
                     index = oDs.Tables[0].Rows[0][indexx].ToString();
-                    
-                        //Posição
-                        if (indexx == "Or_os") { txOs_Or.Text = index; }
-                        else if (indexx == "Data") { dateTimePicker1.Text = index; }
-                        //Lente
 
-                        else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }
-                        else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }                    
-                        else if (indexx == "Coloração") { txCol.Text = index; }
-                        else if (indexx == "Nome_Lente") { txNome_lente.Text = index; }
-                        else if (indexx == "Fornecedor_Lente") { txFornecedor_lente.Text = index; }
-                        else if (indexx == "Marca_lente") { txMarca_lente.Text = index; }
-                        else if (indexx == "Desconto_lente") { txDesconto_Lente.Text = index; }
-                        else if (indexx == "Lab") { txLab.Text = index; }                                          
-                        
-                        
+                    //Posição
+                    if (indexx == "Or_os") { txOs_Or.Text = index; }
+                    else if (indexx == "Data") { dateTimePicker1.Text = index; }
+                    //Lente
+
+                    else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }
+                    else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }
+                    else if (indexx == "Coloração") { txCol.Text = index; }
+                    else if (indexx == "Nome_Lente") { txNome_lente.Text = index; }
+                    else if (indexx == "Fornecedor_Lente") { txFornecedor_lente.Text = index; }
+                    else if (indexx == "Marca_lente") { txMarca_lente.Text = index; }
+                    else if (indexx == "Desconto_lente") { txDesconto_Lente.Text = index; }
+                    else if (indexx == "Lab") { txLab.Text = index; }
+
+
 
                     //Armação
-                        if (indexx == "Modelo_Armação") { txModelo_armacao.Text = index; }
-                        else if (indexx == "Venda_da_Armação") { txVenda_armacao.Text = index; }
-                        else if (indexx == "Compra_da_Armação") { txCompra_armacao.Text = index; }
-                        else if (indexx == "Marca_armação") { txMarca_armacao.Text = index; }
-                        else if (indexx == "Fornecedor_Armação") { txFornecedor_armacao.Text = index; }
-                        else if (indexx == "Desconto_armação") { txDesconto_Armacao.Text = index; }
-                        else if (indexx == "Modelo_Armação") { txModelo_armacao.Text = index; }                                                                    
-                        
-                        //Extras
-                        else if (indexx == "Obs") { txObs.Text = index; }
-                        else if (indexx == "Loja") { cb = index; }
-                    
+                    if (indexx == "Modelo_Armação") { txModelo_armacao.Text = index; }
+                    else if (indexx == "Venda_da_Armação") { txVenda_armacao.Text = index; }
+                    else if (indexx == "Compra_da_Armação") { txCompra_armacao.Text = index; }
+                    else if (indexx == "Marca_armação") { txMarca_armacao.Text = index; }
+                    else if (indexx == "Fornecedor_Armação") { txFornecedor_armacao.Text = index; }
+                    else if (indexx == "Desconto_armação") { txDesconto_Armacao.Text = index; }
+                    else if (indexx == "Modelo_Armação") { txModelo_armacao.Text = index; }
+
+                    //Extras
+                    else if (indexx == "Obs") { txObs.Text = index; }
+                    else if (indexx == "Loja") { cb = index; }
+
                 }
 
                 //liberar o data adapter , o dataset , o comandbuilder e a conexao
@@ -790,7 +790,7 @@ namespace Horizon_Contabilidade
             else if (form1.retorna())
             {
                 travatudo();
-                importabanco("DB", form1.retornaos());               
+                importabanco("DB", form1.retornaos());
                 btSalvar.Text = "Atualizar";
                 retorna2();
             }
@@ -885,7 +885,7 @@ namespace Horizon_Contabilidade
                 {
                     exportabanco("DB");
                     //exportabanco("Registrosip");
-                    db.exportaArmaLen(dateTimePicker1,txFornecedor_lente,txFornecedor_armacao,cb);
+
                     sugestao();
                     MessageBox.Show("Registro Salvo");
 
@@ -895,10 +895,10 @@ namespace Horizon_Contabilidade
             {
 
                 db.atualizar("DB", Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(), txOs_Or.Text, txFornecedor_armacao.Text + " / " + txFornecedor_lente.Text,
-                txCompra_lente.Text, txVenda_lente.Text, txCompra_armacao.Text, txVenda_armacao.Text, txLab.Text,txCol.Text, txCusto_com_venda.Text, txVenda.Text, cb,
+                txCompra_lente.Text, txVenda_lente.Text, txCompra_armacao.Text, txVenda_armacao.Text, txLab.Text, txCol.Text, txCusto_com_venda.Text, txVenda.Text, cb,
 
                 txModelo_armacao.Text, txNome_lente.Text, txFornecedor_lente.Text, txFornecedor_armacao.Text, txDesconto_Total.Text, txDesconto_Lente.Text,
-                txDesconto_Armacao.Text,txMarca_armacao.Text, txMarca_lente.Text,  txObs.Text, txOs_Or.Text);
+                txDesconto_Armacao.Text, txMarca_armacao.Text, txMarca_lente.Text, txObs.Text, txOs_Or.Text);
 
                 MessageBox.Show("Atualizado");
                 btSalvar.Text = "Salvar";
@@ -1096,11 +1096,11 @@ namespace Horizon_Contabilidade
         {
             if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
             {
-                
+
                 //BUASCAR POR OS               
                 travatudo();
                 importabanco("DB", txPesquisa_Cadastro.Text);
-                
+
                 btSalvar.Text = "Atualizar";
                 if (btSalvar.Text == "Atualizar")
                 {

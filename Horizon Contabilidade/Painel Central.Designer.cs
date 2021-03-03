@@ -122,6 +122,7 @@
             this.buAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.Dv = new System.Windows.Forms.TabPage();
             this.Lente = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Armação = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -189,7 +190,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvDadosC = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1046,6 +1046,15 @@
             this.textBox1.Size = new System.Drawing.Size(382, 20);
             this.textBox1.TabIndex = 24;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(131, 15);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 23);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "Add Empréstimo";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Dv
             // 
             this.Dv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1082,7 +1091,8 @@
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            series1.YValueMembers = "Fornecedor_de_armação";
+            series1.XValueMember = "Fornecedor_Lente";
+            series1.YValueMembers = "Qtd";
             this.Lente.Series.Add(series1);
             this.Lente.Size = new System.Drawing.Size(396, 307);
             this.Lente.TabIndex = 38;
@@ -1104,7 +1114,8 @@
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
-            series2.YValueMembers = "Fornecedor_de_armação";
+            series2.XValueMember = "Fornecedor_Armação";
+            series2.YValueMembers = "Qtd";
             series2.YValuesPerPoint = 2;
             this.Armação.Series.Add(series2);
             this.Armação.Size = new System.Drawing.Size(430, 290);
@@ -1795,15 +1806,6 @@
             this.button1.Text = "Importar dados do Excel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(131, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 23);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "Add Empréstimo";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
