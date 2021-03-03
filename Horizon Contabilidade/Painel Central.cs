@@ -15,8 +15,8 @@ namespace Horizon_Contabilidade
 
         //Variaveis Globais
         private static DataSet DB;
-        private static DataSet Registrosip;
-        private static DataSet Carne;
+        //private static DataSet Registrosip;
+       // private static DataSet Carne;
         private static DataTable Len;
         private static DataTable Arma;
         private static readonly Cadastro cadastro = new Cadastro();
@@ -37,8 +37,8 @@ namespace Horizon_Contabilidade
             if (ini != 1&& change == 1)
             {
                 DB.Reset();
-                Registrosip.Reset();
-                Carne.Reset();
+                //Registrosip.Reset();
+                //Carne.Reset();
                 Len.Reset();
                 Arma.Reset();
             }
@@ -46,12 +46,14 @@ namespace Horizon_Contabilidade
                 
             {               
                 DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData,0,"");
+                DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData, 0, "").Tables[0].Copy());
+                DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "").Tables[0].Copy());
 
-                Registrosip = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData,0, "");
+                // Registrosip = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData,0, "");
 
-                Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "");
+                //Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "");
 
-                 Len= db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_de_Lente").Tables[0];
+                Len = db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_de_Lente").Tables[0];
                  Arma = db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_de_armação").Tables[0];
                
               
@@ -171,7 +173,7 @@ namespace Horizon_Contabilidade
         //Metodos
         public double carne()
         {
-            double index = Carne.Tables[0].AsEnumerable().Sum(s => s.Field<double>("Valor")); 
+            double index = DB.Tables[2].AsEnumerable().Sum(s => s.Field<double>("Valor")); 
             return index;
         }
         public double carnelastmonth()
@@ -180,24 +182,24 @@ namespace Horizon_Contabilidade
             try
             {
 
-                int count1 = Carne.Tables[0].Columns.Count;
-                int qtdlinha = Carne.Tables[0].Rows.Count;
+                int count1 = DB.Tables[2].Columns.Count;
+                int qtdlinha = DB.Tables[2].Rows.Count;
 
                 for (int i = 0; i <= qtdlinha - 1; i++)
                 {
-                    DateTime datasale = Convert.ToDateTime(Carne.Tables[0].Rows[i]["Data_de_Venda"].ToString());
-                    DateTime datafat = Convert.ToDateTime(Carne.Tables[0].Rows[i]["Data"].ToString());
+                    DateTime datasale = Convert.ToDateTime(DB.Tables[2].Rows[i]["Data_de_Venda"].ToString());
+                    DateTime datafat = Convert.ToDateTime(DB.Tables[2].Rows[i]["Data"].ToString());
                     DateTime data = dptData.Value;
                     if (comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month ||
                         datafat.Year < data.Year && comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month)
                     {
-                        index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
+                        index += Convert.ToDouble(DB.Tables[2].Rows[i]["Valor"].ToString());
 
 
                     }
                     else if (comboBox1.Text == "Ano" && datafat.Year == data.Year || datasale.Year < data.Year && comboBox1.Text == "Ano" && datafat.Year == data.Year)
                     {
-                        index += Convert.ToDouble(Carne.Tables[0].Rows[i]["Valor"].ToString());
+                        index += Convert.ToDouble(DB.Tables[2].Rows[i]["Valor"].ToString());
 
                     }
 
@@ -266,11 +268,11 @@ namespace Horizon_Contabilidade
             }
             else if (tabela == "Registrosip")
             {
-                oDs = Registrosip.Tables[0];
+                oDs = DB.Tables[1];
             }
             else if (tabela == "Carne")
             {
-                oDs = Carne.Tables[0];
+                oDs = DB.Tables[2];
             }
 
             return oDs;
@@ -349,7 +351,7 @@ namespace Horizon_Contabilidade
 
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
             dgvDados.DataSource = DB.Tables[0];
-            dgvDadosC.DataSource = Carne.Tables[0];
+            dgvDadosC.DataSource = DB.Tables[2];
             txCarnenpg.Text = carneafter.ToString("C");
             txCustoVenda.Text = Custo_Com_Venda.ToString("C");
             txBrutocd.Text = (Bruto).ToString("C");

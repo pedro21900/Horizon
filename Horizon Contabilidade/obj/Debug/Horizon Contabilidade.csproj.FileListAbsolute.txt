@@ -181,3 +181,44 @@ C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon C
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.xml
 C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.config
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe.manifest
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.application
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.exe
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Horizon Contabilidade.pdb
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Antlr3.Runtime.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\ClosedXML.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\ExcelNumberFormat.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Iesi.Collections.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Json.Net.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\NHibernate.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Remotion.Linq.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Remotion.Linq.EagerFetching.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\System.IO.Packaging.dll
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Antlr3.Runtime.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\ClosedXML.pdb
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\ClosedXML.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\ExcelNumberFormat.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Iesi.Collections.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\NHibernate.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Remotion.Linq.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Remotion.Linq.EagerFetching.xml
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csprojAssemblyReference.cache
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\CadastroLente.CadastroLente.resources
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Form1.resources
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Cadastro.resources
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Carne.resources
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon_Contabilidade.Properties.Resources.resources
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.GenerateResource.cache
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CoreCompileInputs.cache
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe.manifest
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.application
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CopyComplete
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
+C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
