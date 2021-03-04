@@ -192,8 +192,7 @@ namespace Horizon_Contabilidade
             return oDs;
 
         }
-
-        public DataSet Filtrodb(string key1, string key2, string tabela, DateTimePicker dtpData, int x, string tipo)
+        public DataSet Filtrodb(string key1, string key2, string tabela, DateTimePicker dtpData, int x, string tipo,string tipo2)
         {
 
             DataSet oDs = new DataSet();
@@ -218,21 +217,26 @@ namespace Horizon_Contabilidade
                 else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') AND (Loja LIKE '%" + key2 + "%') ORDER BY Data"; }
                 else { sSQL = "SELECT  * FROM " + tabela + " WHERE (Data LIKE '%" + data.Year.ToString() + "%') ORDER BY Data"; }
             }
-            else if (tabela == "ArmaLen")
-            {
-                if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') and ([" + tipo + "] <> '') and (Loja LIKE '%" + key2 + "%') AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO')  GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+            else if (tabela == "Qtd")
+            {//LUCROOOO
+                //sSQL = "SELECT [" + tipo + "], SUM(Venda_da_" + tipo2 + ") -SUM(Desconto_" + tipo2 + ") - SUM(Compra_da_" + tipo2 + ") AS Resultado FROM DB WHERE ([" + tipo + "] IS NOT NULL) AND (Venda_da_" + tipo2 + " <> 0) and (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') and (Loja LIKE '%" + key2 + "%') AND ([" + tipo + "] <> 'DESCONHECIDO')  AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'COMERCIO') GROUP BY [" + tipo + "] ORDER BY " + tipo;
+                if (key1 == "Mês / Ano" && key2 != "Todas as Lojas") { sSQL = " SELECT [" + tipo + "], COUNT([" + tipo + "]) AS Qtd, SUM(Venda_da_" + tipo2 + ") -SUM(Desconto_" + tipo2 + ") - SUM(Compra_da_" + tipo2 + ") AS Resultado FROM DB WHERE ([" + tipo + "] IS NOT NULL) AND (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') AND(Fornecedor_Lente <> 'DESCONHECIDO') AND(Fornecedor_Lente <> '0') AND(Venda_da_" + tipo2 + " <> 0) AND ([" + tipo + "] <> 'COMERCIO') AND (Loja LIKE '%" + key2 + "%') GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1) ORDER BY COUNT([" + tipo + "]) DESC";}
+                   // sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Resultado FROM DB WHERE (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') and ([" + tipo + "] <> '') and (Loja LIKE '%" + key2 + "%') AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO')  GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
 
-                else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB WHERE (Data LIKE '%" + dtpData.Value.ToString("d") + "%') and [" + tipo + "] <> '' and (Loja LIKE '%" + key2 + "%') AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+                else if (key1 == "Dia" && key2 != "Todas as Lojas") { sSQL = " SELECT [" + tipo + "], COUNT([" + tipo + "]) AS Qtd, SUM(Venda_da_" + tipo2 + ") -SUM(Desconto_" + tipo2 + ") - SUM(Compra_da_" + tipo2 + ") AS Resultado FROM DB WHERE ([" + tipo + "] IS NOT NULL) AND (Data LIKE '%" + dtpData.Value.ToString("d") + "%') AND(Fornecedor_Lente <> 'DESCONHECIDO') AND(Fornecedor_Lente <> '0') AND(Venda_da_" + tipo2 + " <> 0) AND ([" + tipo + "] <> 'COMERCIO') AND (Loja LIKE '%" + key2 + "%') GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1) ORDER BY COUNT([" + tipo + "]) DESC"; }
 
+                //sSQL = " SELECT [" + tipo + "], COUNT([" + tipo + "]) AS Qtd, SUM(Venda_da_" + tipo2 + ") -SUM(Desconto_" + tipo2 + ") - SUM(Compra_da_" + tipo2 + ") AS Resultado FROM DB WHERE ([" + tipo + "] IS NOT NULL) AND Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') AND(Fornecedor_Lente <> 'DESCONHECIDO') AND(Fornecedor_Lente <> '0') AND(Venda_da_" + tipo2 + " <> 0) AND ([" + tipo + "] <> 'COMERCIO') GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1) ORDER BY COUNT([" + tipo + "]) DESC";}
 
-                else if (key1 == "Mês / Ano") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB WHERE Data like '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%' and [" + tipo + "] <> '' AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+                else if (key1 == "Mês / Ano"){ sSQL = " SELECT [" + tipo + "], COUNT([" + tipo + "]) AS Qtd, SUM(Venda_da_" + tipo2 + ") -SUM(Desconto_" + tipo2 + ") - SUM(Compra_da_" + tipo2 + ") AS Resultado FROM DB WHERE ([" + tipo + "] IS NOT NULL) AND (Data LIKE '%" + data.Month.ToString() + "/" + data.Year.ToString() + "%') AND(Fornecedor_Lente <> 'DESCONHECIDO') AND(Fornecedor_Lente <> '0') AND(Venda_da_" + tipo2 + " <> 0) AND ([" + tipo + "] <> 'COMERCIO') GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1) ORDER BY COUNT([" + tipo + "]) DESC";}
+            else if (key1 == "Dia") { sSQL = " SELECT [" + tipo + "], COUNT([" + tipo + "]) AS Qtd, SUM(Venda_da_" + tipo2 + ") -SUM(Desconto_" + tipo2 + ") - SUM(Compra_da_" + tipo2 + ") AS Resultado FROM DB WHERE ([" + tipo + "] IS NOT NULL) AND (Data LIKE '%" + dtpData.Value.ToString("d") + "%') AND(Fornecedor_Lente <> 'DESCONHECIDO') AND(Fornecedor_Lente <> '0') AND(Venda_da_" + tipo2 + " <> 0) AND ([" + tipo + "] <> 'COMERCIO') AND (Loja LIKE '%" + key2 + "%') GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1) ORDER BY COUNT([" + tipo + "]) DESC"; }
 
-                else if (key1 == "Dia") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB WHERE Data like '%" + dtpData.Value.ToString("d") + "%' and[" + tipo + "] <> '' AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+            else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = " SELECT [" + tipo + "], COUNT([" + tipo + "]) AS Qtd, SUM(Venda_da_" + tipo2 + ") -SUM(Desconto_" + tipo2 + ") - SUM(Compra_da_" + tipo2 + ") AS Resultado FROM DB WHERE ([" + tipo + "] IS NOT NULL) AND (Data LIKE '%" + data.Year.ToString() + "%') AND(Fornecedor_Lente <> 'DESCONHECIDO') AND(Fornecedor_Lente <> '0') AND(Venda_da_" + tipo2 + " <> 0) AND ([" + tipo + "] <> 'COMERCIO') AND (Loja LIKE '%" + key2 + "%') GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1) ORDER BY COUNT([" + tipo + "]) DESC"; }
 
-                else if (key1 == "Ano" && key2 != "Todas as Lojas") { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB  WHERE (Data LIKE '%" + data.Year.ToString() + "%') and [" + tipo + "] <> '' and (Loja LIKE '%" + key2 + "%') AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+              //  sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Resultado FROM DB  WHERE (Data LIKE '%" + data.Year.ToString() + "%') and [" + tipo + "] <> '' and (Loja LIKE '%" + key2 + "%') AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
 
-                else { sSQL = "SELECT [" + tipo + "],COUNT([" + tipo + "]) AS Qtd FROM DB  WHERE (Data LIKE '%" + data.Year.ToString() + "%') and [" + tipo + "] <> '' AND ([" + tipo + "] <> '0') AND ([" + tipo + "] <> 'DESCONHECIDO') GROUP BY[" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1)ORDER BY COUNT([" + tipo + "]) DESC"; }
+                else { sSQL = " SELECT [" + tipo + "], COUNT([" + tipo + "]) AS Qtd, SUM(Venda_da_" + tipo2 + ") -SUM(Desconto_" + tipo2 + ") - SUM(Compra_da_" + tipo2 + ") AS Resultado FROM DB WHERE ([" + tipo + "] IS NOT NULL) AND (Data LIKE '%" + data.Year.ToString() + "%') AND(Fornecedor_Lente <> 'DESCONHECIDO') AND(Fornecedor_Lente <> '0') AND(Venda_da_" + tipo2 + " <> 0) AND ([" + tipo + "] <> 'COMERCIO') GROUP BY [" + tipo + "] HAVING(COUNT([" + tipo + "]) > 1) ORDER BY COUNT([" + tipo + "]) DESC"; }
             }
+           
             //definir a string SQL
 
 
@@ -266,7 +270,6 @@ namespace Horizon_Contabilidade
             dt.Load(cmd.ExecuteReader());
             return dt;
         }
-
         public static void importtoDb()
         {
             //excel_Manipulations.check_table(sourcetable);
@@ -291,7 +294,6 @@ namespace Horizon_Contabilidade
 
             ConectDb().Close();
         }
-
         public void importalente(TextBox stringcod, TextBox stringname, ComboBox stringfornecedor, ComboBox stringmarca,
             ComboBox stringtratamento, ComboBox stringtipo, TextBox stringvalorcompra, TextBox stringvalorvenda)
         {
@@ -377,7 +379,7 @@ namespace Horizon_Contabilidade
             or = linha.Rows[0]["Or_os"].ToString();
             fornecedor = linha.Rows[0]["Fornecedor"].ToString();
             compral = valor.ToString("C");
-            vendal = linha.Rows[0]["Venda_da_lente"].ToString();
+            vendal = linha.Rows[0]["Venda_da_Lente"].ToString();
             compraa = linha.Rows[0]["Compra_da_Armação"].ToString();
             vendaa = linha.Rows[0]["Venda_da_Armação"].ToString();
             col = linha.Rows[0]["Coloração"].ToString();
@@ -389,8 +391,8 @@ namespace Horizon_Contabilidade
             nomelente = linha.Rows[0]["Nome_Lente"].ToString();
             forenecedorl = linha.Rows[0]["Fornecedor_Lente"].ToString();
             forenecedora = linha.Rows[0]["Fornecedor_Armação"].ToString();
-            descontol = linha.Rows[0]["Desconto_lente"].ToString();
-            descontoa = linha.Rows[0]["Desconto_armação"].ToString();
+            descontol = linha.Rows[0]["Desconto_Lente"].ToString();
+            descontoa = linha.Rows[0]["Desconto_Armação"].ToString();
             descontot = linha.Rows[0]["Desconto_total"].ToString();
             marcaa = linha.Rows[0]["Marca_armação"].ToString();
             marcal = linha.Rows[0]["Marca_lente"].ToString();

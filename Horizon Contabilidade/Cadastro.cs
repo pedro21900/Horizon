@@ -327,13 +327,13 @@ namespace Horizon_Contabilidade
                     else if (indexx == "Data") { dateTimePicker1.Text = index; }
                     //Lente
 
-                    else if (indexx == "Venda_da_lente") { txVenda_lente.Text = index; }
-                    else if (indexx == "Compra_da_lente") { txCompra_lente.Text = index; }
+                    else if (indexx == "Venda_da_Lente") { txVenda_lente.Text = index; }
+                    else if (indexx == "Compra_da_Lente") { txCompra_lente.Text = index; }
                     else if (indexx == "Coloração") { txCol.Text = index; }
                     else if (indexx == "Nome_Lente") { txNome_lente.Text = index; }
                     else if (indexx == "Fornecedor_Lente") { txFornecedor_lente.Text = index; }
                     else if (indexx == "Marca_lente") { txMarca_lente.Text = index; }
-                    else if (indexx == "Desconto_lente") { txDesconto_Lente.Text = index; }
+                    else if (indexx == "Desconto_Lente") { txDesconto_Lente.Text = index; }
                     else if (indexx == "Lab") { txLab.Text = index; }
 
 
@@ -344,7 +344,7 @@ namespace Horizon_Contabilidade
                     else if (indexx == "Compra_da_Armação") { txCompra_armacao.Text = index; }
                     else if (indexx == "Marca_armação") { txMarca_armacao.Text = index; }
                     else if (indexx == "Fornecedor_Armação") { txFornecedor_armacao.Text = index; }
-                    else if (indexx == "Desconto_armação") { txDesconto_Armacao.Text = index; }
+                    else if (indexx == "Desconto_Armação") { txDesconto_Armacao.Text = index; }
                     else if (indexx == "Modelo_Armação") { txModelo_armacao.Text = index; }
 
                     //Extras
@@ -884,7 +884,7 @@ namespace Horizon_Contabilidade
                 else
                 {
                     exportabanco("DB");
-                    //exportabanco("Registrosip");
+                  
 
                     sugestao();
                     MessageBox.Show("Registro Salvo");

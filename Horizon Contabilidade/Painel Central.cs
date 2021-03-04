@@ -14,7 +14,7 @@ namespace Horizon_Contabilidade
 
         //Variaveis Globais
         private static DataSet DB;
-        //private static DataSet Registrosip;
+
         // private static DataSet Carne;
         private static DataTable Len;
         private static DataTable Arma;
@@ -36,7 +36,7 @@ namespace Horizon_Contabilidade
             if (ini != 1 && change == 1)
             {
                 DB.Reset();
-                //Registrosip.Reset();
+                
                 //Carne.Reset();
                 Len.Reset();
                 Arma.Reset();
@@ -44,19 +44,12 @@ namespace Horizon_Contabilidade
             if (change == 1)
 
             {
-                DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData, 0, "");
-                DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData, 0, "").Tables[0].Copy());
-                DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "").Tables[0].Copy());
-
-                // Registrosip = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Registrosip", dptData,0, "");
-
-                //Carne = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "");
-
-                Len = db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_Lente").Tables[0];
-                Arma = db.Filtrodb(comboBox1.Text, comboBox2.Text, "ArmaLen", dptData, 1, "Fornecedor_Armação").Tables[0];
-
-
-
+                DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData, 0, "","");
+                
+                DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "", "").Tables[0].Copy());
+                
+                Arma = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Qtd", dptData, 1, "Fornecedor_Armação", "Armação").Tables[0];
+                Len = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Qtd", dptData, 1, "Fornecedor_Lente", "Lente").Tables[0];
             }
 
 
@@ -135,7 +128,7 @@ namespace Horizon_Contabilidade
         //Metodos
         public double carne()
         {
-            double index = DB.Tables[2].AsEnumerable().Sum(s => s.Field<double>("Valor"));
+            double index = DB.Tables[1].AsEnumerable().Sum(s => s.Field<double>("Valor"));
             return index;
         }
         public double carnelastmonth()
@@ -144,24 +137,24 @@ namespace Horizon_Contabilidade
             try
             {
 
-                int count1 = DB.Tables[2].Columns.Count;
-                int qtdlinha = DB.Tables[2].Rows.Count;
+                int count1 = DB.Tables[1].Columns.Count;
+                int qtdlinha = DB.Tables[1].Rows.Count;
 
                 for (int i = 0; i <= qtdlinha - 1; i++)
                 {
-                    DateTime datasale = Convert.ToDateTime(DB.Tables[2].Rows[i]["Data_de_Venda"].ToString());
-                    DateTime datafat = Convert.ToDateTime(DB.Tables[2].Rows[i]["Data"].ToString());
+                    DateTime datasale = Convert.ToDateTime(DB.Tables[1].Rows[i]["Data_de_Venda"].ToString());
+                    DateTime datafat = Convert.ToDateTime(DB.Tables[1].Rows[i]["Data"].ToString());
                     DateTime data = dptData.Value;
                     if (comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month ||
                         datafat.Year < data.Year && comboBox1.Text == "Mês / Ano" && datafat.Month == data.Month && datasale.Month < data.Month)
                     {
-                        index += Convert.ToDouble(DB.Tables[2].Rows[i]["Valor"].ToString());
+                        index += Convert.ToDouble(DB.Tables[1].Rows[i]["Valor"].ToString());
 
 
                     }
                     else if (comboBox1.Text == "Ano" && datafat.Year == data.Year || datasale.Year < data.Year && comboBox1.Text == "Ano" && datafat.Year == data.Year)
                     {
-                        index += Convert.ToDouble(DB.Tables[2].Rows[i]["Valor"].ToString());
+                        index += Convert.ToDouble(DB.Tables[1].Rows[i]["Valor"].ToString());
 
                     }
 
@@ -218,7 +211,7 @@ namespace Horizon_Contabilidade
 
             return index;
         }
-       public DataTable db1(string tabela)
+        public DataTable db1(string tabela)
         {
 
             DataTable oDs = new DataTable();
@@ -228,13 +221,10 @@ namespace Horizon_Contabilidade
             {
                 oDs = DB.Tables[0];
             }
-            else if (tabela == "Registrosip")
-            {
-                oDs = DB.Tables[1];
-            }
+
             else if (tabela == "Carne")
             {
-                oDs = DB.Tables[2];
+                oDs = DB.Tables[1];
             }
 
             return oDs;
@@ -253,10 +243,10 @@ namespace Horizon_Contabilidade
             double carne1 = carne() - paid_out;
 
             double Venda_da_Armação = liquido("DB", "Venda_da_Armação");
-            double Venda_da_lente = liquido("DB", "Venda_da_lente");
+            double Venda_da_Lente = liquido("DB", "Venda_da_Lente");
             double Custo_Com_Venda = liquido("DB", "Custo_Com_Venda");
             double DescT = liquido("DB", "Desconto_total");
-            double Bruto = Venda_da_Armação + Venda_da_lente;
+            double Bruto = Venda_da_Armação + Venda_da_Lente;
             double Caixa = Bruto - DescT;
             double Hoya = Providers("HOYA", "Lente");
             double Rodenstock = (Providers("RODENSTOCK", "Lente") + Providers("RODENSTOCK", "Armação"));
@@ -295,7 +285,7 @@ namespace Horizon_Contabilidade
 
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
             dgvDados.DataSource = DB.Tables[0];
-            dgvDadosC.DataSource = DB.Tables[2];
+            dgvDadosC.DataSource = DB.Tables[1];
             txCarnenpg.Text = carneafter.ToString("C");
             txCustoVenda.Text = Custo_Com_Venda.ToString("C");
             txBrutocd.Text = (Bruto).ToString("C");
@@ -323,10 +313,9 @@ namespace Horizon_Contabilidade
             }
             //Chart
 
-
             Armação.Series[0].Points.Clear();
             Armação.DataSource= Arma;
-
+            
             Lente.Series[0].Points.Clear();
             Lente.DataSource = Len;
 
@@ -339,7 +328,8 @@ namespace Horizon_Contabilidade
         {
             double index = 0;
 
-            index = DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Compra_da_" + lens_or_frame));
+            index = DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Venda_da_" + lens_or_frame))-
+                DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Compra_da_" + lens_or_frame));
 
             return index;
         }
@@ -396,7 +386,6 @@ namespace Horizon_Contabilidade
                     Properties.Settings.Default.SourceDb = ofd1.FileName;
                     Properties.Settings.Default.Save();
                     Properties.Settings.Default.Folder_Way = SDBstr;
-                    fills_in();
                     atualiza();
                     d1.Clear();
                     d1 = DB.Tables[0];
@@ -512,7 +501,7 @@ namespace Horizon_Contabilidade
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             db.Deletalinha("DB", retornaosclicada(dgvDados));
-            db.Deletalinha("Registrosip", retornaosclicada(dgvDados));
+           
             atualiza();
         }
         private void button4_Click(object sender, EventArgs e)
@@ -521,6 +510,12 @@ namespace Horizon_Contabilidade
             metodos_Auxiliades.calcforn();
             atualiza();
         }
-
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            change = 1;
+            d1.Clear();
+            d1 = DB.Tables[0];
+            atualiza();
+        }
     }
 }
