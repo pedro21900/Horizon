@@ -328,31 +328,13 @@ namespace Horizon_Contabilidade
         {
             double index = 0;
 
-            index = DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Venda_da_" + lens_or_frame))-
-                DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Compra_da_" + lens_or_frame));
+            index = DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Venda_da_" + lens_or_frame)) -
+                -DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Desconto_" + lens_or_frame));///-
+               // DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>("Fornecedor").Contains(nameProviders)).Sum(s => s.Field<double>("Compra_da_" + lens_or_frame));
 
             return index;
         }
         //Form
-        private void Add_registro_Click(object sender, EventArgs e)
-        {
-            c = cadastro.retorna2();
-            try
-            {
-                Cadastro tela_add_servico = new Cadastro();
-                tela_add_servico.ShowDialog();
-                atualiza();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
-
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'dBDataSet.DB'. Você pode movê-la ou removê-la conforme necessário.
@@ -369,8 +351,7 @@ namespace Horizon_Contabilidade
                 d1.Clear();
                 d1 = DB.Tables[0];
 
-
-
+                
             }
             catch (Exception)
             {
@@ -516,6 +497,24 @@ namespace Horizon_Contabilidade
             d1.Clear();
             d1 = DB.Tables[0];
             atualiza();
+        }
+        private void Add_registro_Click_1(object sender, EventArgs e)
+        {
+            c = cadastro.retorna2();
+            try
+            {
+                Cadastro tela_add_servico = new Cadastro();
+                tela_add_servico.ShowDialog();
+                atualiza();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro :" + ex.Message);
+
+
+            }
         }
     }
 }
