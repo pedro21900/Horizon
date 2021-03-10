@@ -1,5 +1,4 @@
-﻿using FastMember;
-using System;
+﻿using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,71 +10,96 @@ namespace Horizon_Contabilidade
         private readonly Calculo calculo = new Calculo();
         private static readonly Db db = new Db();
         private static DataTable DB12 = db.TableDb("Select * From DB");
+        private static DataTable DB1 = db.TableDb("Select * From Carne");
+        private static int count;
+        private static int ini;
         private static DataTable DB;
+        private static DataTable DB17;
         //private readonly Form1 form1 = new Form1();
 
         public void calcforn()
         {
-          //  int o = form1.db1("DB").Rows.Count;
-          //  for (int i = 0; i <= o - 1; i++)
-          //  {
-             //   double valor = calculo.Recalc(form1.db1("DB").Rows[i]["Compra_da_Lente"].ToString(), form1.db1("DB").Rows[i]["Venda_da_Lente"].ToString(), form1.db1("DB").Rows[i]["Fornecedor"].ToString());
-              //  if (valor == 0) { }
+            //  int o = form1.db1("DB").Rows.Count;
+            //  for (int i = 0; i <= o - 1; i++)
+            //  {
+            //   double valor = calculo.Recalc(form1.db1("DB").Rows[i]["Compra_da_Lente"].ToString(), form1.db1("DB").Rows[i]["Venda_da_Lente"].ToString(), form1.db1("DB").Rows[i]["Fornecedor"].ToString());
+            //  if (valor == 0) { }
             //    else
-             //   {
+            //   {
             //        db.registrocadlentes(form1.db1("DB").Rows[i]["Or_os"].ToString(), valor);
-             //   }
+            //   }
 
-          //  }
+            //  }
         }
-        public  void DatabaseMemory(DateTimePicker dptData,ComboBox comboBox2, ComboBox comboBox1)
+   
+        public void filtroTable(string filtroData,int maisF,ComboBox comboBox2)
         {
-            //DB.Reset();
-            DateTime data = dptData.Value;
-           // var xc="";
-            var xc2 = "";
-            
-            if (comboBox1.Text == "Mês / Ano" && comboBox2.Text != "Todas as Lojas") 
+            var teste = new DataTable().AsEnumerable();
+             
+            if (count == 0) { DB17 = DB12; }
+            else if(count == 2) {  DB17 = DB1; }
+            if (maisF == 1)
             {
-               
-                DB = DB12.AsEnumerable().Where(DB => DB.Field<string>("Data").Contains(data.Month.ToString() + "/" + data.Year.ToString())).
-                    Where(DB => DB.Field<string>("Loja").Contains(comboBox2.Text)).CopyToDataTable().Copy();
-                
+                 teste = DB17.AsEnumerable().Where(DB => DB.Field<string>("Data").Contains(filtroData));
+            }
+            else
+            {
+                 teste = DB17.AsEnumerable().Where(DB => DB.Field<string>("Data").Contains(filtroData)).
+                   Where(DB => DB.Field<string>("Loja").Contains(comboBox2.Text));
+            }
 
-            }
-            else if (comboBox1.Text == "Dia" & comboBox2.Text != "Todas as Lojas") 
+            if (teste.Any())
             {
-                DB = DB12.AsEnumerable().Where(DB => DB.Field<string>("Data").Contains(dptData.Value.ToString("d"))).
-                   Where(DB => DB.Field<string>("Loja").Contains(comboBox2.Text)).CopyToDataTable().Copy();
+                DB = teste.CopyToDataTable().Copy();
             }
-            else if (comboBox1.Text == "Mês / Ano") 
-            
+            else
             {
-               
-              //  DB = DB12.AsEnumerable().Where(DB => DB.Field<string>("Data").Contains(data.Month.ToString() + "/" + data.Year.ToString())).
-               //     CopyToDataTable().Copy();
+                DB = null;
+            }
+            // DB17.Clear();
+        }
+        public DataTable DatabaseMemory(DateTimePicker dptData, ComboBox comboBox2, ComboBox comboBox1)
+        {
+            DateTime data = dptData.Value;
+            if (comboBox1.Text == "Mês / Ano" && comboBox2.Text != "Todas as Lojas")
+            {
+                filtroTable(data.Month.ToString() + "/" + data.Year.ToString(), 2, comboBox2);
+            }
+            else if (comboBox1.Text == "Dia" & comboBox2.Text != "Todas as Lojas")
+            {
+                filtroTable(dptData.Value.ToString("d"), 2, comboBox2);
+            }
+            else if (comboBox1.Text == "Mês / Ano")
+
+            {
+                filtroTable(data.Month.ToString() + "/" + data.Year.ToString(), 1, comboBox2);                                     
             }
             else if (comboBox1.Text == "Dia")
             {
-                //DB = DB12.AsEnumerable().Where(DB => DB.Field<string>("Data").Contains(dptData.Value.ToString("d"))).
-                  //   CopyToDataTable().Copy();
+                filtroTable(dptData.Value.ToString("d"), 1, comboBox2);
             }
-            else if (comboBox1.Text == "Ano" & comboBox2.Text != "Todas as Lojas") 
+            else if (comboBox1.Text == "Ano" & comboBox2.Text != "Todas as Lojas")
             {
-                DB = DB12.AsEnumerable().Where(DB => DB.Field<string>("Data").Contains(data.Year.ToString())).
-                   Where(DB => DB.Field<string>("Loja").Contains(comboBox2.Text)).CopyToDataTable().Copy();
+                filtroTable(data.Year.ToString(), 2, comboBox2);                
             }
-            else 
+            else
             {
-                DB = DB12.AsEnumerable().Where(DB => DB.Field<string>("Data").Contains(data.Year.ToString())).
-                    CopyToDataTable().Copy();
-
+                filtroTable(data.Year.ToString(), 1, comboBox2);
             }
-
-            int x = 0;
+            if (DB == null) { 
+                DB = DB17.Clone(); 
+            }
+            return DB;
+        }
+        public DataSet Database(DateTimePicker dptData, ComboBox comboBox2, ComboBox comboBox1) {
+            DataSet dataSet =new DataSet();
+            dataSet.Tables.Add(DatabaseMemory( dptData,  comboBox2,  comboBox1).Copy());
+            count = 2;
             
-
-           
+            dataSet.Tables.Add(DatabaseMemory(dptData, comboBox2, comboBox1).Copy());
+            count = 0;
+            
+            return dataSet;
         }
     }
 }

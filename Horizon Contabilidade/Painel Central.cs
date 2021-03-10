@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Data.OleDb;
 using System.Linq;
 using System.Windows.Forms;
 namespace Horizon_Contabilidade
@@ -37,7 +36,7 @@ namespace Horizon_Contabilidade
             if (ini != 1 && change == 1)
             {
                 DB.Reset();
-                
+
                 //Carne.Reset();
                 Len.Reset();
                 Arma.Reset();
@@ -45,13 +44,17 @@ namespace Horizon_Contabilidade
             if (change == 1)
 
             {
-                DB = db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData, 0, "","");
-                
-                DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "", "").Tables[0].Copy());
-                
+               
+                DB=ma.Database(dptData, comboBox2, comboBox1);
+               
+                    //db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData, 0, "", "");
+
+
+                //DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "", "").Tables[0].Copy());
+
                 Arma = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Qtd", dptData, 1, "Fornecedor_Armação", "Armação").Tables[0];
                 Len = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Qtd", dptData, 1, "Fornecedor_Lente", "Lente").Tables[0];
-                ma.DatabaseMemory(dptData,comboBox2,comboBox1);
+               // ma.DatabaseMemory(dptData, comboBox2, comboBox1);
             }
 
 
@@ -122,8 +125,8 @@ namespace Horizon_Contabilidade
         public AutoCompleteStringCollection Caixadesusgestaoos(string coluna)
         {
             AutoCompleteStringCollection stringCollection = new AutoCompleteStringCollection();
-                string[] postSouce = DB.Tables[0].AsEnumerable().Select<System.Data.DataRow, String>(x => x.Field<string>("Or_os")).ToArray();
-                stringCollection.AddRange(postSouce);
+            string[] postSouce = DB.Tables[0].AsEnumerable().Select<System.Data.DataRow, String>(x => x.Field<string>("Or_os")).ToArray();
+            stringCollection.AddRange(postSouce);
 
             return stringCollection;
         }
@@ -316,12 +319,12 @@ namespace Horizon_Contabilidade
             //Chart
 
             Armação.Series[0].Points.Clear();
-            Armação.DataSource= Arma;
-            
+            Armação.DataSource = Arma;
+
             Lente.Series[0].Points.Clear();
             Lente.DataSource = Len;
 
-         dgvDados.AutoResizeColumns();
+            dgvDados.AutoResizeColumns();
             dgvDados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos(comboBox3.Text);
             change = 0;
@@ -353,7 +356,7 @@ namespace Horizon_Contabilidade
                 d1.Clear();
                 d1 = DB.Tables[0];
 
-                
+
             }
             catch (Exception)
             {
@@ -404,13 +407,13 @@ namespace Horizon_Contabilidade
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //dgvDados.Rows.Clear();
-            
-            
-            dgvDados.DataSource= DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>(comboBox3.Text).Contains(txPesquisa_princial.Text)).ToArray();
+
+
+            dgvDados.DataSource = DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>(comboBox3.Text).Contains(txPesquisa_princial.Text)).ToArray();
             //  dgvDados.DataSource
             //dgvDados.DataSource = db.pesquisaos("DB", comboBox3.Text, txPesquisa_princial.Text, "", "").Tables[0];
             //pesquisa(txPesquisa_princial);
-            
+
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -484,7 +487,7 @@ namespace Horizon_Contabilidade
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             db.Deletalinha("DB", retornaosclicada(dgvDados));
-           
+
             atualiza();
         }
         private void button4_Click(object sender, EventArgs e)
@@ -517,6 +520,28 @@ namespace Horizon_Contabilidade
 
 
             }
+        }
+
+        private void dgvDados_DoubleClick(object sender, EventArgs e)
+        {
+            retornaosclicada(dgvDados);
+            c = true;
+            try
+            {
+                Cadastro tela_add_servico = new Cadastro();
+                tela_add_servico.ShowDialog();
+              
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro :" + ex.Message);
+
+
+            }
+            c = cadastro.retorna2();
+            atualiza();
         }
     }
 }

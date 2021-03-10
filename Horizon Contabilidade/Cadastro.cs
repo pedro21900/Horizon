@@ -292,35 +292,19 @@ namespace Horizon_Contabilidade
         public void importabanco(string tabela, string pesquisa)
         {
             try
-            {
+            {              
 
-
-                //definir a string de conexão
-
-                //definir a string SQL
-                string sSQL = "select * from " + tabela + " WHERE  Or_os = " + pesquisa;
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
-                //abrir a conexão
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, tabela);
-
-
-                int count1 = oDs.Tables[0].Columns.Count;
+                string sSQL = "select * from " + tabela + " WHERE  Or_os = '" + pesquisa+"'";
+                DataTable oDs=db.TableDb(sSQL);
+                int count1 = oDs.Columns.Count;
 
                 string indexx = "0";
                 string index = "0";
 
-                foreach (DataColumn indexx1 in oDs.Tables[0].Columns)
+                foreach (DataColumn indexx1 in oDs.Columns)
                 {
                     indexx = indexx1.ToString();
-                    index = oDs.Tables[0].Rows[0][indexx].ToString();
+                    index = oDs.Rows[0][indexx].ToString();
 
                     //Posição
                     if (indexx == "Or_os") { txOs_Or.Text = index; }
@@ -354,8 +338,8 @@ namespace Horizon_Contabilidade
                 }
 
                 //liberar o data adapter , o dataset , o comandbuilder e a conexao
-                oDA.Dispose(); oDs.Dispose(); //oCB.Dispose();
-                oCn.Dispose();
+                //oDA.Dispose(); oDs.Dispose(); //oCB.Dispose();
+                //oCn.Dispose();
 
             }
             catch (Exception ex)
@@ -884,7 +868,7 @@ namespace Horizon_Contabilidade
                 else
                 {
                     exportabanco("DB");
-                  
+
 
                     sugestao();
                     MessageBox.Show("Registro Salvo");

@@ -1608,6 +1608,7 @@
             this.dgvDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDados.Size = new System.Drawing.Size(1346, 330);
             this.dgvDados.TabIndex = 25;
+            this.dgvDados.DoubleClick += new System.EventHandler(this.dgvDados_DoubleClick);
             // 
             // panel2
             // 
