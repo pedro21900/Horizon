@@ -12,11 +12,16 @@ namespace Horizon_Contabilidade
         private static DataTable DB12 = db.TableDb("Select * From DB");
         private static DataTable DB1 = db.TableDb("Select * From Carne");
         private static int count;
-        private static int ini;
+        private static int atualiza;
         private static DataTable DB;
         private static DataTable DB17;
         //private readonly Form1 form1 = new Form1();
-
+        private void atualizadb()
+        {
+            if(atualiza==1)
+              DB12 = db.TableDb("Select * From DB");
+              DB1 = db.TableDb("Select * From Carne");
+    }
         public void calcforn()
         {
             //  int o = form1.db1("DB").Rows.Count;
@@ -40,7 +45,9 @@ namespace Horizon_Contabilidade
             else if(count == 2) {  DB17 = DB1; }
             if (maisF == 1)
             {
-                 teste = DB17.AsEnumerable().Where(DB => DB.Field<string>("Data").Contains(filtroData));
+                teste = DB17.AsEnumerable()
+                   .Where(DB => DB.Field<string>("Data").Contains(filtroData));
+                   
             }
             else
             {
@@ -91,8 +98,11 @@ namespace Horizon_Contabilidade
             }
             return DB;
         }
-        public DataSet Database(DateTimePicker dptData, ComboBox comboBox2, ComboBox comboBox1) {
+        public DataSet Database(DateTimePicker dptData, ComboBox comboBox2, ComboBox comboBox1,int x) {
             DataSet dataSet =new DataSet();
+            atualiza = x;
+            atualizadb();
+            
             dataSet.Tables.Add(DatabaseMemory( dptData,  comboBox2,  comboBox1).Copy());
             count = 2;
             

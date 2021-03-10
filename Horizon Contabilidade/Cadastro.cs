@@ -12,6 +12,7 @@ namespace Horizon_Contabilidade
             InitializeComponent();
             retorna2();
             tf1();
+            Menssagem();
 
         }
         private static readonly Form1 form1 = new Form1();
@@ -25,6 +26,7 @@ namespace Horizon_Contabilidade
         private static string cdv = "0";
         //private static string fdp1 = "0";
         private static string cb = "0";
+        private static string men = "";
         private static string Cod;
         private static string Fornecedorlente;
         private static string Marcalente;
@@ -38,6 +40,10 @@ namespace Horizon_Contabilidade
 
             string[] lente = new string[] { Cod, Fornecedorlente, Marcalente, Nome, Tratamento, Tipo, Chamado, Vendalente };
             return lente;
+        }
+        public string Menssagem()
+        {
+            return men;
         }
         public string perda()
         {
@@ -275,11 +281,7 @@ namespace Horizon_Contabilidade
                 txNome_lente.Text, txFornecedor_lente.Text, txFornecedor_armacao.Text, txDesconto_Lente.Text, txDesconto_Armacao.Text, txDesconto_Total.Text, txMarca_armacao.Text,
                 txMarca_lente.Text, txObs.Text, cb);
                 }
-                else if (tabela == "Registrosip")
-                {
-                    db.addlinhalayout2(tabela, txOs_Or.Text, Convert.ToDateTime(dateTimePicker1.Value).ToShortDateString(), txModelo_armacao.Text, txNome_lente.Text, txFornecedor_lente.Text, txFornecedor_armacao.Text, txDesconto_Total.Text
-                      , txMarca_armacao.Text, txMarca_lente.Text, cb, txObs.Text);
-                }
+               
             }
             catch (Exception ex)
             {
@@ -767,7 +769,7 @@ namespace Horizon_Contabilidade
         private void Cadastro_Load(object sender, EventArgs e)
         {
             comboBox1.Text = "";
-
+            men = form1.Resposta();
             sugestao();
             if (string.IsNullOrEmpty(form1.retornaos()) || form1.retorna() == false) { }
             else if (form1.retorna())
@@ -871,8 +873,9 @@ namespace Horizon_Contabilidade
 
                     sugestao();
                     MessageBox.Show("Registro Salvo");
-
+                    men = "Atualizado";
                 }
+                
             }
             else if (btSalvar.Text == "Atualizar")
             {
@@ -885,6 +888,8 @@ namespace Horizon_Contabilidade
 
                 MessageBox.Show("Atualizado");
                 btSalvar.Text = "Salvar";
+                men = "Atualizado";
+                
             }
 
         }

@@ -117,31 +117,17 @@ namespace Horizon_Contabilidade
             oDs.Tables[0].Rows.Add(data, filtratexto(or), filtratexto(fornecedor), filtratexto(compral),
                     filtratexto(vendal), filtratexto(compraa), filtratexto(vendaa), filtratexto(col),
                      filtratexto(lab), filtratexto(custodevenda), filtratexto(vendavalor), filtratexto(modeloarmação), filtratexto(nomelente), filtratexto(forenecedorl)
-                , filtratexto(forenecedora), filtratexto(descontol), filtratexto(descontoa), filtratexto(descontot), filtratexto(marcaa), filtratexto(marcal), filtratexto(Loja), filtratexto(Obs));
+                , filtratexto(forenecedora), filtratexto(descontol), filtratexto(descontoa), filtratexto(descontot), filtratexto(marcaa), filtratexto(marcal), filtratexto(Obs),filtratexto(Loja));
 
             salvatabela(oDA, oDs, tabela);
 
-        }
-        public void addlinhalayout2(string tabela, string or, string data, string modeloarmação, string nomelente, string forenecedorl, string forenecedora,
-                                    string descontot, string marcaa, string marcal, string loja, string Obs)
-        {
-            string sSQL = "select * from " + tabela;
-            //criar o data adapter e executar a consulta
-            OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, ConectDb());
-            //criar o DataSet
-            DataSet oDs = new DataSet();
-            //Preencher o dataset coom o data adapter
-            oDA.Fill(oDs, tabela);
-            oDs.Tables[0].Rows.Add(filtratexto(or), filtratexto(data), filtratexto(modeloarmação), filtratexto(nomelente), filtratexto(forenecedorl)
-                , filtratexto(forenecedora), filtratexto(descontot), filtratexto(marcaa), filtratexto(marcal), filtratexto(loja), filtratexto(Obs));
-            salvatabela(oDA, oDs, tabela);
         }
         public void Deletalinha(string tabela, string pesquisa)
         {
             try
             {
 
-                string sSQLs12 = "  DELETE* FROM " + tabela + " WHERE Or_os = " + pesquisa;
+                string sSQLs12 = "  DELETE* FROM " + tabela + " WHERE Or_os = '" + pesquisa+"'";
                 OleDbCommand command = new OleDbCommand(sSQLs12, ConectDb());
                 command.ExecuteNonQuery();
 
@@ -161,7 +147,7 @@ namespace Horizon_Contabilidade
             Deletalinha(tabela, pesquisa);
             addlinhalayout1(tabela, data, or, fornecedor, compral, vendal, compraa, vendaa, col,
                                     lab, custocv, vendavalor, modeloarmação, nomelente, forenecedorl, forenecedora,
-                                     descontol, descontoa, descontot, marcaa, marcal, loja, Obs);
+                                     descontol, descontoa, descontot, marcaa, marcal, Obs, loja);
 
 
         }

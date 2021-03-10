@@ -22,7 +22,7 @@ namespace Horizon_Contabilidade
         private static bool c = false;
         private static int change = 0;
         private static int ini = 0;
-
+        private static string res = "";
         //Classes
         private DataTable d1 = new DataTable();
         private readonly Db db = new Db();
@@ -45,7 +45,7 @@ namespace Horizon_Contabilidade
 
             {
                
-                DB=ma.Database(dptData, comboBox2, comboBox1);
+                DB=ma.Database(dptData, comboBox2, comboBox1, change);
                
                     //db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData, 0, "", "");
 
@@ -59,6 +59,7 @@ namespace Horizon_Contabilidade
 
 
         }
+        public string Resposta() { return res; }
         public bool retorna()
         {
 
@@ -92,6 +93,7 @@ namespace Horizon_Contabilidade
             retornaosclicada(dgvDados);
             retornaos();
             retorna();
+            Resposta();
         }
         public void ligadesliga(string dijunt)
 
@@ -289,6 +291,7 @@ namespace Horizon_Contabilidade
 
 
             laQtd.Text = "Linhas : " + DB.Tables[0].Rows.Count;
+            dgvDados.DataSource = null;
             dgvDados.DataSource = DB.Tables[0];
             dgvDadosC.DataSource = DB.Tables[1];
             txCarnenpg.Text = carneafter.ToString("C");
@@ -510,7 +513,7 @@ namespace Horizon_Contabilidade
             {
                 Cadastro tela_add_servico = new Cadastro();
                 tela_add_servico.ShowDialog();
-                atualiza();
+                
 
             }
 
@@ -520,6 +523,15 @@ namespace Horizon_Contabilidade
 
 
             }
+if (cadastro.Menssagem() == "Atualizado") {
+                change = 1;
+                ini = 0;
+                atualiza();
+                
+                change = 0;
+                res = "Feito";
+            }
+           
         }
 
         private void dgvDados_DoubleClick(object sender, EventArgs e)
@@ -541,7 +553,14 @@ namespace Horizon_Contabilidade
 
             }
             c = cadastro.retorna2();
-            atualiza();
+           if (cadastro.Menssagem() == "Atualizado") {
+                change = 1;
+                ini = 0;
+                atualiza();
+
+                change = 0;
+                res = "Feito";
+            }
         }
     }
 }

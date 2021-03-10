@@ -227,3 +227,6 @@ C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\FastMember.d
 C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Microsoft.ReportViewer.Common.dll
 C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
