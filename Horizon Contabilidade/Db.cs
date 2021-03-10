@@ -405,5 +405,6 @@ namespace Horizon_Contabilidade
                                      descontol, descontoa, descontot, marcaa, marcal, loja, Obs);
         }
     }
+  
 
 }

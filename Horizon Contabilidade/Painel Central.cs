@@ -27,6 +27,7 @@ namespace Horizon_Contabilidade
         //Classes
         private DataTable d1 = new DataTable();
         private readonly Db db = new Db();
+        private readonly Metodos_auxiliades ma = new Metodos_auxiliades();
         //Getters e Setters
         private static string sDBstr;
         public static string SDBstr { get => sDBstr; set => sDBstr = value; }
@@ -50,6 +51,7 @@ namespace Horizon_Contabilidade
                 
                 Arma = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Qtd", dptData, 1, "Fornecedor_Armação", "Armação").Tables[0];
                 Len = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Qtd", dptData, 1, "Fornecedor_Lente", "Lente").Tables[0];
+                ma.DatabaseMemory(dptData,comboBox2,comboBox1);
             }
 
 
@@ -408,7 +410,7 @@ namespace Horizon_Contabilidade
             //  dgvDados.DataSource
             //dgvDados.DataSource = db.pesquisaos("DB", comboBox3.Text, txPesquisa_princial.Text, "", "").Tables[0];
             //pesquisa(txPesquisa_princial);
-            int x = 0;
+            
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

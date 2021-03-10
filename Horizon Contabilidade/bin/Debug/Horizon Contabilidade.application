@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Horizon Contabilidade.exe.manifest" size="32232">
+    <dependentAssembly dependencyType="install" codebase="Horizon Contabilidade.exe.manifest" size="32870">
       <assemblyIdentity name="Horizon Contabilidade.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vezywM/Jr7AjGm7XfDgdcA311oa6FqlbM0789GpEkRo=</dsig:DigestValue>
+        <dsig:DigestValue>FCNMTTI/czi02dS6jfs3SgvziRf4vL056dOZKrUqe7s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

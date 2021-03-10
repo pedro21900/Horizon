@@ -114,14 +114,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="114672">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FastMember.dll" size="26624">
+      <assemblyIdentity name="FastMember" version="1.5.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>StlUCSD18WV0kud+Rk6djGyYEUMyRYqIZ09mNj3d3bg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Horizon Contabilidade.exe" size="115696">
       <assemblyIdentity name="Horizon Contabilidade" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XinRvYjkePnrQgV9kEhjrmzwv68fdkUyy841r2yNq0g=</dsig:DigestValue>
+        <dsig:DigestValue>KlSLgj+NT5UwG9DvFkBTwGsgxiH7DpuVjhpk9lPYI3c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
