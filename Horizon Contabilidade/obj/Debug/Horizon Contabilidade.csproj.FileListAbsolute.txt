@@ -222,3 +222,4 @@ C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Cont
 C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.csproj.CopyComplete
 C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.exe
 C:\Users\pedro\source\repos\Horizon\Horizon Contabilidade\obj\Debug\Horizon Contabilidade.pdb
+C:\Users\TATICO 1\Google Drive\C. TORRES SADALA EIRELI\Horizon\Horizon\Horizon Contabilidade\bin\Debug\FastMember.dll
