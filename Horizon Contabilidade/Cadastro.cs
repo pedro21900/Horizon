@@ -14,7 +14,6 @@ namespace Horizon_Contabilidade
             tf1();
 
         }
-
         private static readonly Form1 form1 = new Form1();
         private static readonly Calculo calculo = new Calculo();
         private readonly Db db = new Db();
