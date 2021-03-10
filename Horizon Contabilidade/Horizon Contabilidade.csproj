@@ -190,7 +190,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Horizon Contabilidade_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Horizon_Contabilidade.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\Horizon_Contabilidade.Properties.Settings.datasource" />
