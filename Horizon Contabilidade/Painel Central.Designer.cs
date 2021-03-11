@@ -1594,6 +1594,7 @@
             this.txPesquisa_princial.Name = "txPesquisa_princial";
             this.txPesquisa_princial.Size = new System.Drawing.Size(110, 20);
             this.txPesquisa_princial.TabIndex = 22;
+            this.txPesquisa_princial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txPesquisa_princial_KeyDown);
             // 
             // dgvDados
             // 

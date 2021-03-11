@@ -36,7 +36,14 @@ namespace Horizon_Contabilidade
 
             //  }
         }
-   
+        public AutoCompleteStringCollection SugetsBox(string coluna)
+        {
+            AutoCompleteStringCollection stringCollection = new AutoCompleteStringCollection();
+            string[] postSouce = DB12.AsEnumerable().Select<System.Data.DataRow, String>(x => x.Field<string>(coluna)).ToArray();
+            stringCollection.AddRange(postSouce);
+
+            return stringCollection;
+        }
         public void filtroTable(string filtroData,int maisF,ComboBox comboBox2)
         {
             var teste = new DataTable().AsEnumerable();

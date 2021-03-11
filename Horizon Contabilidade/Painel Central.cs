@@ -44,25 +44,15 @@ namespace Horizon_Contabilidade
             if (change == 1)
 
             {
-               
                 DB=ma.Database(dptData, comboBox2, comboBox1, change);
-               
-                    //db.Filtrodb(comboBox1.Text, comboBox2.Text, "DB", dptData, 0, "", "");
-
-
-                //DB.Tables.Add(db.Filtrodb(comboBox1.Text, comboBox2.Text, "Carne", dptData, 0, "", "").Tables[0].Copy());
-
                 Arma = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Qtd", dptData, 1, "Fornecedor_Armação", "Armação").Tables[0];
                 Len = db.Filtrodb(comboBox1.Text, comboBox2.Text, "Qtd", dptData, 1, "Fornecedor_Lente", "Lente").Tables[0];
-               // ma.DatabaseMemory(dptData, comboBox2, comboBox1);
+              
             }
-
-
         }
         public string Resposta() { return res; }
         public bool retorna()
         {
-
             return c;
         }
         public string retornaos()
@@ -124,14 +114,7 @@ namespace Horizon_Contabilidade
             txCsll.Enabled = dij;
             txIss.Enabled = dij;
         }
-        public AutoCompleteStringCollection Caixadesusgestaoos(string coluna)
-        {
-            AutoCompleteStringCollection stringCollection = new AutoCompleteStringCollection();
-            string[] postSouce = DB.Tables[0].AsEnumerable().Select<System.Data.DataRow, String>(x => x.Field<string>("Or_os")).ToArray();
-            stringCollection.AddRange(postSouce);
-
-            return stringCollection;
-        }
+       
         //Metodos
         public double carne()
         {
@@ -329,7 +312,7 @@ namespace Horizon_Contabilidade
 
             dgvDados.AutoResizeColumns();
             dgvDados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            txPesquisa_princial.AutoCompleteCustomSource = Caixadesusgestaoos(comboBox3.Text);
+            txPesquisa_princial.AutoCompleteCustomSource = ma.SugetsBox(comboBox3.Text);
             change = 0;
         }
         public double Providers(string nameProviders, string lens_or_frame)
@@ -412,7 +395,7 @@ namespace Horizon_Contabilidade
             //dgvDados.Rows.Clear();
 
 
-            dgvDados.DataSource = DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>(comboBox3.Text).Contains(txPesquisa_princial.Text)).ToArray();
+            dgvDados.DataSource = DB.Tables[0].AsEnumerable().Where(DB => DB.Field<string>(comboBox3.Text).Contains(txPesquisa_princial.Text)).CopyToDataTable().Copy();
             //  dgvDados.DataSource
             //dgvDados.DataSource = db.pesquisaos("DB", comboBox3.Text, txPesquisa_princial.Text, "", "").Tables[0];
             //pesquisa(txPesquisa_princial);
@@ -533,7 +516,6 @@ if (cadastro.Menssagem() == "Atualizado") {
             }
            
         }
-
         private void dgvDados_DoubleClick(object sender, EventArgs e)
         {
             retornaosclicada(dgvDados);
@@ -562,5 +544,10 @@ if (cadastro.Menssagem() == "Atualizado") {
                 res = "Feito";
             }
         }
+        private void txPesquisa_princial_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
+            { }
+            }
     }
 }

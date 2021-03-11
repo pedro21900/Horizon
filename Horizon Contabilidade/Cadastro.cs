@@ -15,16 +15,30 @@ namespace Horizon_Contabilidade
             Menssagem();
 
         }
+        private  struct Lente
+        {
+            int Cod;
+            string Fornecedor;
+            string Tratamento;
+            string Marca_lente;
+            string Nome_lente;
+            double Valor_venda;
+            double Valor_custo;
+            double Lab;
+            string tipo;
+            double desconto;
+            double coloração;
+        };
         private static readonly Form1 form1 = new Form1();
         private static readonly Calculo calculo = new Calculo();
         private readonly Db db = new Db();
+        private readonly Metodos_auxiliades ma = new Metodos_auxiliades();
         private static string labs = "0";
         private static string labm = "0";
         private static string decl = "0";
         private static string deca = "0";
         private static string dect = "0";
-        private static string cdv = "0";
-        //private static string fdp1 = "0";
+        private static string cdv = "0";        
         private static string cb = "0";
         private static string men = "";
         private static string Cod;
@@ -35,9 +49,9 @@ namespace Horizon_Contabilidade
         private static string Tipo;
         private static string Chamado;
         private static string Vendalente;
+        //Metodos
         public string[] tf1()
         {
-
             string[] lente = new string[] { Cod, Fornecedorlente, Marcalente, Nome, Tratamento, Tipo, Chamado, Vendalente };
             return lente;
         }
@@ -51,8 +65,6 @@ namespace Horizon_Contabilidade
                 calcSoma(txCompra_lente.Text, txCompra_armacao.Text),
                 calcSoma(txVenda_armacao.Text, txVenda_lente.Text)).ToString("P");
             return porcento;
-
-
         }
         public string ganho()
         {
@@ -68,64 +80,17 @@ namespace Horizon_Contabilidade
             cbTratamento.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cbTratamento.AutoCompleteCustomSource.AddRange(Tratamentos);
             cbTratamento.Items.AddRange(Tratamentos);
-        }
-        private static readonly string sDBstr = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Properties.Settings.Default.SourceDb;
-        public AutoCompleteStringCollection Caixadesusgestaoos(string coluna, string DB)
-        {
-            AutoCompleteStringCollection stringCollection = new AutoCompleteStringCollection();
-            try
-            {
-                //definir a string de conexão
-
-
-                //definir a string SQL
-                string sSQL = "select " + coluna + " from " + DB + "";
-
-                //criar o objeto connection
-                OleDbConnection oCn = new OleDbConnection(sDBstr);
-                //abrir a conexão
-
-                oCn.Open();
-                //criar o data adapter e executar a consulta
-                OleDbDataAdapter oDA = new OleDbDataAdapter(sSQL, oCn);
-
-                //criar o DataSet
-                DataSet oDs = new DataSet();
-
-                //Preencher o dataset coom o data adapter
-                oDA.Fill(oDs, DB);
-
-                //oDs.Tables.Add(d1);               
-
-                foreach (DataRow row in oDs.Tables[0].Rows)
-                {
-
-
-                    stringCollection.Add(string.Join("", row.ItemArray));
-                }
-
-
-                oDA.Dispose(); oDs.Dispose(); oCn.Dispose();
-                oCn.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
-            return stringCollection;
-        }
+        }             
         public void sugestao()
         {
-            txPesquisa_Cadastro.AutoCompleteCustomSource = Caixadesusgestaoos("Or_os", "DB");
-            txFornecedor_armacao.AutoCompleteCustomSource = Caixadesusgestaoos("Fornecedor_Armação", "DB");
-            txMarca_armacao.AutoCompleteCustomSource = Caixadesusgestaoos("Marca_armação", "DB");
-            txModelo_armacao.AutoCompleteCustomSource = Caixadesusgestaoos("Modelo_Armação", "DB");
-            txFornecedor_lente.AutoCompleteCustomSource = Caixadesusgestaoos("Fornecedor_Lente", "LentesValores");
-            txMarca_lente.AutoCompleteCustomSource = Caixadesusgestaoos("Marca", "LentesValores");
-            txNome_lente.AutoCompleteCustomSource = Caixadesusgestaoos("Nome_Lente", "LentesValores");
+            txPesquisa_Cadastro.AutoCompleteCustomSource =ma.SugetsBox("Or_os");
+            txFornecedor_armacao.AutoCompleteCustomSource = ma.SugetsBox("Fornecedor_Armação");
+            txMarca_armacao.AutoCompleteCustomSource = ma.SugetsBox("Marca_armação");
+            txModelo_armacao.AutoCompleteCustomSource = ma.SugetsBox("Modelo_Armação");
+
+            txFornecedor_lente.AutoCompleteCustomSource = ma.SugetsBox("Fornecedor_Lente");
+            txMarca_lente.AutoCompleteCustomSource = ma.SugetsBox("Marca_lente");
+            txNome_lente.AutoCompleteCustomSource = ma.SugetsBox("Nome_Lente");
         }
         public void apagatudo(string porta)
         {
@@ -292,20 +257,14 @@ namespace Horizon_Contabilidade
         }
         public void importabanco(string tabela, string pesquisa)
         {
-            try
-            {              
-
-                string sSQL = "select * from " + tabela + " WHERE  Or_os = '" + pesquisa+"'";
-                DataTable oDs=db.TableDb(sSQL);
-                int count1 = oDs.Columns.Count;
-
-                string indexx = "0";
-                string index = "0";
-
-                foreach (DataColumn indexx1 in oDs.Columns)
+               // string sSQL = "select * from " + tabela + " WHERE  Or_os = '" + pesquisa+"'";
+                var result = form1.db1("DB").AsEnumerable().Where(myRow => myRow.Field<string>("Or_os") == pesquisa);
+                //DataTable oDs = form1.db1("DB").AsEnumerable().Where(DB => DB.Field<string>("Or_os").IndexOf());//db.TableDb(sSQL);
+                int count1 = result.CopyToDataTable().Columns.Count;
+                foreach (DataColumn indexx1 in result.CopyToDataTable().Columns)
                 {
-                    indexx = indexx1.ToString();
-                    index = oDs.Rows[0][indexx].ToString();
+                string indexx = indexx1.ToString();
+                string index = result.CopyToDataTable().Rows[0][indexx].ToString();
 
                     //Posição
                     if (indexx == "Or_os") { txOs_Or.Text = index; }
@@ -337,18 +296,6 @@ namespace Horizon_Contabilidade
                     else if (indexx == "Loja") { cb = index; }
 
                 }
-
-                //liberar o data adapter , o dataset , o comandbuilder e a conexao
-                //oDA.Dispose(); oDs.Dispose(); //oCB.Dispose();
-                //oCn.Dispose();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro :" + ex.Message);
-
-
-            }
         }
         public double calcSub(string txVenda_lente, string txCompra_Lente, string txDesconto, string txCusto_com_venda)
         {
@@ -694,9 +641,10 @@ namespace Horizon_Contabilidade
 
             return false;
         }
+        //Form
         private void txVenda_lente_TextChanged(object sender, EventArgs e)
         {
-
+            
             if (comboBox1.Text == "" && form1.retorna() == false)
             {
                 MessageBox.Show("Selecione o tipo da venda");
@@ -858,7 +806,6 @@ namespace Horizon_Contabilidade
             txGanho.Text = ganho();
             txPerda.Text = perda();
         }
-
         private void btSalvar_Click(object sender, EventArgs e)
         {
 
@@ -967,7 +914,6 @@ namespace Horizon_Contabilidade
             txGanho.Text = ganho();
             txPerda.Text = perda();
         }
-
         public void invocaform()
         {
             CadastroLente.CadastroLente tela_add_servico = new CadastroLente.CadastroLente();
@@ -1016,12 +962,10 @@ namespace Horizon_Contabilidade
         {
             invocaform();
         }
-
         private void buCalc_Click(object sender, EventArgs e)
         {
             txCompra_armacao.Text = (Convert.ToDouble(txVenda_armacao.Text) / 3.56).ToString();
         }
-
         private void txCod_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
@@ -1029,7 +973,6 @@ namespace Horizon_Contabilidade
                 pesquisa("", "");
             }
         }
-
         private void txCompra_armacao_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
@@ -1037,7 +980,6 @@ namespace Horizon_Contabilidade
                 txCompra_armacao.Text = (Convert.ToDouble(txVenda_armacao.Text) / 3.56).ToString();
             }
         }
-
         private void txMarca_lente_SelectedIndexChanged(object sender, EventArgs e)
         {
             string[] TratamentoEssilor = new string[] { "SEM AR", "PROPRIO", "OPTIFOG", "C EASY", "C FORTE", "C SAPHIRE" };
@@ -1073,13 +1015,11 @@ namespace Horizon_Contabilidade
                 retunrtratamento(TratamentoSynchrony);
             }
         }
-
         private void cbTratamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             pesquisa(cbTratamento.Text, "");
             Chamado = "0";
         }
-
         private void txPesquisa_Cadastro_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) // aqui ele reconhece que foi apertado o ENTER, isso sei que está funcionando
@@ -1098,7 +1038,6 @@ namespace Horizon_Contabilidade
                 }
             }
         }
-
         private void txTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             pesquisa(cbTratamento.Text, txTipo.Text);
